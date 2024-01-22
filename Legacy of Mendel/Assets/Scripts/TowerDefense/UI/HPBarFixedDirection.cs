@@ -4,13 +4,13 @@ public class HPBarFixedDirection : MonoBehaviour
 {
     private Vector3 offset;         // The local offset from the parent (enemy)
     private Transform parentTransform;  // Reference to the parent (enemy) transform
-    private Quaternion initialRotation;
+    private Quaternion fixedRotation;
 
     private void Start()
     {
         parentTransform = transform.parent;
         offset = transform.localPosition;  // Store the initial local position as offset
-        initialRotation = transform.rotation;
+        fixedRotation = Quaternion.Euler(0, 0, 0);
     }
 
     private void Update()
@@ -19,6 +19,6 @@ public class HPBarFixedDirection : MonoBehaviour
         transform.position = parentTransform.TransformPoint(offset);
 
         // Freeze the rotation
-        transform.rotation = initialRotation;
+        transform.rotation = fixedRotation;
     }
 }

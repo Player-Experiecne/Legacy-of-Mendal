@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2674739009637976616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2674739009637976618}
+  - component: {fileID: 2674739009637976619}
+  m_Layer: 0
+  m_Name: ActionBackpack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2674739009637976618
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2674739009637976616}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.59165, y: 9.811592, z: -6.500145}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2674739009637976619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2674739009637976616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 802c759638f74f845bca056644885cea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defendersInBackpack:
+  - defenderNumber: 0
+    defenderPrefab: {fileID: 6630813155368031700, guid: cc12a6b52daf4eb4eaff28ec4132b85b, type: 3}
+    geneTypeA: 0
+    defenderImage: {fileID: 0}
+  - defenderNumber: 1
+    defenderPrefab: {fileID: 6630813155368031700, guid: cc12a6b52daf4eb4eaff28ec4132b85b, type: 3}
+    geneTypeA: 0
+    defenderImage: {fileID: 0}
+  - defenderNumber: 2
+    defenderPrefab: {fileID: 6630813155368031700, guid: cc12a6b52daf4eb4eaff28ec4132b85b, type: 3}
+    geneTypeA: 0
+    defenderImage: {fileID: 0}
+  activeDefender:
+    defenderNumber: 0
+    defenderPrefab: {fileID: 0}
+    geneTypeA: 0
+    defenderImage: {fileID: 0}
+  ui: {fileID: 0}

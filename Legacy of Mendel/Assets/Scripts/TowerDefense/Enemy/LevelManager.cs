@@ -10,7 +10,6 @@ public class LevelManager : MonoBehaviour
     public Transform[] spawnPoints;
     public List<Dictionary<string, float>> monsterData;
 
-    public float timeBetweenEnemies = 1f;
     public float timeBetweenWaves = 2f;
     public float timeBetweenLevels = 30f;
 
@@ -65,8 +64,8 @@ public class LevelManager : MonoBehaviour
                 GameObject spawnedEnemy = Instantiate(enemyInfo.enemyPrefab, spawnPoint.position, spawnPoint.rotation);
                 spawnedEnemy.tag = "Enemy";
                 //Add gene behavior script to the spawned enemy
-                //addBehaviorsToTarget.AddGeneABehaviors(spawnedEnemy, enemyInfo.geneTypeA, false);
-                yield return new WaitForSeconds(timeBetweenEnemies);
+                addBehaviorsToTarget.AddGeneABehaviors(spawnedEnemy, enemyInfo.geneTypeA, false);
+                yield return null;
             }
         }
         yield return new WaitForSeconds(timeBetweenWaves);

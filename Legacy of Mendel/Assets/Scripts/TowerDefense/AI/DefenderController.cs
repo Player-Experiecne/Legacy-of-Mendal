@@ -41,7 +41,11 @@ public class DefenderController : MonoBehaviour
             if (distanceToEnemy <= attackRange)
             {
                 StopMovement();
-                Attack(targetEnemy);
+                RotateTowards(targetEnemy.transform.position);
+                if (IsFacingTarget(targetEnemy.transform.position))
+                {
+                    Attack(targetEnemy);
+                }
             }
             // Check if within alert radius but outside attack range
             else if (distanceToEnemy <= alertRadius && distanceToEnemy > attackRange)
@@ -92,6 +96,7 @@ public class DefenderController : MonoBehaviour
 
         while (target != null)
         {
+
             HP hP = target.GetComponent<HP>();
             if (hP != null)
             {
@@ -119,6 +124,30 @@ public class DefenderController : MonoBehaviour
         {
             agent.isStopped = true;
         }
+    }
+
+    void RotateTowards(Vector3 targetPosition)
+    {
+        Vector3 directionToTarget = targetPosition - transform.position;
+        directionToTarget.y = 0; // Keep rotation horizontal
+        Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
+
+        // Calculate rotation speed fraction
+        float rotationFraction = (agent.angularSpeed / 360f) * Time.deltaTime * 2f;
+
+        // Smoothly rotate towards the target rotation
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationFraction);
+    }
+
+    bool IsFacingTarget(Vector3 targetPosition)
+    {
+        Vector3 directionToTarget = (targetPosition - transform.position).normalized;
+        float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
+
+        // Set a threshold angle to determine if the enemy is facing the target
+        float facingThreshold = 30f; // Adjust this value as needed
+
+        return angleToTarget < facingThreshold;
     }
 
     private void OnEnable()

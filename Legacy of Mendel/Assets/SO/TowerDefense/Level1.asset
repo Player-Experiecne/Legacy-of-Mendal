@@ -15,11 +15,23 @@ MonoBehaviour:
   levelName: Level1
   waves:
   - enemies:
-    - enemyPrefab: {fileID: 4117279205531356690, guid: 42c2fb15637a49c4e81d8ab5d3c26d8f, type: 3}
+    - enemyPrefab: {fileID: 2720892501919324486, guid: 023d495bf51dff54fa17989d33b5cd44, type: 3}
       spawnLocation: 0
-      count: 5
+      count: 1
       geneTypeA: 0
     - enemyPrefab: {fileID: 2720892501919324486, guid: 023d495bf51dff54fa17989d33b5cd44, type: 3}
       spawnLocation: 0
-      count: 5
+      count: 1
+      geneTypeA: 0
+    - enemyPrefab: {fileID: 2720892501919324486, guid: 023d495bf51dff54fa17989d33b5cd44, type: 3}
+      spawnLocation: 0
+      count: 1
+      geneTypeA: 0
+    - enemyPrefab: {fileID: 2720892501919324486, guid: 023d495bf51dff54fa17989d33b5cd44, type: 3}
+      spawnLocation: 0
+      count: 1
+      geneTypeA: 0
+    - enemyPrefab: {fileID: 2720892501919324486, guid: 023d495bf51dff54fa17989d33b5cd44, type: 3}
+      spawnLocation: 0
+      count: 1
       geneTypeA: 0
