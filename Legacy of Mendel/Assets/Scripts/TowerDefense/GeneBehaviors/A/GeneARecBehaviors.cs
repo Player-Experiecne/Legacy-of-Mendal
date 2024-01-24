@@ -1,9 +1,7 @@
 using System.Collections;
 using UnityEngine;
-using static GetInfo;
-using static UnityEngine.GraphicsBuffer;
+using static HP;
 
-[RequireComponent(typeof(GetInfo))]
 public class GeneARecBehaviors : MonoBehaviour
 {
     [Header("Damage Settings")]
@@ -19,19 +17,19 @@ public class GeneARecBehaviors : MonoBehaviour
     public GameObject fireBallPrefab; // Declare a public GameObject for the fire prefab
     private float nextFireTime = 0.0f;
 
-    private GetInfo getInfo;
+    private HP selfHP;
     private DefenderController defenderController;
     private EnemyController enemyController;
     private GameObject target;
 
     private void Awake()
     {
-        getInfo = GetComponent<GetInfo>();
-        if (getInfo.aiType == AIType.Enemy)
+        selfHP = GetComponent<HP>();
+        if (selfHP.objectType == ObjectType.Enemy)
         {
             enemyController = GetComponent<EnemyController>();
         }
-        else if (getInfo.aiType == AIType.Defender)
+        else if (selfHP.objectType == ObjectType.Defender)
         {
             defenderController = GetComponent<DefenderController>();
         }
@@ -51,11 +49,11 @@ public class GeneARecBehaviors : MonoBehaviour
     IEnumerator LaunchFireBall()
     {
         
-        if (getInfo.aiType == AIType.Enemy)
+        if (selfHP.objectType == ObjectType.Enemy)
         {
             FindClosestDefender();
         }
-        else if (getInfo.aiType == AIType.Defender)
+        else if (selfHP.objectType == ObjectType.Defender)
         {
             FindClosestEnemy();
         }

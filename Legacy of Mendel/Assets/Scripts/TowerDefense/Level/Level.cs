@@ -19,9 +19,8 @@ public class Level : ScriptableObject
     [System.Serializable]
     public class EnemySpawnInfo
     {
-        public GameObject enemyPrefab;
+        public Enemy enemy;
         public int spawnLocation;
         public int count;
-        public GeneTypeAInfoSO.GeneTypeA geneTypeA = GeneTypeAInfoSO.GeneTypeA.Null;
     }
 }

@@ -1,9 +1,7 @@
 using System.Collections;
 using UnityEngine;
-using static GetInfo;
-using static UnityEngine.GraphicsBuffer;
+using static HP;
 
-[RequireComponent(typeof(GetInfo))]
 public class GeneADomBehaviors : MonoBehaviour
 {
     [Header("Damage Settings")]
@@ -25,12 +23,12 @@ public class GeneADomBehaviors : MonoBehaviour
 
     private void Awake()
     {
-        GetInfo getInfo = GetComponent<GetInfo>();
-        if (getInfo.aiType == AIType.Enemy)
+        HP selfHP = GetComponent<HP>();
+        if (selfHP.objectType == ObjectType.Enemy)
         {
             targetTag = "Defender";
         }
-        else if (getInfo.aiType == AIType.Defender)
+        else if (selfHP.objectType == ObjectType.Defender)
         {
             targetTag = "Enemy";
         }
@@ -74,8 +72,8 @@ public class GeneADomBehaviors : MonoBehaviour
 
     private void DealInstantDamage(GameObject target)
     {
-        Debug.Log("instant damage");
         HP targetHP = target.GetComponent<HP>();
+        Debug.Log("instant damage");
         if (targetHP != null)
         {
             targetHP.TakeDamage(instantDamage);

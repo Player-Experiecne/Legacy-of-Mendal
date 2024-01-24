@@ -1,9 +1,7 @@
 using System.Collections;
 using UnityEngine;
-using static GetInfo;
-using static UnityEngine.GraphicsBuffer;
+using static HP;
 
-[RequireComponent(typeof(GetInfo))]
 public class GeneAHetBehaviors : MonoBehaviour
 {
     [Header("Damage Settings")]
@@ -25,12 +23,12 @@ public class GeneAHetBehaviors : MonoBehaviour
 
     private void Awake()
     {
-        GetInfo getInfo = GetComponent<GetInfo>();
-        if (getInfo.aiType == AIType.Enemy)
+        HP selfHP = GetComponent<HP>();
+        if (selfHP.objectType == ObjectType.Enemy)
         {
             targetTag = "Defender";
         }
-        else if (getInfo.aiType == AIType.Defender)
+        else if (selfHP.objectType == ObjectType.Defender)
         {
             targetTag = "Enemy";
         }

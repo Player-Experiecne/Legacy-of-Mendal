@@ -23,6 +23,7 @@ public class EnemyManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        RefreshUI();
     }
 
     public void RegisterEnemy(GameObject enemy)
@@ -31,7 +32,7 @@ public class EnemyManager : MonoBehaviour
 
         totalCount++;
         currentCount++;
-        text.text = currentCount.ToString() + "/" + totalCount.ToString();
+        RefreshUI();
     }
 
     public void UnregisterEnemy(GameObject enemy)
@@ -39,6 +40,11 @@ public class EnemyManager : MonoBehaviour
         enemies.Remove(enemy);
 
         currentCount--;
+        RefreshUI();
+    }
+
+    private void RefreshUI()
+    {
         text.text = currentCount.ToString() + "/" + totalCount.ToString();
     }
 }

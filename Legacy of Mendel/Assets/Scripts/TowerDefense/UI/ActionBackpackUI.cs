@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class ActionBackpackUI : MonoBehaviour
@@ -10,8 +11,6 @@ public class ActionBackpackUI : MonoBehaviour
 
     private int selectedDefenderIndex = -1; // Initialize to -1 or another invalid index to denote no selection.
     private List<Button> defenderButtons = new List<Button>();
-
-    private Color activeColor = new Color(0.792f, 0.792f, 0.792f);
 
     private void Start()
     {
@@ -32,7 +31,7 @@ public class ActionBackpackUI : MonoBehaviour
         foreach (Defender defender in actionBackpack.defendersInBackpack)
         {
             GameObject btn = Instantiate(defenderButtonPrefab, transform);
-            btn.GetComponentInChildren<TextMeshProUGUI>().text = "Defender " + defender.defenderNumber.ToString();
+            btn.GetComponentInChildren<TextMeshProUGUI>().text = defender.defenderName;
             Button buttonComponent = btn.GetComponent<Button>();
             buttonComponent.onClick.AddListener(() => OnDefenderSelected(defender, index));
 
@@ -73,6 +72,5 @@ public class ActionBackpackUI : MonoBehaviour
             btn.colors = cb;
         }
     }
-
 
 }

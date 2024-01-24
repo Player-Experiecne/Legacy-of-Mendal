@@ -12,6 +12,9 @@ public class EnemyController : MonoBehaviour
     private GameObject Mendelbase;
     public GameObject targetDefender;
 
+    public List<GeneInfo.gene> lootGenes;
+    public int lootCultureMedium;
+
     public float attackPower = 1f;
     public float attackRange = 5f;
     public float attackSpeed = 1f;
@@ -151,7 +154,10 @@ public class EnemyController : MonoBehaviour
         return angleToTarget < facingThreshold;
     }
 
+    public void dropLoot()
+    {
 
+    }
     private void OnEnable()
     {
         EnemyManager.Instance.RegisterEnemy(gameObject);

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerInput : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public float speed = 15f;
 
@@ -67,7 +67,5 @@ public class PlayerInput : MonoBehaviour
 
         Time.timeScale = isPaused ? 0 : 1;
 
-        // Optional: Disable player controls or other game elements while paused
-        // If you have a player controller or similar scripts, you can enable/disable them here
     }
 }
