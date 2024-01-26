@@ -13,6 +13,7 @@ public class LootController : MonoBehaviour
     {
         LootCultureMedium,
         LootGeneADom,
+        LootGeneAHet,
         LootGeneARec
     }
 
@@ -26,10 +27,13 @@ public class LootController : MonoBehaviour
                     lootBackpack.LootCultureMedium(1);
                     break;
                 case LootType.LootGeneADom:
-                    lootBackpack.LootGene(GeneInfo.gene.ADom);
+                    lootBackpack.LootGeneType(GeneInfo.geneTypes.ADom);
+                    break;
+                case LootType.LootGeneAHet:
+                    lootBackpack.LootGeneType(GeneInfo.geneTypes.AHet);
                     break;
                 case LootType.LootGeneARec:
-                    lootBackpack.LootGene(GeneInfo.gene.ARec); 
+                    lootBackpack.LootGeneType(GeneInfo.geneTypes.ARec); 
                     break;
             }
             Destroy(gameObject);

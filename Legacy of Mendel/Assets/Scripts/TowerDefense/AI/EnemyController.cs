@@ -12,7 +12,7 @@ public class EnemyController : MonoBehaviour
     private GameObject Mendelbase;
     public GameObject targetDefender;
 
-    public List<GeneInfo.gene> lootGenes;
+    public List<GeneInfo.geneTypes> lootGeneTypes;
     public int lootCultureMedium;
 
     public float attackPower = 1f;

@@ -98,14 +98,14 @@ public class LevelManager : MonoBehaviour
         addBehaviorsToTarget.AddGeneABehaviors(spawnedEnemy, enemy.geneTypeA, false);
 
         //Assign lootgenes
-        foreach (LootGene lootGene in enemy.lootGenes)
+        foreach (LootGeneType lootGeneType in enemy.lootGeneTypes)
         {
-            if (lootGene != null)
+            if (lootGeneType != null)
             {
                 float randomValue = Random.Range(0f, 1f);
-                if (randomValue <= lootGene.probability)
+                if (randomValue <= lootGeneType.probability)
                 {
-                    enemyController.lootGenes.Add(lootGene.gene);
+                    enemyController.lootGeneTypes.Add(lootGeneType.geneType);
                 }
             }
         }
