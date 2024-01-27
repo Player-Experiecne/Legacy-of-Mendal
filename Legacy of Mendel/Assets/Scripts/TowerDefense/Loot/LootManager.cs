@@ -19,20 +19,25 @@ public class LootManager : MonoBehaviour
     }
 
     public GameObject lootGeneADomPrefab;
+    public GameObject lootGeneAHetPrefab;
     public GameObject lootGeneARecPrefab;
     public GameObject lootCultureMediumPrefab;
 
-    public void DropLoot(Transform transform, List<GeneInfo.gene> lootGenes, int lootCultureMedium)
+    public void DropLoot(Transform transform, List<GeneInfo.geneTypes> lootGeneTypes, int lootCultureMedium)
     {
         // Drop lootGene
-        foreach (var lootGene in lootGenes)
+        foreach (var lootGeneType in lootGeneTypes)
         {
             Vector3 dropPosition = GetRandomDropPosition(transform);
-            if (lootGene == GeneInfo.gene.ADom)
+            if (lootGeneType == GeneInfo.geneTypes.ADom)
             {
                 Instantiate(lootGeneADomPrefab, dropPosition, Quaternion.identity);
             }
-            else if (lootGene == GeneInfo.gene.ARec)
+            else if (lootGeneType == GeneInfo.geneTypes.AHet)
+            {
+                Instantiate(lootGeneAHetPrefab, dropPosition, Quaternion.identity);
+            }
+            else if (lootGeneType == GeneInfo.geneTypes.ARec)
             {
                 Instantiate(lootGeneARecPrefab, dropPosition, Quaternion.identity);
             }

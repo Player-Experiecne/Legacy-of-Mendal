@@ -18,14 +18,14 @@ public class Enemy
     public string enemyName;
     public Sprite enemyImage;
     [Header("Loot")]
-    public List<LootGene> lootGenes;
+    public List<LootGeneType> lootGeneTypes;
     public LootCultureMedium lootCultureMedium;
 }
 
 [System.Serializable]
-public class LootGene
+public class LootGeneType
 {
-    public GeneInfo.gene gene;
+    public GeneInfo.geneTypes geneType;
     [Range(0f, 1f)]
     public float probability;
 }

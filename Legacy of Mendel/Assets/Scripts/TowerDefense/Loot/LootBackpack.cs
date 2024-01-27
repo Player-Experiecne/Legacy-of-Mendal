@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static GeneInfo;
 
 public class LootBackpack : MonoBehaviour
 {
     public TextMeshProUGUI text;
     public static LootBackpack Instance { get; private set; }
 
-    public List<GeneInfo.gene> lootGenes;
+    public List<GeneInfo.geneTypes> lootGeneTypes;
     public int lootCultureMedium = 0;
 
     void Awake()
@@ -25,9 +26,9 @@ public class LootBackpack : MonoBehaviour
         RefreshUI();
     }
 
-    public void LootGene(GeneInfo.gene gene)
+    public void LootGeneType(GeneInfo.geneTypes geneType)
     {
-        lootGenes.Add(gene);
+        lootGeneTypes.Add(geneType);
     }
 
     public void LootCultureMedium(int cultureMedium)
