@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class HS_ProjectileMover : MonoBehaviour
 {
-    public float speed = 15f;
     public float hitOffset = 0f;
     public bool UseFirePointRotation;
     public Vector3 rotationOffset = new Vector3(0, 0, 0);
@@ -12,10 +11,12 @@ public class HS_ProjectileMover : MonoBehaviour
     public GameObject flash;
     private Rigidbody rb;
     public GameObject[] Detached;
+    private FireBall fireball;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        fireball = GetComponent<FireBall>();
         if (flash != null)
         {
             //Instantiate flash effect on projectile position
@@ -39,23 +40,78 @@ public class HS_ProjectileMover : MonoBehaviour
 
     void FixedUpdate ()
     {
-		if (speed != 0)
+		/*if (speed != 0)
         {
             rb.velocity = transform.forward * speed;
             //transform.position += transform.forward * (speed * Time.deltaTime);         
-        }
+        }*/
 	}
 
     //https ://docs.unity3d.com/ScriptReference/Rigidbody.OnCollisionEnter.html
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision other)
+    {
+        if(other.transform.gameObject == fireball.fireBallTarget)
+        {
+            if(fireball.objectType == HP.ObjectType.Enemy)
+            {
+                fireball.HitTarget();
+                Explode(other);
+            }
+            if(fireball.objectType == HP.ObjectType.Defender)
+            {
+                fireball.AOETargets();
+                Explode(other);
+            }
+            
+        }
+        if(other.transform.tag == "Environment")
+        {
+            Explode(other);
+        }
+        /*switch (other.transform.tag)
+        {
+            case "Environment":
+                Explode(other);
+                break;
+            
+            case "Enemy":
+                if(fireball.objectType == HP.ObjectType.Defender)
+                {
+                    Explode(other);
+                }
+                break;
+            case "Defender":
+                if (fireball.objectType == HP.ObjectType.Enemy)
+                {
+                    Explode(other);
+                }
+                break;
+            case "Base":
+                if (fireball.objectType == HP.ObjectType.Enemy)
+                {
+                    Explode(other);
+                }
+                break;
+        }*/
+    }
+
+    void Explode(Collision collision)
     {
         //Lock all axes movement and rotation
         rb.constraints = RigidbodyConstraints.FreezeAll;
-        speed = 0;
+        fireball.speed = 0;
 
+        //old logic with parameter Collision
         ContactPoint contact = collision.contacts[0];
         Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
         Vector3 pos = contact.point + contact.normal * hitOffset;
+
+        //new logic with parameter Collider
+        /*Vector3 contactPoint = transform.position; // Approximate contact point as this object's position
+        Vector3 contactNormal = -collider.transform.position.normalized; // Approximate contact normal
+
+        Quaternion rot = Quaternion.FromToRotation(Vector3.up, contactNormal);
+        Vector3 pos = contactPoint + contactNormal * hitOffset;*/
 
         //Spawn hit effect on collision
         if (hit != null)

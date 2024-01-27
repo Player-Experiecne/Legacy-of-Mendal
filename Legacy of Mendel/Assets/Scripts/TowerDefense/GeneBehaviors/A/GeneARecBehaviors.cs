@@ -10,18 +10,19 @@ public class GeneARecBehaviors : MonoBehaviour
     private float burnDuration;      // Duration of the burn effect.
     private float burnTickInterval;  // Time interval between damage ticks while burning.
 
-    //Fire Ball"
+    //Fire Ball
     private float fireBallRate;
     private float fireBallRange;
-    private GameObject fireBallPrefab; // Declare a public GameObject for the fire prefab
+    private float explosionRange;
+    private GameObject fireBallPrefab;
+    private GameObject fireBallPrefabForEnemies; // Declare a public GameObject for the fire prefab
+    private GameObject fireBallPrefabForDefenders; // Declare a public GameObject for the fire prefab
     
-    private float nextFireTime = 0.0f;
+    private float nextFireTime = 1.0f;
 
     private LevelManager levelManager;
     private GeneTypeAInfoSO geneTypeAInfoSO;
     private HP selfHP;
-    private DefenderController defenderController;
-    private EnemyController enemyController;
     private GameObject target;
 
     private void Awake()
@@ -36,7 +37,9 @@ public class GeneARecBehaviors : MonoBehaviour
         burnTickInterval = geneTypeAInfoSO.recStats.burnTickInterval;
         fireBallRate = geneTypeAInfoSO.recStats.fireBallRate;
         fireBallRange = geneTypeAInfoSO.recStats.fireBallRange;
-        fireBallPrefab = geneTypeAInfoSO.recStats.fireBallPrefab;
+        explosionRange = geneTypeAInfoSO.recStats.explosionRange;
+        fireBallPrefabForEnemies = geneTypeAInfoSO.recStats.fireBallPrefabForEnemies;
+        fireBallPrefabForDefenders = geneTypeAInfoSO.recStats.fireBallPrefabForDefenders;
     }
 
     private void Update()
@@ -63,15 +66,25 @@ public class GeneARecBehaviors : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, target.transform.position) < 50)
             {
-                Debug.Log(target.name);
                 Vector3 spawnPosition = transform.position + transform.forward; // Adjust the offset if necessary
-                GameObject fireInstance = Instantiate(fireBallPrefab, spawnPosition, transform.rotation, transform);
+                GameObject fireBallPrefab = new GameObject();
+                if (selfHP.objectType == ObjectType.Enemy)
+                {
+                    fireBallPrefab = fireBallPrefabForEnemies;
+                }
+                else if (selfHP.objectType == ObjectType.Defender)
+                {
+                    fireBallPrefab = fireBallPrefabForDefenders;
+                }
+                GameObject fireInstance = Instantiate(fireBallPrefab, spawnPosition, transform.rotation);
                 FireBall fireBall = fireInstance.AddComponent<FireBall>();
-                fireBall.target = target;
+                fireBall.objectType = selfHP.objectType;
+                fireBall.fireBallTarget = target;
                 fireBall.burnDuration = burnDuration;
                 fireBall.burnTickInterval = burnTickInterval;
                 fireBall.instantDamage = instantDamage;
                 fireBall.dotDamage = dotDamage;
+                fireBall.explosionRange = explosionRange;
             }
         }
         yield return null;

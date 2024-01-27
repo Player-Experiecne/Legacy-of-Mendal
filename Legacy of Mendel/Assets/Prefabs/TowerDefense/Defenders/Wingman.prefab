@@ -399,7 +399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alertRadius: 30
   targetEnemy: {fileID: 0}
-  attackPower: 60
+  attackPower: 0
   attackRange: 5
   attackSpeed: 10
 --- !u!195 &6751792402955275309

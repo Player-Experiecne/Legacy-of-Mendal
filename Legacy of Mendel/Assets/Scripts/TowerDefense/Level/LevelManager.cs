@@ -102,6 +102,10 @@ public class LevelManager : MonoBehaviour
         {
             enemyController.attackSpeed = enemy.attackSpeed;
         }
+        if (enemy.speed != 0)
+        {
+            navMeshAgent.speed = enemy.speed;
+        }
 
         //Add gene behavior script to the spawned enemy
         addBehaviorsToTarget.AddGeneABehaviors(spawnedEnemy, enemy.geneTypeA, false);

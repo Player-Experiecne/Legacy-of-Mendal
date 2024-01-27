@@ -18,18 +18,12 @@ MonoBehaviour:
     dotDamage: 20
     burnDuration: 5
     burnTickInterval: 1
-    fireBallRate: 0.5
-    fireBallRange: 50
-    fireBallPrefab: {fileID: 0}
   hetStats:
     occurrencePossibility: 0
     instantDamage: 50
     dotDamage: 20
     burnDuration: 5
     burnTickInterval: 1
-    fireBallRate: 0.5
-    fireBallRange: 50
-    fireBallPrefab: {fileID: 0}
   recStats:
     occurrencePossibility: 1
     instantDamage: 50
@@ -38,4 +32,6 @@ MonoBehaviour:
     burnTickInterval: 1
     fireBallRate: 0.5
     fireBallRange: 50
-    fireBallPrefab: {fileID: 1990380580032880, guid: 46b312e00ed9c1f459ea9f0e55bfac77, type: 3}
+    explosionRange: 5
+    fireBallPrefabForEnemies: {fileID: 1990380580032880, guid: 054b35c65b5c4e5459d89f49b18ba331, type: 3}
+    fireBallPrefabForDefenders: {fileID: 1990380580032880, guid: 46b312e00ed9c1f459ea9f0e55bfac77, type: 3}

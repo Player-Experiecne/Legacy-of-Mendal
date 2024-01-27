@@ -23,10 +23,6 @@ public class GeneTypeAInfoSO : ScriptableObject
         public float burnDuration = 5f;      // Duration of the burn effect.
         public float burnTickInterval = 1f;  // Time interval between damage ticks while burning.
 
-        //Fire Ball"
-        public float fireBallRate = 0.5f;
-        public float fireBallRange = 50f;
-        public GameObject fireBallPrefab;
     }
 
     [System.Serializable]
@@ -40,10 +36,6 @@ public class GeneTypeAInfoSO : ScriptableObject
         public float burnDuration = 5f;      // Duration of the burn effect.
         public float burnTickInterval = 1f;  // Time interval between damage ticks while burning.
 
-        //Fire Ball"
-        public float fireBallRate = 0.5f;
-        public float fireBallRange = 50f;
-        public GameObject fireBallPrefab;
     }
 
     [System.Serializable]
@@ -60,6 +52,8 @@ public class GeneTypeAInfoSO : ScriptableObject
         //Fire Ball"
         public float fireBallRate = 0.5f;
         public float fireBallRange = 50f;
-        public GameObject fireBallPrefab;
+        public float explosionRange = 5f;
+        public GameObject fireBallPrefabForEnemies;
+        public GameObject fireBallPrefabForDefenders;
     }
 }
