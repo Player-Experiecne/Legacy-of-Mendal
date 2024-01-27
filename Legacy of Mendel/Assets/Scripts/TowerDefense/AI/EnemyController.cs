@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -12,16 +12,29 @@ public class EnemyController : MonoBehaviour
     private GameObject Mendelbase;
     public GameObject targetDefender;
 
+
+    // 射击特效的预制体
+    public GameObject shootEffectPrefab;
+    public GameObject FirePoint;
+   
+
     public List<GeneInfo.gene> lootGenes;
     public int lootCultureMedium;
 
     public float attackPower = 1f;
-    public float attackRange = 5f;
+    public float attackRange = 50f;
     public float attackSpeed = 1f;
     private bool isAttacking = false;
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+      
+
+        // 第一个子物体
+        if (transform.childCount > 0)
+        {
+            FirePoint = transform.GetChild(0).gameObject;
+        }
         //Set first target to base
         Mendelbase = GameObject.FindGameObjectWithTag("Base");
         agent.destination = Mendelbase.transform.position;
@@ -101,13 +114,21 @@ public class EnemyController : MonoBehaviour
 
         while (target != null)
         {
+            // 实例化射击粒子
+            if (shootEffectPrefab != null)
+            {
+                Instantiate(shootEffectPrefab, FirePoint.transform.position, FirePoint.transform.rotation);
+            }
+
+            // 造成伤害
             HP hP = target.GetComponent<HP>();
             if (hP != null)
             {
                 hP.TakeDamage(attackPower);
             }
 
-            yield return new WaitForSeconds(1 / attackSpeed);  // Delay between attacks
+            // 攻击间隔
+            yield return new WaitForSeconds(1 / attackSpeed); 
         }
 
         isAttacking = false;

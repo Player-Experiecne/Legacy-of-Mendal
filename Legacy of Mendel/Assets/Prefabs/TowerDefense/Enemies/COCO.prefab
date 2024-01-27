@@ -153,6 +153,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &3981408860032026993
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7154059733991516290}
+  m_Layer: 0
+  m_Name: Firepoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7154059733991516290
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3981408860032026993}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.1, z: 1.28}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4117279205531356692}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4117279205531356690
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,6 +216,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7154059733991516290}
   - {fileID: 4515204847861327561}
   - {fileID: 4117279207176148896}
   m_Father: {fileID: 0}
@@ -239,10 +271,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alertRadius: 20
   targetDefender: {fileID: 0}
+  shootEffectPrefab: {fileID: 1990380580032880, guid: 46b312e00ed9c1f459ea9f0e55bfac77, type: 3}
+  FirePoint: {fileID: 0}
   lootGenes: 
   lootCultureMedium: 0
   attackPower: 100
-  attackRange: 2
+  attackRange: 50
   attackSpeed: 0.75
 --- !u!114 &3471691557685678129
 MonoBehaviour:
@@ -293,7 +327,7 @@ RectTransform:
   m_Children:
   - {fileID: 6561366466261715571}
   m_Father: {fileID: 4117279205531356692}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -419,7 +453,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d7bf135426113e64fa9b4b2b2d77b2c7, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d7bf135426113e64fa9b4b2b2d77b2c7, type: 3}
       propertyPath: m_LocalScale.x
