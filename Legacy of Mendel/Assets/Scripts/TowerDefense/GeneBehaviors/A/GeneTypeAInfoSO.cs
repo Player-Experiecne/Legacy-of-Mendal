@@ -8,14 +8,58 @@ public class GeneTypeAInfoSO : ScriptableObject
         Null, ADom, AHet, ARec
     }
 
-    public GeneData ADom;
-    public GeneData AHet;
-    public GeneData ARec;
+    public DomStats domStats;
+    public HetStats hetStats;
+    public RecStats recStats;
 
     [System.Serializable]
-    public class GeneData
+    public class DomStats
     {
-        //public Level.GeneTypeA geneType;
         [Range(0f, 1f)] public float occurrencePossibility;
+
+        //Damage Settings
+        public float instantDamage = 50f;    // Instant damage applied upon touch.
+        public float dotDamage = 20f;         // Damage over time applied while burning.
+        public float burnDuration = 5f;      // Duration of the burn effect.
+        public float burnTickInterval = 1f;  // Time interval between damage ticks while burning.
+
+        //Fire Ball"
+        public float fireBallRate = 0.5f;
+        public float fireBallRange = 50f;
+        public GameObject fireBallPrefab;
+    }
+
+    [System.Serializable]
+    public class HetStats
+    {
+        [Range(0f, 1f)] public float occurrencePossibility;
+
+        //Damage Settings
+        public float instantDamage = 50f;    // Instant damage applied upon touch.
+        public float dotDamage = 20f;         // Damage over time applied while burning.
+        public float burnDuration = 5f;      // Duration of the burn effect.
+        public float burnTickInterval = 1f;  // Time interval between damage ticks while burning.
+
+        //Fire Ball"
+        public float fireBallRate = 0.5f;
+        public float fireBallRange = 50f;
+        public GameObject fireBallPrefab;
+    }
+
+    [System.Serializable]
+    public class RecStats
+    {
+        [Range(0f, 1f)] public float occurrencePossibility;
+
+        //Damage Settings
+        public float instantDamage = 50f;    // Instant damage applied upon touch.
+        public float dotDamage = 20f;         // Damage over time applied while burning.
+        public float burnDuration = 5f;      // Duration of the burn effect.
+        public float burnTickInterval = 1f;  // Time interval between damage ticks while burning.
+
+        //Fire Ball"
+        public float fireBallRate = 0.5f;
+        public float fireBallRange = 50f;
+        public GameObject fireBallPrefab;
     }
 }

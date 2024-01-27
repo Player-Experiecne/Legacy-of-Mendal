@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AddBehaviorsToTarget : MonoBehaviour
 {
-    [SerializeField] GeneTypeAInfoSO geneTypeAInfo;
+    [SerializeField] public GeneTypeAInfoSO geneTypeAInfo;
     
     public void AddGeneABehaviors(GameObject target, GeneTypeAInfoSO.GeneTypeA geneType, bool defenderOrNot)
     {
@@ -34,21 +34,21 @@ public class AddBehaviorsToTarget : MonoBehaviour
             switch (geneType)
             {
                 case GeneTypeAInfoSO.GeneTypeA.ADom:
-                    occurrencePossibility = geneTypeAInfo.ADom.occurrencePossibility;
+                    occurrencePossibility = geneTypeAInfo.domStats.occurrencePossibility;
                     if (randomValue <= occurrencePossibility)
                     {
                         target.AddComponent<GeneADomBehaviors>();
                     }
                     break;
                 case GeneTypeAInfoSO.GeneTypeA.AHet:
-                    occurrencePossibility = geneTypeAInfo.AHet.occurrencePossibility;
+                    occurrencePossibility = geneTypeAInfo.hetStats.occurrencePossibility;
                     if (randomValue <= occurrencePossibility)
                     {
                         target.AddComponent<GeneAHetBehaviors>();
                     }
                     break;
                 case GeneTypeAInfoSO.GeneTypeA.ARec:
-                    occurrencePossibility = geneTypeAInfo.ARec.occurrencePossibility;
+                    occurrencePossibility = geneTypeAInfo.recStats.occurrencePossibility;
                     if (randomValue <= occurrencePossibility)
                     {
                         target.AddComponent<GeneARecBehaviors>();

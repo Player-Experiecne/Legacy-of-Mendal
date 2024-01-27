@@ -6,6 +6,8 @@ using UnityEngine.AI;
 
 public class LevelManager : MonoBehaviour
 {
+    public static LevelManager Instance;
+
     public List<Level> gameLevels;
     public Transform[] spawnPoints;
     public List<Dictionary<string, float>> monsterData;
@@ -13,14 +15,21 @@ public class LevelManager : MonoBehaviour
     public float timeBetweenWaves = 2f;
     public float timeBetweenLevels = 30f;
 
-    private AddBehaviorsToTarget addBehaviorsToTarget;
+    public AddBehaviorsToTarget addBehaviorsToTarget;
 
     private int currentLevelIndex = 0;
 
-    string path = Path.Combine(Application.streamingAssetsPath, "Monster Type.csv");
-
     void Start()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+
         addBehaviorsToTarget = GetComponent<AddBehaviorsToTarget>();
 
         LoadNextLevel();

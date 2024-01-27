@@ -271,12 +271,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alertRadius: 20
   targetDefender: {fileID: 0}
-  shootEffectPrefab: {fileID: 1990380580032880, guid: 46b312e00ed9c1f459ea9f0e55bfac77, type: 3}
-  FirePoint: {fileID: 0}
-  lootGenes: 
+  lootGeneTypes: 
   lootCultureMedium: 0
   attackPower: 100
-  attackRange: 50
+  attackRange: 2
   attackSpeed: 0.75
 --- !u!114 &3471691557685678129
 MonoBehaviour:

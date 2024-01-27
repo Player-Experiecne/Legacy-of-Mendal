@@ -4,19 +4,21 @@ using static HP;
 
 public class GeneARecBehaviors : MonoBehaviour
 {
-    [Header("Damage Settings")]
-    public float instantDamage = 50f;    // Instant damage applied upon touch.
-    public float dotDamage = 20f;         // Damage over time applied while burning.
-    public float burnDuration = 5f;      // Duration of the burn effect.
-    public float burnTickInterval = 1f;  // Time interval between damage ticks while burning.
+    //Damage Settings
+    private float instantDamage;    // Instant damage applied upon touch.
+    private float dotDamage;         // Damage over time applied while burning.
+    private float burnDuration;      // Duration of the burn effect.
+    private float burnTickInterval;  // Time interval between damage ticks while burning.
 
-    [Header("Fire Ball")]
-    [SerializeField] private float fireBallRate = 0.5f;
-    [SerializeField] private float fireBallRange = 50f;
-
-    public GameObject fireBallPrefab; // Declare a public GameObject for the fire prefab
+    //Fire Ball"
+    private float fireBallRate;
+    private float fireBallRange;
+    private GameObject fireBallPrefab; // Declare a public GameObject for the fire prefab
+    
     private float nextFireTime = 0.0f;
 
+    private LevelManager levelManager;
+    private GeneTypeAInfoSO geneTypeAInfoSO;
     private HP selfHP;
     private DefenderController defenderController;
     private EnemyController enemyController;
@@ -25,16 +27,16 @@ public class GeneARecBehaviors : MonoBehaviour
     private void Awake()
     {
         selfHP = GetComponent<HP>();
-        if (selfHP.objectType == ObjectType.Enemy)
-        {
-            enemyController = GetComponent<EnemyController>();
-        }
-        else if (selfHP.objectType == ObjectType.Defender)
-        {
-            defenderController = GetComponent<DefenderController>();
-        }
-        
-        fireBallPrefab = Resources.Load<GameObject>("FireBall");
+        levelManager = LevelManager.Instance;
+        geneTypeAInfoSO = levelManager.addBehaviorsToTarget.geneTypeAInfo;
+
+        instantDamage = geneTypeAInfoSO.recStats.instantDamage;
+        dotDamage = geneTypeAInfoSO.recStats.dotDamage;
+        burnDuration = geneTypeAInfoSO.recStats.burnDuration;
+        burnTickInterval = geneTypeAInfoSO.recStats.burnTickInterval;
+        fireBallRate = geneTypeAInfoSO.recStats.fireBallRate;
+        fireBallRange = geneTypeAInfoSO.recStats.fireBallRange;
+        fireBallPrefab = geneTypeAInfoSO.recStats.fireBallPrefab;
     }
 
     private void Update()

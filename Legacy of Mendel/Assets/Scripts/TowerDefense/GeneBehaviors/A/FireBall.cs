@@ -39,12 +39,12 @@ public class FireBall : MonoBehaviour
             }
             else if (dotDamage <= burningState.CurrentBurnDamage)
             {
-                //burningState.RefreshBurning(burningState.CurrentBurnDamage, burnDuration);
+                burningState.RefreshBurning(burningState.CurrentBurnDamage, burnDuration);
             }
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (target == null)
         {
@@ -52,22 +52,22 @@ public class FireBall : MonoBehaviour
             return;
         }
 
-        Vector3 dir = target.transform.position - transform.position;
+        Vector3 direction = target.transform.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
 
-        if (dir.magnitude <= distanceThisFrame)
+        if (direction.magnitude <= distanceThisFrame)
         {
             HitTarget();
             return;
         }
 
-        transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+        transform.Translate(direction.normalized * distanceThisFrame, Space.World);
     }
 
     void HitTarget()
     {
         DealInstantDamage(target);
         SetTargetOnfire(target);
-        Destroy(gameObject); // Ïú»Ù×Óµ¯
+        Destroy(gameObject);
     }
 }
