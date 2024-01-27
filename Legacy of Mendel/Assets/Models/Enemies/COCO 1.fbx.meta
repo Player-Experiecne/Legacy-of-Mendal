@@ -3,7 +3,22 @@ guid: 9ceca21d2974437448a4916d6b373069
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: COCOBody.001
+    second: {fileID: 2100000, guid: 2128843eb9039d74b81496c9de66888b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: COCOEyes.001
+    second: {fileID: 2100000, guid: 29ccef9c97cf68347807fb3abd7fca33, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.001"
+    second: {fileID: 2100000, guid: 0b4e08c32c263104d9b0bbef88ee3597, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

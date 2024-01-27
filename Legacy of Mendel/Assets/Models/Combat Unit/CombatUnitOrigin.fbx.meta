@@ -13,12 +13,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: SlimeEyeBall2
-    second: {fileID: 2100000, guid: 98245c9924ba1cc40ac1169c44b39b89, type: 2}
+    second: {fileID: 2100000, guid: c59e5a1fd6b8c144eb06ccb021c98824, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: SlimeEyeBall3.001
-    second: {fileID: 2100000, guid: 68f97fbdac8d90241a31d1df9420c7aa, type: 2}
+    second: {fileID: 2100000, guid: 98245c9924ba1cc40ac1169c44b39b89, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
