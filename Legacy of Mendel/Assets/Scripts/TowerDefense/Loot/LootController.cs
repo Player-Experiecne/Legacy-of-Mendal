@@ -19,8 +19,10 @@ public class LootController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("1");
         if(other.tag == "Player")
         {
+            Debug.Log("2");
             switch (lootType)
             {
                 case LootType.LootCultureMedium:
