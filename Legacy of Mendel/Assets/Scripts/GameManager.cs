@@ -6,6 +6,9 @@ public class GameManager : MonoBehaviour
 {
     public DayNightState CurrentState { get; private set; }
 
+    public GameObject breedingUI;
+
+
     public event DayNightChangeDelegate OnDayNightChange;
     public event BreedingEventDelegate OnBreedingEvent;
     public event TowerDefenseEventDelegate OnTowerDefenseEvent;
@@ -14,7 +17,13 @@ public class GameManager : MonoBehaviour
     {
         // 初始化状态
         ChangeState(DayNightState.Day);
+
+        if (breedingUI != null)
+        {
+            breedingUI.SetActive(false);
+        }
     }
+
 
     public void ChangeState(DayNightState newState)
     {
