@@ -4,6 +4,8 @@ using UnityEngine.AI;
 
 public class DefenderController : MonoBehaviour
 {
+    private IAttackBehavior[] attackBehaviors;
+
     private NavMeshAgent agent;
 
     public float alertRadius = 10f;
@@ -12,13 +14,14 @@ public class DefenderController : MonoBehaviour
     public GameObject targetEnemy;
 
     public float attackPower = 1f;
-    public float attackRange = 5f;
+    public float attackRange = 100f;
     public float attackSpeed = 1f;
-    private bool isAttacking = false;
+    public bool isAttacking = false;
 
-    private void Awake()
+    private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        attackBehaviors = GetComponents<IAttackBehavior>();
         // Remember the current location to be the defendPoint
         defendPoint = new GameObject("_DefendPoint");
         defendPoint.transform.position = gameObject.transform.position;
@@ -27,6 +30,14 @@ public class DefenderController : MonoBehaviour
 
     void Update()
     {
+        //Select attack range
+        IAttackBehavior selectedAttack = SelectAttackRange();
+        if (selectedAttack != null)
+        {
+            attackRange = selectedAttack.AttackRange;
+            // Use attackRange for selected attack
+        }
+
         // If the defender doesn't have a target or if its target was destroyed
         if (targetEnemy == null || !EnemyManager.Instance.enemies.Contains(targetEnemy))
         {
@@ -44,25 +55,28 @@ public class DefenderController : MonoBehaviour
                 RotateTowards(targetEnemy.transform.position);
                 if (IsFacingTarget(targetEnemy.transform.position))
                 {
-                    Attack(targetEnemy);
+                    isAttacking = true;
                 }
             }
             // Check if within alert radius but outside attack range
             else if (distanceToEnemy <= alertRadius && distanceToEnemy > attackRange)
             {
                 MoveTowardsTarget(targetEnemy);
+                isAttacking = false;
             }
             // If the enemy is outside the alert radius
             else
             {
                 targetEnemy = null;  // Lose the target if it's outside the alert range
                 MoveTowardsTarget(defendPoint);
+                isAttacking = false;
             }
         }
         // If there's no enemy to target, move towards the defend point
         else
         {
             MoveTowardsTarget(defendPoint);
+            isAttacking = false;
         }
     }
 
@@ -84,10 +98,10 @@ public class DefenderController : MonoBehaviour
 
     private void Attack(GameObject target)
     {
-        if (!isAttacking)
+        /*if (!isAttacking)
         {
             StartCoroutine(AttackRoutine(target));
-        }
+        }*/
     }
 
     private IEnumerator AttackRoutine(GameObject target)
@@ -148,6 +162,24 @@ public class DefenderController : MonoBehaviour
         float facingThreshold = 30f; // Adjust this value as needed
 
         return angleToTarget < facingThreshold;
+    }
+
+    IAttackBehavior SelectAttackRange()
+    {
+        if (attackBehaviors.Length == 0)
+        {
+            return null; // No attack behaviors available
+        }
+
+        IAttackBehavior minAttackRange = attackBehaviors[0];
+        foreach (var attackBehavior in attackBehaviors)
+        {
+            if (attackBehavior.AttackRange < minAttackRange.AttackRange)
+            {
+                minAttackRange = attackBehavior;
+            }
+        }
+        return minAttackRange;
     }
 
     private void OnEnable()

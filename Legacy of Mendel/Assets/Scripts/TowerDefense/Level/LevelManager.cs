@@ -94,10 +94,10 @@ public class LevelManager : MonoBehaviour
         {
             enemyController.attackPower = enemy.attackPower;
         }
-        if (enemy.attackRange != 0)
+        /*if (enemy.attackRange != 0)
         {
             enemyController.attackRange = enemy.attackRange;
-        }
+        }*/
         if (enemy.attackSpeed != 0)
         {
             enemyController.attackSpeed = enemy.attackSpeed;

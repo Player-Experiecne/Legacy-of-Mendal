@@ -8818,19 +8818,23 @@ PrefabInstance:
       objectReference: {fileID: 790299362}
     - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
       propertyPath: defendersInBackpack.Array.data[0].geneTypeA
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[1].geneTypeA
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
       propertyPath: defendersInBackpack.Array.data[0].defenderName
-      value: Wingman1
+      value: Defender1
       objectReference: {fileID: 0}
     - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
       propertyPath: defendersInBackpack.Array.data[1].defenderName
-      value: Wingman2
+      value: Defender2
       objectReference: {fileID: 0}
     - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
       propertyPath: defendersInBackpack.Array.data[2].defenderName
-      value: Wingman3
+      value: Defender3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
