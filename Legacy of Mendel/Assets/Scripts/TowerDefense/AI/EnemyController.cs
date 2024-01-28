@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
+    private IAttackBehavior[] attackBehaviors;
+
     private NavMeshAgent agent;
 
     public float alertRadius = 10f;
@@ -12,24 +14,18 @@ public class EnemyController : MonoBehaviour
     private GameObject Mendelbase;
     public GameObject targetDefender;
 
-    /*public GameObject shootEffectPrefab; // 射击特效的预制体
-    public GameObject FirePoint;*/
-
     public List<GeneInfo.geneTypes> lootGeneTypes;
     public int lootCultureMedium;
 
     public float attackPower = 1f;
-    public float attackRange = 5f;
+    public float attackRange = 100f;
     public float attackSpeed = 1f;
-    private bool isAttacking = false;
-    private void Awake()
+    public bool isAttacking = false;
+    private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        /*// 第一个子物体
-        if (transform.childCount > 0)
-        {
-            FirePoint = transform.GetChild(0).gameObject;
-        }*/
+        attackBehaviors = GetComponents<IAttackBehavior>();
+
         //Set first target to base
         Mendelbase = GameObject.FindGameObjectWithTag("Base");
         agent.destination = Mendelbase.transform.position;
@@ -37,6 +33,16 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
+        //Select attack range
+        IAttackBehavior selectedAttack = SelectAttackRange();
+        if (selectedAttack != null)
+        {
+            attackRange = selectedAttack.AttackRange;
+            // Use attackRange for selected attack
+        }
+        
+        //Pathfinding logic starts----------------------------------------------------------------
+
         // If the enemy doesn't have a target or if its target was destroyed
         if (targetDefender == null || !DefenderManager.Instance.defenders.Contains(targetDefender))
         {
@@ -49,7 +55,6 @@ public class EnemyController : MonoBehaviour
             Vector3 closestPoint = targetCollider.ClosestPoint(transform.position);
 
             float distanceToDefender = Vector3.Distance(transform.position, closestPoint);
-
             // Check if within attack range
             if (distanceToDefender <= attackRange)
             {
@@ -57,12 +62,13 @@ public class EnemyController : MonoBehaviour
                 RotateTowards(targetDefender.transform.position);
                 if (IsFacingTarget(targetDefender.transform.position))
                 {
-                    Attack(targetDefender);
+                    isAttacking = true;
                 }
             }
             // Check if within alert radius but outside attack range
             else if (distanceToDefender <= alertRadius && distanceToDefender > attackRange)
             {
+                isAttacking = false;
                 MoveTowardsTarget(targetDefender);
             }
             // If the defender is outside the alert radius
@@ -70,12 +76,14 @@ public class EnemyController : MonoBehaviour
             {
                 targetDefender = null;  // Lose the target if it's outside the alert range
                 MoveTowardsTarget(Mendelbase);
+                isAttacking = false;
             }
         }
         // If there's no defender to target, move towards the base
         else
         {
             MoveTowardsTarget(Mendelbase);
+            isAttacking = false;
         }
     }
 
@@ -97,10 +105,11 @@ public class EnemyController : MonoBehaviour
 
     private void Attack(GameObject target)
     {
-        if (!isAttacking)
+        isAttacking = true;
+        /*if (!isAttacking)
         {
             StartCoroutine(AttackRoutine(target));
-        }
+        }*/
     }
 
     private IEnumerator AttackRoutine(GameObject target)
@@ -109,13 +118,6 @@ public class EnemyController : MonoBehaviour
 
         while (target != null)
         {
-            /*// 实例化射击特效
-            if (shootEffectPrefab != null)
-            {
-                Instantiate(shootEffectPrefab, FirePoint.transform.position, FirePoint.transform.rotation);
-            }*/
-
-            // 造成伤害
             HP hP = target.GetComponent<HP>();
             if (hP != null)
             {
@@ -177,5 +179,23 @@ public class EnemyController : MonoBehaviour
     private void OnDestroy()
     {
         EnemyManager.Instance.UnregisterEnemy(gameObject);
+    }
+
+    IAttackBehavior SelectAttackRange()
+    {
+        if (attackBehaviors.Length == 0)
+        {
+            return null; // No attack behaviors available
+        }
+
+        IAttackBehavior minAttackRange = attackBehaviors[0];
+        foreach (var attackBehavior in attackBehaviors)
+        {
+            if (attackBehavior.AttackRange < minAttackRange.AttackRange)
+            {
+                minAttackRange = attackBehavior;
+            }
+        }
+        return minAttackRange;
     }
 }

@@ -13,17 +13,25 @@ MonoBehaviour:
   m_Name: GeneTypeAInfo
   m_EditorClassIdentifier: 
   domStats:
-    occurrencePossibility: 0
+    occurrencePossibility: 1
     instantDamage: 50
     dotDamage: 20
     burnDuration: 5
     burnTickInterval: 1
+    firePrefab: {fileID: 1447435588197194, guid: 494a6613eb0ff0742a30c6d7f89cf854, type: 3}
+    fireInterval: 2
+    fireDuration: 1
+    fireRange: 5
   hetStats:
     occurrencePossibility: 0
     instantDamage: 50
     dotDamage: 20
     burnDuration: 5
     burnTickInterval: 1
+    firePrefab: {fileID: 0}
+    fireInterval: 1
+    fireDuration: 0.5
+    fireRange: 6
   recStats:
     occurrencePossibility: 1
     instantDamage: 50
@@ -31,7 +39,7 @@ MonoBehaviour:
     burnDuration: 5
     burnTickInterval: 1
     fireBallRate: 0.5
-    fireBallRange: 50
+    fireBallRange: 20
     explosionRange: 5
     fireBallPrefabForEnemies: {fileID: 1990380580032880, guid: 054b35c65b5c4e5459d89f49b18ba331, type: 3}
     fireBallPrefabForDefenders: {fileID: 1990380580032880, guid: 46b312e00ed9c1f459ea9f0e55bfac77, type: 3}

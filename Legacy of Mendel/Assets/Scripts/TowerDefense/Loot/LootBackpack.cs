@@ -28,7 +28,10 @@ public class LootBackpack : MonoBehaviour
 
     public void LootGeneType(GeneInfo.geneTypes geneType)
     {
-        lootGeneTypes.Add(geneType);
+        if (!lootGeneTypes.Contains(geneType))
+        {
+            lootGeneTypes.Add(geneType);
+        }
     }
 
     public void LootCultureMedium(int cultureMedium)

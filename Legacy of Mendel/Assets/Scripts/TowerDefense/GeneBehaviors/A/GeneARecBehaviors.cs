@@ -2,8 +2,10 @@ using System.Collections;
 using UnityEngine;
 using static HP;
 
-public class GeneARecBehaviors : MonoBehaviour
+public class GeneARecBehaviors : MonoBehaviour, IAttackBehavior
 {
+    public float AttackRange => fireBallRange - 5f;
+
     //Damage Settings
     private float instantDamage;    // Instant damage applied upon touch.
     private float dotDamage;         // Damage over time applied while burning.
@@ -14,6 +16,7 @@ public class GeneARecBehaviors : MonoBehaviour
     private float fireBallRate;
     private float fireBallRange;
     private float explosionRange;
+    private GameObject firePoint;
     private GameObject fireBallPrefab;
     private GameObject fireBallPrefabForEnemies; // Declare a public GameObject for the fire prefab
     private GameObject fireBallPrefabForDefenders; // Declare a public GameObject for the fire prefab
@@ -23,7 +26,10 @@ public class GeneARecBehaviors : MonoBehaviour
     private LevelManager levelManager;
     private GeneTypeAInfoSO geneTypeAInfoSO;
     private HP selfHP;
-    private GameObject target;
+    public GameObject target;
+    private EnemyController enemyController;
+    private DefenderController defenderController;
+    private bool isAttacking;
 
     private void Awake()
     {
@@ -31,6 +37,16 @@ public class GeneARecBehaviors : MonoBehaviour
         levelManager = LevelManager.Instance;
         geneTypeAInfoSO = levelManager.addBehaviorsToTarget.geneTypeAInfo;
 
+        if (selfHP.objectType == ObjectType.Enemy)
+        {
+            enemyController = GetComponent<EnemyController>();
+        }
+        else if (selfHP.objectType == ObjectType.Defender)
+        {
+            defenderController = GetComponent<DefenderController>();
+        }
+
+        //get stats
         instantDamage = geneTypeAInfoSO.recStats.instantDamage;
         dotDamage = geneTypeAInfoSO.recStats.dotDamage;
         burnDuration = geneTypeAInfoSO.recStats.burnDuration;
@@ -40,11 +56,20 @@ public class GeneARecBehaviors : MonoBehaviour
         explosionRange = geneTypeAInfoSO.recStats.explosionRange;
         fireBallPrefabForEnemies = geneTypeAInfoSO.recStats.fireBallPrefabForEnemies;
         fireBallPrefabForDefenders = geneTypeAInfoSO.recStats.fireBallPrefabForDefenders;
+        firePoint = transform.GetChild(0).gameObject;
     }
 
     private void Update()
     {
-        if (Time.time > nextFireTime)
+        if (selfHP.objectType == ObjectType.Enemy)
+        {
+            isAttacking = enemyController.isAttacking;
+        }
+        else if (selfHP.objectType == ObjectType.Defender)
+        {
+            isAttacking = defenderController.isAttacking;
+        }
+        if (Time.time > nextFireTime && isAttacking)
         {
             StartCoroutine(LaunchFireBall());
             nextFireTime = Time.time + 1f / fireBallRate;
@@ -64,10 +89,9 @@ public class GeneARecBehaviors : MonoBehaviour
         }
         if(target != null) 
         {
-            if (Vector3.Distance(transform.position, target.transform.position) < 50)
+            if (Vector3.Distance(transform.position, target.transform.position) < fireBallRange)
             {
-                Vector3 spawnPosition = transform.position + transform.forward; // Adjust the offset if necessary
-                GameObject fireBallPrefab = new GameObject();
+                //Vector3 spawnPosition = transform.position + transform.forward; // Adjust the offset if necessary
                 if (selfHP.objectType == ObjectType.Enemy)
                 {
                     fireBallPrefab = fireBallPrefabForEnemies;
@@ -76,7 +100,7 @@ public class GeneARecBehaviors : MonoBehaviour
                 {
                     fireBallPrefab = fireBallPrefabForDefenders;
                 }
-                GameObject fireInstance = Instantiate(fireBallPrefab, spawnPosition, transform.rotation);
+                GameObject fireInstance = Instantiate(fireBallPrefab, firePoint.transform.position, transform.rotation);
                 FireBall fireBall = fireInstance.AddComponent<FireBall>();
                 fireBall.objectType = selfHP.objectType;
                 fireBall.fireBallTarget = target;
@@ -97,7 +121,7 @@ public class GeneARecBehaviors : MonoBehaviour
         foreach (GameObject defender in DefenderManager.Instance.defenders)
         {
             float currentDistance = Vector3.Distance(transform.position, defender.transform.position);
-            if (currentDistance < closestDistance)
+            if (currentDistance <= closestDistance)
             {
                 closestDistance = currentDistance;
                 closestDefender = defender;
@@ -113,7 +137,7 @@ public class GeneARecBehaviors : MonoBehaviour
         foreach (GameObject enemy in EnemyManager.Instance.enemies)
         {
             float currentDistance = Vector3.Distance(transform.position, enemy.transform.position);
-            if (currentDistance < closestDistance)
+            if (currentDistance <= closestDistance)
             {
                 closestDistance = currentDistance;
                 closestEnemy = enemy;

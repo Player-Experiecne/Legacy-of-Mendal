@@ -97,7 +97,7 @@ public class GeneAHetBehaviors : MonoBehaviour
             }
             else if (dotDamage <= burningState.CurrentBurnDamage)
             {
-                //burningState.RefreshBurning(burningState.CurrentBurnDamage, burnDuration);
+                burningState.RefreshBurning(burningState.CurrentBurnDamage, burnDuration);
             }
         }
     }

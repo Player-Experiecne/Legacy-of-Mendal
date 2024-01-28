@@ -40,7 +40,6 @@ public class BurningState : MonoBehaviour
         {
             yield return new WaitForSeconds(burnTickInterval);
             targetHP.TakeDamage(burnDamage);
-            Debug.Log("Burn Damage");
             elapsed += burnTickInterval;
         }
 

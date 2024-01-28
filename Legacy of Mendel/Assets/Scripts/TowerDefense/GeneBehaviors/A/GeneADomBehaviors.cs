@@ -1,48 +1,87 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using static HP;
 
-public class GeneADomBehaviors : MonoBehaviour
+public class GeneADomBehaviors : MonoBehaviour, IAttackBehavior
 {
-    [Header("Damage Settings")]
-    public float instantDamage = 10f;    // Instant damage applied upon touch.
-    public float dotDamage = 20f;         // Damage over time applied while burning.
-    public float burnDuration = 5f;      // Duration of the burn effect.
-    public float burnTickInterval = 1f;  // Time interval between damage ticks while burning.
+    public float AttackRange => fireRange;
+    
+    //Damage Settings
+    private float instantDamage;    // Instant damage applied upon touch.
+    private float dotDamage;         // Damage over time applied while burning.
+    private float burnDuration;      // Duration of the burn effect.
+    private float burnTickInterval;  // Time interval between damage ticks while burning.
 
-    [Header("Fire")]
-    [SerializeField] private ParticleSystem fireParticles;
-    [SerializeField] private float fireRate = 0.5f;
-    [SerializeField] private float fireDuration = 1f;
-    [SerializeField] private Collider fireTriggerCollider; // Assign this in the Editor.
+    //Fire
+    public float fireInterval;
+    public float fireDuration;
+    private float fireRange;
+    
+    private Collider fireTriggerCollider;
+    private GameObject firePrefab; // Declare a public GameObject for the fire prefab
+    private GameObject firePoint;
 
-    public GameObject firePrefab; // Declare a public GameObject for the fire prefab
     private string targetTag;
-    private float nextFireTime = 0.0f;
-    private float lastDamageTime = 0f;
+    private float nextFireTime = 1f;
+    //private float lastDamageTime = 0f;
+    private Dictionary<Collider, float> lastDamageTimes = new Dictionary<Collider, float>();
+
+
+    private LevelManager levelManager;
+    private GeneTypeAInfoSO geneTypeAInfoSO;
+    private HP selfHP;
+    private EnemyController enemyController;
+    private DefenderController defenderController;
+    private bool isAttacking;
 
     private void Awake()
     {
-        HP selfHP = GetComponent<HP>();
+        selfHP = GetComponent<HP>();
+        levelManager = LevelManager.Instance;
+        geneTypeAInfoSO = levelManager.addBehaviorsToTarget.geneTypeAInfo;
+
         if (selfHP.objectType == ObjectType.Enemy)
         {
             targetTag = "Defender";
+            enemyController = GetComponent<EnemyController>();
         }
         else if (selfHP.objectType == ObjectType.Defender)
         {
             targetTag = "Enemy";
+            defenderController = GetComponent<DefenderController>();
         }
 
-        fireTriggerCollider = GetComponent<Collider>();
-        firePrefab = Resources.Load<GameObject>("Fire");
-    }
+        Collider[] colliders = GetComponents<Collider>();
+        fireTriggerCollider = colliders[1];
+        firePoint = transform.GetChild(0).gameObject;
+
+        //get stats
+        firePrefab = geneTypeAInfoSO.domStats.firePrefab;
+        instantDamage = geneTypeAInfoSO.domStats.instantDamage;
+        dotDamage = geneTypeAInfoSO.domStats.dotDamage;
+        burnDuration = geneTypeAInfoSO.domStats.burnDuration;
+        burnTickInterval = geneTypeAInfoSO.domStats.burnTickInterval;
+
+        fireInterval = geneTypeAInfoSO.domStats.fireInterval;
+        fireDuration = geneTypeAInfoSO.domStats.fireDuration;
+        fireRange = geneTypeAInfoSO.domStats.fireRange;
+}
 
     private void Update()
     {
-        if (Time.time > nextFireTime)
+        if (selfHP.objectType == ObjectType.Enemy)
+        {
+            isAttacking = enemyController.isAttacking;
+        }
+        else if (selfHP.objectType == ObjectType.Defender)
+        {
+            isAttacking = defenderController.isAttacking;
+        }
+        if (Time.time > nextFireTime && isAttacking)
         {
             StartCoroutine(SpewFire());
-            nextFireTime = Time.time + 1f / fireRate;
+            nextFireTime = Time.time + fireInterval;
         }
     }
 
@@ -50,9 +89,9 @@ public class GeneADomBehaviors : MonoBehaviour
     {
         fireTriggerCollider.enabled = true;
 
-        // Instantiate the fire prefab at the front of the game object
-        Vector3 spawnPosition = transform.position + transform.forward; // Adjust the offset if necessary
-        GameObject fireInstance = Instantiate(firePrefab, spawnPosition, transform.rotation, transform);
+        // Instantiate the fire prefab at the firepoint
+        //Vector3 spawnPosition = transform.position + transform.forward; // Adjust the offset if necessary
+        GameObject fireInstance = Instantiate(firePrefab, firePoint.transform.position, transform.rotation, transform);
 
         yield return new WaitForSeconds(fireDuration);
 
@@ -63,12 +102,34 @@ public class GeneADomBehaviors : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag(targetTag) && Time.time - lastDamageTime >= fireRate)
+        if (other.transform.gameObject.CompareTag(targetTag))
         {
-            DealInstantDamage(other.gameObject);
-            SetTargetOnfire(other.gameObject);
+            // If the target is not in the dictionary, initialize its last damage time
+            if (!lastDamageTimes.ContainsKey(other))
+            {
+                DealInstantDamage(other.gameObject);
+                SetTargetOnfire(other.gameObject); 
+                lastDamageTimes[other] = Time.time;
+            }
+
+            // Check if enough time has passed to damage this specific target again
+            if (Time.time - lastDamageTimes[other] >= fireInterval)
+            {
+                DealInstantDamage(other.gameObject);
+                SetTargetOnfire(other.gameObject);
+                lastDamageTimes[other] = Time.time; // Update the last damage time for this target
+            }
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (lastDamageTimes.ContainsKey(other))
+        {
+            lastDamageTimes.Remove(other);
+        }
+    }
+
 
     private void DealInstantDamage(GameObject target)
     {
@@ -78,7 +139,7 @@ public class GeneADomBehaviors : MonoBehaviour
         {
             targetHP.TakeDamage(instantDamage);
         }
-        lastDamageTime = Time.time;
+        //lastDamageTime = Time.time;
     }
 
     private void SetTargetOnfire(GameObject target)
@@ -97,7 +158,7 @@ public class GeneADomBehaviors : MonoBehaviour
             }
             else if (dotDamage <= burningState.CurrentBurnDamage)
             {
-                //burningState.RefreshBurning(burningState.CurrentBurnDamage, burnDuration);
+                burningState.RefreshBurning(burningState.CurrentBurnDamage, burnDuration);
             }
         }
     }
