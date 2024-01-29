@@ -13,7 +13,7 @@ public class GeneARecBehaviors : MonoBehaviour, IAttackBehavior
     private float burnTickInterval;  // Time interval between damage ticks while burning.
 
     //Fire Ball
-    private float fireBallRate;
+    private float fireBallInterval;
     private float fireBallRange;
     private float explosionRange;
     private GameObject firePoint;
@@ -51,7 +51,7 @@ public class GeneARecBehaviors : MonoBehaviour, IAttackBehavior
         dotDamage = geneTypeAInfoSO.recStats.dotDamage;
         burnDuration = geneTypeAInfoSO.recStats.burnDuration;
         burnTickInterval = geneTypeAInfoSO.recStats.burnTickInterval;
-        fireBallRate = geneTypeAInfoSO.recStats.fireBallRate;
+        fireBallInterval = geneTypeAInfoSO.recStats.fireBallInterval;
         fireBallRange = geneTypeAInfoSO.recStats.fireBallRange;
         explosionRange = geneTypeAInfoSO.recStats.explosionRange;
         fireBallPrefabForEnemies = geneTypeAInfoSO.recStats.fireBallPrefabForEnemies;
@@ -72,7 +72,7 @@ public class GeneARecBehaviors : MonoBehaviour, IAttackBehavior
         if (Time.time > nextFireTime && isAttacking)
         {
             StartCoroutine(LaunchFireBall());
-            nextFireTime = Time.time + 1f / fireBallRate;
+            nextFireTime = Time.time + fireBallInterval;
         }
     }
 

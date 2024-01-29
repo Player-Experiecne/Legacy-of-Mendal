@@ -57,7 +57,7 @@ public class GeneTypeAInfoSO : ScriptableObject
         public float burnTickInterval = 1f;  // Time interval between damage ticks while burning.
 
         [Header("Fire Ball Settings")]
-        public float fireBallRate = 0.5f;
+        public float fireBallInterval = 1f;
         public float fireBallRange = 50f;
         public float explosionRange = 5f;
         public GameObject fireBallPrefabForEnemies;

@@ -102,18 +102,18 @@ public class LevelManager : MonoBehaviour
         {
             hp.maxHealth = enemy.hp;
         }
-        if (enemy.attackPower != 0)
+        /*if (enemy.attackPower != 0)
         {
             enemyController.attackPower = enemy.attackPower;
         }
         /*if (enemy.attackRange != 0)
         {
             enemyController.attackRange = enemy.attackRange;
-        }*/
+        }
         if (enemy.attackSpeed != 0)
         {
             enemyController.attackSpeed = enemy.attackSpeed;
-        }
+        }*/
         if (enemy.speed != 0)
         {
             navMeshAgent.speed = enemy.speed;

@@ -8,14 +8,15 @@ public class Enemy
     public GameObject enemyPrefab;
     [Header("Stats")]
     public float hp;
-    public float attackPower;
+    /*public float attackPower;
     public float attackRange;
-    public float attackSpeed;
+    public float attackSpeed;*/
     public float speed;
     [Header("GeneTypes")]
     public List<GeneInfo.geneTypes> geneTypes;
-    [Header("UI Info")]
+    [HideInInspector]
     public string enemyName;
+    [HideInInspector]
     public Sprite enemyImage;
     [Header("Loot")]
     public List<LootGeneType> lootGeneTypes;
