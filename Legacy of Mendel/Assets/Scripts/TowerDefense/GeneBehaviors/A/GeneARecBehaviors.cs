@@ -81,11 +81,13 @@ public class GeneARecBehaviors : MonoBehaviour, IAttackBehavior
         
         if (selfHP.objectType == ObjectType.Enemy)
         {
-            FindClosestDefender();
+            //FindClosestDefender();
+            target = enemyController.targetDefender;
         }
         else if (selfHP.objectType == ObjectType.Defender)
         {
-            FindClosestEnemy();
+            //FindClosestEnemy();
+            target = defenderController.targetEnemy;
         }
         if(target != null) 
         {

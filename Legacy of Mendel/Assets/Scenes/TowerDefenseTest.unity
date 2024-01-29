@@ -1306,7 +1306,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b0b45a9d8b021a4da3184c50b8c4695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  breedingUI: {fileID: 1262382780}
+  levelManager: {fileID: 0}
+  enemyManager: {fileID: 0}
+  currentState: 0
 --- !u!4 &370199335
 Transform:
   m_ObjectHideFlags: 0
@@ -9041,24 +9043,36 @@ PrefabInstance:
       objectReference: {fileID: 790299362}
     - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
       propertyPath: defendersInBackpack.Array.data[0].geneTypeA
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
       propertyPath: defendersInBackpack.Array.data[1].geneTypeA
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[2].geneTypeA
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
       propertyPath: defendersInBackpack.Array.data[0].defenderName
-      value: Defender1
+      value: CombatUnit
       objectReference: {fileID: 0}
     - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
       propertyPath: defendersInBackpack.Array.data[1].defenderName
-      value: Defender2
+      value: CombatUnitWithADom
       objectReference: {fileID: 0}
     - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
       propertyPath: defendersInBackpack.Array.data[2].defenderName
-      value: Defender3
+      value: CombatUnitWithARec
       objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[1].defenderPrefab
+      value: 
+      objectReference: {fileID: 6630813155368031700, guid: 56c34ae7c6c68eb4bb93a1285231e9fa, type: 3}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[2].defenderPrefab
+      value: 
+      objectReference: {fileID: 6630813155368031700, guid: 122e52c4f3b789f4faf8cf69b591fd14, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
 --- !u!1001 &3809667000675142746

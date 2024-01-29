@@ -14,6 +14,7 @@ public class LevelManager : MonoBehaviour
 
     public float timeBetweenWaves = 2f;
     public float timeBetweenLevels = 30f;
+    public float timeBetweenEnemies = 0.5f;
 
     public AddBehaviorsToTarget addBehaviorsToTarget;
 
@@ -53,15 +54,26 @@ public class LevelManager : MonoBehaviour
 
     private IEnumerator SpawnWaves(List<Level.Wave> waves)
     {
+        List<Coroutine> waveCoroutines = new List<Coroutine>();
+
         foreach (var wave in waves)
         {
-            yield return StartCoroutine(SpawnEnemies(wave.enemies));
+            Coroutine waveCoroutine = StartCoroutine(SpawnEnemies(wave.enemies));
+            waveCoroutines.Add(waveCoroutine);
+            yield return new WaitForSeconds(timeBetweenWaves);
+        }
+
+        // Wait for all waves to complete
+        foreach (var coroutine in waveCoroutines)
+        {
+            yield return coroutine;
         }
 
         yield return new WaitForSeconds(timeBetweenLevels);
         currentLevelIndex++;
         LoadNextLevel();
     }
+
 
     private IEnumerator SpawnEnemies(List<Level.EnemySpawnInfo> enemies)
     {
@@ -73,7 +85,7 @@ public class LevelManager : MonoBehaviour
                 GameObject spawnedEnemy = Instantiate(enemyInfo.enemy.enemyPrefab, spawnPoint.position, spawnPoint.rotation);
                 spawnedEnemy.tag = "Enemy";
                 AssignProperties(enemyInfo.enemy, spawnedEnemy);
-                yield return null;
+                yield return new WaitForSeconds(timeBetweenEnemies);
             }
         }
         yield return new WaitForSeconds(timeBetweenWaves);
