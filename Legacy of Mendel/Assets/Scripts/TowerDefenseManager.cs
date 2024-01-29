@@ -7,7 +7,7 @@ public class TowerDefenseManager : MonoBehaviour
     void Start()
     {
         // 塔防事件
-        FindObjectOfType<GameManager>().OnTowerDefenseEvent += HandleTowerDefenseEvent;
+        //FindObjectOfType<GameManager>().OnTowerDefenseEvent += HandleTowerDefenseEvent;
     }
 
     private void HandleTowerDefenseEvent()

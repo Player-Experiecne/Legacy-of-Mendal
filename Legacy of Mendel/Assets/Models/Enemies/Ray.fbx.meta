@@ -3,7 +3,27 @@ guid: 4cce2ab77f6ed1f41a33f960760bd015
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RayBody
+    second: {fileID: 2100000, guid: 545443fa198f1754b88020f871d9f2f0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RayHand
+    second: {fileID: 2100000, guid: 7db7e434df27d5848bdffbb11b1e5b6c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RayHead
+    second: {fileID: 2100000, guid: ce36866190e651c4aa851ff348ac11d3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.004"
+    second: {fileID: 2100000, guid: a46e4a3c171221e439afa7e755f18f0e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
