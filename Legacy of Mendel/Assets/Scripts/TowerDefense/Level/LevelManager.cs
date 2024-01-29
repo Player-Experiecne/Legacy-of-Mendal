@@ -36,7 +36,7 @@ public class LevelManager : MonoBehaviour
     }
 
 
-    private void LoadNextLevel()
+    public void LoadNextLevel()
     {
         if (currentLevelIndex < gameLevels.Count)
         {

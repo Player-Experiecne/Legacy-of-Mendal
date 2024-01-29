@@ -48,10 +48,7 @@ public class EnemyManager : MonoBehaviour
         if (currentCount == 0 && gameManager != null)
         {
             // 切换状态
-            DayNightState newState = gameManager.CurrentState == DayNightState.Day
-                ? DayNightState.Night : DayNightState.Day;
-            gameManager.ChangeState(newState);
-            Debug.Log("State change success");
+           
         }
     }
 

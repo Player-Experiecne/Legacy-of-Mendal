@@ -1,55 +1,56 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+
 
 public class GameManager : MonoBehaviour
 {
-    public DayNightState CurrentState { get; private set; }
+    public static GameManager Instance;
 
-    public GameObject breedingUI;
+    public LevelManager levelManager;
+    public EnemyManager enemyManager;
 
+    public DayNightState currentState;
 
-    public event DayNightChangeDelegate OnDayNightChange;
-    public event BreedingEventDelegate OnBreedingEvent;
-    public event TowerDefenseEventDelegate OnTowerDefenseEvent;
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
-        // 初始化状态
-        ChangeState(DayNightState.Day);
-
-        if (breedingUI != null)
-        {
-            breedingUI.SetActive(false);
-        }
+        currentState = DayNightState.Day; // 初始状态为白天
+        StartNewLevel(); // 开始第一关
     }
 
-
-    public void ChangeState(DayNightState newState)
+    public void StartNewLevel()
     {
-        if (CurrentState != newState)
+        if (currentState == DayNightState.Night)
         {
-            CurrentState = newState;
-            OnDayNightChange?.Invoke(newState);
-            HandleStateChange(newState);
+            currentState = DayNightState.Day; // 转换到白天
+            levelManager.LoadNextLevel(); // 加载下一个关卡
         }
     }
 
-    private void HandleStateChange(DayNightState newState)
+    public void OnEnemiesCleared()
     {
-        switch (newState)
-        {
-            case DayNightState.Day:
-                // 进入白天
-                OnTowerDefenseEvent?.Invoke(); // 触发塔防事件
-                break;
-            case DayNightState.Night:
-                // 进入黑天
-                OnBreedingEvent?.Invoke(); // 触发培育事件
-                break;
-        }
+        // 当所有敌人被消灭时，转换到黑夜，开始培育阶段
+        currentState = DayNightState.Night;
+        // 这里可以调用开始培育的逻辑，例如显示培育界面
     }
 
-    
+    // 调用此方法以结束培育阶段，并准备开始下一关卡
+    public void CompleteBreeding()
+    {
+        currentState = DayNightState.Night; // 准备转换到白天
+        // 可以在这里添加培育结束的逻辑
+    }
 }
+
 
