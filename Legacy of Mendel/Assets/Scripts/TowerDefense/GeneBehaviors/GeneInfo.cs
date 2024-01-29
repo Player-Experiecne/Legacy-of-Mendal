@@ -9,6 +9,6 @@ public class GeneInfo
 
     public enum geneTypes
     {
-        ADom, AHet, ARec
+        Null, ADom, AHet, ARec
     }
 }

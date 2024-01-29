@@ -6,58 +6,62 @@ public class AddBehaviorsToTarget : MonoBehaviour
 {
     [SerializeField] public GeneTypeAInfoSO geneTypeAInfo;
     
-    public void AddGeneABehaviors(GameObject target, GeneTypeAInfoSO.GeneTypeA geneType, bool defenderOrNot)
+    public void AddGeneBehaviors(GameObject target, List<GeneInfo.geneTypes> geneTypes, bool defenderOrNot)
     {
         float randomValue = Random.Range(0f, 1f); // Generate a random float between 0 and 1
         float occurrencePossibility = 0; // Default to 0
 
-        if (defenderOrNot) 
+        foreach(GeneInfo.geneTypes geneType in geneTypes)
         {
-            switch (geneType)
+            if (defenderOrNot)
             {
-                case GeneTypeAInfoSO.GeneTypeA.ADom:
-                    target.AddComponent<GeneADomBehaviors>();
-                    break;
-                case GeneTypeAInfoSO.GeneTypeA.AHet:
-                    target.AddComponent<GeneAHetBehaviors>();
-                    break;
-                case GeneTypeAInfoSO.GeneTypeA.ARec:
-                    target.AddComponent<GeneARecBehaviors>();
-                    break;
-                default:
-                    // No gene A behavior attached for 'None'
-                    break;
-            }
-        }
-        else 
-        {
-            switch (geneType)
-            {
-                case GeneTypeAInfoSO.GeneTypeA.ADom:
-                    occurrencePossibility = geneTypeAInfo.domStats.occurrencePossibility;
-                    if (randomValue <= occurrencePossibility)
-                    {
+                switch (geneType)
+                {
+                    case GeneInfo.geneTypes.ADom:
                         target.AddComponent<GeneADomBehaviors>();
-                    }
-                    break;
-                case GeneTypeAInfoSO.GeneTypeA.AHet:
-                    occurrencePossibility = geneTypeAInfo.hetStats.occurrencePossibility;
-                    if (randomValue <= occurrencePossibility)
-                    {
+                        break;
+                    case GeneInfo.geneTypes.AHet:
                         target.AddComponent<GeneAHetBehaviors>();
-                    }
-                    break;
-                case GeneTypeAInfoSO.GeneTypeA.ARec:
-                    occurrencePossibility = geneTypeAInfo.recStats.occurrencePossibility;
-                    if (randomValue <= occurrencePossibility)
-                    {
+                        break;
+                    case GeneInfo.geneTypes.ARec:
                         target.AddComponent<GeneARecBehaviors>();
-                    }
-                    break;
-                default:
-                    // No gene A behavior attached for 'None'
-                    break;
+                        break;
+                    default:
+                        // No gene A behavior attached for 'None'
+                        break;
+                }
+            }
+            else
+            {
+                switch (geneType)
+                {
+                    case GeneInfo.geneTypes.ADom:
+                        occurrencePossibility = geneTypeAInfo.domStats.occurrencePossibility;
+                        if (randomValue <= occurrencePossibility)
+                        {
+                            target.AddComponent<GeneADomBehaviors>();
+                        }
+                        break;
+                    case GeneInfo.geneTypes.AHet:
+                        occurrencePossibility = geneTypeAInfo.hetStats.occurrencePossibility;
+                        if (randomValue <= occurrencePossibility)
+                        {
+                            target.AddComponent<GeneAHetBehaviors>();
+                        }
+                        break;
+                    case GeneInfo.geneTypes.ARec:
+                        occurrencePossibility = geneTypeAInfo.recStats.occurrencePossibility;
+                        if (randomValue <= occurrencePossibility)
+                        {
+                            target.AddComponent<GeneARecBehaviors>();
+                        }
+                        break;
+                    default:
+                        // No gene A behavior attached for 'None'
+                        break;
+                }
             }
         }
+        
     }
 }

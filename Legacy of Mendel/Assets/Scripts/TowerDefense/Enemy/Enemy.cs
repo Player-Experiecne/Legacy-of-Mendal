@@ -12,8 +12,8 @@ public class Enemy
     public float attackRange;
     public float attackSpeed;
     public float speed;
-    [Header("GeneType")]
-    public GeneTypeAInfoSO.GeneTypeA geneTypeA;
+    [Header("GeneTypes")]
+    public List<GeneInfo.geneTypes> geneTypes;
     [Header("UI Info")]
     public string enemyName;
     public Sprite enemyImage;

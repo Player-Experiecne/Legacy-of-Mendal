@@ -120,7 +120,7 @@ public class LevelManager : MonoBehaviour
         }
 
         //Add gene behavior script to the spawned enemy
-        addBehaviorsToTarget.AddGeneABehaviors(spawnedEnemy, enemy.geneTypeA, false);
+        addBehaviorsToTarget.AddGeneBehaviors(spawnedEnemy, enemy.geneTypes, false);
 
         //Assign lootgenes
         foreach (LootGeneType lootGeneType in enemy.lootGeneTypes)

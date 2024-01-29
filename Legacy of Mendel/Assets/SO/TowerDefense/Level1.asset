@@ -22,7 +22,7 @@ MonoBehaviour:
         attackRange: 0
         attackSpeed: 0
         speed: 0
-        geneTypeA: 1
+        geneTypes: 01000000
         enemyName: 
         enemyImage: {fileID: 0}
         lootGeneTypes: []
@@ -40,7 +40,7 @@ MonoBehaviour:
         attackRange: 0
         attackSpeed: 0
         speed: 0
-        geneTypeA: 3
+        geneTypes: 03000000
         enemyName: 
         enemyImage: {fileID: 0}
         lootGeneTypes:

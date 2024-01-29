@@ -12,8 +12,8 @@ public class Defender
     public float attackRange;
     public float attackSpeed;
     public float Speed;
-    [Header("GeneType")]
-    public GeneTypeAInfoSO.GeneTypeA geneTypeA;
+    [Header("GeneTypes")]
+    public List<GeneInfo.geneTypes> geneTypes;
     [Header("UI Info")]
     public string defenderName;
     public Sprite defenderImage;
