@@ -20,6 +20,11 @@ public class LevelManager : MonoBehaviour
 
     private int currentLevelIndex = 0;
 
+    public int CurrentLevelIndex
+    {
+        get { return currentLevelIndex; }
+    }
+
     void Start()
     {
         if (Instance == null)

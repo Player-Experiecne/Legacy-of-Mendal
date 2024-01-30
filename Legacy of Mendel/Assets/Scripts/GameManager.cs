@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 
-
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
     public LevelManager levelManager;
-    public EnemyManager enemyManager;
+    public LootBackpack lootBackpack;
 
-    public DayNightState currentState;
+    public GameObject breedingUI; // 培育界面的UI对象
+
+    private int currentLevelIndex = 0;
 
     private void Awake()
     {
@@ -25,32 +26,45 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        currentState = DayNightState.Day; // 初始状态为白天
-        StartNewLevel(); // 开始第一关
-    }
-
-    public void StartNewLevel()
-    {
-        if (currentState == DayNightState.Night)
+        // 隐藏培育UI
+        if (breedingUI != null)
         {
-            currentState = DayNightState.Day; // 转换到白天
-            levelManager.LoadNextLevel(); // 加载下一个关卡
+            breedingUI.SetActive(false);
         }
+
+      
     }
 
-    public void OnEnemiesCleared()
+    void Update()
     {
-        // 当所有敌人被消灭时，转换到黑夜，开始培育阶段
-        currentState = DayNightState.Night;
-        // 这里可以调用开始培育的逻辑，例如显示培育界面
+        
     }
 
-    // 调用此方法以结束培育阶段，并准备开始下一关卡
-    public void CompleteBreeding()
+    /*private void CheckLevelCompletion()
     {
-        currentState = DayNightState.Night; // 准备转换到白天
-        // 可以在这里添加培育结束的逻辑
+        if (currentLevelIndex != levelManager.CurrentLevelIndex)
+        {
+            currentLevelIndex = levelManager.CurrentLevelIndex;
+            if (currentLevelIndex >= levelManager.gameLevels.Count)
+            {
+               
+            }
+            else
+            {
+                EnterBreedingPhase();
+            }
+        }
+    }*/
+
+    public void EnterBreedingPhase()
+    {
+        breedingUI.SetActive(true); // 显示培育界面
+        // 进入培育阶段的其他逻辑
+    }
+
+    public void ExitBreedingPhase()
+    {
+        breedingUI.SetActive(false); // 隐藏培育界面
+        levelManager.LoadNextLevel(); // 加载下一关
     }
 }
-
-
