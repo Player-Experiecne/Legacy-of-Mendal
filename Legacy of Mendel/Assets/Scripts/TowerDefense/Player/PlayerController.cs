@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private float groundCheckDistance = 1.0f; // Adjust as needed
+    [SerializeField] private LayerMask groundLayer; // Set this in the inspector
+
     public float speed = 15f;
 
     // Define boundaries for the player's position
@@ -15,10 +18,10 @@ public class PlayerController : MonoBehaviour
 
     private bool isPaused = false; // Track the pause state
 
-    void Update()
+    void FixedUpdate()
     {
         PlayerMovement();
-        //ClampPlayerPosition();
+        ClampPlayerPosition();
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (settingsMenu.activeSelf)
@@ -35,17 +38,31 @@ public class PlayerController : MonoBehaviour
 
     void PlayerMovement()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal"); // Using GetAxisRaw for direct input
+        float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        Vector3 movement = new Vector3(-vertical, 0.0f, horizontal).normalized;
-
-        // Rotate the movement direction by 45 degrees around the y-axis
+        Vector3 movement = new Vector3(vertical, 0.0f, -horizontal).normalized;
         movement = Quaternion.Euler(0, 135, 0) * movement;
+        movement *= speed * Time.deltaTime;
 
-        movement = movement * speed * Time.deltaTime;
+        // Move without adjusting Y position
+        Vector3 horizontalMovement = new Vector3(movement.x, 0.0f, movement.z);
+        transform.Translate(horizontalMovement, Space.World);
 
-        transform.Translate(movement);
+        // Adjust Y position based on terrain/ground
+        AlignWithGround();
+    }
+
+    void AlignWithGround()
+    {
+        RaycastHit hit;
+        Vector3 raycastStart = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
+
+        if (Physics.Raycast(raycastStart, Vector3.down, out hit, groundCheckDistance, groundLayer))
+        {
+            // Set the height to align with the ground
+            transform.position = new Vector3(transform.position.x, hit.point.y + 1.1f, transform.position.z);
+        }
     }
 
     void ClampPlayerPosition()

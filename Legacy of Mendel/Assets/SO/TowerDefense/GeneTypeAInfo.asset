@@ -38,7 +38,7 @@ MonoBehaviour:
     dotDamage: 20
     burnDuration: 5
     burnTickInterval: 1
-    fireBallRate: 0.5
+    fireBallInterval: 1
     fireBallRange: 20
     explosionRange: 5
     fireBallPrefabForEnemies: {fileID: 1990380580032880, guid: 054b35c65b5c4e5459d89f49b18ba331, type: 3}

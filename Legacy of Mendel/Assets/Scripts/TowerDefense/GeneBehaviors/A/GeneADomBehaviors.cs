@@ -102,11 +102,13 @@ public class GeneADomBehaviors : MonoBehaviour, IAttackBehavior
 
     private void OnTriggerStay(Collider other)
     {
+        Debug.Log("3");
         if (other.transform.gameObject.CompareTag(targetTag))
         {
             // If the target is not in the dictionary, initialize its last damage time
             if (!lastDamageTimes.ContainsKey(other))
             {
+                Debug.Log("1");
                 DealInstantDamage(other.gameObject);
                 SetTargetOnfire(other.gameObject); 
                 lastDamageTimes[other] = Time.time;
@@ -115,6 +117,7 @@ public class GeneADomBehaviors : MonoBehaviour, IAttackBehavior
             // Check if enough time has passed to damage this specific target again
             if (Time.time - lastDamageTimes[other] >= fireInterval)
             {
+                Debug.Log("2");
                 DealInstantDamage(other.gameObject);
                 SetTargetOnfire(other.gameObject);
                 lastDamageTimes[other] = Time.time; // Update the last damage time for this target
