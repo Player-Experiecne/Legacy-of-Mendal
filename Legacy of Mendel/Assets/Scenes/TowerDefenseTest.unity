@@ -1923,7 +1923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelManager: {fileID: 3809667000675142747}
-  lootBackpack: {fileID: 1359530007}
+  lootBackpack: {fileID: 1359530009}
   breedingUI: {fileID: 340869218}
 --- !u!4 &370199335
 Transform:
@@ -5494,7 +5494,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1359530008}
-  - component: {fileID: 1359530007}
+  - component: {fileID: 1359530009}
   m_Layer: 0
   m_Name: LootBackpack
   m_TagString: Untagged
@@ -5502,21 +5502,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1359530007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1359530006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3cbefc85a8afd240ba87080675b6bc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 237230275}
-  lootGeneTypes: 
-  lootCultureMedium: 0
 --- !u!4 &1359530008
 Transform:
   m_ObjectHideFlags: 0
@@ -5533,6 +5518,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1359530009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359530006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3cbefc85a8afd240ba87080675b6bc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 237230275}
+  lootGeneTypes: 
+  geneTypeCountsList: []
+  lootCultureMedium: 0
 --- !u!1 &1377540839
 GameObject:
   m_ObjectHideFlags: 0

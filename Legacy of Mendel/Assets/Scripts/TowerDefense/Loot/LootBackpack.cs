@@ -6,12 +6,22 @@ using static GeneInfo;
 
 public class LootBackpack : MonoBehaviour
 {
+
+    [System.Serializable]
+    public class GeneTypeCount
+    {
+        public GeneInfo.geneTypes geneType;
+        public int count;
+    }
     public TextMeshProUGUI text;
     public static LootBackpack Instance { get; private set; }
 
     public List<GeneInfo.geneTypes> lootGeneTypes;
-    public int lootCultureMedium = 0;
+    public List<GeneTypeCount> geneTypeCountsList;
 
+    public int lootCultureMedium = 0;
+    
+    
     void Awake()
     {
         if (Instance == null)
@@ -28,11 +38,26 @@ public class LootBackpack : MonoBehaviour
 
     public void LootGeneType(GeneInfo.geneTypes geneType)
     {
+       
         if (!lootGeneTypes.Contains(geneType))
         {
             lootGeneTypes.Add(geneType);
         }
+
+        
+        GeneTypeCount foundItem = geneTypeCountsList.Find(item => item.geneType == geneType);
+        if (foundItem != null)
+        {
+            
+            foundItem.count++;
+        }
+        else
+        {
+          
+            geneTypeCountsList.Add(new GeneTypeCount { geneType = geneType, count = 1 });
+        }
     }
+
 
     public void LootCultureMedium(int cultureMedium)
     {
