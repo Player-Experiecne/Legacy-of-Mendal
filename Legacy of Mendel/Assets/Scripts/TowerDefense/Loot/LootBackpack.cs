@@ -39,10 +39,9 @@ public class LootBackpack : MonoBehaviour
     public void LootGeneType(GeneInfo.geneTypes geneType)
     {
        
-        if (!lootGeneTypes.Contains(geneType))
-        {
-            lootGeneTypes.Add(geneType);
-        }
+       
+        lootGeneTypes.Add(geneType);
+        
 
         
         GeneTypeCount foundItem = geneTypeCountsList.Find(item => item.geneType == geneType);
