@@ -26,7 +26,31 @@ public class BreedManager : MonoBehaviour
 
     }
 
-    
+    public Defender PerformFusion(Defender defender, GeneInfo.geneTypes newGene)
+    {
+        
+        Defender newDefender = Instantiate(defender.defenderPrefab).GetComponent<Defender>();
+
+      
+        if (newGene == GeneInfo.geneTypes.ADom || defender.geneTypes.Contains(GeneInfo.geneTypes.ADom))
+        {
+            newDefender.geneTypes.Add(GeneInfo.geneTypes.ADom);
+        }
+        
+        else if (newGene == GeneInfo.geneTypes.AHet && !defender.geneTypes.Contains(GeneInfo.geneTypes.ADom))
+        {
+            newDefender.geneTypes.Add(GeneInfo.geneTypes.AHet);
+        }
+        
+        else
+        {
+            newDefender.geneTypes.Add(GeneInfo.geneTypes.ARec);
+        }
+
+        
+
+        return newDefender;
+    }
     public void EndBreedingPhase()
     {
         
