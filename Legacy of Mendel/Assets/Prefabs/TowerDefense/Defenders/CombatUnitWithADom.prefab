@@ -431,7 +431,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alertRadius: 30
   targetEnemy: {fileID: 0}
-  attackPower: 0
+  attackPower: 20
   attackRange: 100
   attackSpeed: 10
   isAttacking: 0
@@ -470,7 +470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectType: 1
-  maxHealth: 5000
+  maxHealth: 7000
   healthBarFill: {fileID: 8945085954051594950}
 --- !u!1001 &8058322436758648391
 PrefabInstance:

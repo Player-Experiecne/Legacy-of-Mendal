@@ -124,8 +124,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1.5
-  m_Speed: 7
-  m_Acceleration: 8
+  m_Speed: 9
+  m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 400
   m_StoppingDistance: 0
@@ -154,7 +154,7 @@ MonoBehaviour:
   lootCultureMedium: 0
   attackPower: 100
   attackRange: 100
-  attackSpeed: 0.75
+  attackSpeed: 0.7
   isAttacking: 0
 --- !u!114 &4080377848563240818
 MonoBehaviour:
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectType: 0
-  maxHealth: 100
+  maxHealth: 200
   healthBarFill: {fileID: 3300853868181869519}
 --- !u!65 &8557515900925448362
 BoxCollider:

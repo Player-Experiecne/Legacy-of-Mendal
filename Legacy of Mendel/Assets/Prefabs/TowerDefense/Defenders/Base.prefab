@@ -1755,7 +1755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectType: 0
-  maxHealth: 15000
+  maxHealth: 10000
   healthBarFill: {fileID: 4294895686461703429}
 --- !u!114 &287406549
 MonoBehaviour:

@@ -259,8 +259,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1
-  m_Speed: 20
-  m_Acceleration: 1
+  m_Speed: 5
+  m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 540
   m_StoppingDistance: 0
@@ -289,7 +289,7 @@ MonoBehaviour:
   lootCultureMedium: 0
   attackPower: 100
   attackRange: 100
-  attackSpeed: 0.75
+  attackSpeed: 1
   isAttacking: 0
 --- !u!114 &3471691557685678129
 MonoBehaviour:
