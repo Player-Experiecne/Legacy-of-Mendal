@@ -53,6 +53,7 @@ public class EnemyManager : MonoBehaviour
         if (currentCount == 0 && gameManager != null)
         {
             breedingButton.SetActive(true);
+            
         }
     }
 

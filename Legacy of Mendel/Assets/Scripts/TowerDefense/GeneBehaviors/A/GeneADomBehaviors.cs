@@ -40,17 +40,8 @@ public class GeneADomBehaviors : MonoBehaviour, IAttackBehavior
         selfHP = GetComponent<HP>();
         levelManager = LevelManager.Instance;
         geneTypeAInfoSO = levelManager.addBehaviorsToTarget.geneTypeAInfo;
-
-        if (selfHP.objectType == ObjectType.Enemy)
-        {
-            targetTag = "Defender";
-            enemyController = GetComponent<EnemyController>();
-        }
-        else if (selfHP.objectType == ObjectType.Defender)
-        {
-            targetTag = "Enemy";
-            defenderController = GetComponent<DefenderController>();
-        }
+        enemyController = GetComponent<EnemyController>();
+        defenderController = GetComponent<DefenderController>();
 
         Collider[] colliders = GetComponents<Collider>();
         fireTriggerCollider = colliders[1];
@@ -102,24 +93,49 @@ public class GeneADomBehaviors : MonoBehaviour, IAttackBehavior
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.transform.gameObject.CompareTag(targetTag))
+        if (selfHP.objectType == ObjectType.Enemy)
         {
-            // If the target is not in the dictionary, initialize its last damage time
-            if (!lastDamageTimes.ContainsKey(other))
+            if (other.CompareTag("Base") || other.CompareTag("Defender"))
             {
-                DealInstantDamage(other.gameObject);
-                SetTargetOnfire(other.gameObject); 
-                lastDamageTimes[other] = Time.time;
-            }
+                // If the target is not in the dictionary, initialize its last damage time
+                if (!lastDamageTimes.ContainsKey(other))
+                {
+                    DealInstantDamage(other.gameObject);
+                    SetTargetOnfire(other.gameObject);
+                    lastDamageTimes[other] = Time.time;
+                }
 
-            // Check if enough time has passed to damage this specific target again
-            if (Time.time - lastDamageTimes[other] >= fireInterval)
-            {
-                DealInstantDamage(other.gameObject);
-                SetTargetOnfire(other.gameObject);
-                lastDamageTimes[other] = Time.time; // Update the last damage time for this target
+                // Check if enough time has passed to damage this specific target again
+                if (Time.time - lastDamageTimes[other] >= fireInterval)
+                {
+                    DealInstantDamage(other.gameObject);
+                    SetTargetOnfire(other.gameObject);
+                    lastDamageTimes[other] = Time.time; // Update the last damage time for this target
+                }
             }
         }
+        else if (selfHP.objectType == ObjectType.Defender)
+        {
+            if (other.CompareTag("Enemy"))
+            {
+                // If the target is not in the dictionary, initialize its last damage time
+                if (!lastDamageTimes.ContainsKey(other))
+                {
+                    DealInstantDamage(other.gameObject);
+                    SetTargetOnfire(other.gameObject);
+                    lastDamageTimes[other] = Time.time;
+                }
+
+                // Check if enough time has passed to damage this specific target again
+                if (Time.time - lastDamageTimes[other] >= fireInterval)
+                {
+                    DealInstantDamage(other.gameObject);
+                    SetTargetOnfire(other.gameObject);
+                    lastDamageTimes[other] = Time.time; // Update the last damage time for this target
+                }
+            }
+        }
+        
     }
 
     private void OnTriggerExit(Collider other)
