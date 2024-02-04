@@ -53,7 +53,7 @@ public class EnemyManager : MonoBehaviour
         if (currentCount == 0 && gameManager != null)
         {
             breedingButton.SetActive(true);
-            FindObjectOfType<BreedManager>().StartBreedingPhase(); // 启动培育阶段
+            
         }
     }
 

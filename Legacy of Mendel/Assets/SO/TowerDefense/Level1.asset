@@ -30,38 +30,4 @@ MonoBehaviour:
           maxLootCultureMedium: 10
           lootCultureMediumprobability: 0.46
       spawnLocation: 0
-      count: 5
-  - enemies:
-    - enemy:
-        enemyPrefab: {fileID: 2720892501919324486, guid: 023d495bf51dff54fa17989d33b5cd44, type: 3}
-        hp: 0
-        speed: 0
-        geneTypes: 03000000
-        enemyName: 
-        enemyImage: {fileID: 0}
-        lootGeneTypes:
-        - geneType: 2
-          probability: 0.67
-        lootCultureMedium:
-          minLootCultureMedium: 5
-          maxLootCultureMedium: 10
-          lootCultureMediumprobability: 0.746
-      spawnLocation: 1
-      count: 5
-  - enemies:
-    - enemy:
-        enemyPrefab: {fileID: 4117279205531356690, guid: ba95be07d27ee224488b7b3ff4417d12, type: 3}
-        hp: 1000
-        speed: 0
-        geneTypes: 0100000003000000
-        enemyName: 
-        enemyImage: {fileID: 0}
-        lootGeneTypes:
-        - geneType: 3
-          probability: 1
-        lootCultureMedium:
-          minLootCultureMedium: 5
-          maxLootCultureMedium: 10
-          lootCultureMediumprobability: 0.722
-      spawnLocation: 2
-      count: 2
+      count: 4

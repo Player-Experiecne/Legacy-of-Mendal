@@ -58,8 +58,10 @@ public class GameManager : MonoBehaviour
 
     public void EnterBreedingPhase()
     {
-        breedingUI.SetActive(true); // 显示培育界面
-        // 进入培育阶段的其他逻辑
+       
+        FindObjectOfType<BreedManager>().StartBreedingPhase(); // 启动培育阶段
+                                                               
+        breedingUI.SetActive(true);
     }
 
     public void ExitBreedingPhase()
