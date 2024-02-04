@@ -31,3 +31,20 @@ MonoBehaviour:
           lootCultureMediumprobability: 0.46
       spawnLocation: 0
       count: 4
+  - enemies:
+    - enemy:
+        enemyPrefab: {fileID: 2720892501919324486, guid: 023d495bf51dff54fa17989d33b5cd44, type: 3}
+        hp: 1000
+        speed: 0
+        geneTypes: 03000000
+        enemyName: 
+        enemyImage: {fileID: 0}
+        lootGeneTypes:
+        - geneType: 1
+          probability: 1
+        lootCultureMedium:
+          minLootCultureMedium: 5
+          maxLootCultureMedium: 10
+          lootCultureMediumprobability: 0.46
+      spawnLocation: 1
+      count: 4
