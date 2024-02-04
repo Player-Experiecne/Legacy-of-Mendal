@@ -18,11 +18,8 @@ MonoBehaviour:
     - enemy:
         enemyPrefab: {fileID: 4117279205531356690, guid: 42c2fb15637a49c4e81d8ab5d3c26d8f, type: 3}
         hp: 0
-        attackPower: 0
-        attackRange: 0
-        attackSpeed: 0
         speed: 0
-        geneTypes: 01000000
+        geneTypes: 
         enemyName: 
         enemyImage: {fileID: 0}
         lootGeneTypes: []
@@ -36,9 +33,6 @@ MonoBehaviour:
     - enemy:
         enemyPrefab: {fileID: 2720892501919324486, guid: 023d495bf51dff54fa17989d33b5cd44, type: 3}
         hp: 0
-        attackPower: 0
-        attackRange: 0
-        attackSpeed: 0
         speed: 0
         geneTypes: 03000000
         enemyName: 
