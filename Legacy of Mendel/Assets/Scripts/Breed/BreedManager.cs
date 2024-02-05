@@ -200,10 +200,10 @@ public class BreedManager : MonoBehaviour
             Defender newDefender = PerformFusion(selectedDefender,selectedGeneType);
             if (newDefender != null)
             {
-                // 假设你有一个方法来将新的Defender添加到玩家的库存中
+                
                 playerDefenderInventory.AddDefender(newDefender);
                 playerDefenderInventory.DecreaseDefenderCount(selectedDefender);
-                // 可能还需要一些UI更新逻辑来显示培育的结果
+               
                 //UpdateUIAfterBreeding(newDefender);
                 Debug.Log(newDefender);
             }
