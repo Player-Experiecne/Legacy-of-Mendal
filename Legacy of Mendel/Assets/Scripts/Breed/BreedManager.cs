@@ -133,8 +133,8 @@ public class BreedManager : MonoBehaviour
                 // 移除之前的监听器，防止重复添加
                 button.onClick.RemoveAllListeners();
 
-                // 添加监听器以改变选中状态
-                int index = i; // 避免闭包中的问题
+                
+                int index = i; 
                 button.onClick.AddListener(() => ToggleHighlight(slot, index));
             }
             else
@@ -202,6 +202,7 @@ public class BreedManager : MonoBehaviour
             {
                 // 假设你有一个方法来将新的Defender添加到玩家的库存中
                 playerDefenderInventory.AddDefender(newDefender);
+                playerDefenderInventory.DecreaseDefenderCount(selectedDefender);
                 // 可能还需要一些UI更新逻辑来显示培育的结果
                 //UpdateUIAfterBreeding(newDefender);
                 Debug.Log(newDefender);
@@ -209,8 +210,8 @@ public class BreedManager : MonoBehaviour
         }
         else
         {
-            // 如果没有选中的Defender或基因型，显示错误消息或反馈
-            //ShowBreedingErrorFeedback();
+          
+            
         }
     }
 

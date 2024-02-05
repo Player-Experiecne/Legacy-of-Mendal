@@ -21,7 +21,22 @@ public class PlayerDefenderInventory : ScriptableObject
             ownedDefenders.Add(new DefenderWithCount(defender, 1));
         }
     }
-
+    public void DecreaseDefenderCount(Defender defender)
+    {
+        foreach (var defenderWithCount in ownedDefenders)
+        {
+            if (defenderWithCount.defender == defender)
+            {
+                defenderWithCount.count--;
+                if (defenderWithCount.count <= 0)
+                {
+                    // 如果数量降至0或以下，从库存中移除Defender
+                    ownedDefenders.Remove(defenderWithCount);
+                }
+                break;
+            }
+        }
+    }
     // 添加一个辅助方法来比较两个基因型列表是否相等
     private bool AreGeneTypesEqual(List<GeneInfo.geneTypes> geneTypesA, List<GeneInfo.geneTypes> geneTypesB)
     {

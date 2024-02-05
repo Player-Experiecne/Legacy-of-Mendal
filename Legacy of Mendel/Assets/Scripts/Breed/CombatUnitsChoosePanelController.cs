@@ -30,11 +30,11 @@ public class CombatUnitsChoosePanelController : MonoBehaviour
         {
             combatUnitImages[i].sprite = playerDefenderInventory.ownedDefenders[i].defender.defenderImage;
             combatUnitImages[i].gameObject.SetActive(true);
-            int index = i; // 为了在闭包中正确引用循环变量
-            combatUnitImages[i].GetComponent<Button>().onClick.RemoveAllListeners(); // 防止重复添加监听器
+            int index = i; 
+            combatUnitImages[i].GetComponent<Button>().onClick.RemoveAllListeners(); 
             combatUnitImages[i].GetComponent<Button>().onClick.AddListener(() => {
-                ToggleSelection(index); // 切换选择状态
-                SelectDefender(index); // 选择 Defender
+                ToggleSelection(index); 
+                SelectDefender(index); 
             });
         }
 
@@ -72,7 +72,7 @@ public class CombatUnitsChoosePanelController : MonoBehaviour
         defenderDisplayImage.sprite = playerDefenderInventory.ownedDefenders[index].defender.defenderImage;
         BreedManager.Instance.SetSelectedDefender(playerDefenderInventory.ownedDefenders[index].defender);
     }
-    private void ConfirmSelection()
+    public void ConfirmSelection()
     {
         // 隐藏当前面板
         thisPanel.SetActive(false);
