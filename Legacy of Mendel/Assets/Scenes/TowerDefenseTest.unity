@@ -16597,18 +16597,6 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
-      propertyPath: defendersInBackpack.Array.data[0].attackPower
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
-      propertyPath: defendersInBackpack.Array.data[0].attackRange
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
-      propertyPath: defendersInBackpack.Array.data[0].attackSpeed
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
       propertyPath: defendersInBackpack.Array.data[0].defenderName
       value: CombatUnit
       objectReference: {fileID: 0}
@@ -16669,10 +16657,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3809667000576506164, guid: 5e39fa95fa472134996559029d5c2c6a, type: 3}
-      propertyPath: timeBetweenWaves
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 3809667000576506164, guid: 5e39fa95fa472134996559029d5c2c6a, type: 3}
       propertyPath: timeBetweenLevels
       value: 5
