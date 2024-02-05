@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 4223199394098878832}
   - component: {fileID: 6751792402955275309}
   - component: {fileID: 9119087789665166077}
-  - component: {fileID: -3052449604059745220}
+  - component: {fileID: 8228303845207848135}
   m_Layer: 0
   m_Name: CombatUnit
   m_TagString: Defender
@@ -432,7 +432,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alertRadius: 30
   targetEnemy: {fileID: 0}
+  attackPower: 1
   attackRange: 100
+  attackSpeed: 1
   isAttacking: 0
 --- !u!195 &6751792402955275309
 NavMeshAgent:
@@ -471,7 +473,7 @@ MonoBehaviour:
   objectType: 1
   maxHealth: 5000
   healthBarFill: {fileID: 8945085954051594950}
---- !u!114 &-3052449604059745220
+--- !u!114 &8228303845207848135
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -480,7 +482,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6630813155368031700}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd075a5aa9c853f4b806b426be8487eb, type: 3}
+  m_Script: {fileID: 11500000, guid: 3cdd0de5b9fb95a4abdc4be061b12680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   instantDamage: 10
