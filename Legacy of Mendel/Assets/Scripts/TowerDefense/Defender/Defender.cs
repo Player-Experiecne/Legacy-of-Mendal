@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Defender
 {
     public GameObject defenderPrefab;
+   
     [Header("Stats")]
     public float hp;
     public float attackPower;
@@ -17,4 +18,20 @@ public class Defender
     [Header("UI Info")]
     public string defenderName;
     public Sprite defenderImage;
+  
+    public Defender(Defender other)
+    {
+        this.defenderPrefab = other.defenderPrefab;
+        this.geneTypes = new List<GeneInfo.geneTypes>(other.geneTypes);
+        this.hp = other.hp;
+        this.attackPower = other.attackPower;
+        this.attackRange = other.attackRange;
+        this.attackSpeed = other.attackSpeed;
+        this.Speed = other.Speed;
+        this.defenderName = other.defenderName;
+        this.defenderImage = other.defenderImage;
+        
+
+    }
+
 }

@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectType: 1
-  maxHealth: 5000
+  maxHealth: 6000
   healthBarFill: {fileID: 8945085954051594950}
 --- !u!1001 &1568301888843190685
 PrefabInstance:

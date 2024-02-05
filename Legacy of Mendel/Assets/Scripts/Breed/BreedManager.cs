@@ -7,7 +7,9 @@ using UnityEngine.UI;
 public class BreedManager : MonoBehaviour
 {
     // UI 引用
-    
+    public static BreedManager Instance;
+
+    public List<GameObject> hiddenUIs;
     public List<GameObject> tissueSlots; 
     public TextMeshProUGUI tissueCountText; 
     public TextMeshProUGUI cultureMediumCountText; 
@@ -17,14 +19,36 @@ public class BreedManager : MonoBehaviour
     public GameObject analyzeUI;
     public TextMeshProUGUI geneTypeInfoText;
 
+    public Image defenderDisplayImage;
+    public GameObject chooseBreedDefendersPanel;
+    public PlayerDefenderInventory playerDefenderInventory;
+    public Defender selectedDefender;
+    public GeneInfo.geneTypes selectedGeneType;
+
     private GameObject selectedSlot = null;
+
+    public GeneLibrary geneLibrary;
+    public GeneLibraryDisplay geneLibraryDisplay;
 
     // 分页数据
     private List<GeneInfo.geneTypes> tissues; 
     private int itemsPerPage = 10; 
     private int currentPage = 0; 
-    private int totalPage; 
+    private int totalPage;
 
+    private void Awake()
+    {
+        
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); 
+        }
+        else
+        {
+            Destroy(gameObject); 
+        }
+    }
     void Start()
     {
         // 初始化按钮点击事件
@@ -39,6 +63,12 @@ public class BreedManager : MonoBehaviour
     public void StartBreedingPhase()
     {
         // 获取 LootBackpack 实例中的数据
+
+        foreach (GameObject uiElement in hiddenUIs)
+        {
+            uiElement.SetActive(false); 
+        }
+
         tissues = LootBackpack.Instance.lootGeneTypes;
         totalPage = Mathf.CeilToInt((float)tissues.Count / itemsPerPage);
         currentPage = 0; // 重置为第一页
@@ -48,6 +78,22 @@ public class BreedManager : MonoBehaviour
 
         
         
+    }
+    public void SetSelectedDefender(Defender defender)
+    {
+        selectedDefender = defender;
+    }
+
+    // 调用这个方法来设置选中的基因型
+    public void SetSelectedGeneType(GeneInfo.geneTypes geneType)
+    {
+        selectedGeneType = geneType;
+    }
+
+    public void PopUpChooseDefenderUI()
+    {
+        chooseBreedDefendersPanel.SetActive(true);
+
     }
     public void ClickAnalyzeChoose()
     {
@@ -146,7 +192,28 @@ public class BreedManager : MonoBehaviour
         }
     }
 
-    
+    public void OnBreedButtonClick()
+    {
+        if (selectedDefender != null && selectedGeneType != GeneInfo.geneTypes.Null)
+        {
+            // 执行融合逻辑
+            Defender newDefender = PerformFusion(selectedDefender,selectedGeneType);
+            if (newDefender != null)
+            {
+                // 假设你有一个方法来将新的Defender添加到玩家的库存中
+                playerDefenderInventory.AddDefender(newDefender);
+                // 可能还需要一些UI更新逻辑来显示培育的结果
+                //UpdateUIAfterBreeding(newDefender);
+                Debug.Log(newDefender);
+            }
+        }
+        else
+        {
+            // 如果没有选中的Defender或基因型，显示错误消息或反馈
+            //ShowBreedingErrorFeedback();
+        }
+    }
+
     public void PerformAnalysis()
     {
         if (selectedSlot != null)
@@ -158,7 +225,8 @@ public class BreedManager : MonoBehaviour
                 // 显示基因型信息
                 geneTypeInfoText.text = $"Selected Gene Type: {selectedGeneType}";
 
-               
+                UpdateGeneLibrary(selectedGeneType);
+
 
                 tissues.RemoveAt(index);
 
@@ -184,6 +252,25 @@ public class BreedManager : MonoBehaviour
         }
     }
 
+    private void UpdateGeneLibrary(GeneInfo.geneTypes geneType)
+    {
+        bool updated = false;
+        foreach (GeneTypeData geneData in geneLibrary.allGenes)
+        {
+            if (geneData.geneType == geneType && !geneData.isOwned)
+            {
+                geneData.isOwned = true; // 更新为拥有
+                updated = true;
+                break; // 退出循环，因为我们已经找到并更新了基因型
+            }
+        }
+
+        if (updated)
+        {
+            geneLibraryDisplay.RefreshDisplay(); // 更新基因库显示
+        }
+    }
+
     void CheckCurrentPage()
     {
         totalPage = Mathf.CeilToInt((float)tissues.Count / itemsPerPage);
@@ -198,32 +285,51 @@ public class BreedManager : MonoBehaviour
 
     public Defender PerformFusion(Defender defender, GeneInfo.geneTypes newGeneType)
     {
-        Defender newDefender = Instantiate(defender.defenderPrefab).GetComponent<Defender>();
-
-
-        if (newGeneType == GeneInfo.geneTypes.ADom ||
-            defender.geneTypes.Contains(GeneInfo.geneTypes.ADom))
+        if (selectedDefender != null && selectedGeneType != GeneInfo.geneTypes.Null)
         {
+            
+            Defender newDefender = new Defender(defender); 
 
-            newDefender.geneTypes.Add(GeneInfo.geneTypes.ADom);
+           
+            GeneInfo.geneTypes resultGeneType;
+
+            
+            if (newGeneType == GeneInfo.geneTypes.Null || defender.geneTypes[0] == GeneInfo.geneTypes.Null)
+            {
+               
+                resultGeneType = newGeneType == GeneInfo.geneTypes.Null ? defender.geneTypes[0] : newGeneType;
+            }
+            else if (newGeneType == GeneInfo.geneTypes.ADom || defender.geneTypes[0] == GeneInfo.geneTypes.ADom)
+            {
+                resultGeneType = GeneInfo.geneTypes.ADom;
+            }
+            else if (newGeneType == GeneInfo.geneTypes.AHet && defender.geneTypes[0] != GeneInfo.geneTypes.ADom)
+            {
+                resultGeneType = GeneInfo.geneTypes.AHet;
+            }
+            else if (newGeneType == GeneInfo.geneTypes.ARec && defender.geneTypes[0] != GeneInfo.geneTypes.ADom && defender.geneTypes[0] != GeneInfo.geneTypes.AHet)
+            {
+                resultGeneType = GeneInfo.geneTypes.ARec;
+            }
+            else
+            {
+               
+                resultGeneType = newGeneType; 
+            }
+
+            // 清除任何现有的基因型并添加确定的基因型
+            newDefender.geneTypes.Clear();
+            newDefender.geneTypes.Add(resultGeneType);
+
+            return newDefender;
         }
-        else if (newGeneType == GeneInfo.geneTypes.AHet &&
-                 !defender.geneTypes.Contains(GeneInfo.geneTypes.ADom))
-        {
-
-            newDefender.geneTypes.Add(GeneInfo.geneTypes.AHet);
-        }
-        else
-        {
-
-            newDefender.geneTypes.Add(GeneInfo.geneTypes.ARec);
-        }
-
-
-        return newDefender;
+        return null;
     }
+
+
     public void EndBreedingPhase()
     {
 
     }
+
 }

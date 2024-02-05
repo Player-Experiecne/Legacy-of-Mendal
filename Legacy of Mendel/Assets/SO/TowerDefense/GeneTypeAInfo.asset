@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   domStats:
     occurrencePossibility: 1
-    instantDamage: 50
-    dotDamage: 20
-    burnDuration: 5
+    instantDamage: 30
+    dotDamage: 5
+    burnDuration: 3
     burnTickInterval: 1
     firePrefab: {fileID: 1447435588197194, guid: 494a6613eb0ff0742a30c6d7f89cf854, type: 3}
     fireInterval: 2
@@ -34,9 +34,9 @@ MonoBehaviour:
     fireRange: 6
   recStats:
     occurrencePossibility: 1
-    instantDamage: 50
-    dotDamage: 20
-    burnDuration: 5
+    instantDamage: 30
+    dotDamage: 5
+    burnDuration: 3
     burnTickInterval: 1
     fireBallRate: 0.5
     fireBallRange: 20

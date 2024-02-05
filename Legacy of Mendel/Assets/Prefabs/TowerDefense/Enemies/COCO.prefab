@@ -289,7 +289,7 @@ MonoBehaviour:
   lootCultureMedium: 0
   attackPower: 100
   attackRange: 100
-  attackSpeed: 0.75
+  attackSpeed: 1
   isAttacking: 0
 --- !u!114 &3471691557685678129
 MonoBehaviour:
