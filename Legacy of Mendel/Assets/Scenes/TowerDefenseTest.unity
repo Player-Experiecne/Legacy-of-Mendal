@@ -21897,6 +21897,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 790299362}
     - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
       propertyPath: defendersInBackpack.Array.data[0].geneTypeA
       value: 0
       objectReference: {fileID: 0}
@@ -21921,16 +21925,36 @@ PrefabInstance:
       value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[3].attackPower
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[3].attackSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
       propertyPath: defendersInBackpack.Array.data[0].defenderName
-      value: CombatUnit
+      value: CombatUnit - Origin
       objectReference: {fileID: 0}
     - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
       propertyPath: defendersInBackpack.Array.data[1].defenderName
-      value: CombatUnitWithADom
+      value: Rumble
       objectReference: {fileID: 0}
     - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
       propertyPath: defendersInBackpack.Array.data[2].defenderName
-      value: CombatUnitWithARec
+      value: Powder
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[3].defenderName
+      value: Fuse
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[4].defenderName
+      value: Fuse
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[5].defenderName
+      value: Powder
       objectReference: {fileID: 0}
     - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
       propertyPath: defendersInBackpack.Array.data[1].defenderPrefab
@@ -21941,6 +21965,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6630813155368031700, guid: 122e52c4f3b789f4faf8cf69b591fd14, type: 3}
     - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[3].defenderPrefab
+      value: 
+      objectReference: {fileID: 5425126302590180676, guid: 6b584d5b4c3f10c408d7be4ebc5d22d6, type: 3}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[4].defenderPrefab
+      value: 
+      objectReference: {fileID: 5425126302590180676, guid: 6b584d5b4c3f10c408d7be4ebc5d22d6, type: 3}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[5].defenderPrefab
+      value: 
+      objectReference: {fileID: 5425126302590180676, guid: 6b584d5b4c3f10c408d7be4ebc5d22d6, type: 3}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
       propertyPath: defendersInBackpack.Array.data[0].geneTypes.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -21950,6 +21986,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
       propertyPath: defendersInBackpack.Array.data[2].geneTypes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[3].geneTypes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[4].geneTypes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[5].geneTypes.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
@@ -21971,6 +22019,18 @@ PrefabInstance:
     - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
       propertyPath: defendersInBackpack.Array.data[2].geneTypes.Array.data[0]
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[3].geneTypes.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[4].geneTypes.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[5].geneTypes.Array.data[0]
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}

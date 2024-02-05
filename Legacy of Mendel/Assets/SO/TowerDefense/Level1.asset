@@ -17,14 +17,14 @@ MonoBehaviour:
   - enemies:
     - enemy:
         enemyPrefab: {fileID: 4117279205531356690, guid: 42c2fb15637a49c4e81d8ab5d3c26d8f, type: 3}
-        hp: 300
+        hp: 0
         speed: 0
         geneTypes: 01000000
         enemyName: 
         enemyImage: {fileID: 0}
         lootGeneTypes:
         - geneType: 1
-          probability: 1
+          probability: 0.2
         lootCultureMedium:
           minLootCultureMedium: 5
           maxLootCultureMedium: 10
@@ -33,14 +33,14 @@ MonoBehaviour:
       count: 4
     - enemy:
         enemyPrefab: {fileID: 2720892501919324486, guid: 023d495bf51dff54fa17989d33b5cd44, type: 3}
-        hp: 300
+        hp: 0
         speed: 0
         geneTypes: 03000000
         enemyName: 
         enemyImage: {fileID: 0}
         lootGeneTypes:
-        - geneType: 1
-          probability: 1
+        - geneType: 3
+          probability: 0.1
         lootCultureMedium:
           minLootCultureMedium: 5
           maxLootCultureMedium: 10
@@ -50,14 +50,14 @@ MonoBehaviour:
   - enemies:
     - enemy:
         enemyPrefab: {fileID: 4117279205531356690, guid: 42c2fb15637a49c4e81d8ab5d3c26d8f, type: 3}
-        hp: 300
+        hp: 0
         speed: 0
         geneTypes: 01000000
         enemyName: 
         enemyImage: {fileID: 0}
         lootGeneTypes:
         - geneType: 1
-          probability: 1
+          probability: 0.2
         lootCultureMedium:
           minLootCultureMedium: 5
           maxLootCultureMedium: 10
@@ -66,14 +66,14 @@ MonoBehaviour:
       count: 6
     - enemy:
         enemyPrefab: {fileID: 2720892501919324486, guid: 023d495bf51dff54fa17989d33b5cd44, type: 3}
-        hp: 300
+        hp: 0
         speed: 0
         geneTypes: 03000000
         enemyName: 
         enemyImage: {fileID: 0}
         lootGeneTypes:
-        - geneType: 1
-          probability: 1
+        - geneType: 3
+          probability: 0.1
         lootCultureMedium:
           minLootCultureMedium: 5
           maxLootCultureMedium: 10
@@ -83,19 +83,70 @@ MonoBehaviour:
   - enemies:
     - enemy:
         enemyPrefab: {fileID: 4117279205531356690, guid: ba95be07d27ee224488b7b3ff4417d12, type: 3}
-        hp: 300
+        hp: 0
         speed: 0
         geneTypes: 0100000003000000
         enemyName: 
         enemyImage: {fileID: 0}
         lootGeneTypes:
         - geneType: 1
-          probability: 0.5
+          probability: 0.15
         - geneType: 3
-          probability: 0.5
+          probability: 0.15
         lootCultureMedium:
           minLootCultureMedium: 5
           maxLootCultureMedium: 10
           lootCultureMediumprobability: 0.46
       spawnLocation: 2
       count: 1
+  - enemies:
+    - enemy:
+        enemyPrefab: {fileID: 4117279205531356690, guid: 42c2fb15637a49c4e81d8ab5d3c26d8f, type: 3}
+        hp: 0
+        speed: 0
+        geneTypes: 01000000
+        enemyName: 
+        enemyImage: {fileID: 0}
+        lootGeneTypes:
+        - geneType: 3
+          probability: 0.2
+        lootCultureMedium:
+          minLootCultureMedium: 5
+          maxLootCultureMedium: 10
+          lootCultureMediumprobability: 0.46
+      spawnLocation: 2
+      count: 4
+  - enemies:
+    - enemy:
+        enemyPrefab: {fileID: 2720892501919324486, guid: 023d495bf51dff54fa17989d33b5cd44, type: 3}
+        hp: 0
+        speed: 0
+        geneTypes: 03000000
+        enemyName: 
+        enemyImage: {fileID: 0}
+        lootGeneTypes:
+        - geneType: 3
+          probability: 0.1
+        lootCultureMedium:
+          minLootCultureMedium: 5
+          maxLootCultureMedium: 10
+          lootCultureMediumprobability: 0.46
+      spawnLocation: 1
+      count: 4
+  - enemies:
+    - enemy:
+        enemyPrefab: {fileID: 2720892501919324486, guid: 023d495bf51dff54fa17989d33b5cd44, type: 3}
+        hp: 0
+        speed: 0
+        geneTypes: 03000000
+        enemyName: 
+        enemyImage: {fileID: 0}
+        lootGeneTypes:
+        - geneType: 3
+          probability: 0.1
+        lootCultureMedium:
+          minLootCultureMedium: 5
+          maxLootCultureMedium: 10
+          lootCultureMediumprobability: 0.46
+      spawnLocation: 2
+      count: 3

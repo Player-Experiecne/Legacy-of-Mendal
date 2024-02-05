@@ -51,9 +51,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4223199394098878832, guid: 56c34ae7c6c68eb4bb93a1285231e9fa, type: 3}
+      propertyPath: attackRange
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6630813155368031700, guid: 56c34ae7c6c68eb4bb93a1285231e9fa, type: 3}
       propertyPath: m_Name
-      value: CombatUnitWithAHec
+      value: CombatUnitWithAHet
+      objectReference: {fileID: 0}
+    - target: {fileID: 9119087789665166077, guid: 56c34ae7c6c68eb4bb93a1285231e9fa, type: 3}
+      propertyPath: maxHealth
+      value: 3000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56c34ae7c6c68eb4bb93a1285231e9fa, type: 3}
