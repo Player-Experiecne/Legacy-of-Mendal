@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static HP;
 
 public class FireBall : MonoBehaviour
 {
-    public ObjectType objectType;
+    public HP.ObjectType objectType;
     
     public GameObject fireBallTarget;
     public float speed = 20f;
