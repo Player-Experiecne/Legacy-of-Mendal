@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allGenes:
   - geneType: 1
-    isOwned: 1
+    isOwned: 0
     name: AA
   - geneType: 2
-    isOwned: 1
+    isOwned: 0
     name: Aa
   - geneType: 3
     isOwned: 0

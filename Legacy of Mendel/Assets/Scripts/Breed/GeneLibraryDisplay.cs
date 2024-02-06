@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
 using System.Text;
@@ -12,9 +12,15 @@ public class GeneLibraryDisplay : MonoBehaviour
 
     private void Start()
     {
+        geneLibrary.OnGeneLibraryUpdated += RefreshDisplay;
         RefreshDisplay();
+    
+}
+    void OnDestroy()
+    {
+        // 确保当对象被销毁时取消订阅事件
+        geneLibrary.OnGeneLibraryUpdated -= RefreshDisplay;
     }
-
     public void RefreshDisplay()
     {
         itemsPerPage = Mathf.CeilToInt((float)geneLibrary.allGenes.Count / geneListTexts.Count);

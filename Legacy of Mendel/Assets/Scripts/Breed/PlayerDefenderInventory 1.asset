@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ownedDefenders:
   - defender:
-      defenderPrefab: {fileID: 919132149155446097, guid: 41121ad646354284fab62de038be9264, type: 3}
+      defenderPrefab: {fileID: 6630813155368031700, guid: cc12a6b52daf4eb4eaff28ec4132b85b, type: 3}
       hp: 0
       attackPower: 0
       attackRange: 0
@@ -23,7 +23,7 @@ MonoBehaviour:
       geneTypes: 00000000
       defenderName: 
       defenderImage: {fileID: 21300000, guid: 5b33ee6c443485244870eb4bfe564ab6, type: 3}
-    count: 2
+    count: 10
   - defender:
       defenderPrefab: {fileID: 6630813155368031700, guid: 56c34ae7c6c68eb4bb93a1285231e9fa, type: 3}
       hp: 0
@@ -34,7 +34,7 @@ MonoBehaviour:
       geneTypes: 01000000
       defenderName: 
       defenderImage: {fileID: 21300000, guid: 9ccf62b24c6d13944bb4941d370cfffd, type: 3}
-    count: 3
+    count: 1
   - defender:
       defenderPrefab: {fileID: 5425126302590180676, guid: 6b584d5b4c3f10c408d7be4ebc5d22d6, type: 3}
       hp: 0
