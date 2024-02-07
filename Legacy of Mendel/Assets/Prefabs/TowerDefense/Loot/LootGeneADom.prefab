@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 103009230089768822}
   - component: {fileID: 9135743367504732090}
   - component: {fileID: 7922375680803103106}
-  - component: {fileID: -3748696848717786268}
+  - component: {fileID: 4490502049446947925}
   m_Layer: 0
-  m_Name: LootGeneARec
-  m_TagString: Untagged
+  m_Name: LootGeneADom
+  m_TagString: Loot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,7 +98,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-3748696848717786268
+--- !u!114 &4490502049446947925
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,4 +110,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3771c49a57962d649ac4250d93e6b20a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lootType: 3
+  lootType: 1

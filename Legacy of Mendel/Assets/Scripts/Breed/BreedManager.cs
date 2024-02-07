@@ -212,6 +212,8 @@ public class BreedManager : MonoBehaviour
                     {
                         // 如果找到匹配的基因型，展示对应Defender的图像
                         breedResultImage.sprite = defenderInLibrary.defenderImage;
+                        newDefender.defenderPrefab = defenderInLibrary.defenderPrefab;
+                        newDefender.defenderName = defenderInLibrary.defenderName;
                         break; // 找到匹配后退出循环
                     }
                 }
