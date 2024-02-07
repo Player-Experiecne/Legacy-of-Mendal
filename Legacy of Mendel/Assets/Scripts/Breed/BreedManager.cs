@@ -243,7 +243,20 @@ public class BreedManager : MonoBehaviour
             {
                 GeneInfo.geneTypes selectedGeneType = tissues[index];
                 // 显示基因型信息
-                geneTypeInfoText.text = $"Selected Gene Type: {selectedGeneType}";
+                //geneTypeInfoText.text = $"Selected Gene Type: {selectedGeneType}";
+
+                switch (selectedGeneType)
+                {
+                    case GeneInfo.geneTypes.ADom:
+                        geneTypeInfoText.text = $"Selected Gene Type: AA";
+                        break;
+                    case GeneInfo.geneTypes.AHet:
+                        geneTypeInfoText.text = $"Selected Gene Type: Aa";
+                        break;
+                    case GeneInfo.geneTypes.ARec:
+                        geneTypeInfoText.text = $"Selected Gene Type: aa";
+                        break;
+                }
 
                 UpdateGeneLibrary(selectedGeneType);
 
