@@ -23,7 +23,7 @@ MonoBehaviour:
       geneTypes: 01000000
       defenderName: 
       defenderImage: {fileID: 21300000, guid: 9ccf62b24c6d13944bb4941d370cfffd, type: 3}
-    count: 8
+    count: 9
   - defender:
       defenderPrefab: {fileID: 5425126302590180676, guid: 6b584d5b4c3f10c408d7be4ebc5d22d6, type: 3}
       hp: 0
@@ -34,7 +34,7 @@ MonoBehaviour:
       geneTypes: 02000000
       defenderName: 
       defenderImage: {fileID: 21300000, guid: 3de3b624d0e44f443bdbc3ec3f41a618, type: 3}
-    count: 3
+    count: 4
   - defender:
       defenderPrefab: {fileID: 6630813155368031700, guid: 122e52c4f3b789f4faf8cf69b591fd14, type: 3}
       hp: 0
@@ -45,15 +45,4 @@ MonoBehaviour:
       geneTypes: 03000000
       defenderName: 
       defenderImage: {fileID: 21300000, guid: 152a3f1ce81218b44a2471053986c21b, type: 3}
-    count: 5
-  - defender:
-      defenderPrefab: {fileID: 6630813155368031700, guid: cc12a6b52daf4eb4eaff28ec4132b85b, type: 3}
-      hp: 0
-      attackPower: 0
-      attackRange: 0
-      attackSpeed: 0
-      Speed: 0
-      geneTypes: 00000000
-      defenderName: 
-      defenderImage: {fileID: 21300000, guid: 5b33ee6c443485244870eb4bfe564ab6, type: 3}
-    count: 5
+    count: 31

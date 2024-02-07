@@ -223,6 +223,7 @@ public class BreedManager : MonoBehaviour
                
                 //UpdateUIAfterBreeding(newDefender);
                 Debug.Log(newDefender.geneTypes);
+                ResetBreedingUI();
             }
           
         }
@@ -412,5 +413,23 @@ public class BreedManager : MonoBehaviour
     {
 
     }
+
+    public void ResetBreedingUI()
+    {
+        // 清空展示培育结果的Image
+        breedResultImage.sprite = null;
+
+        // 重置Dropdown到默认选项
+        geneDropdownPopulator.ResetToDefaultOption();
+
+        // 隐藏选择Defender的面板
+        chooseBreedDefendersPanel.SetActive(false);
+
+        defenderDisplayImage.sprite = null;
+
+
+
+    }
+
 
 }

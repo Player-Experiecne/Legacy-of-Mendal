@@ -11,13 +11,31 @@ public class CombatUnitsPanelController : MonoBehaviour
     public GameObject tooltipPrefab; // 提示框的Prefab
 
     private GameObject currentTooltip;
-
+    private int lastInventoryCount = -1;
     private void Start()
     {
-        PopulateCombatUnitImages();
+        RefreshDisplay();
     }
 
+    void Update()
+    {
+        // 检查库存数量是否有变化
+        if (playerDefenderInventory.ownedDefenders.Count != lastInventoryCount)
+        {
+            RefreshDisplay(); // 如果有变化，更新显示
+            lastInventoryCount = playerDefenderInventory.ownedDefenders.Count; // 更新最后的库存数量，以便下次检查
+        }
+    }
 
+    public void RefreshDisplay()
+    {
+        foreach (var image in combatUnitImages)
+        {
+            image.gameObject.SetActive(false); // 先隐藏所有图像
+        }
+
+        PopulateCombatUnitImages(); // 再填充图像
+    }
     private void PopulateCombatUnitImages()
     {
         int count = Mathf.Min(playerDefenderInventory.ownedDefenders.Count, combatUnitImages.Count);

@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [CreateAssetMenu(fileName = "PlayerDefenderInventory", menuName = "Game Data/Player Defender Inventory")]
 public class PlayerDefenderInventory : ScriptableObject
 {
     public List<DefenderWithCount> ownedDefenders;
+    public event Action OnInventoryUpdated;
     public void AddDefender(Defender defender)
     {
         // 查找是否已经拥有具有相同基因型的 Defender
@@ -20,6 +22,7 @@ public class PlayerDefenderInventory : ScriptableObject
             // 如果还没有，则添加新的 DefenderWithCount 到列表中
             ownedDefenders.Add(new DefenderWithCount(defender, 1));
         }
+        OnInventoryUpdated?.Invoke();
     }
     public void DecreaseDefenderCount(Defender defender)
     {
@@ -32,6 +35,7 @@ public class PlayerDefenderInventory : ScriptableObject
                 {
                     // 如果数量降至0或以下，从库存中移除Defender
                     ownedDefenders.Remove(defenderWithCount);
+                    OnInventoryUpdated?.Invoke();
                 }
                 break;
             }

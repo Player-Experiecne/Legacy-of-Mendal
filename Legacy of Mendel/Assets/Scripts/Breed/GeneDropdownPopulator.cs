@@ -48,4 +48,11 @@ public class GeneDropdownPopulator : MonoBehaviour
         GeneInfo.geneTypes selectedGeneType = dropdownGeneTypes[index];
         BreedManager.Instance.SetSelectedGeneType(selectedGeneType);
     }
+
+    public void ResetToDefaultOption()
+    {
+        geneDropdown.value = 0; 
+        geneDropdown.RefreshShownValue(); 
+    }
+
 }
