@@ -76,7 +76,7 @@ public class LevelManager : MonoBehaviour
 
         yield return new WaitForSeconds(timeBetweenLevels);
         currentLevelIndex++;
-        LoadNextLevel();
+        
     }
 
 

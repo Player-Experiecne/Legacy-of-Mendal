@@ -40,6 +40,15 @@ public class GameManager : MonoBehaviour
         
     }
 
+    void DestroyAllWithTag(string tag)
+    {
+        GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag(tag);
+        foreach (GameObject obj in objectsWithTag)
+        {
+            Destroy(obj);
+        }
+    }
+
     /*private void CheckLevelCompletion()
     {
         if (currentLevelIndex != levelManager.CurrentLevelIndex)
@@ -62,7 +71,13 @@ public class GameManager : MonoBehaviour
         FindObjectOfType<BreedManager>().StartBreedingPhase(); // 启动培育阶段
                                                                
         breedingUI.SetActive(true);
+
+        DestroyAllWithTag("Loot");
+
+        DestroyAllWithTag("Defender");
     }
+
+
 
     public void ExitBreedingPhase()
     {
