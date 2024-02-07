@@ -3686,6 +3686,7 @@ MonoBehaviour:
   backpack: {fileID: 349323934}
   breedingUI: {fileID: 340869218}
   playerDefenderInventory: {fileID: 11400000, guid: 51f706db03873354ebba85327d50c556, type: 2}
+  breedManager: {fileID: 1602117987}
 --- !u!4 &370199335
 Transform:
   m_ObjectHideFlags: 0

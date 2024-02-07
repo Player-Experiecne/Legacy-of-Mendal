@@ -35,17 +35,3 @@ MonoBehaviour:
           lootCultureMediumprobability: 0.6
       spawnLocation: 0
       count: 2
-    - enemy:
-        enemyPrefab: {fileID: 0}
-        hp: 0
-        speed: 0
-        geneTypes: 
-        enemyName: 
-        enemyImage: {fileID: 0}
-        lootGeneTypes: []
-        lootCultureMedium:
-          minLootCultureMedium: 0
-          maxLootCultureMedium: 0
-          lootCultureMediumprobability: 0
-      spawnLocation: 0
-      count: 0
