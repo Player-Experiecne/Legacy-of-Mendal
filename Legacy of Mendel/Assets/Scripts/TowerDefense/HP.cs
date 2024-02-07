@@ -15,7 +15,8 @@ public class HP : MonoBehaviour
     }
 
     public float maxHealth = 100;
-    private float currentHealth;
+    [HideInInspector]
+    public float currentHealth;
     public Image healthBarFill;
 
     LootManager lootManager;
@@ -44,13 +45,13 @@ public class HP : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         UpdateHealthBar();
 
-        if (currentHealth == 0)
+        if (currentHealth <= 0)
         {
             Die();
         }
     }
 
-    void UpdateHealthBar()
+    public void UpdateHealthBar()
     {
         healthBarFill.fillAmount = currentHealth / maxHealth;
     }
@@ -69,6 +70,13 @@ public class HP : MonoBehaviour
                 Destroy(gameObject);
                 break;
             case ObjectType.Base:
+                GameManager.Instance.callOnButton();
+                GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Enemy");
+                foreach (GameObject obj in objectsWithTag)
+                {
+                    Destroy(obj);
+                }
+                gameObject.SetActive(false);
                 Debug.Log("Game Over");
                 break;
         }

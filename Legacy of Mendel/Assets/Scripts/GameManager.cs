@@ -7,7 +7,15 @@ public class GameManager : MonoBehaviour
     public LevelManager levelManager;
     public LootBackpack lootBackpack;
 
+    public ActionBackpack backpack;
+
     public GameObject breedingUI; // 培育界面的UI对象
+    public GameObject breedingButton;
+    public PlayerDefenderInventory playerDefenderInventory;
+
+    public BreedManager breedManager;
+
+    public GameObject mendelBase;
 
     private int currentLevelIndex = 0;
 
@@ -32,12 +40,21 @@ public class GameManager : MonoBehaviour
             breedingUI.SetActive(false);
         }
 
-      
+
     }
 
     void Update()
     {
-        
+
+    }
+
+    void DestroyAllWithTag(string tag)
+    {
+        GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag(tag);
+        foreach (GameObject obj in objectsWithTag)
+        {
+            Destroy(obj);
+        }
     }
 
     /*private void CheckLevelCompletion()
@@ -55,18 +72,41 @@ public class GameManager : MonoBehaviour
             }
         }
     }*/
-
+    public void callOnButton()
+    {
+        breedingButton.SetActive(true);
+    }
     public void EnterBreedingPhase()
     {
-       
+
         FindObjectOfType<BreedManager>().StartBreedingPhase(); // 启动培育阶段
-                                                               
+
         breedingUI.SetActive(true);
+
+        DestroyAllWithTag("Loot");
+
+        DestroyAllWithTag("Defender");
+
+        //backpack.ClearBackpack();
     }
+
+
 
     public void ExitBreedingPhase()
     {
         breedingUI.SetActive(false); // 隐藏培育界面
+        foreach (GameObject uiElement in breedManager.hiddenUIs)
+        {
+            uiElement.SetActive(true);
+        }
+
+        mendelBase.SetActive(true);
+        HP hp = mendelBase.GetComponent<HP>();
+        hp.currentHealth = hp.maxHealth;
+        hp.UpdateHealthBar();
+
         levelManager.LoadNextLevel(); // 加载下一关
+        breedingButton.SetActive(false);
+        //backpack.AddDefendersFromInventory(playerDefenderInventory);
     }
 }
