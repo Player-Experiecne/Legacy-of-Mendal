@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class ActionBackpack : MonoBehaviour
 {
+    public static ActionBackpack Instance;
+
     public List<Defender> defendersInBackpack = new List<Defender>();
     [HideInInspector] public Defender activeDefender = null;
     public ActionBackpackUI ui;
@@ -15,7 +17,18 @@ public class ActionBackpack : MonoBehaviour
             ui.RefreshUI();
         }
     }
-
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
     public void AddDefendersFromInventory(PlayerDefenderInventory inventory)
     {
         foreach (var defenderWithCount in inventory.ownedDefenders)

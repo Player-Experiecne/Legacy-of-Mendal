@@ -3683,7 +3683,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelManager: {fileID: 3809667000675142747}
   lootBackpack: {fileID: 1359530009}
+  backpack: {fileID: 349323934}
   breedingUI: {fileID: 340869218}
+  playerDefenderInventory: {fileID: 11400000, guid: 51f706db03873354ebba85327d50c556, type: 2}
 --- !u!4 &370199335
 Transform:
   m_ObjectHideFlags: 0
