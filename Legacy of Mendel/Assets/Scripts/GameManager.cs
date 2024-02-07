@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
 
     public PlayerDefenderInventory playerDefenderInventory;
 
+    public BreedManager breedManager;
+
     private int currentLevelIndex = 0;
 
     private void Awake()
@@ -88,6 +90,10 @@ public class GameManager : MonoBehaviour
     public void ExitBreedingPhase()
     {
         breedingUI.SetActive(false); // 隐藏培育界面
+        foreach (GameObject uiElement in breedManager.hiddenUIs)
+        {
+            uiElement.SetActive(true);
+        }
         levelManager.LoadNextLevel(); // 加载下一关
         backpack.AddDefendersFromInventory(playerDefenderInventory);
     }

@@ -47,7 +47,7 @@ public class LevelManager : MonoBehaviour
         if (currentLevelIndex < gameLevels.Count)
         {
             Level currentLevel = gameLevels[currentLevelIndex];
-            Debug.Log("Starting Level: " + currentLevel.LevelName);
+            Debug.Log("Starting Level: " + currentLevelIndex.ToString());
 
             StartCoroutine(SpawnWaves(currentLevel.Waves));
         }
@@ -74,7 +74,7 @@ public class LevelManager : MonoBehaviour
             yield return coroutine;
         }
 
-        yield return new WaitForSeconds(timeBetweenLevels);
+        yield return null;
         currentLevelIndex++;
         
     }

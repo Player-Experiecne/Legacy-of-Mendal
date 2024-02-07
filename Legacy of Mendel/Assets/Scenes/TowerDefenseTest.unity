@@ -12695,7 +12695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 237230275}
-  lootGeneTypes: 
+  lootGeneTypes: 010000000200000003000000
   geneTypeCountsList: []
   lootCultureMedium: 0
 --- !u!1 &1377540839
@@ -22519,7 +22519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3809667000576506164, guid: 5e39fa95fa472134996559029d5c2c6a, type: 3}
       propertyPath: gameLevels.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3809667000576506164, guid: 5e39fa95fa472134996559029d5c2c6a, type: 3}
       propertyPath: spawnPoints.Array.size
