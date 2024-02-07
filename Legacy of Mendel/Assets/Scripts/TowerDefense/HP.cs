@@ -44,7 +44,7 @@ public class HP : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         UpdateHealthBar();
 
-        if (currentHealth == 0)
+        if (currentHealth <= 0)
         {
             Die();
         }
@@ -69,6 +69,7 @@ public class HP : MonoBehaviour
                 Destroy(gameObject);
                 break;
             case ObjectType.Base:
+                GameManager.Instance.EnterBreedingPhase();
                 Debug.Log("Game Over");
                 break;
         }
