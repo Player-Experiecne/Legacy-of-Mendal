@@ -11,11 +11,10 @@ public class ActionBackpack : MonoBehaviour
 
     public void AddDefenderToBackpack(Defender defender)
     {
-        if (!defendersInBackpack.Contains(defender))
-        {
+        
             defendersInBackpack.Add(defender);
             ui.RefreshUI();
-        }
+        
     }
     private void Awake()
     {
