@@ -16780,7 +16780,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Breed Machine
+  m_text: 'Breeding
 
 '
   m_isRightToLeft: 0
