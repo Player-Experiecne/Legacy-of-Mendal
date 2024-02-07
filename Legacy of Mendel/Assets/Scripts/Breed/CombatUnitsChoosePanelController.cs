@@ -1,13 +1,18 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CombatUnitsChoosePanelController : MonoBehaviour
 {
     public static BreedManager Instance;
+   
     
+
     public PlayerDefenderInventory playerDefenderInventory;
     public List<Image> combatUnitImages;
+    
+
     public Image defenderDisplayImage;
     public Button confirmButton; 
     public GameObject thisPanel;
@@ -32,8 +37,44 @@ public class CombatUnitsChoosePanelController : MonoBehaviour
             RefreshDisplay(); // 如果有变化，更新显示
             lastInventoryCount = playerDefenderInventory.ownedDefenders.Count; // 更新最后的库存数量，以便下次检查
         }
+        if (HasInventoryCountChanged())
+        {
+            UpdateDefenderDisplays();
+        }
     }
 
+    private bool HasInventoryCountChanged()
+    {
+        // 这个方法检查每个defender的数量是否有变化
+        // 如果是，则返回true，否则返回false
+        for (int i = 0; i < playerDefenderInventory.ownedDefenders.Count; i++)
+        {
+            if (playerDefenderInventory.ownedDefenders[i].count != lastInventoryCount)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void UpdateDefenderDisplays()
+    {
+        for (int i = 0; i < playerDefenderInventory.ownedDefenders.Count; i++)
+        {
+            Transform countTextTransform = combatUnitImages[i].transform.Find("CountText");
+            if (countTextTransform != null)
+            {
+                TextMeshProUGUI countTextComponent = countTextTransform.GetComponent<TextMeshProUGUI>();
+                if (countTextComponent != null)
+                {
+                    // 更新数量显示
+                    countTextComponent.text = "Count: " + playerDefenderInventory.ownedDefenders[i].count.ToString();
+                }
+            }
+        }
+        // 更新最后的库存计数
+        lastInventoryCount = playerDefenderInventory.ownedDefenders.Count;
+    }
     public void RefreshDisplay()
     {
         foreach (var image in combatUnitImages)
@@ -51,6 +92,25 @@ public class CombatUnitsChoosePanelController : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             combatUnitImages[i].sprite = playerDefenderInventory.ownedDefenders[i].defender.defenderImage;
+            Transform nameTextTransform = combatUnitImages[i].transform.Find("NameText");
+            if (nameTextTransform != null)
+            {
+                TextMeshProUGUI nameTextComponent = nameTextTransform.GetComponent<TextMeshProUGUI>();
+                if (nameTextComponent != null)
+                {
+                    nameTextComponent.text = "Name: " + playerDefenderInventory.ownedDefenders[i].defender.defenderName;
+                }
+            }
+
+            Transform countTextTransform = combatUnitImages[i].transform.Find("CountText");
+            if (countTextTransform != null)
+            {
+                TextMeshProUGUI countTextComponent = countTextTransform.GetComponent<TextMeshProUGUI>();
+                if (countTextComponent != null)
+                {
+                    countTextComponent.text = "Count: " + playerDefenderInventory.ownedDefenders[i].count.ToString();
+                }
+            }
             combatUnitImages[i].gameObject.SetActive(true);
             int index = i; 
             combatUnitImages[i].GetComponent<Button>().onClick.RemoveAllListeners(); 
@@ -106,6 +166,12 @@ public class CombatUnitsChoosePanelController : MonoBehaviour
         thisPanel.SetActive(false);
       
         
+    }
+
+    public void ClosePanel()
+    {
+        thisPanel.SetActive(false);
+
     }
 }
 

@@ -17,7 +17,9 @@ public class BreedManager : MonoBehaviour
     public List<GameObject> hiddenUIs;
     public List<GameObject> tissueSlots; 
     public TextMeshProUGUI tissueCountText; 
-    public TextMeshProUGUI cultureMediumCountText; 
+    public TextMeshProUGUI cultureMediumCountText;
+
+    public TextMeshProUGUI breedResult;
     public Button nextPageButton; 
     public Button previousPageButton; 
     public Sprite tissueSprite;
@@ -223,6 +225,7 @@ public class BreedManager : MonoBehaviour
                
                 //UpdateUIAfterBreeding(newDefender);
                 Debug.Log(newDefender.geneTypes);
+                breedResult.text ="You have got defender: " + newDefender.defenderName.ToString();
                 ResetBreedingUI();
             }
           
@@ -467,6 +470,7 @@ public class BreedManager : MonoBehaviour
         chooseBreedDefendersPanel.SetActive(false);
 
         defenderDisplayImage.sprite = null;
+
 
 
 

@@ -21,7 +21,7 @@ MonoBehaviour:
       attackSpeed: 0
       Speed: 0
       geneTypes: 01000000
-      defenderName: 
+      defenderName: Rumble
       defenderImage: {fileID: 21300000, guid: 9ccf62b24c6d13944bb4941d370cfffd, type: 3}
     count: 9
   - defender:
@@ -32,7 +32,7 @@ MonoBehaviour:
       attackSpeed: 0
       Speed: 0
       geneTypes: 02000000
-      defenderName: 
+      defenderName: Fuse
       defenderImage: {fileID: 21300000, guid: 3de3b624d0e44f443bdbc3ec3f41a618, type: 3}
     count: 4
   - defender:
@@ -43,6 +43,6 @@ MonoBehaviour:
       attackSpeed: 0
       Speed: 0
       geneTypes: 03000000
-      defenderName: 
+      defenderName: Powder
       defenderImage: {fileID: 21300000, guid: 152a3f1ce81218b44a2471053986c21b, type: 3}
     count: 31

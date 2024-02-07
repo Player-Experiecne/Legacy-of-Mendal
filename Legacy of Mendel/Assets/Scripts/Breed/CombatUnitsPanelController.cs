@@ -8,7 +8,7 @@ public class CombatUnitsPanelController : MonoBehaviour
 {
     public PlayerDefenderInventory playerDefenderInventory;
     public List<Image> combatUnitImages;
-    public GameObject tooltipPrefab; // 提示框的Prefab
+   
 
     private GameObject currentTooltip;
     private int lastInventoryCount = -1;
@@ -25,8 +25,23 @@ public class CombatUnitsPanelController : MonoBehaviour
             RefreshDisplay(); // 如果有变化，更新显示
             lastInventoryCount = playerDefenderInventory.ownedDefenders.Count; // 更新最后的库存数量，以便下次检查
         }
+        if (HasInventoryCountChanged())
+        {
+            UpdateDefenderDisplays();
+        }
     }
-
+    private bool HasInventoryCountChanged()
+    {
+        
+        for (int i = 0; i < playerDefenderInventory.ownedDefenders.Count; i++)
+        {
+            if (playerDefenderInventory.ownedDefenders[i].count != lastInventoryCount)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     public void RefreshDisplay()
     {
         foreach (var image in combatUnitImages)
@@ -36,6 +51,25 @@ public class CombatUnitsPanelController : MonoBehaviour
 
         PopulateCombatUnitImages(); // 再填充图像
     }
+
+    private void UpdateDefenderDisplays()
+    {
+        for (int i = 0; i < playerDefenderInventory.ownedDefenders.Count; i++)
+        {
+            Transform countTextTransform = combatUnitImages[i].transform.Find("CountText");
+            if (countTextTransform != null)
+            {
+                TextMeshProUGUI countTextComponent = countTextTransform.GetComponent<TextMeshProUGUI>();
+                if (countTextComponent != null)
+                {
+                    // 更新数量显示
+                    countTextComponent.text = "Count: " + playerDefenderInventory.ownedDefenders[i].count.ToString();
+                }
+            }
+        }
+        // 更新最后的库存计数
+        lastInventoryCount = playerDefenderInventory.ownedDefenders.Count;
+    }
     private void PopulateCombatUnitImages()
     {
         int count = Mathf.Min(playerDefenderInventory.ownedDefenders.Count, combatUnitImages.Count);
@@ -43,10 +77,30 @@ public class CombatUnitsPanelController : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             combatUnitImages[i].sprite = playerDefenderInventory.ownedDefenders[i].defender.defenderImage;
+
+            Transform nameTextTransform = combatUnitImages[i].transform.Find("NameText"); 
+            if (nameTextTransform != null)
+            {
+                TextMeshProUGUI nameTextComponent = nameTextTransform.GetComponent<TextMeshProUGUI>();
+                if (nameTextComponent != null)
+                {
+                    nameTextComponent.text = "Name: "+ playerDefenderInventory.ownedDefenders[i].defender.defenderName;
+                }
+            }
+
+            Transform countTextTransform = combatUnitImages[i].transform.Find("CountText"); 
+            if (countTextTransform != null)
+            {
+                TextMeshProUGUI countTextComponent = countTextTransform.GetComponent<TextMeshProUGUI>();
+                if (countTextComponent != null)
+                {
+                    countTextComponent.text = "Count: "+playerDefenderInventory.ownedDefenders[i].count.ToString();
+                }
+            }
             combatUnitImages[i].gameObject.SetActive(true);
 
             // 为每个Image添加EventTrigger监听
-            AddEventTrigger(combatUnitImages[i].gameObject, i);
+            //AddEventTrigger(combatUnitImages[i].gameObject, i);
         }
 
         for (int i = count; i < combatUnitImages.Count; i++)
@@ -55,40 +109,7 @@ public class CombatUnitsPanelController : MonoBehaviour
         }
     }
 
-    private void AddEventTrigger(GameObject imageGameObject, int index)
-    {
-        EventTrigger trigger = imageGameObject.GetComponent<EventTrigger>() ?? imageGameObject.AddComponent<EventTrigger>();
+    
 
-        // 悬停进入
-        EventTrigger.Entry entryEnter = new EventTrigger.Entry();
-        entryEnter.eventID = EventTriggerType.PointerEnter;
-        entryEnter.callback.AddListener((data) => { ShowTooltip(index); });
-        trigger.triggers.Add(entryEnter);
-
-        // 悬停退出
-        EventTrigger.Entry entryExit = new EventTrigger.Entry();
-        entryExit.eventID = EventTriggerType.PointerExit;
-        entryExit.callback.AddListener((data) => { HideTooltip(); });
-        trigger.triggers.Add(entryExit);
-    }
-
-    private void ShowTooltip(int index)
-    {
-        if (currentTooltip != null) Destroy(currentTooltip);
-
-        currentTooltip = Instantiate(tooltipPrefab, transform);
-       
-        TextMeshProUGUI tooltipText = currentTooltip.GetComponentInChildren<TextMeshProUGUI>();
-        tooltipText.text = $"Count: {playerDefenderInventory.ownedDefenders[index].count}";
-
-        // 调整提示框位置，稍微偏离鼠标位置防止遮挡
-        Vector3 mousePosition = Input.mousePosition;
-        //mousePosition += new Vector3(10, -10, 0); // 例如向右下角偏移
-        currentTooltip.transform.position = mousePosition;
-    }
-
-    private void HideTooltip()
-    {
-        Destroy(currentTooltip);
-    }
+   
 }
