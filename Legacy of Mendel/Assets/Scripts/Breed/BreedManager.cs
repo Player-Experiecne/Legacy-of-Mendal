@@ -212,24 +212,13 @@ public class BreedManager : MonoBehaviour
                     {
                         // 如果找到匹配的基因型，展示对应Defender的图像
                         breedResultImage.sprite = defenderInLibrary.defenderImage;
-                        newDefender.defenderImage = defenderInLibrary.defenderImage;
                         newDefender.defenderPrefab = defenderInLibrary.defenderPrefab;
                         newDefender.defenderName = defenderInLibrary.defenderName;
+                        newDefender.defenderImage = defenderInLibrary.defenderImage;
                         break; // 找到匹配后退出循环
                     }
                 }
-                Debug.Log(newDefender.geneTypes[0]);
-                var existingEntry = playerDefenderInventory.ownedDefenders.Find(entry => AreGeneTypesEqual(entry.defender.geneTypes, newDefender.geneTypes));
-                if (existingEntry != null)
-                {
-                    // 如果已经拥有，则数量加一
-                    existingEntry.count += 1;
-                }
-                else
-                {
-                    // 如果还没有，则添加新的DefenderWithCount到列表中
-                    playerDefenderInventory.ownedDefenders.Add(new DefenderWithCount(newDefender, 1));
-                }
+                playerDefenderInventory.AddDefender(newDefender);
                 playerDefenderInventory.DecreaseDefenderCount(selectedDefender);
                
                 //UpdateUIAfterBreeding(newDefender);
@@ -244,11 +233,6 @@ public class BreedManager : MonoBehaviour
         }
     }
 
-    private bool AreGeneTypesEqual(List<GeneInfo.geneTypes> geneTypesA, List<GeneInfo.geneTypes> geneTypesB)
-    {
-        // 因为基因型长度都是1，所以可以直接比较
-        return geneTypesA.Count == geneTypesB.Count && geneTypesA[0] == geneTypesB[0];
-    }
     public void PerformAnalysis()
     {
         if (selectedSlot != null)
