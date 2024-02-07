@@ -372,7 +372,8 @@ public class BreedManager : MonoBehaviour
 
             // 根据孟德尔遗传定律来确定新的基因型
             GeneInfo.geneTypes resultGeneType = MendelianInheritance(defender.geneTypes[0], newGeneType);
-
+            Debug.Log("----------------------------------------");
+            Debug.Log(resultGeneType.ToString());
             // 清除任何现有的基因型并设置新的基因型
             newDefender.geneTypes.Clear();
             newDefender.geneTypes.Add(resultGeneType);
@@ -392,27 +393,54 @@ public class BreedManager : MonoBehaviour
         // 根据组合添加可能的结果
         if (geneType1 == GeneInfo.geneTypes.AHet && geneType2 == GeneInfo.geneTypes.AHet)
         {
-            // Aa + Aa 的情况，有1/4的几率是ADom, 1/2的几率是AHet, 1/4的几率是ARec
-            possibleOutcomes.Add(GeneInfo.geneTypes.ADom);
+            // Aa + Aa 的情况
+            possibleOutcomes.Add(GeneInfo.geneTypes.ADom); // ADom的几率为25%
+            possibleOutcomes.Add(GeneInfo.geneTypes.AHet); // AHet的几率为50%
             possibleOutcomes.Add(GeneInfo.geneTypes.AHet);
-            possibleOutcomes.Add(GeneInfo.geneTypes.AHet);
-            possibleOutcomes.Add(GeneInfo.geneTypes.ARec);
+            possibleOutcomes.Add(GeneInfo.geneTypes.ARec); // ARec的几率为25%
         }
-        else if (geneType1 == GeneInfo.geneTypes.AHet && geneType2 == GeneInfo.geneTypes.ARec || geneType1 == GeneInfo.geneTypes.ARec && geneType2 == GeneInfo.geneTypes.AHet)
+        else if ((geneType1 == GeneInfo.geneTypes.ADom && geneType2 == GeneInfo.geneTypes.AHet) ||
+                 (geneType1 == GeneInfo.geneTypes.AHet && geneType2 == GeneInfo.geneTypes.ADom))
         {
-            // Aa + aa 或 aa + Aa 的情况，有1/2的几率是AHet, 1/2的几率是ARec
-            possibleOutcomes.Add(GeneInfo.geneTypes.AHet);
-            possibleOutcomes.Add(GeneInfo.geneTypes.ARec);
+            // AA + Aa 或 Aa + AA 的情况，有50%的几率是ADom (AA)，50%的几率是AHet (Aa)
+            possibleOutcomes.Add(GeneInfo.geneTypes.ADom); // ADom
+            possibleOutcomes.Add(GeneInfo.geneTypes.AHet); // AHet
         }
-        else
+        else if (geneType1 == GeneInfo.geneTypes.AHet && geneType2 == GeneInfo.geneTypes.ARec ||
+                 geneType1 == GeneInfo.geneTypes.ARec && geneType2 == GeneInfo.geneTypes.AHet)
         {
-            // 其他组合情况下，结果是确定的
-            possibleOutcomes.Add(geneType1 == GeneInfo.geneTypes.ADom || geneType2 == GeneInfo.geneTypes.ADom ? GeneInfo.geneTypes.ADom : geneType1 == GeneInfo.geneTypes.ARec && geneType2 == GeneInfo.geneTypes.ARec ? GeneInfo.geneTypes.ARec : GeneInfo.geneTypes.AHet);
+            // Aa + aa 或 aa + Aa 的情况，有50%的几率是AHet, 50%的几率是ARec
+            possibleOutcomes.Add(GeneInfo.geneTypes.AHet); // AHet
+            possibleOutcomes.Add(GeneInfo.geneTypes.ARec); // ARec
         }
+        else if ((geneType1 == GeneInfo.geneTypes.ADom && geneType2 == GeneInfo.geneTypes.ARec) ||
+        (geneType1 == GeneInfo.geneTypes.ARec && geneType2 == GeneInfo.geneTypes.ADom))
+        {
+            // 这种组合下，后代必定是杂合子Aa
+            return GeneInfo.geneTypes.AHet;
+            
+        }
+        else if (geneType1 == GeneInfo.geneTypes.ADom && geneType2 == GeneInfo.geneTypes.ADom)
+        {
+            // AA + AA 的组合，后代必定是ADom
+            return GeneInfo.geneTypes.ADom;
+        }
+        else if (geneType1 == GeneInfo.geneTypes.ARec && geneType2 == GeneInfo.geneTypes.ARec)
+        {
+            // aa + aa 的组合，后代必定是ARec
+            return GeneInfo.geneTypes.ARec;
+        }
+
 
         // 随机选择一个可能的结果
         int index = Random.Range(0, possibleOutcomes.Count);
+
+        /*Debug.Log("--------------------");
+        Debug.Log(possibleOutcomes[index]);
+        Debug.Log("----------------------------------------");*/
         return possibleOutcomes[index];
+
+       
     }
 
 
@@ -430,7 +458,7 @@ public class BreedManager : MonoBehaviour
     public void ResetBreedingUI()
     {
         // 清空展示培育结果的Image
-        breedResultImage.sprite = null;
+        //breedResultImage.sprite = null;
 
         // 重置Dropdown到默认选项
         geneDropdownPopulator.ResetToDefaultOption();
