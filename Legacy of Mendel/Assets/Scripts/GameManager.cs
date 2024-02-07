@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
 
     public BreedManager breedManager;
 
+    public GameObject mendelBase;
+
     private int currentLevelIndex = 0;
 
     private void Awake()
@@ -97,6 +99,12 @@ public class GameManager : MonoBehaviour
         {
             uiElement.SetActive(true);
         }
+        
+        mendelBase.SetActive(true);
+        HP hp = mendelBase.GetComponent<HP>();
+        hp.currentHealth = hp.maxHealth;
+        hp.UpdateHealthBar();
+
         levelManager.LoadNextLevel(); // 加载下一关
         breedingButton.SetActive(false);
         backpack.AddDefendersFromInventory(playerDefenderInventory);

@@ -15,7 +15,8 @@ public class HP : MonoBehaviour
     }
 
     public float maxHealth = 100;
-    private float currentHealth;
+    [HideInInspector]
+    public float currentHealth;
     public Image healthBarFill;
 
     LootManager lootManager;
@@ -50,7 +51,7 @@ public class HP : MonoBehaviour
         }
     }
 
-    void UpdateHealthBar()
+    public void UpdateHealthBar()
     {
         healthBarFill.fillAmount = currentHealth / maxHealth;
     }
@@ -75,6 +76,7 @@ public class HP : MonoBehaviour
                 {
                     Destroy(obj);
                 }
+                gameObject.SetActive(false);
                 Debug.Log("Game Over");
                 break;
         }
