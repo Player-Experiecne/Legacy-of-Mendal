@@ -16,6 +16,12 @@ public class LevelManager : MonoBehaviour
     public float timeBetweenLevels = 30f;
     public float timeBetweenEnemies = 0.5f;
 
+    private bool levelCompleted = true; 
+
+    public bool LevelCompleted 
+    {
+        get { return levelCompleted; }
+    }
     public AddBehaviorsToTarget addBehaviorsToTarget;
 
     private int currentLevelIndex = 0;
@@ -47,8 +53,8 @@ public class LevelManager : MonoBehaviour
         if (currentLevelIndex < gameLevels.Count)
         {
             Level currentLevel = gameLevels[currentLevelIndex];
-            Debug.Log("Starting Level: " + currentLevelIndex.ToString());
-
+            Debug.Log("Starting Level: " + currentLevel.LevelName);
+            levelCompleted = false; 
             StartCoroutine(SpawnWaves(currentLevel.Waves));
         }
         else
@@ -76,7 +82,8 @@ public class LevelManager : MonoBehaviour
 
         yield return null;
         currentLevelIndex++;
-        
+        levelCompleted = true; 
+
     }
 
 
