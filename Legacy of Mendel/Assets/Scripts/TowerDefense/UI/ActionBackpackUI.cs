@@ -32,6 +32,8 @@ public class ActionBackpackUI : MonoBehaviour
         {
             GameObject btn = Instantiate(defenderButtonPrefab, transform);
             btn.GetComponentInChildren<TextMeshProUGUI>().text = defender.defenderName;
+            Image buttonImage = btn.GetComponentsInChildren<Image>()[1];
+            buttonImage.sprite = defender.defenderImage;
             Button buttonComponent = btn.GetComponent<Button>();
             buttonComponent.onClick.AddListener(() => OnDefenderSelected(defender, index));
 
