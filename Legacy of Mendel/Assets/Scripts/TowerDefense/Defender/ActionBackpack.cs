@@ -16,6 +16,17 @@ public class ActionBackpack : MonoBehaviour
         }
     }
 
+    public void AddDefendersFromInventory(PlayerDefenderInventory inventory)
+    {
+        foreach (var defenderWithCount in inventory.ownedDefenders)
+        {
+            for (int i = 0; i < defenderWithCount.count; i++)
+            {
+                AddDefenderToBackpack(defenderWithCount.defender);
+            }
+        }
+    }
+
     public void RemoveDefenderFromBackpack(Defender defender)
     {
         if (defendersInBackpack.Contains(defender))
@@ -37,5 +48,18 @@ public class ActionBackpack : MonoBehaviour
             ui.RefreshUI();
         }
     }
+
+    public void ClearBackpack()
+    {
+        
+        defendersInBackpack.Clear();
+
+        
+        activeDefender = null;
+
+      
+        ui.RefreshUI();
+    }
+
 
 }

@@ -7,7 +7,11 @@ public class GameManager : MonoBehaviour
     public LevelManager levelManager;
     public LootBackpack lootBackpack;
 
+    public ActionBackpack backpack;
+
     public GameObject breedingUI; // 培育界面的UI对象
+
+    public PlayerDefenderInventory playerDefenderInventory;
 
     private int currentLevelIndex = 0;
 
@@ -75,6 +79,8 @@ public class GameManager : MonoBehaviour
         DestroyAllWithTag("Loot");
 
         DestroyAllWithTag("Defender");
+
+        backpack.ClearBackpack();
     }
 
 
@@ -83,5 +89,6 @@ public class GameManager : MonoBehaviour
     {
         breedingUI.SetActive(false); // 隐藏培育界面
         levelManager.LoadNextLevel(); // 加载下一关
+        backpack.AddDefendersFromInventory(playerDefenderInventory);
     }
 }
