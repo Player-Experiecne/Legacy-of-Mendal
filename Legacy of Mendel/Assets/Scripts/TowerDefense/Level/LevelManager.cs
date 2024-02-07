@@ -52,6 +52,7 @@ public class LevelManager : MonoBehaviour
     {
         if (currentLevelIndex < gameLevels.Count)
         {
+            EnemyManager.Instance.ResetEnemyCount();
             Level currentLevel = gameLevels[currentLevelIndex];
             Debug.Log("Starting Level: " + currentLevel.LevelName);
             levelCompleted = false; 
@@ -82,6 +83,7 @@ public class LevelManager : MonoBehaviour
 
         yield return null;
         currentLevelIndex++;
+        
         levelCompleted = true; 
 
     }

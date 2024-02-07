@@ -69,7 +69,12 @@ public class HP : MonoBehaviour
                 Destroy(gameObject);
                 break;
             case ObjectType.Base:
-                GameManager.Instance.EnterBreedingPhase();
+                GameManager.Instance.callOnButton();
+                GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Enemy");
+                foreach (GameObject obj in objectsWithTag)
+                {
+                    Destroy(obj);
+                }
                 Debug.Log("Game Over");
                 break;
         }

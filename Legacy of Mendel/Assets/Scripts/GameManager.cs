@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public ActionBackpack backpack;
 
     public GameObject breedingUI; // 培育界面的UI对象
-
+    public GameObject breedingButton;
     public PlayerDefenderInventory playerDefenderInventory;
 
     public BreedManager breedManager;
@@ -70,7 +70,10 @@ public class GameManager : MonoBehaviour
             }
         }
     }*/
-
+    public void callOnButton()
+    {
+        breedingButton.SetActive(true);
+    }
     public void EnterBreedingPhase()
     {
        
@@ -95,6 +98,7 @@ public class GameManager : MonoBehaviour
             uiElement.SetActive(true);
         }
         levelManager.LoadNextLevel(); // 加载下一关
+        breedingButton.SetActive(false);
         backpack.AddDefendersFromInventory(playerDefenderInventory);
     }
 }

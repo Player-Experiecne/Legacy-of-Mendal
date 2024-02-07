@@ -32,9 +32,13 @@ public class EnemyManager : MonoBehaviour
     private void Start()
     {
         breedingButton.SetActive(false);
+        
     }
     public void RegisterEnemy(GameObject enemy)
     {
+        
+        
+       
         enemies.Add(enemy);
 
         totalCount++;
@@ -56,7 +60,13 @@ public class EnemyManager : MonoBehaviour
             
         }
     }
-
+    public void ResetEnemyCount()
+    {
+        currentCount = 0;
+        totalCount = 0;
+        enemies.Clear(); 
+        RefreshUI();
+    }
 
     private void RefreshUI()
     {
