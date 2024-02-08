@@ -45,4 +45,4 @@ MonoBehaviour:
       geneTypes: 03000000
       defenderName: Powder
       defenderImage: {fileID: 21300000, guid: 152a3f1ce81218b44a2471053986c21b, type: 3}
-    count: 1
+    count: 2
