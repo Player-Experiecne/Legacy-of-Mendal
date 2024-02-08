@@ -10,7 +10,7 @@ public class EnemyManager : MonoBehaviour
 
     public List<GameObject> enemies = new List<GameObject>();
 
-    public GameObject breedingButton;
+    public GameObject nextLevelButton;
 
     public TextMeshProUGUI text;
     private int currentCount = 0;
@@ -31,7 +31,7 @@ public class EnemyManager : MonoBehaviour
     }
     private void Start()
     {
-        breedingButton.SetActive(false);
+        nextLevelButton.SetActive(false);
     }
     public void RegisterEnemy(GameObject enemy)
     {
@@ -52,7 +52,7 @@ public class EnemyManager : MonoBehaviour
         // 如果当前没有敌人通知 GameManager 更改状态
         if (currentCount == 0 && gameManager != null)
         {
-            breedingButton.SetActive(true);
+            nextLevelButton.SetActive(true);
             
         }
     }

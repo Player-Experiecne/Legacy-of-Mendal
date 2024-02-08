@@ -3382,7 +3382,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &340869219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3683,7 +3683,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelManager: {fileID: 3809667000675142747}
   lootBackpack: {fileID: 1359530009}
+  backpack: {fileID: 349323934}
   breedingUI: {fileID: 340869218}
+  breedingButton: {fileID: 1801627660}
+  playerDefenderInventory: {fileID: 11400000, guid: 51f706db03873354ebba85327d50c556, type: 2}
+  breedManager: {fileID: 0}
+  mendelBase: {fileID: 287406543}
 --- !u!4 &370199335
 Transform:
   m_ObjectHideFlags: 0
@@ -17789,7 +17794,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1801627661
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19609,7 +19614,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enter Breeding
+  m_text: Try Again!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -22345,7 +22350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3809667000576506164, guid: 5e39fa95fa472134996559029d5c2c6a, type: 3}
       propertyPath: gameLevels.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3809667000576506164, guid: 5e39fa95fa472134996559029d5c2c6a, type: 3}
       propertyPath: spawnPoints.Array.size
@@ -22860,6 +22865,10 @@ PrefabInstance:
       objectReference: {fileID: 370199334}
     - target: {fileID: 8538407943484124065, guid: eb7396e55948da34a92b953e44308dfe, type: 3}
       propertyPath: breedingButton
+      value: 
+      objectReference: {fileID: 1801627660}
+    - target: {fileID: 8538407943484124065, guid: eb7396e55948da34a92b953e44308dfe, type: 3}
+      propertyPath: nextLevelButton
       value: 
       objectReference: {fileID: 1801627660}
     - target: {fileID: 8538407943484124094, guid: eb7396e55948da34a92b953e44308dfe, type: 3}
