@@ -8,6 +8,8 @@ TagManager:
   - Base
   - Defender
   - Environment
+  - Undefined
+  - Loot
   layers:
   - Default
   - TransparentFX

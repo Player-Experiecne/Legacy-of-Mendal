@@ -94,7 +94,8 @@ public class GameManager : MonoBehaviour
         hp.UpdateHealthBar();
 
         levelManager.LoadNextLevel(); // 加载下一关
-       
+        backpack.AddDefendersFromInventory(playerDefenderInventory);
+
     }
 
 
