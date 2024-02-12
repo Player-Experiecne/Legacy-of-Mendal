@@ -19307,11 +19307,6 @@ MonoBehaviour:
   playerDefenderInventory: {fileID: 11400000, guid: 51f706db03873354ebba85327d50c556, type: 2}
   selectedDefender:
     defenderPrefab: {fileID: 0}
-    hp: 0
-    attackPower: 0
-    attackRange: 0
-    attackSpeed: 0
-    Speed: 0
     geneTypes: 
     defenderName: 
     defenderImage: {fileID: 0}
@@ -28097,7 +28092,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 483014084941238124, guid: e4b9a12d88b0c924cb7ba896e806c6b0, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 483014084941238125, guid: e4b9a12d88b0c924cb7ba896e806c6b0, type: 3}
       propertyPath: m_UseGravity
