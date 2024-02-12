@@ -7,12 +7,12 @@ public class Defender
 {
     public GameObject defenderPrefab;
    
-    [Header("Stats")]
+    /*[Header("Stats")]
     public float hp;
     public float attackPower;
     public float attackRange;
     public float attackSpeed;
-    public float Speed;
+    public float Speed;*/
     [Header("GeneTypes")]
     public List<GeneInfo.geneTypes> geneTypes;
     [Header("UI Info")]
@@ -23,11 +23,11 @@ public class Defender
     {
         this.defenderPrefab = other.defenderPrefab;
         this.geneTypes = new List<GeneInfo.geneTypes>(other.geneTypes);
-        this.hp = other.hp;
+        /*this.hp = other.hp;
         this.attackPower = other.attackPower;
         this.attackRange = other.attackRange;
         this.attackSpeed = other.attackSpeed;
-        this.Speed = other.Speed;
+        this.Speed = other.Speed;*/
         this.defenderName = other.defenderName;
         this.defenderImage = other.defenderImage;
         

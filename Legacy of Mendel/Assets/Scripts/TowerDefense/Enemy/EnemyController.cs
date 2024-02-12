@@ -9,18 +9,18 @@ public class EnemyController : MonoBehaviour
 
     private NavMeshAgent agent;
 
-    public float alertRadius = 10f;
+    public float alertRadius = 30f;
 
     private GameObject Mendelbase;
-    public GameObject targetDefender;
+    [HideInInspector] public GameObject targetDefender;
 
-    public List<GeneInfo.geneTypes> lootGeneTypes;
-    public int lootCultureMedium;
+    [HideInInspector] public List<GeneInfo.geneTypes> lootGeneTypes;
+    [HideInInspector] public int lootCultureMedium;
 
-    public float attackPower = 1f;
+    /*public float attackPower = 1f;
+    public float attackSpeed = 1f;*/
     public float attackRange = 100f;
-    public float attackSpeed = 1f;
-    public bool isAttacking = false;
+    [HideInInspector] public bool isAttacking = false;
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -112,7 +112,7 @@ public class EnemyController : MonoBehaviour
         }*/
     }
 
-    private IEnumerator AttackRoutine(GameObject target)
+    /*private IEnumerator AttackRoutine(GameObject target)
     {
         isAttacking = true;
 
@@ -128,7 +128,7 @@ public class EnemyController : MonoBehaviour
         }
 
         isAttacking = false;
-    }
+    }*/
 
     private void MoveTowardsTarget(GameObject target) 
     {

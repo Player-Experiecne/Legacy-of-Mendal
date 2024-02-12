@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 4117279205531356694}
   - component: {fileID: 4117279205531356695}
   - component: {fileID: 3471691557685678129}
+  - component: {fileID: 2274005742135845421}
   m_Layer: 0
   m_Name: COCO
   m_TagString: Enemy
@@ -305,7 +306,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectType: 0
   maxHealth: 300
+  currentHealth: 0
   healthBarFill: {fileID: 4843540739000023023}
+--- !u!114 &2274005742135845421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4117279205531356690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 626cc49f858906742817e63f394cdb9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instantDamage: 30
+  dotDamage: 5
+  burnDuration: 3
+  burnTickInterval: 1
+  fireInterval: 2
+  fireDuration: 1
+  fireRange: 5
 --- !u!1 &4117279207176148897
 GameObject:
   m_ObjectHideFlags: 0

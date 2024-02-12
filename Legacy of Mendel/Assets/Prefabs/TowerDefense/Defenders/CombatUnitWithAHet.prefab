@@ -63,5 +63,30 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 3000
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5811857302842741059, guid: 56c34ae7c6c68eb4bb93a1285231e9fa, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 56c34ae7c6c68eb4bb93a1285231e9fa, type: 3}
+--- !u!1 &5425126302590180676 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6630813155368031700, guid: 56c34ae7c6c68eb4bb93a1285231e9fa, type: 3}
+  m_PrefabInstance: {fileID: 1678869378574502032}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3794793526101149012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5425126302590180676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20cef63cefb59ec45b042bbb2989a0ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instantDamage: 30
+  dotDamage: 5
+  burnDuration: 3
+  burnTickInterval: 1
+  fireInterval: 2
+  fireDuration: 1
+  fireRange: 10

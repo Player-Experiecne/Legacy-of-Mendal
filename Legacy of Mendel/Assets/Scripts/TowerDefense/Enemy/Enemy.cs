@@ -6,14 +6,14 @@ using UnityEngine.UI;
 public class Enemy
 {
     public GameObject enemyPrefab;
-    [Header("Stats")]
+    /*[Header("Stats")]
     public float hp;
-    /*public float attackPower;
+    public float attackPower;
     public float attackRange;
-    public float attackSpeed;*/
+    public float attackSpeed;
     public float speed;
     [Header("GeneTypes")]
-    public List<GeneInfo.geneTypes> geneTypes;
+    public List<GeneInfo.geneTypes> geneTypes;*/
     [HideInInspector]
     public string enemyName;
     [HideInInspector]

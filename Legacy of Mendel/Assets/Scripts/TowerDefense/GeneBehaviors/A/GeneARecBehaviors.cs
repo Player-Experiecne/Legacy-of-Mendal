@@ -7,15 +7,15 @@ public class GeneARecBehaviors : MonoBehaviour, IAttackBehavior
     public float AttackRange => fireBallRange - 5f;
 
     //Damage Settings
-    private float instantDamage;    // Instant damage applied upon touch.
-    private float dotDamage;         // Damage over time applied while burning.
-    private float burnDuration;      // Duration of the burn effect.
-    private float burnTickInterval;  // Time interval between damage ticks while burning.
+    public float instantDamage = 30f;    // Instant damage applied upon touch.
+    public float dotDamage = 5f;         // Damage over time applied while burning.
+    public float burnDuration = 3f;      // Duration of the burn effect.
+    public float burnTickInterval = 1f;  // Time interval between damage ticks while burning.
 
     //Fire Ball
-    private float fireBallInterval;
-    private float fireBallRange;
-    private float explosionRange;
+    public float fireBallInterval = 1f;
+    public float fireBallRange = 20f;
+    public float explosionRange = 5f;
     private GameObject firePoint;
     private GameObject fireBallPrefab;
     private GameObject fireBallPrefabForEnemies; // Declare a public GameObject for the fire prefab
@@ -47,13 +47,13 @@ public class GeneARecBehaviors : MonoBehaviour, IAttackBehavior
         }
 
         //get stats
-        instantDamage = geneTypeAInfoSO.recStats.instantDamage;
+        /*instantDamage = geneTypeAInfoSO.recStats.instantDamage;
         dotDamage = geneTypeAInfoSO.recStats.dotDamage;
         burnDuration = geneTypeAInfoSO.recStats.burnDuration;
         burnTickInterval = geneTypeAInfoSO.recStats.burnTickInterval;
         fireBallInterval = geneTypeAInfoSO.recStats.fireBallInterval;
         fireBallRange = geneTypeAInfoSO.recStats.fireBallRange;
-        explosionRange = geneTypeAInfoSO.recStats.explosionRange;
+        explosionRange = geneTypeAInfoSO.recStats.explosionRange;*/
         fireBallPrefabForEnemies = geneTypeAInfoSO.recStats.fireBallPrefabForEnemies;
         fireBallPrefabForDefenders = geneTypeAInfoSO.recStats.fireBallPrefabForDefenders;
         firePoint = transform.GetChild(0).gameObject;

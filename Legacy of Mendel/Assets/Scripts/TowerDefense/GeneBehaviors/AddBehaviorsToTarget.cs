@@ -6,12 +6,31 @@ public class AddBehaviorsToTarget : MonoBehaviour
 {
     [SerializeField] public GeneTypeAInfoSO geneTypeAInfo;
     
-    public void AddGeneBehaviors(GameObject target, List<GeneInfo.geneTypes> geneTypes, bool defenderOrNot)
+    public void AddGeneBehaviors(GameObject target, List<GeneInfo.geneTypes> geneTypes)
     {
-        float randomValue = Random.Range(0f, 1f); // Generate a random float between 0 and 1
-        float occurrencePossibility = 0; // Default to 0
+        foreach (GeneInfo.geneTypes geneType in geneTypes)
+        {
+            switch (geneType)
+            {
+                case GeneInfo.geneTypes.ADom:
+                    target.AddComponent<GeneADomBehaviors>();
+                    break;
+                case GeneInfo.geneTypes.AHet:
+                    target.AddComponent<GeneAHetBehaviors>();
+                    break;
+                case GeneInfo.geneTypes.ARec:
+                    target.AddComponent<GeneARecBehaviors>();
+                    break;
+                default:
+                    // No gene A behavior attached for 'None'
+                    break;
+            }
+        }
+        //float randomValue = Random.Range(0f, 1f); // Generate a random float between 0 and 1
+        //float occurrencePossibility = 0; // Default to 0
 
-        foreach(GeneInfo.geneTypes geneType in geneTypes)
+        //Add behaviors according to object types and possibility
+        /*foreach(GeneInfo.geneTypes geneType in geneTypes)
         {
             if (defenderOrNot)
             {
@@ -61,7 +80,7 @@ public class AddBehaviorsToTarget : MonoBehaviour
                         break;
                 }
             }
-        }
-        
+        }*/
+
     }
 }

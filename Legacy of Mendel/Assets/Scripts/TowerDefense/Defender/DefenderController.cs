@@ -11,12 +11,12 @@ public class DefenderController : MonoBehaviour
     public float alertRadius = 10f;
 
     private GameObject defendPoint; // The location the defender should defend when not engaging enemies.
-    public GameObject targetEnemy;
+    [HideInInspector] public GameObject targetEnemy;
 
-    public float attackPower = 1f;
+    /*public float attackPower = 1f;
+    public float attackSpeed = 1f;*/
     public float attackRange = 100f;
-    public float attackSpeed = 1f;
-    public bool isAttacking = false;
+    [HideInInspector] public bool isAttacking = false;
 
     private void Start()
     {
@@ -96,12 +96,12 @@ public class DefenderController : MonoBehaviour
         targetEnemy = closestEnemy;
     }
 
-    private void Attack(GameObject target)
+    /*private void Attack(GameObject target)
     {
         /*if (!isAttacking)
         {
             StartCoroutine(AttackRoutine(target));
-        }*/
+        }
     }
 
     private IEnumerator AttackRoutine(GameObject target)
@@ -121,7 +121,7 @@ public class DefenderController : MonoBehaviour
         }
 
         isAttacking = false;
-    }
+    }*/
 
     private void MoveTowardsTarget(GameObject target)
     {

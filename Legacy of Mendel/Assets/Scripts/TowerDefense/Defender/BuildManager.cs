@@ -45,8 +45,7 @@ public class BuildManager : MonoBehaviour
         {
             // Instantiate using the prefab from the active defender
             GameObject spawnedDefender = Instantiate(activeDefender.defenderPrefab, position, Quaternion.identity);
-            add.AddGeneBehaviors(spawnedDefender, activeDefender.geneTypes, true);
-
+            //add.AddGeneBehaviors(spawnedDefender, activeDefender.geneTypes, true);
             // Remove the defender from the backpack after placing
             actionBackpack.RemoveDefenderFromBackpack(activeDefender);
         }

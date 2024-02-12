@@ -8,15 +8,15 @@ public class GeneADomBehaviors : MonoBehaviour, IAttackBehavior
     public float AttackRange => fireRange;
     
     //Damage Settings
-    private float instantDamage;    // Instant damage applied upon touch.
-    private float dotDamage;         // Damage over time applied while burning.
-    private float burnDuration;      // Duration of the burn effect.
-    private float burnTickInterval;  // Time interval between damage ticks while burning.
+    public float instantDamage = 30f;    // Instant damage applied upon touch.
+    public float dotDamage = 5f;         // Damage over time applied while burning.
+    public float burnDuration = 3f;      // Duration of the burn effect.
+    public float burnTickInterval = 1f;  // Time interval between damage ticks while burning.
 
     //Fire
-    public float fireInterval;
-    public float fireDuration;
-    private float fireRange;
+    public float fireInterval = 2f;
+    public float fireDuration = 1f;
+    public float fireRange = 5f;
     
     private Collider fireTriggerCollider;
     private GameObject firePrefab; // Declare a public GameObject for the fire prefab
@@ -49,14 +49,14 @@ public class GeneADomBehaviors : MonoBehaviour, IAttackBehavior
 
         //get stats
         firePrefab = geneTypeAInfoSO.domStats.firePrefab;
-        instantDamage = geneTypeAInfoSO.domStats.instantDamage;
+        /*instantDamage = geneTypeAInfoSO.domStats.instantDamage;
         dotDamage = geneTypeAInfoSO.domStats.dotDamage;
         burnDuration = geneTypeAInfoSO.domStats.burnDuration;
         burnTickInterval = geneTypeAInfoSO.domStats.burnTickInterval;
 
         fireInterval = geneTypeAInfoSO.domStats.fireInterval;
         fireDuration = geneTypeAInfoSO.domStats.fireDuration;
-        fireRange = geneTypeAInfoSO.domStats.fireRange;
+        fireRange = geneTypeAInfoSO.domStats.fireRange;*/
 }
 
     private void Update()
@@ -150,7 +150,6 @@ public class GeneADomBehaviors : MonoBehaviour, IAttackBehavior
     private void DealInstantDamage(GameObject target)
     {
         HP targetHP = target.GetComponent<HP>();
-        Debug.Log("instant damage");
         if (targetHP != null)
         {
             targetHP.TakeDamage(instantDamage);
