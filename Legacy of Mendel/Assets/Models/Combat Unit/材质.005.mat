@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PenPenMao
+  m_Name: "\u6750\u8D28.005"
   m_Shader: {fileID: 4800000, guid: 371dee73dabc89140878360402049bfc, type: 3}
   m_ValidKeywords:
   - _MK_ARTISTIC_ANIMATION_STUTTER
@@ -15,6 +15,7 @@ Material:
   - _MK_ENVIRONMENT_REFLECTIONS_ADVANCED
   - _MK_FRESNEL_HIGHLIGHTS
   - _MK_LIGHT_CEL
+  - _MK_OUTLINE_HULL_ORIGIN
   - _MK_SPECULAR_ISOTROPIC
   - _MK_WRAPPED_DIFFUSE
   m_InvalidKeywords:
@@ -237,12 +238,12 @@ Material:
     - _OcclusionMapIntensity: 1
     - _OcclusionStrength: 1
     - _OptionsTab: 1
-    - _Outline: 1
+    - _Outline: 2
     - _OutlineData: 0
     - _OutlineFadeMax: 2
     - _OutlineFadeMin: 0.25
     - _OutlineNoise: 0
-    - _OutlineSize: 1
+    - _OutlineSize: 80
     - _OutlineTab: 1
     - _Parallax: 0.02
     - _ReceiveShadows: 1
@@ -283,8 +284,8 @@ Material:
     - _ZTest: 4
     - _ZWrite: 1
     m_Colors:
-    - _AlbedoColor: {r: 0.011366431, g: 0.8005756, b: 0.5405274, a: 1}
-    - _Color: {r: 0.011366431, g: 0.8005756, b: 0.5405273, a: 1}
+    - _AlbedoColor: {r: 0.07195563, g: 0.660004, b: 0.8020723, a: 1}
+    - _Color: {r: 0.0719556, g: 0.660004, b: 0.8020723, a: 1}
     - _DetailColor: {r: 1, g: 1, b: 1, a: 1}
     - _DissolveBorderColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

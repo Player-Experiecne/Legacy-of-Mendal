@@ -3,7 +3,37 @@ guid: c0ea8ad2b8f31604d8b5a745dfaed569
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: IceSlimeBody
+    second: {fileID: 2100000, guid: bd167ac9c96bcd7428d568663d81d288, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SlimeEyeBall2
+    second: {fileID: 2100000, guid: d9ad62a3b06511f428a3fc6bf6c952e1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SlimeEyeBall3.001
+    second: {fileID: 2100000, guid: 60b7f0a9908fbf241a84f6a849e773b1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28"
+    second: {fileID: 2100000, guid: ffa0f78402bca334181630c45207b89a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.005"
+    second: {fileID: 2100000, guid: 417eea886fdbf6842a0815aa17ab16fc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.010"
+    second: {fileID: 2100000, guid: 729f45d222057fa4faafd35a13af6364, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
