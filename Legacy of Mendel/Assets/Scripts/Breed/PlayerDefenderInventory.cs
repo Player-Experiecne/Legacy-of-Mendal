@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 
 [CreateAssetMenu(fileName = "PlayerDefenderInventory", menuName = "Game Data/Player Defender Inventory")]
 public class PlayerDefenderInventory : ScriptableObject
@@ -42,18 +43,24 @@ public class PlayerDefenderInventory : ScriptableObject
         }
     }
     // 添加一个辅助方法来比较两个基因型列表是否相等
-    private bool AreGeneTypesEqual(List<GeneInfo.geneTypes> geneTypesA, List<GeneInfo.geneTypes> geneTypesB)
+    private bool AreGeneTypesEqual(List<GeneTypeEntry> geneTypesA, List<GeneTypeEntry> geneTypesB)
     {
-        // 比较列表长度是否相等
         if (geneTypesA.Count != geneTypesB.Count) return false;
 
-        // 检查每个元素是否相等
-        for (int i = 0; i < geneTypesA.Count; i++)
+        // 对于A中的每个基因型条目，检查B中是否有匹配的基因型和基因名
+        foreach (var geneA in geneTypesA)
         {
-            if (geneTypesA[i] != geneTypesB[i]) return false;
+            var geneB = geneTypesB.FirstOrDefault(g => g.geneName == geneA.geneName && g.geneType == geneA.geneType);
+            if (geneB == null)
+            {
+                // 如果在B中找不到匹配项，则两个基因型列表不相等
+                return false;
+            }
         }
 
+        // 如果所有检查都通过，说明两个基因型列表相等
         return true;
     }
+
 
 }
