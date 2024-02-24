@@ -1,14 +1,24 @@
-using System;
+﻿using System;
+using System.Collections.Generic;
 
 public class GeneInfo
 {
-    public enum gene
+ 
+    public enum geneTypesName
     {
-        ADom, ARec
+        A, B, C
     }
-
     public enum geneTypes
     {
-        Null, ADom, AHet, ARec
+        Null, Dom, Het, Rec
+    }
+    public List<GeneTypeEntry> genes = new List<GeneTypeEntry>();
+
+    public GeneInfo()
+    {
+        // 初始化三个基因型
+        genes.Add(new GeneTypeEntry { geneName = geneTypesName.A, geneType = geneTypes.Null });
+        genes.Add(new GeneTypeEntry { geneName = geneTypesName.B, geneType = geneTypes.Null });
+        genes.Add(new GeneTypeEntry { geneName = geneTypesName.C, geneType = geneTypes.Null });
     }
 }

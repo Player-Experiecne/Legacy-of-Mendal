@@ -199,20 +199,21 @@ public class BreedManager : MonoBehaviour
         }
     }
 
-    public void OnBreedButtonClick()
+   /* public void OnBreedButtonClick()
     {
         if (selectedDefender != null && selectedGeneType != GeneInfo.geneTypes.Null)
         {
             // 执行融合逻辑
-            Defender newDefender = PerformFusion(selectedDefender,selectedGeneType);
+            Defender newDefender = PerformFusion(selectedDefender, selectedGeneType);
             if (newDefender != null)
             {
+                // 查找匹配的Defender在库中的图像和属性
                 foreach (Defender defenderInLibrary in defenderLibrary.defenders)
                 {
-                    // 这里我们比较基因型，假设基因型是一个GeneInfo.geneTypes的List
+                    // 假设IsSameGeneType现在可以处理新的基因型设计
                     if (IsSameGeneType(newDefender.geneTypes, defenderInLibrary.geneTypes))
                     {
-                        // 如果找到匹配的基因型，展示对应Defender的图像
+                        // 如果找到匹配的基因型，展示对应Defender的图像和更新属性
                         breedResultImage.sprite = defenderInLibrary.defenderImage;
                         newDefender.defenderPrefab = defenderInLibrary.defenderPrefab;
                         newDefender.defenderName = defenderInLibrary.defenderName;
@@ -222,20 +223,21 @@ public class BreedManager : MonoBehaviour
                 }
                 playerDefenderInventory.AddDefender(newDefender);
                 playerDefenderInventory.DecreaseDefenderCount(selectedDefender);
-               
-                //UpdateUIAfterBreeding(newDefender);
+
+                // 更新UI以显示培育结果
                 Debug.Log(newDefender.geneTypes);
-                breedResult.text ="You have got defender: " + newDefender.defenderName.ToString();
+                breedResult.text = "You have got defender: " + newDefender.defenderName;
+
+                // 重置培育界面
                 ResetBreedingUI();
             }
-          
         }
         else
         {
-          
-            
+            // 可能需要处理未选择Defender或基因型的情况
         }
     }
+*/
 
     public void PerformAnalysis()
     {
@@ -250,13 +252,13 @@ public class BreedManager : MonoBehaviour
 
                 switch (selectedGeneType)
                 {
-                    case GeneInfo.geneTypes.ADom:
+                    case GeneInfo.geneTypes.Dom:
                         geneTypeInfoText.text = $"Selected Gene Type: AA";
                         break;
-                    case GeneInfo.geneTypes.AHet:
+                    case GeneInfo.geneTypes.Het:
                         geneTypeInfoText.text = $"Selected Gene Type: Aa";
                         break;
-                    case GeneInfo.geneTypes.ARec:
+                    case GeneInfo.geneTypes.Rec:
                         geneTypeInfoText.text = $"Selected Gene Type: aa";
                         break;
                 }
@@ -322,64 +324,26 @@ public class BreedManager : MonoBehaviour
 
 
 
-    /* public Defender PerformFusion(Defender defender, GeneInfo.geneTypes newGeneType)
-     {
-         if (selectedDefender != null && selectedGeneType != GeneInfo.geneTypes.Null)
-         {
 
-             Defender newDefender = new Defender(defender);
-
-
-             GeneInfo.geneTypes resultGeneType;
-
-
-             if (newGeneType == GeneInfo.geneTypes.Null || defender.geneTypes[0] == GeneInfo.geneTypes.Null)
-             {
-
-                 resultGeneType = newGeneType == GeneInfo.geneTypes.Null ? defender.geneTypes[0] : newGeneType;
-             }
-             else if (newGeneType == GeneInfo.geneTypes.ADom || defender.geneTypes[0] == GeneInfo.geneTypes.ADom)
-             {
-                 resultGeneType = GeneInfo.geneTypes.ADom;
-             }
-             else if (newGeneType == GeneInfo.geneTypes.AHet && defender.geneTypes[0] != GeneInfo.geneTypes.ADom)
-             {
-                 resultGeneType = GeneInfo.geneTypes.AHet;
-             }
-             else if (newGeneType == GeneInfo.geneTypes.ARec && defender.geneTypes[0] != GeneInfo.geneTypes.ADom && defender.geneTypes[0] != GeneInfo.geneTypes.AHet)
-             {
-                 resultGeneType = GeneInfo.geneTypes.ARec;
-             }
-             else
-             {
-
-                 resultGeneType = newGeneType;
-             }
-
-             // 清除任何现有的基因型并添加确定的基因型
-             newDefender.geneTypes.Clear();
-             newDefender.geneTypes.Add(resultGeneType);
-
-             return newDefender;
-         }
-         return null;
-     }*/
-
-    public Defender PerformFusion(Defender defender, GeneInfo.geneTypes newGeneType)
+    public Defender PerformFusion(Defender defender, List<GeneTypeEntry> newGeneTypes)
     {
-        // 确保已经有选中的Defender和基因型
-        if (selectedDefender != null && selectedGeneType != GeneInfo.geneTypes.Null)
+        if (defender != null)
         {
-            // 创建新的Defender实例
-            Defender newDefender = new Defender(defender); // 假设Defender有一个复制构造函数或相应的方法
+            Defender newDefender = new Defender(defender);
 
-            // 根据孟德尔遗传定律来确定新的基因型
-            GeneInfo.geneTypes resultGeneType = MendelianInheritance(defender.geneTypes[0], newGeneType);
-            Debug.Log("----------------------------------------");
-            Debug.Log(resultGeneType.ToString());
-            // 清除任何现有的基因型并设置新的基因型
-            newDefender.geneTypes.Clear();
-            newDefender.geneTypes.Add(resultGeneType);
+            foreach (var newGeneType in newGeneTypes)
+            {
+                var existingGene = newDefender.geneTypes.Find(g => g.geneName == newGeneType.geneName);
+                if (existingGene != null)
+                {
+                    // 这里实现基因型融合逻辑
+                    existingGene.geneType = MendelianInheritance(existingGene.geneType, newGeneType.geneType);
+                }
+                else
+                {
+                    newDefender.geneTypes.Add(new GeneTypeEntry { geneName = newGeneType.geneName, geneType = newGeneType.geneType });
+                }
+            }
 
             return newDefender;
         }
@@ -388,50 +352,51 @@ public class BreedManager : MonoBehaviour
 
     private GeneInfo.geneTypes MendelianInheritance(GeneInfo.geneTypes geneType1, GeneInfo.geneTypes geneType2)
     {
+    
         if (geneType1 == GeneInfo.geneTypes.Null) return geneType2;
         if (geneType2 == GeneInfo.geneTypes.Null) return geneType1;
 
         List<GeneInfo.geneTypes> possibleOutcomes = new List<GeneInfo.geneTypes>();
 
         // 根据组合添加可能的结果
-        if (geneType1 == GeneInfo.geneTypes.AHet && geneType2 == GeneInfo.geneTypes.AHet)
+        if (geneType1 == GeneInfo.geneTypes.Het && geneType2 == GeneInfo.geneTypes.Het)
         {
             // Aa + Aa 的情况
-            possibleOutcomes.Add(GeneInfo.geneTypes.ADom); // ADom的几率为25%
-            possibleOutcomes.Add(GeneInfo.geneTypes.AHet); // AHet的几率为50%
-            possibleOutcomes.Add(GeneInfo.geneTypes.AHet);
-            possibleOutcomes.Add(GeneInfo.geneTypes.ARec); // ARec的几率为25%
+            possibleOutcomes.Add(GeneInfo.geneTypes.Dom); // ADom的几率为25%
+            possibleOutcomes.Add(GeneInfo.geneTypes.Het); // AHet的几率为50%
+            possibleOutcomes.Add(GeneInfo.geneTypes.Het);
+            possibleOutcomes.Add(GeneInfo.geneTypes.Rec); // ARec的几率为25%
         }
-        else if ((geneType1 == GeneInfo.geneTypes.ADom && geneType2 == GeneInfo.geneTypes.AHet) ||
-                 (geneType1 == GeneInfo.geneTypes.AHet && geneType2 == GeneInfo.geneTypes.ADom))
+        else if ((geneType1 == GeneInfo.geneTypes.Dom && geneType2 == GeneInfo.geneTypes.Het) ||
+                 (geneType1 == GeneInfo.geneTypes.Het && geneType2 == GeneInfo.geneTypes.Dom))
         {
             // AA + Aa 或 Aa + AA 的情况，有50%的几率是ADom (AA)，50%的几率是AHet (Aa)
-            possibleOutcomes.Add(GeneInfo.geneTypes.ADom); // ADom
-            possibleOutcomes.Add(GeneInfo.geneTypes.AHet); // AHet
+            possibleOutcomes.Add(GeneInfo.geneTypes.Dom); // ADom
+            possibleOutcomes.Add(GeneInfo.geneTypes.Het); // AHet
         }
-        else if (geneType1 == GeneInfo.geneTypes.AHet && geneType2 == GeneInfo.geneTypes.ARec ||
-                 geneType1 == GeneInfo.geneTypes.ARec && geneType2 == GeneInfo.geneTypes.AHet)
+        else if (geneType1 == GeneInfo.geneTypes.Het && geneType2 == GeneInfo.geneTypes.Rec ||
+                 geneType1 == GeneInfo.geneTypes.Rec && geneType2 == GeneInfo.geneTypes.Het)
         {
             // Aa + aa 或 aa + Aa 的情况，有50%的几率是AHet, 50%的几率是ARec
-            possibleOutcomes.Add(GeneInfo.geneTypes.AHet); // AHet
-            possibleOutcomes.Add(GeneInfo.geneTypes.ARec); // ARec
+            possibleOutcomes.Add(GeneInfo.geneTypes.Het); // AHet
+            possibleOutcomes.Add(GeneInfo.geneTypes.Rec); // ARec
         }
-        else if ((geneType1 == GeneInfo.geneTypes.ADom && geneType2 == GeneInfo.geneTypes.ARec) ||
-        (geneType1 == GeneInfo.geneTypes.ARec && geneType2 == GeneInfo.geneTypes.ADom))
+        else if ((geneType1 == GeneInfo.geneTypes.Dom && geneType2 == GeneInfo.geneTypes.Rec) ||
+        (geneType1 == GeneInfo.geneTypes.Rec && geneType2 == GeneInfo.geneTypes.Dom))
         {
             // 这种组合下，后代必定是杂合子Aa
-            return GeneInfo.geneTypes.AHet;
+            return GeneInfo.geneTypes.Het;
             
         }
-        else if (geneType1 == GeneInfo.geneTypes.ADom && geneType2 == GeneInfo.geneTypes.ADom)
+        else if (geneType1 == GeneInfo.geneTypes.Dom && geneType2 == GeneInfo.geneTypes.Dom)
         {
             // AA + AA 的组合，后代必定是ADom
-            return GeneInfo.geneTypes.ADom;
+            return GeneInfo.geneTypes.Dom;
         }
-        else if (geneType1 == GeneInfo.geneTypes.ARec && geneType2 == GeneInfo.geneTypes.ARec)
+        else if (geneType1 == GeneInfo.geneTypes.Rec && geneType2 == GeneInfo.geneTypes.Rec)
         {
             // aa + aa 的组合，后代必定是ARec
-            return GeneInfo.geneTypes.ARec;
+            return GeneInfo.geneTypes.Rec;
         }
 
 

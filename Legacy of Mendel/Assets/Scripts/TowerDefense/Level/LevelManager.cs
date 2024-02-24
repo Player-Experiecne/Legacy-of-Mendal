@@ -45,7 +45,7 @@ public class LevelManager : MonoBehaviour
     }
     private void Start()
     {
-        if (TestConfiguration.IsTestMode) return;
+        //if (TestConfiguration.IsTestMode) return;
 
         addBehaviorsToTarget = GetComponent<AddBehaviorsToTarget>();
 
