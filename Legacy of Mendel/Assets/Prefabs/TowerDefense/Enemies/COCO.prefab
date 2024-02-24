@@ -288,9 +288,7 @@ MonoBehaviour:
   targetDefender: {fileID: 0}
   lootGeneTypes: 
   lootCultureMedium: 0
-  attackPower: 100
   attackRange: 100
-  attackSpeed: 1
   isAttacking: 0
 --- !u!114 &3471691557685678129
 MonoBehaviour:
@@ -327,6 +325,7 @@ MonoBehaviour:
   fireInterval: 2
   fireDuration: 1
   fireRange: 5
+  firePrefab: {fileID: 1447435588197194, guid: 494a6613eb0ff0742a30c6d7f89cf854, type: 3}
 --- !u!1 &4117279207176148897
 GameObject:
   m_ObjectHideFlags: 0

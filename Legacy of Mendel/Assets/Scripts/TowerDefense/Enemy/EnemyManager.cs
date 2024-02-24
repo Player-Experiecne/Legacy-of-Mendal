@@ -2,13 +2,15 @@
 using UnityEngine;
 using TMPro;
 
-public class EnemyManager : MonoBehaviour
+
+public class EnemyManager : MonoBehaviour, IEnemyManager
 {
-    public static EnemyManager Instance;
+    public static IEnemyManager Instance;
 
     public GameManager gameManager;
 
-    public List<GameObject> enemies = new List<GameObject>();
+    private List<GameObject> enemies = new List<GameObject>();
+    public List<GameObject> Enemies => enemies;
 
     public GameObject breedingButton;
 
@@ -23,7 +25,7 @@ public class EnemyManager : MonoBehaviour
         {
             Instance = this;
         }
-        else if (Instance != this)
+        else if ((Object)Instance != (Object)this)
         {
             Destroy(gameObject);
         }
@@ -36,9 +38,6 @@ public class EnemyManager : MonoBehaviour
     }
     public void RegisterEnemy(GameObject enemy)
     {
-        
-        
-       
         enemies.Add(enemy);
 
         totalCount++;
@@ -57,7 +56,6 @@ public class EnemyManager : MonoBehaviour
         if (currentCount == 0 && gameManager != null)
         {
             breedingButton.SetActive(true);
-            
         }
     }
     public void ResetEnemyCount()

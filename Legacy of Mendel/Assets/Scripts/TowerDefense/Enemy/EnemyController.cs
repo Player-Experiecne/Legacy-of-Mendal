@@ -19,7 +19,7 @@ public class EnemyController : MonoBehaviour
 
     /*public float attackPower = 1f;
     public float attackSpeed = 1f;*/
-    public float attackRange = 100f;
+    [HideInInspector] public float attackRange = 100f;
     [HideInInspector] public bool isAttacking = false;
     private void Start()
     {

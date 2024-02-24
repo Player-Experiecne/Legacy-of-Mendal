@@ -19,17 +19,13 @@ public class GeneADomBehaviors : MonoBehaviour, IAttackBehavior
     public float fireRange = 5f;
     
     private Collider fireTriggerCollider;
-    private GameObject firePrefab; // Declare a public GameObject for the fire prefab
+    public GameObject firePrefab; // Declare a public GameObject for the fire prefab
     private GameObject firePoint;
 
-    private string targetTag;
     private float nextFireTime = 1f;
     //private float lastDamageTime = 0f;
     private Dictionary<Collider, float> lastDamageTimes = new Dictionary<Collider, float>();
 
-
-    private LevelManager levelManager;
-    private GeneTypeAInfoSO geneTypeAInfoSO;
     private HP selfHP;
     private EnemyController enemyController;
     private DefenderController defenderController;
@@ -38,8 +34,6 @@ public class GeneADomBehaviors : MonoBehaviour, IAttackBehavior
     private void Awake()
     {
         selfHP = GetComponent<HP>();
-        levelManager = LevelManager.Instance;
-        geneTypeAInfoSO = levelManager.addBehaviorsToTarget.geneTypeAInfo;
         enemyController = GetComponent<EnemyController>();
         defenderController = GetComponent<DefenderController>();
 
@@ -48,7 +42,6 @@ public class GeneADomBehaviors : MonoBehaviour, IAttackBehavior
         firePoint = transform.GetChild(0).gameObject;
 
         //get stats
-        firePrefab = geneTypeAInfoSO.domStats.firePrefab;
         /*instantDamage = geneTypeAInfoSO.domStats.instantDamage;
         dotDamage = geneTypeAInfoSO.domStats.dotDamage;
         burnDuration = geneTypeAInfoSO.domStats.burnDuration;
@@ -57,7 +50,7 @@ public class GeneADomBehaviors : MonoBehaviour, IAttackBehavior
         fireInterval = geneTypeAInfoSO.domStats.fireInterval;
         fireDuration = geneTypeAInfoSO.domStats.fireDuration;
         fireRange = geneTypeAInfoSO.domStats.fireRange;*/
-}
+    }
 
     private void Update()
     {
@@ -169,11 +162,11 @@ public class GeneADomBehaviors : MonoBehaviour, IAttackBehavior
             }
             else if (dotDamage > burningState.CurrentBurnDamage) // New damage is stronger.
             {
-                burningState.RefreshBurning(dotDamage, burnDuration);
+                burningState.StartBurning(dotDamage, burnDuration, burnTickInterval);
             }
-            else if (dotDamage <= burningState.CurrentBurnDamage)
+            else if (dotDamage <= burningState.CurrentBurnDamage) // Existing damage is stronger
             {
-                burningState.RefreshBurning(burningState.CurrentBurnDamage, burnDuration);
+                burningState.StartBurning(burningState.CurrentBurnDamage, burnDuration, burningState.CurrentBurnTickInterval);
             }
         }
     }

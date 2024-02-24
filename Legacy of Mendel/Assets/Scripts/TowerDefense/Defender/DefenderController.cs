@@ -15,7 +15,7 @@ public class DefenderController : MonoBehaviour
 
     /*public float attackPower = 1f;
     public float attackSpeed = 1f;*/
-    public float attackRange = 100f;
+    [HideInInspector] public float attackRange = 100f;
     [HideInInspector] public bool isAttacking = false;
 
     private void Start()
@@ -39,7 +39,7 @@ public class DefenderController : MonoBehaviour
         }
 
         // If the defender doesn't have a target or if its target was destroyed
-        if (targetEnemy == null || !EnemyManager.Instance.enemies.Contains(targetEnemy))
+        if (targetEnemy == null || !EnemyManager.Instance.Enemies.Contains(targetEnemy))
         {
             FindClosestEnemy();
         }
@@ -84,7 +84,7 @@ public class DefenderController : MonoBehaviour
     {
         float closestDistance = alertRadius;
         GameObject closestEnemy = null;
-        foreach (GameObject enemy in EnemyManager.Instance.enemies)
+        foreach (GameObject enemy in EnemyManager.Instance.Enemies)
         {
             float currentDistance = Vector3.Distance(transform.position, enemy.transform.position);
             if (currentDistance < closestDistance)

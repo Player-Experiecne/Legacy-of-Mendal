@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class AddBehaviorsToTarget : MonoBehaviour
 {
-    [SerializeField] public GeneTypeAInfoSO geneTypeAInfo;
-    
     public void AddGeneBehaviors(GameObject target, List<GeneInfo.geneTypes> geneTypes)
     {
         foreach (GeneInfo.geneTypes geneType in geneTypes)

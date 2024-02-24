@@ -61,12 +61,10 @@ public class HP : MonoBehaviour
         switch (objectType)
         {
             case ObjectType.Enemy:
-                Debug.Log("Dead");
                 Destroy(gameObject);
                 lootManager.DropLoot(transform, enemyController.lootGeneTypes, enemyController.lootCultureMedium);
                 break;
             case ObjectType.Defender:
-                Debug.Log("Dead");
                 Destroy(gameObject);
                 break;
             case ObjectType.Base:

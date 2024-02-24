@@ -69,11 +69,11 @@ public class FireBall : MonoBehaviour
             }
             else if (damageToDeal > burningState.CurrentBurnDamage) // New damage is stronger.
             {
-                burningState.RefreshBurning(damageToDeal, burnDuration);
+                burningState.StartBurning(damageToDeal, burnDuration, burnTickInterval);
             }
             else if (damageToDeal <= burningState.CurrentBurnDamage)
             {
-                burningState.RefreshBurning(burningState.CurrentBurnDamage, burnDuration);
+                burningState.StartBurning(burningState.CurrentBurnDamage, burnDuration, burningState.CurrentBurnTickInterval);
             }
         }
     }

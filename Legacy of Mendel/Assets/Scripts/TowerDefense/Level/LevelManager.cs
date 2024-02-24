@@ -7,18 +7,18 @@ using UnityEngine.AI;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance;
+    [HideInInspector] public bool isTestMode = false;
 
     public List<Level> gameLevels;
     public Transform[] spawnPoints;
-    public List<Dictionary<string, float>> monsterData;
 
     public float timeBetweenWaves = 2f;
     public float timeBetweenLevels = 30f;
     public float timeBetweenEnemies = 0.5f;
 
-    private bool levelCompleted = true; 
+    private bool levelCompleted = true;
 
-    public bool LevelCompleted 
+    public bool LevelCompleted
     {
         get { return levelCompleted; }
     }
@@ -31,7 +31,7 @@ public class LevelManager : MonoBehaviour
         get { return currentLevelIndex; }
     }
 
-    void Start()
+    void Awake()
     {
         if (Instance == null)
         {
@@ -40,13 +40,17 @@ public class LevelManager : MonoBehaviour
         else if (Instance != this)
         {
             Destroy(gameObject);
+            return;
         }
+    }
+    private void Start()
+    {
+        if (TestConfiguration.IsTestMode) return;
 
         addBehaviorsToTarget = GetComponent<AddBehaviorsToTarget>();
 
         LoadNextLevel();
     }
-
 
     public void LoadNextLevel()
     {
@@ -55,7 +59,7 @@ public class LevelManager : MonoBehaviour
             EnemyManager.Instance.ResetEnemyCount();
             Level currentLevel = gameLevels[currentLevelIndex];
             Debug.Log("Starting Level: " + currentLevel.LevelName);
-            levelCompleted = false; 
+            levelCompleted = false;
             StartCoroutine(SpawnWaves(currentLevel.Waves));
         }
         else
@@ -64,7 +68,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    private IEnumerator SpawnWaves(List<Level.Wave> waves)
+    public IEnumerator SpawnWaves(List<Level.Wave> waves)
     {
         List<Coroutine> waveCoroutines = new List<Coroutine>();
 
@@ -83,13 +87,11 @@ public class LevelManager : MonoBehaviour
 
         yield return null;
         currentLevelIndex++;
-        
-        levelCompleted = true; 
-
+        levelCompleted = true;
     }
 
 
-    private IEnumerator SpawnEnemies(List<Level.EnemySpawnInfo> enemies)
+    public IEnumerator SpawnEnemies(List<Level.EnemySpawnInfo> enemies)
     {
         foreach (var enemyInfo in enemies)
         {
@@ -105,11 +107,11 @@ public class LevelManager : MonoBehaviour
         yield return new WaitForSeconds(timeBetweenWaves);
     }
 
-    private void AssignProperties(Enemy enemy, GameObject spawnedEnemy)
+    public void AssignProperties(Enemy enemy, GameObject spawnedEnemy)
     {
         EnemyController enemyController = spawnedEnemy.GetComponent<EnemyController>();
-        NavMeshAgent navMeshAgent = spawnedEnemy.GetComponent<NavMeshAgent>();
-        HP hp = spawnedEnemy.GetComponent<HP>();
+        //NavMeshAgent navMeshAgent = spawnedEnemy.GetComponent<NavMeshAgent>();
+        //HP hp = spawnedEnemy.GetComponent<HP>();
 
         //Assign stats
         /*if(enemy.hp != 0)

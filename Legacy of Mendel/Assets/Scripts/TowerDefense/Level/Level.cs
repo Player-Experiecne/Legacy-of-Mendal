@@ -8,12 +8,28 @@ public class Level : ScriptableObject
     [SerializeField] private List<Wave> waves;
 
     public string LevelName => levelName;
-    public List<Wave> Waves => waves; 
+    public List<Wave> Waves => waves;
+    public void AddWave(Wave wave)
+    {
+        if (waves == null)
+        {
+            waves = new List<Wave>();
+        }
+        waves.Add(wave);
+    }
 
     [System.Serializable]
     public class Wave
     {
         [SerializeField] public List<EnemySpawnInfo> enemies;
+        public void AddEnemy(EnemySpawnInfo enemy)
+        {
+            if (enemies == null)
+            {
+                enemies = new List<EnemySpawnInfo>();
+            }
+            enemies.Add(enemy);
+        }
     }
 
     [System.Serializable]
@@ -23,4 +39,6 @@ public class Level : ScriptableObject
         public int spawnLocation;
         public int count;
     }
+
+    
 }

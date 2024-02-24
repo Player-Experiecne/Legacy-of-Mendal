@@ -10,6 +10,7 @@ public class BurningState : MonoBehaviour
     private float elapsed;
 
     public float CurrentBurnDamage => burnDamage;
+    public float CurrentBurnTickInterval => burnTickInterval;
 
     public void StartBurning(float damage, float duration, float tickInterval)
     {
@@ -19,15 +20,10 @@ public class BurningState : MonoBehaviour
         elapsed = 0;
 
         StopAllCoroutines();
-        StartCoroutine(BurnTarget());
+        StartCoroutine(Burn());
     }
 
-    public void RefreshBurning(float damage, float duration)
-    {
-        StartBurning(damage, duration, burnTickInterval);
-    }
-
-    private IEnumerator BurnTarget()
+    private IEnumerator Burn()
     {
         HP targetHP = GetComponent<HP>();
         if (!targetHP)

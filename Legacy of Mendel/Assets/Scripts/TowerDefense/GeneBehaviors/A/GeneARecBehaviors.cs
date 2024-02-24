@@ -18,13 +18,11 @@ public class GeneARecBehaviors : MonoBehaviour, IAttackBehavior
     public float explosionRange = 5f;
     private GameObject firePoint;
     private GameObject fireBallPrefab;
-    private GameObject fireBallPrefabForEnemies; // Declare a public GameObject for the fire prefab
-    private GameObject fireBallPrefabForDefenders; // Declare a public GameObject for the fire prefab
+    public GameObject fireBallPrefabForEnemies; // Declare a public GameObject for the fire prefab
+    public GameObject fireBallPrefabForDefenders; // Declare a public GameObject for the fire prefab
     
     private float nextFireTime = 1.0f;
 
-    private LevelManager levelManager;
-    private GeneTypeAInfoSO geneTypeAInfoSO;
     private HP selfHP;
     public GameObject target;
     private EnemyController enemyController;
@@ -34,8 +32,6 @@ public class GeneARecBehaviors : MonoBehaviour, IAttackBehavior
     private void Awake()
     {
         selfHP = GetComponent<HP>();
-        levelManager = LevelManager.Instance;
-        geneTypeAInfoSO = levelManager.addBehaviorsToTarget.geneTypeAInfo;
 
         if (selfHP.objectType == ObjectType.Enemy)
         {
@@ -45,6 +41,7 @@ public class GeneARecBehaviors : MonoBehaviour, IAttackBehavior
         {
             defenderController = GetComponent<DefenderController>();
         }
+        firePoint = transform.GetChild(0).gameObject;
 
         //get stats
         /*instantDamage = geneTypeAInfoSO.recStats.instantDamage;
@@ -54,9 +51,6 @@ public class GeneARecBehaviors : MonoBehaviour, IAttackBehavior
         fireBallInterval = geneTypeAInfoSO.recStats.fireBallInterval;
         fireBallRange = geneTypeAInfoSO.recStats.fireBallRange;
         explosionRange = geneTypeAInfoSO.recStats.explosionRange;*/
-        fireBallPrefabForEnemies = geneTypeAInfoSO.recStats.fireBallPrefabForEnemies;
-        fireBallPrefabForDefenders = geneTypeAInfoSO.recStats.fireBallPrefabForDefenders;
-        firePoint = transform.GetChild(0).gameObject;
     }
 
     private void Update()
@@ -136,7 +130,7 @@ public class GeneARecBehaviors : MonoBehaviour, IAttackBehavior
     {
         float closestDistance = fireBallRange;
         GameObject closestEnemy = null;
-        foreach (GameObject enemy in EnemyManager.Instance.enemies)
+        foreach (GameObject enemy in EnemyManager.Instance.Enemies)
         {
             float currentDistance = Vector3.Distance(transform.position, enemy.transform.position);
             if (currentDistance <= closestDistance)

@@ -491,6 +491,7 @@ MonoBehaviour:
   fireInterval: 2
   fireDuration: 1
   fireRange: 10
+  firePrefab: {fileID: 1447435588197194, guid: 494a6613eb0ff0742a30c6d7f89cf854, type: 3}
 --- !u!1001 &8058322436758648391
 PrefabInstance:
   m_ObjectHideFlags: 0
