@@ -19,14 +19,14 @@ public class Enemy
     [HideInInspector]
     public Sprite enemyImage;
     [Header("Loot")]
-    public List<LootGeneType> lootGeneTypes;
+    public LootGeneType lootGeneType;
     public LootCultureMedium lootCultureMedium;
 }
 
 [System.Serializable]
 public class LootGeneType
 {
-    public GeneInfo.geneTypes geneType;
+    public GeneTypeEntry geneType;
     [Range(0f, 1f)]
     public float probability;
 }

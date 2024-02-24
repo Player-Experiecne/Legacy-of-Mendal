@@ -10,11 +10,9 @@ public class ActionBackpack : MonoBehaviour
     public ActionBackpackUI ui;
 
     public void AddDefenderToBackpack(Defender defender)
-    {
-        
-            defendersInBackpack.Add(defender);
-            ui.RefreshUI();
-        
+    {   
+        defendersInBackpack.Add(defender);
+        ui.RefreshUI();
     }
     private void Awake()
     {

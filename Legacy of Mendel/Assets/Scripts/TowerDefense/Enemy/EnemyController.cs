@@ -14,7 +14,7 @@ public class EnemyController : MonoBehaviour
     private GameObject Mendelbase;
     [HideInInspector] public GameObject targetDefender;
 
-    [HideInInspector] public List<GeneInfo.geneTypes> lootGeneTypes;
+    [HideInInspector] public GeneTypeEntry lootGeneType;
     [HideInInspector] public int lootCultureMedium;
 
     /*public float attackPower = 1f;

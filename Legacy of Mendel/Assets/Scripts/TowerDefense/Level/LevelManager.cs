@@ -22,8 +22,6 @@ public class LevelManager : MonoBehaviour
     {
         get { return levelCompleted; }
     }
-    public AddBehaviorsToTarget addBehaviorsToTarget;
-
     private int currentLevelIndex = 0;
 
     public int CurrentLevelIndex
@@ -45,10 +43,7 @@ public class LevelManager : MonoBehaviour
     }
     private void Start()
     {
-        //if (TestConfiguration.IsTestMode) return;
-
-        addBehaviorsToTarget = GetComponent<AddBehaviorsToTarget>();
-
+        if (TestConfiguration.IsTestMode) return;
         LoadNextLevel();
     }
 
@@ -139,23 +134,12 @@ public class LevelManager : MonoBehaviour
         addBehaviorsToTarget.AddGeneBehaviors(spawnedEnemy, enemy.geneTypes, false);*/
 
         //Assign lootgenes
-        foreach (LootGeneType lootGeneType in enemy.lootGeneTypes)
+        if (enemy.lootGeneType != null)
         {
-            if (lootGeneType != null)
-            {
-                float randomValue = Random.Range(0f, 1f);
-                if (randomValue <= lootGeneType.probability)
-                {
-                    enemyController.lootGeneTypes.Add(lootGeneType.geneType);
-                }
-            }
+            enemyController.lootGeneType = enemy.lootGeneType.geneType;
         }
-
         //Assign loot culture medium
         float randomValue1 = Random.Range(0f, 1f);
-        if (randomValue1 <= enemy.lootCultureMedium.lootCultureMediumprobability)
-        {
-            enemyController.lootCultureMedium = Random.Range(enemy.lootCultureMedium.minLootCultureMedium, enemy.lootCultureMedium.maxLootCultureMedium + 1);
-        }
+        enemyController.lootCultureMedium = Random.Range(enemy.lootCultureMedium.minLootCultureMedium, enemy.lootCultureMedium.maxLootCultureMedium + 1);
     }
 }

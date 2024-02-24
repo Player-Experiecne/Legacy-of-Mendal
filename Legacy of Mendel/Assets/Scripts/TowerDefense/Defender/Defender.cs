@@ -13,7 +13,6 @@ public class Defender
     [Header("UI Info")]
     public string defenderName;
     public Sprite defenderImage;
-
     
     public Defender(Defender other)
     {

@@ -62,7 +62,8 @@ public class HP : MonoBehaviour
         {
             case ObjectType.Enemy:
                 Destroy(gameObject);
-                lootManager.DropLoot(transform, enemyController.lootGeneTypes, enemyController.lootCultureMedium);
+                lootManager.DropLootGeneType(transform, enemyController.lootGeneType);
+                lootManager.DropLootCultureMedium(transform, enemyController.lootCultureMedium);
                 break;
             case ObjectType.Defender:
                 Destroy(gameObject);

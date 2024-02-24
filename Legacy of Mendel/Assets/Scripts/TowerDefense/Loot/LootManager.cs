@@ -1,9 +1,12 @@
 using UnityEngine;
 using System.Collections.Generic;
+using static UnityEngine.GraphicsBuffer;
 
 public class LootManager : MonoBehaviour
 {
     public static LootManager Instance { get; private set; }
+    public GameObject lootGenePrefab;
+    public GameObject lootCultureMediumPrefab;
 
     void Awake()
     {
@@ -18,32 +21,59 @@ public class LootManager : MonoBehaviour
         }
     }
 
-    public GameObject lootGeneADomPrefab;
-    public GameObject lootGeneAHetPrefab;
-    public GameObject lootGeneARecPrefab;
-    public GameObject lootCultureMediumPrefab;
-
-    public void DropLoot(Transform transform, List<GeneInfo.geneTypes> lootGeneTypes, int lootCultureMedium)
+    public void DropLootGeneType(Transform transform, GeneTypeEntry lootGeneType)
     {
-        // Drop lootGene
-        foreach (var lootGeneType in lootGeneTypes)
+        Vector3 dropPosition = GetRandomDropPosition(transform);
+        GameObject lootGameObject = Instantiate(lootGenePrefab, dropPosition, Quaternion.identity);
+        LootController lootController = lootGameObject.AddComponent<LootController>();
+        switch (lootGeneType.geneName)
         {
-            Vector3 dropPosition = GetRandomDropPosition(transform);
-            if (lootGeneType == GeneInfo.geneTypes.ADom)
-            {
-                Instantiate(lootGeneADomPrefab, dropPosition, Quaternion.identity);
-            }
-            else if (lootGeneType == GeneInfo.geneTypes.AHet)
-            {
-                Instantiate(lootGeneAHetPrefab, dropPosition, Quaternion.identity);
-            }
-            else if (lootGeneType == GeneInfo.geneTypes.ARec)
-            {
-                Instantiate(lootGeneARecPrefab, dropPosition, Quaternion.identity);
-            }
+            case GeneInfo.geneTypesName.A:
+                switch (lootGeneType.geneType)
+                {
+                    case GeneInfo.geneTypes.Dom:
+                        lootController.lootType = LootController.LootType.LootGeneADom;
+                        break;
+                    case GeneInfo.geneTypes.Het:
+                        lootController.lootType = LootController.LootType.LootGeneAHet;
+                        break;
+                    case GeneInfo.geneTypes.Rec:
+                        lootController.lootType = LootController.LootType.LootGeneARec;
+                        break;
+                }break;
+            case GeneInfo.geneTypesName.B:
+                switch (lootGeneType.geneType)
+                {
+                    case GeneInfo.geneTypes.Dom:
+                        lootController.lootType = LootController.LootType.LootGeneBDom;
+                        break;
+                    case GeneInfo.geneTypes.Het:
+                        lootController.lootType = LootController.LootType.LootGeneBHet;
+                        break;
+                    case GeneInfo.geneTypes.Rec:
+                        lootController.lootType = LootController.LootType.LootGeneBRec;
+                        break;
+                }
+                break;
+            case GeneInfo.geneTypesName.C:
+                switch (lootGeneType.geneType)
+                {
+                    case GeneInfo.geneTypes.Dom:
+                        lootController.lootType = LootController.LootType.LootGeneCDom;
+                        break;
+                    case GeneInfo.geneTypes.Het:
+                        lootController.lootType = LootController.LootType.LootGeneCHet;
+                        break;
+                    case GeneInfo.geneTypes.Rec:
+                        lootController.lootType = LootController.LootType.LootGeneCRec;
+                        break;
+                }
+                break;
         }
+    }
 
-        // Drop lootCultureMedium
+    public void DropLootCultureMedium(Transform transform, int lootCultureMedium)
+    {
         for (int i = 0; i < lootCultureMedium; i++)
         {
             Vector3 dropPosition1 = GetRandomDropPosition(transform);
@@ -53,7 +83,7 @@ public class LootManager : MonoBehaviour
 
     private Vector3 GetRandomDropPosition(Transform transform)
     {
-        float radius = 1.0f; // Adjust as needed
+        float radius = 5.0f; // Adjust as needed
         Vector3 randomDirection = Random.insideUnitSphere * radius;
         randomDirection.y = 0; // Assuming a 2D game, or you don't want to change the height
         Vector3 dropPosition = transform.position + randomDirection;

@@ -71,7 +71,7 @@ public class FireBall : MonoBehaviour
             {
                 burningState.StartBurning(damageToDeal, burnDuration, burnTickInterval);
             }
-            else if (damageToDeal <= burningState.CurrentBurnDamage)
+            else if (damageToDeal <= burningState.CurrentBurnDamage) // Existing damage is stronger
             {
                 burningState.StartBurning(burningState.CurrentBurnDamage, burnDuration, burningState.CurrentBurnTickInterval);
             }
