@@ -38,7 +38,7 @@ public class BreedManager : MonoBehaviour
     public GeneLibraryDisplay geneLibraryDisplay;
 
     // 分页数据
-    private List<GeneInfo.geneTypes> tissues; 
+    public List<GeneTypeEntry> tissues;
     private int itemsPerPage = 10; 
     private int currentPage = 0; 
     private int totalPage;
@@ -76,7 +76,14 @@ public class BreedManager : MonoBehaviour
             uiElement.SetActive(false); 
         }
 
-        //tissues = LootBackpack.Instance.lootGeneTypes;
+        foreach (var geneTypeCount in LootBackpack.Instance.geneTypeCountsList)
+        {
+            // 根据每个基因型的计数添加到tissues列表中
+            for (int i = 0; i < geneTypeCount.count; i++)
+            {
+                tissues.Add(geneTypeCount.geneType);
+            }
+        }
         totalPage = Mathf.CeilToInt((float)tissues.Count / itemsPerPage);
         currentPage = 0; // 重置为第一页
 
@@ -246,24 +253,25 @@ public class BreedManager : MonoBehaviour
             int index = tissueSlots.IndexOf(selectedSlot);
             if (index < tissues.Count)
             {
-                GeneInfo.geneTypes selectedGeneType = tissues[index];
+                GeneTypeEntry selectedGeneType = tissues[index];
                 // 显示基因型信息
                 //geneTypeInfoText.text = $"Selected Gene Type: {selectedGeneType}";
 
-                switch (selectedGeneType)
+                string geneTypeText = $"{selectedGeneType.geneName}: ";
+                switch (selectedGeneType.geneType)
                 {
                     case GeneInfo.geneTypes.Dom:
-                        geneTypeInfoText.text = $"Selected Gene Type: AA";
+                        geneTypeInfoText.text = geneTypeText + "Dominant";
                         break;
                     case GeneInfo.geneTypes.Het:
-                        geneTypeInfoText.text = $"Selected Gene Type: Aa";
+                        geneTypeInfoText.text = geneTypeText + "Heterozygous";
                         break;
                     case GeneInfo.geneTypes.Rec:
-                        geneTypeInfoText.text = $"Selected Gene Type: aa";
+                        geneTypeInfoText.text = geneTypeText + "Recessive";
                         break;
+                    
                 }
-
-                UpdateGeneLibrary(selectedGeneType);
+                //UpdateGeneLibrary(selectedGeneType);
 
 
                 tissues.RemoveAt(index);
