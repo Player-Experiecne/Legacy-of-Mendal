@@ -20,7 +20,6 @@ public class LootBackpack : MonoBehaviour
 
     public int lootCultureMedium = 0;
     
-    
     void Awake()
     {
         if (Instance == null)
@@ -39,7 +38,7 @@ public class LootBackpack : MonoBehaviour
     {
         lootGeneTypes.Add(geneType);
         
-        GeneTypeCount foundItem = geneTypeCountsList.Find(item => item.geneType == geneType);
+        GeneTypeCount foundItem = geneTypeCountsList.Find(item => item.geneType.geneType == geneType.geneType && item.geneType.geneName == geneType.geneName);
         if (foundItem != null)
         {
             foundItem.count++;
@@ -60,5 +59,4 @@ public class LootBackpack : MonoBehaviour
     {
         text.text = lootCultureMedium.ToString();
     }
-
 }

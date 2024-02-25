@@ -28,7 +28,7 @@ public class LootGeneType
 {
     public GeneTypeEntry geneType;
     [Range(0f, 1f)]
-    public float probability;
+    public int expectedMaxDropAttempts;
 }
 
 [System.Serializable]

@@ -6228,7 +6228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &479920873
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10184,7 +10184,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &939553484
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11993,9 +11993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 850f9d0caf5839346a34b49c480ad746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lootGeneADomPrefab: {fileID: 7776559319067022233, guid: 64c46a684a39a624097351815d79be15, type: 3}
-  lootGeneAHetPrefab: {fileID: 7776559319067022233, guid: 999d2cc89c455e04385c57f1e9dd008e, type: 3}
-  lootGeneARecPrefab: {fileID: 7776559319067022233, guid: bb1239314e0f3e24cb550377196756f3, type: 3}
+  lootGenePrefab: {fileID: 7776559319067022233, guid: 64c46a684a39a624097351815d79be15, type: 3}
   lootCultureMediumPrefab: {fileID: 6541342921194016047, guid: 25b4dfe4ecca39b4791b7a57da44544a, type: 3}
 --- !u!4 &1027657969
 Transform:
@@ -16366,7 +16364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 237230275}
-  lootGeneTypes: 010000000200000003000000
+  lootGeneTypes: []
   geneTypeCountsList: []
   lootCultureMedium: 0
 --- !u!1 &1377540839
@@ -19299,7 +19297,7 @@ MonoBehaviour:
   breedResult: {fileID: 1104614391}
   nextPageButton: {fileID: 1554205142}
   previousPageButton: {fileID: 162590511}
-  tissueSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  tissueSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 3}
   analyzeUI: {fileID: 1090290023}
   geneTypeInfoText: {fileID: 1155000482}
   defenderDisplayImage: {fileID: 1767610354}
@@ -19307,7 +19305,7 @@ MonoBehaviour:
   playerDefenderInventory: {fileID: 11400000, guid: 51f706db03873354ebba85327d50c556, type: 2}
   selectedDefender:
     defenderPrefab: {fileID: 0}
-    geneTypes: 
+    geneTypes: []
     defenderName: 
     defenderImage: {fileID: 0}
   selectedGeneType: 0

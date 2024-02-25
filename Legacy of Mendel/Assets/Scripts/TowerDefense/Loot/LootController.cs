@@ -1,26 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static LootManager;
 
 public class LootController : MonoBehaviour
 {
     public LootType lootType;
 
     private LootBackpack lootBackpack = LootBackpack.Instance;
-
-    public enum LootType
-    {
-        LootCultureMedium,
-        LootGeneADom,
-        LootGeneAHet,
-        LootGeneARec,
-        LootGeneBDom,
-        LootGeneBHet,
-        LootGeneBRec,
-        LootGeneCDom,
-        LootGeneCHet,
-        LootGeneCRec,
-    }
 
     private void OnTriggerEnter(Collider other)
     {

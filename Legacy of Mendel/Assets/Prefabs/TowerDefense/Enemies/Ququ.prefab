@@ -287,7 +287,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alertRadius: 30
   targetDefender: {fileID: 0}
-  lootGeneTypes: 
+  lootGeneType:
+    geneName: 0
+    geneType: 0
   lootCultureMedium: 0
   attackRange: 100
   isAttacking: 0
@@ -326,8 +328,8 @@ MonoBehaviour:
   fireBallInterval: 1
   fireBallRange: 20
   explosionRange: 5
-  fireBallPrefabForEnemies: {fileID: 0}
-  fireBallPrefabForDefenders: {fileID: 0}
+  fireBallPrefabForEnemies: {fileID: 1990380580032880, guid: 054b35c65b5c4e5459d89f49b18ba331, type: 3}
+  fireBallPrefabForDefenders: {fileID: 1990380580032880, guid: 46b312e00ed9c1f459ea9f0e55bfac77, type: 3}
   target: {fileID: 0}
 --- !u!114 &-6298609931703305808
 MonoBehaviour:

@@ -76,7 +76,7 @@ public class BreedManager : MonoBehaviour
             uiElement.SetActive(false); 
         }
 
-        tissues = LootBackpack.Instance.lootGeneTypes;
+        //tissues = LootBackpack.Instance.lootGeneTypes;
         totalPage = Mathf.CeilToInt((float)tissues.Count / itemsPerPage);
         currentPage = 0; // 重置为第一页
 

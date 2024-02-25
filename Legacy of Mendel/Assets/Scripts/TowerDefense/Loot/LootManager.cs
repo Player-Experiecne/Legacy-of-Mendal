@@ -1,12 +1,29 @@
 using UnityEngine;
 using System.Collections.Generic;
-using static UnityEngine.GraphicsBuffer;
 
 public class LootManager : MonoBehaviour
 {
     public static LootManager Instance { get; private set; }
     public GameObject lootGenePrefab;
     public GameObject lootCultureMediumPrefab;
+
+    private Dictionary<LootType, int> attemptsSinceLastDrop;
+    private Dictionary<LootType, float> dropChance;
+
+    public enum LootType
+    {
+        Null,
+        LootCultureMedium,
+        LootGeneADom,
+        LootGeneAHet,
+        LootGeneARec,
+        LootGeneBDom,
+        LootGeneBHet,
+        LootGeneBRec,
+        LootGeneCDom,
+        LootGeneCHet,
+        LootGeneCRec,
+    }
 
     void Awake()
     {
@@ -21,58 +38,30 @@ public class LootManager : MonoBehaviour
         }
     }
 
-    public void DropLootGeneType(Transform transform, GeneTypeEntry lootGeneType)
+    public void PossibleDropGene(Transform transform, LootGeneType lootGeneType)
+    {
+        LootType lootType = TranscribeLootInfo(lootGeneType.geneType);
+        CalculateAdjustedDropChance();
+        if(Random.value <= dropChance[lootType])
+        {
+            DropLootGeneType(transform, lootType);
+        }
+    }
+
+    public void PossibleDropCultureMedium(Transform transform, LootCultureMedium lootCultureMedium)
+    {
+
+    }
+
+    private void DropLootGeneType(Transform transform, LootType lootGeneType)
     {
         Vector3 dropPosition = GetRandomDropPosition(transform);
         GameObject lootGameObject = Instantiate(lootGenePrefab, dropPosition, Quaternion.identity);
         LootController lootController = lootGameObject.AddComponent<LootController>();
-        switch (lootGeneType.geneName)
-        {
-            case GeneInfo.geneTypesName.A:
-                switch (lootGeneType.geneType)
-                {
-                    case GeneInfo.geneTypes.Dom:
-                        lootController.lootType = LootController.LootType.LootGeneADom;
-                        break;
-                    case GeneInfo.geneTypes.Het:
-                        lootController.lootType = LootController.LootType.LootGeneAHet;
-                        break;
-                    case GeneInfo.geneTypes.Rec:
-                        lootController.lootType = LootController.LootType.LootGeneARec;
-                        break;
-                }break;
-            case GeneInfo.geneTypesName.B:
-                switch (lootGeneType.geneType)
-                {
-                    case GeneInfo.geneTypes.Dom:
-                        lootController.lootType = LootController.LootType.LootGeneBDom;
-                        break;
-                    case GeneInfo.geneTypes.Het:
-                        lootController.lootType = LootController.LootType.LootGeneBHet;
-                        break;
-                    case GeneInfo.geneTypes.Rec:
-                        lootController.lootType = LootController.LootType.LootGeneBRec;
-                        break;
-                }
-                break;
-            case GeneInfo.geneTypesName.C:
-                switch (lootGeneType.geneType)
-                {
-                    case GeneInfo.geneTypes.Dom:
-                        lootController.lootType = LootController.LootType.LootGeneCDom;
-                        break;
-                    case GeneInfo.geneTypes.Het:
-                        lootController.lootType = LootController.LootType.LootGeneCHet;
-                        break;
-                    case GeneInfo.geneTypes.Rec:
-                        lootController.lootType = LootController.LootType.LootGeneCRec;
-                        break;
-                }
-                break;
-        }
+        lootController.lootType = lootGeneType;
     }
 
-    public void DropLootCultureMedium(Transform transform, int lootCultureMedium)
+    private void DropLootCultureMedium(Transform transform, int lootCultureMedium)
     {
         for (int i = 0; i < lootCultureMedium; i++)
         {
@@ -83,10 +72,58 @@ public class LootManager : MonoBehaviour
 
     private Vector3 GetRandomDropPosition(Transform transform)
     {
-        float radius = 5.0f; // Adjust as needed
+        float radius = 2.0f; // Adjust as needed
         Vector3 randomDirection = Random.insideUnitSphere * radius;
         randomDirection.y = 0; // Assuming a 2D game, or you don't want to change the height
         Vector3 dropPosition = transform.position + randomDirection;
         return dropPosition;
+    }
+
+    private LootType TranscribeLootInfo(GeneTypeEntry lootGeneType)
+    {
+        switch (lootGeneType.geneName)
+        {
+            case GeneInfo.geneTypesName.A:
+                switch (lootGeneType.geneType)
+                {
+                    case GeneInfo.geneTypes.Dom:
+                        return LootType.LootGeneADom;
+                    case GeneInfo.geneTypes.Het:
+                        return LootType.LootGeneAHet;
+                    case GeneInfo.geneTypes.Rec:
+                        return LootType.LootGeneARec;
+                }
+                break;
+            case GeneInfo.geneTypesName.B:
+                switch (lootGeneType.geneType)
+                {
+                    case GeneInfo.geneTypes.Dom:
+                        return LootType.LootGeneBDom;
+                    case GeneInfo.geneTypes.Het:
+                        return LootType.LootGeneBHet;
+                    case GeneInfo.geneTypes.Rec:
+                        return LootType.LootGeneBRec;
+                }
+                break;
+            case GeneInfo.geneTypesName.C:
+                switch (lootGeneType.geneType)
+                {
+                    case GeneInfo.geneTypes.Dom:
+                        return LootType.LootGeneCDom;
+                    case GeneInfo.geneTypes.Het:
+                        return LootType.LootGeneCHet;
+                    case GeneInfo.geneTypes.Rec:
+                        return LootType.LootGeneCRec;
+                }
+                break;
+        }
+        return LootType.Null;
+    }
+
+    private float CalculateAdjustedDropChance()
+    {
+        
+
+        return 1;
     }
 }
