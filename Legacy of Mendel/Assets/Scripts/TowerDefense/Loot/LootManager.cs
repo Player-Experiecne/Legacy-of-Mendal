@@ -7,9 +7,6 @@ public class LootManager : MonoBehaviour
     public GameObject lootGenePrefab;
     public GameObject lootCultureMediumPrefab;
 
-    private Dictionary<LootType, int> attemptsSinceLastDrop;
-    private Dictionary<LootType, float> dropChance;
-
     public enum LootType
     {
         Null,
@@ -38,30 +35,15 @@ public class LootManager : MonoBehaviour
         }
     }
 
-    public void PossibleDropGene(Transform transform, LootGeneType lootGeneType)
-    {
-        LootType lootType = TranscribeLootInfo(lootGeneType.geneType);
-        CalculateAdjustedDropChance();
-        if(Random.value <= dropChance[lootType])
-        {
-            DropLootGeneType(transform, lootType);
-        }
-    }
-
-    public void PossibleDropCultureMedium(Transform transform, LootCultureMedium lootCultureMedium)
-    {
-
-    }
-
-    private void DropLootGeneType(Transform transform, LootType lootGeneType)
+    public void DropLootGeneType(Transform transform, GeneTypeEntry lootGeneType)
     {
         Vector3 dropPosition = GetRandomDropPosition(transform);
         GameObject lootGameObject = Instantiate(lootGenePrefab, dropPosition, Quaternion.identity);
         LootController lootController = lootGameObject.AddComponent<LootController>();
-        lootController.lootType = lootGeneType;
+        lootController.lootType = TranscribeLootInfo(lootGeneType);
     }
 
-    private void DropLootCultureMedium(Transform transform, int lootCultureMedium)
+    public void DropLootCultureMedium(Transform transform, int lootCultureMedium)
     {
         for (int i = 0; i < lootCultureMedium; i++)
         {
@@ -120,10 +102,4 @@ public class LootManager : MonoBehaviour
         return LootType.Null;
     }
 
-    private float CalculateAdjustedDropChance()
-    {
-        
-
-        return 1;
-    }
 }

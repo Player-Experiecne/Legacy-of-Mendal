@@ -28,7 +28,7 @@ public class LootGeneType
 {
     public GeneTypeEntry geneType;
     [Range(0f, 1f)]
-    public int expectedMaxDropAttempts;
+    public float lootPossibility;
 }
 
 [System.Serializable]
@@ -36,6 +36,4 @@ public class LootCultureMedium
 {
     public int minLootCultureMedium;
     public int maxLootCultureMedium;
-    [Range(0f, 1f)]
-    public float lootCultureMediumprobability;
 }

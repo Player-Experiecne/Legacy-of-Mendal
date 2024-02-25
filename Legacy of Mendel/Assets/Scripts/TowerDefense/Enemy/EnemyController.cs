@@ -14,8 +14,8 @@ public class EnemyController : MonoBehaviour
     private GameObject Mendelbase;
     [HideInInspector] public GameObject targetDefender;
 
-    [HideInInspector] public LootGeneType lootGeneType = null;
-    [HideInInspector] public LootCultureMedium lootCultureMedium = null;
+    /*[HideInInspector]*/ public GeneTypeEntry lootGeneType = null;
+    /*[HideInInspector]*/ public int lootCultureMedium = 0;
 
     /*public float attackPower = 1f;
     public float attackSpeed = 1f;*/

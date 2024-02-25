@@ -18,6 +18,7 @@ public class HP : MonoBehaviour
     [HideInInspector]
     public float currentHealth;
     public Image healthBarFill;
+    private bool isDead = false;
 
     LootManager lootManager;
     private EnemyController enemyController;
@@ -41,6 +42,9 @@ public class HP : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        if (isDead) // Check if Die has already been called
+            return; // If so, do nothing more in this method
+
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         UpdateHealthBar();
@@ -58,12 +62,18 @@ public class HP : MonoBehaviour
 
     public void Die()
     {
+        if (isDead) // Double-check to prevent multiple executions
+            return;
+        isDead = true;
         switch (objectType)
         {
             case ObjectType.Enemy:
                 Destroy(gameObject);
-                lootManager.PossibleDropGene(transform, enemyController.lootGeneType);
-                lootManager.PossibleDropCultureMedium(transform, enemyController.lootCultureMedium);
+                if(enemyController.lootGeneType != null && enemyController.lootGeneType.geneType != GeneInfo.geneTypes.Null)
+                {
+                    lootManager.DropLootGeneType(transform, enemyController.lootGeneType);
+                }
+                lootManager.DropLootCultureMedium(transform, enemyController.lootCultureMedium);
                 break;
             case ObjectType.Defender:
                 Destroy(gameObject);

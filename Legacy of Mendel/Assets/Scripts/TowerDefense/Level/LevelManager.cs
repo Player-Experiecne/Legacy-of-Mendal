@@ -134,12 +134,14 @@ public class LevelManager : MonoBehaviour
         addBehaviorsToTarget.AddGeneBehaviors(spawnedEnemy, enemy.geneTypes, false);*/
 
         //Assign lootgenes
-        if (enemy.lootGeneType != null && enemy.lootGeneType.geneType.geneType != GeneInfo.geneTypes.Null)
+        if (enemy.lootGeneType != null && (enemy.lootGeneType.geneType.geneType != GeneInfo.geneTypes.Null))
         {
-            enemyController.lootGeneType = enemy.lootGeneType;
+            if(Random.value < enemy.lootGeneType.lootPossibility)
+            {
+                enemyController.lootGeneType = enemy.lootGeneType.geneType;
+            }
         }
         //Assign loot culture medium
-        float randomValue1 = Random.Range(0f, 1f);
-        enemyController.lootCultureMedium = enemy.lootCultureMedium;
+        enemyController.lootCultureMedium = Random.Range(enemy.lootCultureMedium.minLootCultureMedium, enemy.lootCultureMedium.maxLootCultureMedium + 1);
     }
 }
