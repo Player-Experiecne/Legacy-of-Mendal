@@ -3,7 +3,57 @@ guid: d59ad00f156d0ac46919eef286e3473f
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireFlameSlimeCan
+    second: {fileID: 2100000, guid: 307c045acad8daf45ad7bce815ef5597, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireFlameSlimeLauncher
+    second: {fileID: 2100000, guid: 733aaec4aa0312347b1bfee21bb47a46, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireFlameSlimeTube
+    second: {fileID: 2100000, guid: c88043eaf3ceae34ba7b1efd118f42ef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireIce.018
+    second: {fileID: 2100000, guid: 3fe8ca4db2d005a478c952f4c9fb9957, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PenPenMao
+    second: {fileID: 2100000, guid: c5cf760ee98b8b9408a4b90bc5297147, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PenPenWing
+    second: {fileID: 2100000, guid: 52a1b2587e008654395d18cc15d73f58, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.011"
+    second: {fileID: 2100000, guid: d50489f43315cdc478a270eea97f4a9b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.015"
+    second: {fileID: 2100000, guid: 4cc8a02bc819eba4796550ef31da9761, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.016"
+    second: {fileID: 2100000, guid: 8d0b28861fddb0f488e892171677b480, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.017"
+    second: {fileID: 2100000, guid: 68377957f688a2b449f878d0b8af583e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

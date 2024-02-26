@@ -3,7 +3,47 @@ guid: 9e6ac93c4e744ed4bb1c9e459e3074d8
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireBallSlimeTail
+    second: {fileID: 2100000, guid: da4b75e956747f5418471e4784952d7a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireBallSlimeTailSide
+    second: {fileID: 2100000, guid: 031d93c70aabb5b4a86b7241a0afa0f4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireIce.018
+    second: {fileID: 2100000, guid: b985591a37898c14593f45f7a41f393f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.005"
+    second: {fileID: 2100000, guid: 45a1af4777b49e94bbf4a4b2c3364929, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.011"
+    second: {fileID: 2100000, guid: d5c923f20aa407949bbde625ca1fe010, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.015"
+    second: {fileID: 2100000, guid: 5089570d5a5646444b6fc2df7a42c0e6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.016"
+    second: {fileID: 2100000, guid: 66a47386ccd32bf4f98bcd2a0a09dd95, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.017"
+    second: {fileID: 2100000, guid: 29a38ffdba9e5f64b8f49d05e6757d65, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

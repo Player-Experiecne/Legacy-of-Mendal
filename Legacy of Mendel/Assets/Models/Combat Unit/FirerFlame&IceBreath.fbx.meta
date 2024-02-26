@@ -3,7 +3,52 @@ guid: af8365c696ea9504da5847effe1c312d
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireFlameSlimeCan
+    second: {fileID: 2100000, guid: d8901b62b6decc149b3863426f545c3f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireFlameSlimeLauncher
+    second: {fileID: 2100000, guid: 279140411ef28d142b0b2c0816a92a7e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireFlameSlimeTube
+    second: {fileID: 2100000, guid: d7250e738c6d58a4eb6363637f9ba205, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireIce.018
+    second: {fileID: 2100000, guid: e2ba812365eb3cb42b3a81381c6b766c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.005"
+    second: {fileID: 2100000, guid: 5a64c08c48ad7ab4f972adb3906646e3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.011"
+    second: {fileID: 2100000, guid: 4f20bda81afc6a44990ae7d53b5a10a6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.015"
+    second: {fileID: 2100000, guid: 5e80834d6f50250499e688f16bbc2941, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.016"
+    second: {fileID: 2100000, guid: 25fa31068ee6fd0428ee25b1e8ac829d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.017"
+    second: {fileID: 2100000, guid: 842edf38e9458334897ac3b8fb0ab1a5, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

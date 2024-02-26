@@ -3,7 +3,47 @@ guid: ce0edaf3dd07fdd40ab73acf604fd300
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: IceSlimeBody
+    second: {fileID: 2100000, guid: 38761371cfbc1e34c8e1aabc6c30d605, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ItachiBack
+    second: {fileID: 2100000, guid: 4ffd181e93c643c489a2be2e0880f534, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ItachiEar
+    second: {fileID: 2100000, guid: b6cf699e041aa754f99ce935fdef2171, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ItachiEar2
+    second: {fileID: 2100000, guid: e20cdb70f289c1d4eb9e8c16082caf99, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SlimeEyeBall2
+    second: {fileID: 2100000, guid: 0e161d58161e8ff45a6eefa3c0928a69, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SlimeEyeBall3.001
+    second: {fileID: 2100000, guid: 7543a77e74b531a45a1285df074b18a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28"
+    second: {fileID: 2100000, guid: 23921beb120a91949ab1185891514f27, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.010"
+    second: {fileID: 2100000, guid: 18b0fe174211e12448621018fba41d53, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

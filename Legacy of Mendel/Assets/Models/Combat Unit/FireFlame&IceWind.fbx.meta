@@ -3,7 +3,62 @@ guid: 5290e394773bfa741a6fb03d7ad71040
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireFlameSlimeCan
+    second: {fileID: 2100000, guid: d3a5366ffff934b4f9a07eaf5336e036, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireFlameSlimeLauncher
+    second: {fileID: 2100000, guid: 1891bb6686e7985468faddaf7e0ff4a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireFlameSlimeTube
+    second: {fileID: 2100000, guid: 442246d3350dfa34e9623409584f54fb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireIce.018
+    second: {fileID: 2100000, guid: 0c5989e13f0b54c49acb8e34d7eab030, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ItachiBack
+    second: {fileID: 2100000, guid: 634e15dbf37b28441b22ae6917fae92b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ItachiEar
+    second: {fileID: 2100000, guid: 6e034dde9d0cdf449a95319ff0b15ac4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ItachiEar2
+    second: {fileID: 2100000, guid: b2c322a4061e7494eaa7dd3271a0a18c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.011"
+    second: {fileID: 2100000, guid: 24b7a83de0161d44eb2c0f7e683593ec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.015"
+    second: {fileID: 2100000, guid: 018d002967314994381c23093ad26c32, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.016"
+    second: {fileID: 2100000, guid: 065340d240fa3d04ca05632c445817a9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.017"
+    second: {fileID: 2100000, guid: a0397663a2ab9ea4796fa2637e383fe5, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
