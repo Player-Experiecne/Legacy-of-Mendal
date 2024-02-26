@@ -6,25 +6,27 @@ public class GeneARecBehaviors : MonoBehaviour, IAttackBehavior
 {
     public float AttackRange => fireBallRange - 5f;
 
-    //Damage Settings
+    [Header("DO NOT modify!!!")]
+    public GameObject fireBallPrefabForEnemies; // Declare a public GameObject for the fire prefab
+    public GameObject fireBallPrefabForDefenders; // Declare a public GameObject for the fire prefab
+
+    [Header("Damage Settings")]
     public float instantDamage = 30f;    // Instant damage applied upon touch.
     public float dotDamage = 5f;         // Damage over time applied while burning.
     public float burnDuration = 3f;      // Duration of the burn effect.
     public float burnTickInterval = 1f;  // Time interval between damage ticks while burning.
 
-    //Fire Ball
+    [Header("Attack Settings")]
     public float fireBallInterval = 1f;
     public float fireBallRange = 20f;
     public float explosionRange = 5f;
     private GameObject firePoint;
     private GameObject fireBallPrefab;
-    public GameObject fireBallPrefabForEnemies; // Declare a public GameObject for the fire prefab
-    public GameObject fireBallPrefabForDefenders; // Declare a public GameObject for the fire prefab
     
     private float nextFireTime = 1.0f;
 
     private HP selfHP;
-    public GameObject target;
+    [HideInInspector]public GameObject target;
     private EnemyController enemyController;
     private DefenderController defenderController;
     private bool isAttacking;

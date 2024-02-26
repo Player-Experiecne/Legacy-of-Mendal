@@ -7,18 +7,19 @@ public class GeneBHetBehaviors : MonoBehaviour, IAttackBehavior
 {
     public float AttackRange => attackRange;
 
-    //Damage Settings
-    public float attackRange = 9f;
+    [Header("DO NOT modify!!!")]
+    public GameObject icePrefab; // Declare a public GameObject for the fire prefab
+    public Transform icePoint;
+
+    [Header("Damage Settings")]
     public float instantDamage = 30f;
     public float attackInterval = 2f;
     private float attackDuration = 1.5f;
+    private float attackRange = 9f;
 
-    //Freeze Settings
-    public float freezeDuration = 1f;
+    [Header("Freeze Settings")]
+    public float freezeDuration = 1.5f;
 
-    //Instantiation Settings
-    public GameObject icePrefab; // Declare a public GameObject for the fire prefab
-    public Transform icePoint;
     private IceAttack iceAttack;
 
     private float nextAttackTime = 1f;

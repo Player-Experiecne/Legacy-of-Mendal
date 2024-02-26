@@ -198,10 +198,9 @@ GameObject:
   - component: {fileID: 4117279205531356694}
   - component: {fileID: 4117279205531356695}
   - component: {fileID: 3471691557685678129}
-  - component: {fileID: 5111931918117836168}
   - component: {fileID: -6298609931703305808}
   m_Layer: 0
-  m_Name: QuquWithADom&ARec
+  m_Name: QuquWithADom
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -310,28 +309,6 @@ MonoBehaviour:
   maxHealth: 400
   currentHealth: 0
   healthBarFill: {fileID: 4843540739000023023}
---- !u!114 &5111931918117836168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4117279205531356690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e0af24577c307944bac067764d815b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  instantDamage: 30
-  dotDamage: 5
-  burnDuration: 3
-  burnTickInterval: 1
-  fireBallInterval: 1
-  fireBallRange: 20
-  explosionRange: 5
-  fireBallPrefabForEnemies: {fileID: 1990380580032880, guid: 054b35c65b5c4e5459d89f49b18ba331, type: 3}
-  fireBallPrefabForDefenders: {fileID: 1990380580032880, guid: 46b312e00ed9c1f459ea9f0e55bfac77, type: 3}
-  target: {fileID: 0}
 --- !u!114 &-6298609931703305808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,7 +327,7 @@ MonoBehaviour:
   burnTickInterval: 1
   fireInterval: 2
   fireDuration: 1
-  fireRange: 5
+  fireRange: 10
   firePrefab: {fileID: 1447435588197194, guid: 494a6613eb0ff0742a30c6d7f89cf854, type: 3}
 --- !u!1 &4117279207176148897
 GameObject:

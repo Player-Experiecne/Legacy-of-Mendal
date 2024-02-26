@@ -6,20 +6,22 @@ using static HP;
 public class GeneADomBehaviors : MonoBehaviour, IAttackBehavior
 {
     public float AttackRange => fireRange;
-    
-    //Damage Settings
+
+    [Header("DO NOT modify!!!")]
+    public float fireRange = 5f;
+    public GameObject firePrefab; // Declare a public GameObject for the fire prefab
+
+    [Header("Damage Settings")]
     public float instantDamage = 30f;    // Instant damage applied upon touch.
     public float dotDamage = 5f;         // Damage over time applied while burning.
     public float burnDuration = 3f;      // Duration of the burn effect.
     public float burnTickInterval = 1f;  // Time interval between damage ticks while burning.
 
-    //Fire
+    [Header("Fire Settings")]
     public float fireInterval = 2f;
     public float fireDuration = 1f;
-    public float fireRange = 5f;
     
     private Collider fireTriggerCollider;
-    public GameObject firePrefab; // Declare a public GameObject for the fire prefab
     private GameObject firePoint;
 
     private float nextFireTime = 1f;

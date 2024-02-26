@@ -6,19 +6,21 @@ public class RangeAutoAttack : MonoBehaviour, IAttackBehavior
 {
     public float AttackRange => attackRange;
 
-    //Damage Settings
+    [Header("DO NOT modify!!!")]
+    public GameObject bulletPrefab;
+
+    [Header("Damage Settings")]
     public float instantDamage = 10f;    // Instant damage applied upon touch.
 
-    //Attack Behavior Settings
+    [Header("Attack Settings")]
     public float attackInterval = 1f;
     public float attackRange = 8;
     private GameObject firePoint;
-    public GameObject bulletPrefab;
 
     private float nextFireTime = 1.0f;
 
     private HP selfHP;
-    public GameObject target;
+    [HideInInspector] public GameObject target;
     private EnemyController enemyController;
     private DefenderController defenderController;
     private bool isAttacking;

@@ -8,16 +8,17 @@ public class GeneBDomBehaviors : MonoBehaviour, IAttackBehavior
 {
     public float AttackRange => attackRange;
 
-    //Damage Settings
-    public float attackRange = 5f;
+    [Header("DO NOT modify!!!")]
+    public GameObject waterObject; // Declare the water GameObject
+
+    [Header("Damage Settings")]
     public float damagePerHit = 10f;    // Instant damage applied upon touch.
     public float damageInterval = 0.5f;
+    private float attackRange = 5f;
 
-    //Slow Settings
+    [Header("Slow Settings")]
     public float slowRatio = 0.2f;
     public float slowDuration = 4f;
-
-    [SerializeField] private GameObject waterObject; // Declare the chile GameObject
 
     private HP selfHP;
     private EnemyController enemyController;

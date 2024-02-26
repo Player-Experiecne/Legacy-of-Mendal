@@ -21,13 +21,12 @@ MonoBehaviour:
         enemyImage: {fileID: 0}
         lootGeneType:
           geneType:
-            geneName: 2
-            geneType: 3
-          probability: 0
+            geneName: 0
+            geneType: 1
+          lootPossibility: 0
         lootCultureMedium:
           minLootCultureMedium: 0
           maxLootCultureMedium: 0
-          lootCultureMediumprobability: 0
       spawnLocation: 0
       count: 4
     - enemy:
@@ -38,11 +37,10 @@ MonoBehaviour:
           geneType:
             geneName: 0
             geneType: 1
-          probability: 0
+          lootPossibility: 0
         lootCultureMedium:
           minLootCultureMedium: 0
           maxLootCultureMedium: 0
-          lootCultureMediumprobability: 0
       spawnLocation: 0
       count: 5
   - enemies:
@@ -54,11 +52,10 @@ MonoBehaviour:
           geneType:
             geneName: 0
             geneType: 0
-          probability: 0
+          lootPossibility: 0
         lootCultureMedium:
           minLootCultureMedium: 5
           maxLootCultureMedium: 10
-          lootCultureMediumprobability: 0.46
       spawnLocation: 1
       count: 6
     - enemy:
@@ -69,11 +66,10 @@ MonoBehaviour:
           geneType:
             geneName: 0
             geneType: 0
-          probability: 0
+          lootPossibility: 0
         lootCultureMedium:
           minLootCultureMedium: 5
           maxLootCultureMedium: 10
-          lootCultureMediumprobability: 0.46
       spawnLocation: 1
       count: 2
   - enemies:
@@ -85,11 +81,10 @@ MonoBehaviour:
           geneType:
             geneName: 0
             geneType: 0
-          probability: 0
+          lootPossibility: 0
         lootCultureMedium:
           minLootCultureMedium: 5
           maxLootCultureMedium: 10
-          lootCultureMediumprobability: 0.46
       spawnLocation: 2
       count: 1
   - enemies:
@@ -101,11 +96,10 @@ MonoBehaviour:
           geneType:
             geneName: 0
             geneType: 0
-          probability: 0
+          lootPossibility: 0
         lootCultureMedium:
           minLootCultureMedium: 5
           maxLootCultureMedium: 10
-          lootCultureMediumprobability: 0.46
       spawnLocation: 2
       count: 4
   - enemies:
@@ -117,11 +111,10 @@ MonoBehaviour:
           geneType:
             geneName: 0
             geneType: 0
-          probability: 0
+          lootPossibility: 0
         lootCultureMedium:
           minLootCultureMedium: 5
           maxLootCultureMedium: 10
-          lootCultureMediumprobability: 0.46
       spawnLocation: 1
       count: 4
   - enemies:
@@ -133,10 +126,9 @@ MonoBehaviour:
           geneType:
             geneName: 0
             geneType: 0
-          probability: 0
+          lootPossibility: 0
         lootCultureMedium:
           minLootCultureMedium: 5
           maxLootCultureMedium: 10
-          lootCultureMediumprobability: 0.46
       spawnLocation: 2
       count: 3
