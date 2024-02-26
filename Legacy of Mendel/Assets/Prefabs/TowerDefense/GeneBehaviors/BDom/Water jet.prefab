@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 6297448973148792219}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 2, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6297448973631778258}
@@ -3613,7 +3613,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 4
     type: 1
     collisionMode: 0
@@ -4852,7 +4852,7 @@ Transform:
   m_GameObject: {fileID: 6297448973406856523}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.64, y: 1.13, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 2, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6297448973148792220}
@@ -9677,7 +9677,7 @@ Transform:
   m_GameObject: {fileID: 6297448973631778257}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6297448973148792220}
@@ -13262,7 +13262,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 4
     type: 1
     collisionMode: 0
@@ -14486,6 +14486,7 @@ GameObject:
   - component: {fileID: 6297448973636006951}
   - component: {fileID: 6297448973636006950}
   - component: {fileID: 7981811396575653669}
+  - component: {fileID: -8585827888430789348}
   m_Layer: 0
   m_Name: Water jet
   m_TagString: Untagged
@@ -19313,3 +19314,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 9.782754, y: 2.4527073, z: 2.5619237}
   m_Center: {x: 4.3335385, y: 1.2862082, z: 0.033429027}
+--- !u!114 &-8585827888430789348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6297448973636006948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d63d684d4887f44faf2e695e073009c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePerHit: 0
+  damageInterval: 0
+  slowRatio: 0
+  slowDuration: 0
+  selfHP: {fileID: 0}

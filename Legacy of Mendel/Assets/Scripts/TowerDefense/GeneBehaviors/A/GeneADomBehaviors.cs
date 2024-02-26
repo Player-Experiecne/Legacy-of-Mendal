@@ -128,7 +128,6 @@ public class GeneADomBehaviors : MonoBehaviour, IAttackBehavior
                 }
             }
         }
-        
     }
 
     private void OnTriggerExit(Collider other)

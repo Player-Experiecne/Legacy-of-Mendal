@@ -9,9 +9,8 @@ public class IceAttack : MonoBehaviour
     //Damage Settings
     public float instantDamage;
 
-    //Slow Settings
-    public float slowRatio;
-    public float slowDuration;
+    //Freeze Settings
+    public float freezeDuration;
 
     public HP selfHP;
     private Collider triggerCollider;
@@ -74,28 +73,22 @@ public class IceAttack : MonoBehaviour
         {
             damagedEnemies.Add(target);
             DealInstantDamage(target);
-            SlowTarget(target);
+            FreezeTarget(target);
         }
     }
 
-    private void SlowTarget(GameObject target)
+    private void FreezeTarget(GameObject target)
     {
-        NavMeshAgent targetNav = target.GetComponent<NavMeshAgent>();
-        if (targetNav != null)
+        FreezeState targetFreezeOld = target.GetComponent<FreezeState>();
+        if (targetFreezeOld != null)
         {
-            SlowState slowState = target.GetComponent<SlowState>();
-            if (slowState == null) // Not slowed yet.
-            {
-                target.AddComponent<SlowState>().StartSlowed(slowRatio, slowDuration);
-            }
-            else if (slowRatio > slowState.existingSlowRatio) // New slow is stronger.
-            {
-                slowState.StartSlowed(slowRatio, slowDuration);
-            }
-            else if (slowRatio <= slowState.existingSlowRatio) // Existing slow is stronger
-            {
-                slowState.StartSlowed(slowState.existingSlowRatio, slowDuration);
-            }
+            Destroy(targetFreezeOld);
+        }
+        FreezeState targetFreezeNew = target.AddComponent<FreezeState>();
+        targetFreezeNew.freezeDuration = freezeDuration;
+        if (target != null && target.activeInHierarchy)
+        {
+            targetFreezeNew.StartFreeze();
         }
     }
 }

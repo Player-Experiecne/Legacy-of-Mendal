@@ -17,6 +17,7 @@ public class DefenderController : MonoBehaviour
     public float attackSpeed = 1f;*/
     [HideInInspector] public float attackRange = 100f;
     [HideInInspector] public bool isAttacking = false;
+    [HideInInspector] public bool isFrozen = false;
 
     private void Start()
     {
@@ -26,10 +27,7 @@ public class DefenderController : MonoBehaviour
         defendPoint = new GameObject("_DefendPoint");
         defendPoint.transform.position = gameObject.transform.position;
         MoveTowardsTarget(defendPoint);
-    }
 
-    void Update()
-    {
         //Select attack range
         IAttackBehavior selectedAttack = SelectAttackRange();
         if (selectedAttack != null)
@@ -37,7 +35,10 @@ public class DefenderController : MonoBehaviour
             attackRange = selectedAttack.AttackRange;
             // Use attackRange for selected attack
         }
-
+    }
+    void Update()
+    {
+        if (isFrozen) { return; }
         // If the defender doesn't have a target or if its target was destroyed
         if (targetEnemy == null || !EnemyManager.Instance.Enemies.Contains(targetEnemy))
         {
