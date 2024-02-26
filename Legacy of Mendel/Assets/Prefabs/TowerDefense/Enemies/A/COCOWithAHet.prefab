@@ -198,9 +198,9 @@ GameObject:
   - component: {fileID: 4117279205531356694}
   - component: {fileID: 4117279205531356695}
   - component: {fileID: 3471691557685678129}
-  - component: {fileID: 2274005742135845421}
+  - component: {fileID: 4221821179648962853}
   m_Layer: 0
-  m_Name: COCO
+  m_Name: COCOWithAHet
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -286,10 +286,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alertRadius: 30
   targetDefender: {fileID: 0}
-  lootGeneTypes: 
+  lootGeneType:
+    geneName: 0
+    geneType: 0
   lootCultureMedium: 0
   attackRange: 100
   isAttacking: 0
+  isFrozen: 0
 --- !u!114 &3471691557685678129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,7 +309,7 @@ MonoBehaviour:
   maxHealth: 300
   currentHealth: 0
   healthBarFill: {fileID: 4843540739000023023}
---- !u!114 &2274005742135845421
+--- !u!114 &4221821179648962853
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -315,7 +318,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4117279205531356690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 626cc49f858906742817e63f394cdb9e, type: 3}
+  m_Script: {fileID: 11500000, guid: 20cef63cefb59ec45b042bbb2989a0ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   instantDamage: 30

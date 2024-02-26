@@ -14,13 +14,14 @@ public class EnemyController : MonoBehaviour
     private GameObject Mendelbase;
     [HideInInspector] public GameObject targetDefender;
 
-    /*[HideInInspector]*/ public GeneTypeEntry lootGeneType = null;
-    /*[HideInInspector]*/ public int lootCultureMedium = 0;
+    [HideInInspector] public GeneTypeEntry lootGeneType = null;
+    [HideInInspector] public int lootCultureMedium = 0;
 
     /*public float attackPower = 1f;
     public float attackSpeed = 1f;*/
     [HideInInspector] public float attackRange = 100f;
     [HideInInspector] public bool isAttacking = false;
+    [HideInInspector] public bool isFrozen = false;
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -29,10 +30,7 @@ public class EnemyController : MonoBehaviour
         //Set first target to base
         Mendelbase = GameObject.FindGameObjectWithTag("Base");
         agent.destination = Mendelbase.transform.position;
-    }
 
-    void Update()
-    {
         //Select attack range
         IAttackBehavior selectedAttack = SelectAttackRange();
         if (selectedAttack != null)
@@ -40,7 +38,11 @@ public class EnemyController : MonoBehaviour
             attackRange = selectedAttack.AttackRange;
             // Use attackRange for selected attack
         }
-        
+    }
+
+    void Update()
+    {
+        if (isFrozen) { return; }
         //Pathfinding logic starts----------------------------------------------------------------
 
         // If the enemy doesn't have a target or if its target was destroyed
@@ -48,7 +50,6 @@ public class EnemyController : MonoBehaviour
         {
             FindClosestDefender();
         }
-
         if (targetDefender != null)
         {
             Collider targetCollider = targetDefender.GetComponent<Collider>();

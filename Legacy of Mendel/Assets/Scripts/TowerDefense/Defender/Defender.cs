@@ -22,6 +22,4 @@ public class Defender
         this.defenderName = other.defenderName;
         this.defenderImage = other.defenderImage;
     }
-
-    
 }
