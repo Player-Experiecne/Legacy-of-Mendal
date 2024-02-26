@@ -3,7 +3,57 @@ guid: 9c040a6adddfc794c8d172484da63876
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireBallSlimeTail
+    second: {fileID: 2100000, guid: ef5d5f0fdbd5bc9448f79eef6ec45842, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireBallSlimeTailSide
+    second: {fileID: 2100000, guid: 8e6d3e023db40b14b8243d2157b0d0de, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireIce.018
+    second: {fileID: 2100000, guid: e56998b175e6c224ab357b5e658d0ca2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ItachiBack
+    second: {fileID: 2100000, guid: 4c4f786d451ba7446b59e5de6cbabb74, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ItachiEar
+    second: {fileID: 2100000, guid: 36e1b6655fe9acc43b5aa7751e3cea40, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ItachiEar2
+    second: {fileID: 2100000, guid: d38a86e875f97cf48884917a003b0b9c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.011"
+    second: {fileID: 2100000, guid: 6e97ff44e743f44478224e64d7d67758, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.015"
+    second: {fileID: 2100000, guid: 1f8f8e312b9615840817a640b6408b1c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.016"
+    second: {fileID: 2100000, guid: c8127f60a80a3aa4d8a7236689d1127d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.017"
+    second: {fileID: 2100000, guid: 84586635b0d05cf40a5d2dc81c1942d9, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
