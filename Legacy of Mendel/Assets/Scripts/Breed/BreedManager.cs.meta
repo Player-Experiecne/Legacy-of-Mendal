@@ -3,7 +3,23 @@ guid: 058cabf331335284d868d65db21ac17c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - geneDropdownPopulator: {instanceID: 0}
+  - defenderLibrary: {instanceID: 0}
+  - breedResultImage: {instanceID: 0}
+  - tissueCountText: {instanceID: 0}
+  - cultureMediumCountText: {instanceID: 0}
+  - breedResult: {instanceID: 0}
+  - nextPageButton: {instanceID: 0}
+  - previousPageButton: {instanceID: 0}
+  - tissueSprite: {instanceID: 0}
+  - analyzeUI: {instanceID: 0}
+  - geneTypeInfoText: {instanceID: 0}
+  - defenderDisplayImage: {instanceID: 0}
+  - chooseBreedDefendersPanel: {instanceID: 0}
+  - playerDefenderInventory: {fileID: 11400000, guid: 51f706db03873354ebba85327d50c556, type: 2}
+  - geneLibrary: {instanceID: 0}
+  - geneLibraryDisplay: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

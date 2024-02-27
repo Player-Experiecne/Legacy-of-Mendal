@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Linq;
 
 public class BreedManager : MonoBehaviour
 {
@@ -30,11 +31,13 @@ public class BreedManager : MonoBehaviour
     public GameObject chooseBreedDefendersPanel;
     public PlayerDefenderInventory playerDefenderInventory;
     public Defender selectedDefender;
-    public GeneInfo.geneTypes selectedGeneType;
+    public GeneTypeEntry selectedGeneType;
 
     private GameObject selectedSlot = null;
 
     public GeneLibrary geneLibrary;
+
+
     public GeneLibraryDisplay geneLibraryDisplay;
 
     // 分页数据
@@ -99,7 +102,7 @@ public class BreedManager : MonoBehaviour
     }
 
     // 调用这个方法来设置选中的基因型
-    public void SetSelectedGeneType(GeneInfo.geneTypes geneType)
+    public void SetSelectedGeneType(GeneTypeEntry geneType)
     {
         selectedGeneType = geneType;
     }
@@ -206,45 +209,48 @@ public class BreedManager : MonoBehaviour
         }
     }
 
-   /* public void OnBreedButtonClick()
+    public void OnBreedButtonClick()
     {
-        if (selectedDefender != null && selectedGeneType != GeneInfo.geneTypes.Null)
+        if (selectedDefender != null && selectedGeneType != null)
         {
             // 执行融合逻辑
             Defender newDefender = PerformFusion(selectedDefender, selectedGeneType);
             if (newDefender != null)
             {
                 // 查找匹配的Defender在库中的图像和属性
-                foreach (Defender defenderInLibrary in defenderLibrary.defenders)
-                {
+                
                     // 假设IsSameGeneType现在可以处理新的基因型设计
-                    if (IsSameGeneType(newDefender.geneTypes, defenderInLibrary.geneTypes))
-                    {
-                        // 如果找到匹配的基因型，展示对应Defender的图像和更新属性
-                        breedResultImage.sprite = defenderInLibrary.defenderImage;
-                        newDefender.defenderPrefab = defenderInLibrary.defenderPrefab;
-                        newDefender.defenderName = defenderInLibrary.defenderName;
-                        newDefender.defenderImage = defenderInLibrary.defenderImage;
-                        break; // 找到匹配后退出循环
-                    }
-                }
-                playerDefenderInventory.AddDefender(newDefender);
-                playerDefenderInventory.DecreaseDefenderCount(selectedDefender);
+                    /*         if (IsSameGeneType(newDefender.geneTypes, defenderInLibrary.geneTypes))
+                             {
+                                 // 如果找到匹配的基因型，展示对应Defender的图像和更新属性
+                                 breedResultImage.sprite = defenderInLibrary.defenderImage;
+                                 newDefender.defenderPrefab = defenderInLibrary.defenderPrefab;
+                                 newDefender.defenderName = defenderInLibrary.defenderName;
+                                 newDefender.defenderImage = defenderInLibrary.defenderImage;
+                                 break; // 找到匹配后退出循环
+                             }
+                         }*/
+                    //playerDefenderInventory.AddDefender(newDefender);
+                    //playerDefenderInventory.DecreaseDefenderCount(selectedDefender);
 
-                // 更新UI以显示培育结果
-                Debug.Log(newDefender.geneTypes);
-                breedResult.text = "You have got defender: " + newDefender.defenderName;
-
-                // 重置培育界面
-                ResetBreedingUI();
+                    // 更新UI以显示培育结果
+                    //Debug.Log("Bred Defender Gene Types: " + string.Join(", ", newDefender.geneTypes.Select(gt => gt.geneName + ": " + gt.geneType)));
+                    string geneTypesStr = string.Join(", ", newDefender.geneTypes.Select(g => g.geneName + ": " + g.geneType));
+                    breedResult.text = geneTypesStr;
+                    Debug.Log(newDefender.geneTypes.Count);
+                    // 重置培育界面
+                    ResetBreedingUI();
+                
+            }
+            else
+            {
+                // 如果未选择Defender或基因型，则弹出提示
+                Debug.LogWarning("Defender or GeneType not selected!");
+                // 可以在这里添加UI反馈，例如显示错误消息
             }
         }
-        else
-        {
-            // 可能需要处理未选择Defender或基因型的情况
-        }
     }
-*/
+
 
     public void PerformAnalysis()
     {
@@ -301,7 +307,7 @@ public class BreedManager : MonoBehaviour
     private void UpdateGeneLibrary(GeneInfo.geneTypes geneType)
     {
         bool updated = false;
-        foreach (GeneTypeData geneData in geneLibrary.allGenes)
+       /* foreach (GeneTypeData geneData in geneLibrary.allGenes)
         {
             if (geneData.geneType == geneType && !geneData.isOwned)
             {
@@ -309,7 +315,7 @@ public class BreedManager : MonoBehaviour
                 updated = true;
                 break; // 退出循环，因为我们已经找到并更新了基因型
             }
-        }
+        }*/
 
         if (updated)
         {
@@ -333,23 +339,24 @@ public class BreedManager : MonoBehaviour
 
 
 
-    public Defender PerformFusion(Defender defender, List<GeneTypeEntry> newGeneTypes)
+    public Defender PerformFusion(Defender defender, GeneTypeEntry newGeneType)
     {
         if (defender != null)
         {
             Defender newDefender = new Defender(defender);
+            //newDefender.geneTypes.Add(new GeneTypeEntry { geneName = GeneInfo.geneTypesName.A, geneType = GeneInfo.geneTypes.Null });
+            //newDefender.geneTypes.Add(new GeneTypeEntry { geneName = GeneInfo.geneTypesName.B, geneType = GeneInfo.geneTypes.Null });
+            //newDefender.geneTypes.Add(new GeneTypeEntry { geneName = GeneInfo.geneTypesName.C, geneType = GeneInfo.geneTypes.Null });
 
-            foreach (var newGeneType in newGeneTypes)
+            // 遍历defender中的基因类型
+            foreach (var existingGene in newDefender.geneTypes)
             {
-                var existingGene = newDefender.geneTypes.Find(g => g.geneName == newGeneType.geneName);
-                if (existingGene != null)
+                // 如果当前的基因在新的基因类型中存在，则进行融合
+                if (existingGene.geneName == newGeneType.geneName)
                 {
-                    // 这里实现基因型融合逻辑
                     existingGene.geneType = MendelianInheritance(existingGene.geneType, newGeneType.geneType);
-                }
-                else
-                {
-                    newDefender.geneTypes.Add(new GeneTypeEntry { geneName = newGeneType.geneName, geneType = newGeneType.geneType });
+                    // 由于只有一个新的基因类型，我们可以在找到匹配项后终止循环
+                    break;
                 }
             }
 
@@ -357,6 +364,7 @@ public class BreedManager : MonoBehaviour
         }
         return null;
     }
+
 
     private GeneInfo.geneTypes MendelianInheritance(GeneInfo.geneTypes geneType1, GeneInfo.geneTypes geneType2)
     {
@@ -434,7 +442,7 @@ public class BreedManager : MonoBehaviour
     public void ResetBreedingUI()
     {
         // 清空展示培育结果的Image
-        //breedResultImage.sprite = null;
+        breedResultImage.sprite = null;
 
         // 重置Dropdown到默认选项
         geneDropdownPopulator.ResetToDefaultOption();

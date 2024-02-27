@@ -8,7 +8,7 @@ public class GeneTypeData
 {
     public GeneInfo.geneTypes geneType;
     public bool isOwned;
-    public String name;
+    public GeneInfo.geneTypesName name;
 }
 
 

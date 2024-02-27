@@ -6,7 +6,7 @@ public class GeneInfo
  
     public enum geneTypesName
     {
-        A, B, C
+        Null, A, B, C
     }
     public enum geneTypes
     {

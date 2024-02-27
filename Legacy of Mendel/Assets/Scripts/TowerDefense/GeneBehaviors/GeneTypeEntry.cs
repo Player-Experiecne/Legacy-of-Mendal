@@ -6,6 +6,7 @@ using UnityEngine;
 public class GeneTypeEntry
 {
     public GeneInfo.geneTypesName geneName; 
-    public GeneInfo.geneTypes geneType; 
+    public GeneInfo.geneTypes geneType;
+    public bool isOwned;
 }
 
