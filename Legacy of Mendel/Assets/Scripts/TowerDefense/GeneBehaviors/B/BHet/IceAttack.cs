@@ -8,17 +8,20 @@ public class IceAttack : MonoBehaviour
 {
     //Damage Settings
     public float instantDamage;
+    public float attackDuration;
 
     //Freeze Settings
     public float freezeDuration;
 
     public HP selfHP;
     private Collider triggerCollider;
+    private GameObject iceAttackObject;
     private HashSet<GameObject> damagedEnemies = new HashSet<GameObject>();
 
     void Awake()
     {
         triggerCollider = GetComponent<MeshCollider>();
+        iceAttackObject = transform.parent.gameObject;
         StartCoroutine(DetectEnemies());
     }
     
@@ -26,6 +29,9 @@ public class IceAttack : MonoBehaviour
     {
         yield return new WaitForSeconds(0.4f);
         triggerCollider.enabled = true;
+        //Wait for attack duration and then stop the ice attack
+        yield return new WaitForSeconds(attackDuration);
+        Destroy(iceAttackObject);// Destroy the ice instance
     }
 
     private void OnTriggerStay(Collider other)

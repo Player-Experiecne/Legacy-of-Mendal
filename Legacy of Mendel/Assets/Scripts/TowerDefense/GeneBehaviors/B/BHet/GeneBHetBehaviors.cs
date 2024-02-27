@@ -49,24 +49,21 @@ public class GeneBHetBehaviors : MonoBehaviour, IAttackBehavior
         }
         if (Time.time > nextAttackTime && isAttacking)
         {
-            StartCoroutine(SpewIce());
+            SpewIce();
             nextAttackTime = Time.time + attackInterval;
         }
     }
 
-    IEnumerator SpewIce()
+    private void SpewIce()
     {
         // Instantiate the ice prefab at the icepoint
         iceInstance = Instantiate(icePrefab, icePoint.transform.position, icePoint.transform.rotation);
         iceAttack = iceInstance.transform.GetChild(0).gameObject.AddComponent<IceAttack>();
         //Assign stats
         iceAttack.instantDamage = instantDamage;
+        iceAttack.attackDuration = attackDuration;
         iceAttack.freezeDuration = freezeDuration;
         iceAttack.selfHP = selfHP;
-
-        //Wait for attack duration and then stop the ice attack
-        yield return new WaitForSeconds(attackDuration);
-        Destroy(iceInstance); // Destroy the ice instance
     }
 
     //Changed this old way of detection to trigger collider on ice attack prefab

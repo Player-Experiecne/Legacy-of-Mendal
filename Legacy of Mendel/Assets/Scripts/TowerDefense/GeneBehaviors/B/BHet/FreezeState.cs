@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 using static HP;
 
 public class FreezeState : MonoBehaviour
@@ -51,7 +52,7 @@ public class FreezeState : MonoBehaviour
         }
     }
 
-    System.Collections.IEnumerator UnfreezeAfterDelay(float delay)
+    IEnumerator UnfreezeAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
 
