@@ -416,7 +416,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.9
-  m_Speed: 3.5
+  m_Speed: 5
   m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 360
@@ -473,6 +473,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e0af24577c307944bac067764d815b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireBallPrefabForEnemies: {fileID: 1990380580032880, guid: 054b35c65b5c4e5459d89f49b18ba331, type: 3}
+  fireBallPrefabForDefenders: {fileID: 1990380580032880, guid: 46b312e00ed9c1f459ea9f0e55bfac77, type: 3}
   instantDamage: 30
   dotDamage: 5
   burnDuration: 3
@@ -480,8 +482,6 @@ MonoBehaviour:
   fireBallInterval: 1
   fireBallRange: 20
   explosionRange: 5
-  fireBallPrefabForEnemies: {fileID: 1990380580032880, guid: 054b35c65b5c4e5459d89f49b18ba331, type: 3}
-  fireBallPrefabForDefenders: {fileID: 1990380580032880, guid: 46b312e00ed9c1f459ea9f0e55bfac77, type: 3}
   target: {fileID: 0}
 --- !u!114 &8561125348012690201
 MonoBehaviour:
@@ -495,12 +495,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5717d2b02854978478b35f0a4dc47c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 5
+  waterObject: {fileID: 2138206006477306995}
   damagePerHit: 10
   damageInterval: 0.5
   slowRatio: 0.2
   slowDuration: 4
-  waterObject: {fileID: 2138206006477306995}
 --- !u!1001 &5388952164827088983
 PrefabInstance:
   m_ObjectHideFlags: 0

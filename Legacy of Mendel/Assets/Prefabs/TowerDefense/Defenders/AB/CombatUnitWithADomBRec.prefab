@@ -494,7 +494,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.8
-  m_Speed: 3.5
+  m_Speed: 5
   m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 360
@@ -551,14 +551,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626cc49f858906742817e63f394cdb9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireRange: 10
+  firePrefab: {fileID: 1447435588197194, guid: 494a6613eb0ff0742a30c6d7f89cf854, type: 3}
   instantDamage: 30
   dotDamage: 5
   burnDuration: 3
   burnTickInterval: 1
   fireInterval: 2
   fireDuration: 1
-  fireRange: 10
-  firePrefab: {fileID: 1447435588197194, guid: 494a6613eb0ff0742a30c6d7f89cf854, type: 3}
 --- !u!114 &8594629906709263362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -571,16 +571,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81c2d2b53b1bc1545953293cd103230b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tornadoPrefab: {fileID: 1298041915377180, guid: fd937d40764fdea41a6fc9f27044f308, type: 3}
+  tornadoPoint: {fileID: 899225022740290094}
+  tornadoPoint2: {fileID: 941581412531477087}
+  tornadoPoint3: {fileID: 4502965642606171872}
   spawn3Tornados: 1
   attackRange: 15
   instantDamage: 30
   attackInterval: 2
   pushDuration: 0.5
   pushDistance: 5
-  tornadoPrefab: {fileID: 1298041915377180, guid: fd937d40764fdea41a6fc9f27044f308, type: 3}
-  tornadoPoint: {fileID: 899225022740290094}
-  tornadoPoint2: {fileID: 941581412531477087}
-  tornadoPoint3: {fileID: 4502965642606171872}
 --- !u!1 &7495599096992830371
 GameObject:
   m_ObjectHideFlags: 0

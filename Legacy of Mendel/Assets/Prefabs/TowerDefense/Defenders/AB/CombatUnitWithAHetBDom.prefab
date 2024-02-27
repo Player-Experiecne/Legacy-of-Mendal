@@ -430,7 +430,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.8
-  m_Speed: 3.5
+  m_Speed: 5
   m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 360
@@ -487,14 +487,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626cc49f858906742817e63f394cdb9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireRange: 10
+  firePrefab: {fileID: 1447435588197194, guid: 494a6613eb0ff0742a30c6d7f89cf854, type: 3}
   instantDamage: 30
   dotDamage: 5
   burnDuration: 3
   burnTickInterval: 1
   fireInterval: 2
   fireDuration: 1
-  fireRange: 10
-  firePrefab: {fileID: 1447435588197194, guid: 494a6613eb0ff0742a30c6d7f89cf854, type: 3}
 --- !u!114 &-6646275216007886982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -507,12 +507,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5717d2b02854978478b35f0a4dc47c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 5
+  waterObject: {fileID: 6683540628859680463}
   damagePerHit: 10
   damageInterval: 0.5
   slowRatio: 0.2
   slowDuration: 4
-  waterObject: {fileID: 6683540628859680463}
 --- !u!1001 &839284384332415723
 PrefabInstance:
   m_ObjectHideFlags: 0

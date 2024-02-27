@@ -461,7 +461,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.8
-  m_Speed: 3.5
+  m_Speed: 5
   m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 360
@@ -518,14 +518,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626cc49f858906742817e63f394cdb9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireRange: 10
+  firePrefab: {fileID: 1447435588197194, guid: 494a6613eb0ff0742a30c6d7f89cf854, type: 3}
   instantDamage: 30
   dotDamage: 5
   burnDuration: 3
   burnTickInterval: 1
   fireInterval: 2
   fireDuration: 1
-  fireRange: 10
-  firePrefab: {fileID: 1447435588197194, guid: 494a6613eb0ff0742a30c6d7f89cf854, type: 3}
 --- !u!114 &3434388672731924268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -538,12 +538,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9d608adbeb0c448b0ddc1c939a96fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 9
+  icePrefab: {fileID: 1758561088887766, guid: 5392148208365f64689255394485d680, type: 3}
+  icePoint: {fileID: 899225022740290094}
   instantDamage: 30
   attackInterval: 2
   freezeDuration: 1
-  icePrefab: {fileID: 1758561088887766, guid: 5392148208365f64689255394485d680, type: 3}
-  icePoint: {fileID: 899225022740290094}
 --- !u!1001 &9056383031976809733
 PrefabInstance:
   m_ObjectHideFlags: 0
