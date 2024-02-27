@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public LevelManager levelManager;
     public LootBackpack lootBackpack;
 
-    public ActionBackpack backpack;
+    public DefenderBackpack backpack;
 
     public GameObject breedingUI; // 培育界面的UI对象
     public GameObject breedingButton;

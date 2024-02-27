@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActionBackpack : MonoBehaviour
+public class DefenderBackpack : MonoBehaviour
 {
-    public static ActionBackpack Instance;
+    public static DefenderBackpack Instance;
 
     public List<Defender> defendersInBackpack = new List<Defender>();
     [HideInInspector] public Defender activeDefender = null;
-    public ActionBackpackUI ui;
+    public DefenderBackpackUI ui;
 
     public void AddDefenderToBackpack(Defender defender)
     {   

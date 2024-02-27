@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ActionBackpackUI : MonoBehaviour
+public class DefenderBackpackUI : MonoBehaviour
 {
     public GameObject defenderButtonPrefab;
-    public ActionBackpack actionBackpack;
+    public DefenderBackpack defenderBackpack;
 
     private int selectedDefenderIndex = -1; // Initialize to -1 or another invalid index to denote no selection.
     private List<Button> defenderButtons = new List<Button>();
@@ -28,7 +28,7 @@ public class ActionBackpackUI : MonoBehaviour
 
         // Add new buttons based on the defenders in the backpack
         int index = 0;
-        foreach (Defender defender in actionBackpack.defendersInBackpack)
+        foreach (Defender defender in defenderBackpack.defendersInBackpack)
         {
             GameObject btn = Instantiate(defenderButtonPrefab, transform);
             btn.GetComponentInChildren<TextMeshProUGUI>().text = defender.defenderName;
@@ -47,7 +47,7 @@ public class ActionBackpackUI : MonoBehaviour
     private void OnDefenderSelected(Defender defender, int index)
     {
         selectedDefenderIndex = index;
-        actionBackpack.activeDefender = defender;
+        defenderBackpack.activeDefender = defender;
         UpdateActiveDefenderHighlight();
     }
 
