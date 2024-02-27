@@ -23,6 +23,7 @@ public class GeneADomBehaviors : MonoBehaviour, IAttackBehavior
     
     private Collider fireTriggerCollider;
     private GameObject firePoint;
+    private GameObject fireInstance;
 
     private float nextFireTime = 1f;
     //private float lastDamageTime = 0f;
@@ -69,22 +70,28 @@ public class GeneADomBehaviors : MonoBehaviour, IAttackBehavior
             StartCoroutine(SpewFire());
             nextFireTime = Time.time + fireInterval;
         }
+        if(!isAttacking) 
+        {   
+            StopAllCoroutines();
+            StopFire();
+        }
     }
 
     IEnumerator SpewFire()
     {
         fireTriggerCollider.enabled = true;
-
         // Instantiate the fire prefab at the firepoint
-        //Vector3 spawnPosition = transform.position + transform.forward; // Adjust the offset if necessary
-        GameObject fireInstance = Instantiate(firePrefab, firePoint.transform.position, transform.rotation, transform);
+        fireInstance = Instantiate(firePrefab, firePoint.transform.position, transform.rotation, transform);
 
         yield return new WaitForSeconds(fireDuration);
+        StopFire();
+    }
 
+    private void StopFire()
+    {
         Destroy(fireInstance); // Destroy the fire instance
         fireTriggerCollider.enabled = false;
     }
-
 
     private void OnTriggerStay(Collider other)
     {
@@ -139,7 +146,6 @@ public class GeneADomBehaviors : MonoBehaviour, IAttackBehavior
             lastDamageTimes.Remove(other);
         }
     }
-
 
     private void DealInstantDamage(GameObject target)
     {

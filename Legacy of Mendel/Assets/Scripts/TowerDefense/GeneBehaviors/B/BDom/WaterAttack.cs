@@ -20,6 +20,7 @@ public class WaterAttack : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        if(selfHP == null) { return; }
         if (selfHP.objectType == ObjectType.Enemy)
         {
             if (other.CompareTag("Base") || other.CompareTag("Defender"))
