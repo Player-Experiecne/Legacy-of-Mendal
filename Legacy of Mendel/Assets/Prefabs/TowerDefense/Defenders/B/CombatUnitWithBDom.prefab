@@ -440,11 +440,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5717d2b02854978478b35f0a4dc47c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerHit: 10
+  waterObject: {fileID: 2629478189108139395}
+  damagePerHit: 7
   damageInterval: 0.5
   slowRatio: 0.2
   slowDuration: 4
-  waterObject: {fileID: 2629478189108139395}
 --- !u!1001 &2485955369457472822
 PrefabInstance:
   m_ObjectHideFlags: 0

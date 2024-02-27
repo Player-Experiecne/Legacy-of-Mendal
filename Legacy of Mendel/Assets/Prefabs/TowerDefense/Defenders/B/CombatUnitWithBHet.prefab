@@ -442,6 +442,7 @@ MonoBehaviour:
   targetEnemy: {fileID: 0}
   attackRange: 100
   isAttacking: 0
+  isFrozen: 0
 --- !u!114 &9119087789665166077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,11 +471,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9d608adbeb0c448b0ddc1c939a96fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instantDamage: 30
-  attackInterval: 2
-  freezeDuration: 1
   icePrefab: {fileID: 1758561088887766, guid: 5392148208365f64689255394485d680, type: 3}
   icePoint: {fileID: 5326282949242972068}
+  instantDamage: 15
+  attackInterval: 2
+  freezeDuration: 1
 --- !u!1001 &509090554744216052
 PrefabInstance:
   m_ObjectHideFlags: 0

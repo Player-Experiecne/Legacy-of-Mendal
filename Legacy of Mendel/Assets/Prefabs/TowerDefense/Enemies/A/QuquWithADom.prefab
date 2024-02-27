@@ -260,7 +260,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1.9
-  m_Speed: 8
+  m_Speed: 6
   m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 370
@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectType: 0
-  maxHealth: 400
+  maxHealth: 450
   currentHealth: 0
   healthBarFill: {fileID: 4843540739000023023}
 --- !u!114 &-6298609931703305808
@@ -321,14 +321,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626cc49f858906742817e63f394cdb9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireRange: 10
+  firePrefab: {fileID: 1447435588197194, guid: 494a6613eb0ff0742a30c6d7f89cf854, type: 3}
   instantDamage: 30
   dotDamage: 5
   burnDuration: 3
   burnTickInterval: 1
   fireInterval: 2
   fireDuration: 1
-  fireRange: 10
-  firePrefab: {fileID: 1447435588197194, guid: 494a6613eb0ff0742a30c6d7f89cf854, type: 3}
 --- !u!1 &4117279207176148897
 GameObject:
   m_ObjectHideFlags: 0

@@ -535,16 +535,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81c2d2b53b1bc1545953293cd103230b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawn3Tornados: 1
-  attackRange: 20
-  instantDamage: 30
-  attackInterval: 2
-  pushDuration: 0.5
-  pushDistance: 5
   tornadoPrefab: {fileID: 1298041915377180, guid: fd937d40764fdea41a6fc9f27044f308, type: 3}
   tornadoPoint: {fileID: 6535944662473862369}
   tornadoPoint2: {fileID: 4559471832084679635}
   tornadoPoint3: {fileID: 8656548575250941148}
+  spawn3Tornados: 1
+  attackRange: 20
+  instantDamage: 20
+  attackInterval: 2
+  pushDuration: 0.5
+  pushDistance: 5
 --- !u!1001 &1401660232879301734
 PrefabInstance:
   m_ObjectHideFlags: 0

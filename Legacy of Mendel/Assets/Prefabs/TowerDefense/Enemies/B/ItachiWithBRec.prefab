@@ -215,7 +215,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1.9
-  m_Speed: 8
+  m_Speed: 5
   m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 370
@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectType: 0
-  maxHealth: 400
+  maxHealth: 650
   currentHealth: 0
   healthBarFill: {fileID: 4843540739000023023}
 --- !u!114 &259950194063269141
@@ -276,16 +276,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81c2d2b53b1bc1545953293cd103230b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawn3Tornados: 0
-  attackRange: 20
-  instantDamage: 30
-  attackInterval: 2
-  pushDuration: 0.5
-  pushDistance: 5
   tornadoPrefab: {fileID: 1298041915377180, guid: fd937d40764fdea41a6fc9f27044f308, type: 3}
   tornadoPoint: {fileID: 6809163817237516399}
   tornadoPoint2: {fileID: 0}
   tornadoPoint3: {fileID: 0}
+  spawn3Tornados: 0
+  attackRange: 30
+  instantDamage: 30
+  attackInterval: 2
+  pushDuration: 0.5
+  pushDistance: 5
 --- !u!1 &4117279207176148897
 GameObject:
   m_ObjectHideFlags: 0
