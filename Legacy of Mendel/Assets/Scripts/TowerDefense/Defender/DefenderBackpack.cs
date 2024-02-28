@@ -9,11 +9,6 @@ public class DefenderBackpack : MonoBehaviour
     [HideInInspector] public Defender activeDefender = null;
     public DefenderBackpackUI ui;
 
-    public void AddDefenderToBackpack(Defender defender)
-    {   
-        defendersInBackpack.Add(defender);
-        ui.RefreshUI();
-    }
     private void Awake()
     {
         if (Instance == null)
@@ -26,6 +21,13 @@ public class DefenderBackpack : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void AddDefenderToBackpack(Defender defender)
+    {
+        defendersInBackpack.Add(defender);
+        ui.RefreshUI();
+    }
+
     public void AddDefendersFromInventory(PlayerDefenderInventory inventory)
     {
         foreach (var defenderWithCount in inventory.ownedDefenders)
@@ -61,15 +63,8 @@ public class DefenderBackpack : MonoBehaviour
 
     public void ClearBackpack()
     {
-        
         defendersInBackpack.Clear();
-
-        
         activeDefender = null;
-
-      
         ui.RefreshUI();
     }
-
-
 }

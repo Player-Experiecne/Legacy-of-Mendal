@@ -53,9 +53,9 @@ public class EnemyManager : MonoBehaviour, IEnemyManager
         RefreshUI();
 
         // 如果当前没有敌人通知 GameManager 更改状态
-        if (currentCount == 0 && gameManager != null)
+        if (currentCount == 0 && LevelManager.Instance.LevelCompleted)
         {
-            breedingButton.SetActive(true);
+            GameEvents.TriggerLevelComplete();
         }
     }
     public void ResetEnemyCount()

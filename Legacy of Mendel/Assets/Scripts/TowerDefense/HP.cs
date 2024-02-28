@@ -79,14 +79,8 @@ public class HP : MonoBehaviour
                 Destroy(gameObject);
                 break;
             case ObjectType.Base:
-                GameManager.Instance.callOnButton();
-                GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Enemy");
-                foreach (GameObject obj in objectsWithTag)
-                {
-                    Destroy(obj);
-                }
+                GameEvents.TriggerLevelFail();
                 gameObject.SetActive(false);
-                Debug.Log("Game Over");
                 break;
         }
     }
