@@ -31,4 +31,12 @@ public class GameEvents
     {
         OnLevelFail?.Invoke();
     }
+    public static void TriggerBreedingStart()
+    {
+        OnBreedingStart?.Invoke();
+    }
+    public static void TriggerBreedingComplete()
+    {
+        OnBreedingComplete?.Invoke();
+    }
 }

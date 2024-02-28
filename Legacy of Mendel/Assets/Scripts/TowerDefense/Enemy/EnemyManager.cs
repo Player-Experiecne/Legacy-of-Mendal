@@ -3,17 +3,11 @@ using UnityEngine;
 using TMPro;
 
 
-public class EnemyManager : MonoBehaviour, IEnemyManager
+public class EnemyManager : MonoBehaviour
 {
-    public static IEnemyManager Instance;
-
-    public GameManager gameManager;
-
+    public static EnemyManager Instance;
     private List<GameObject> enemies = new List<GameObject>();
     public List<GameObject> Enemies => enemies;
-
-    public GameObject breedingButton;
-
     public TextMeshProUGUI text;
     private int currentCount = 0;
     private int totalCount = 0;
@@ -31,11 +25,7 @@ public class EnemyManager : MonoBehaviour, IEnemyManager
         }
         RefreshUI();
     }
-    private void Start()
-    {
-        breedingButton.SetActive(false);
-        
-    }
+
     public void RegisterEnemy(GameObject enemy)
     {
         enemies.Add(enemy);

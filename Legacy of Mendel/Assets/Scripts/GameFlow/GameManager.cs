@@ -35,8 +35,14 @@ public class GameManager : MonoBehaviour
         GameEvents.OnLevelComplete += IncreaseLevelIndex;
 
         //Register functions into OnLevelFail event
-        //Game over scenes
+        //Game over functions
         GameEvents.OnLevelFail += () => Debug.Log("Game Over");
+
+        //Register functions into OnBreedingStart event
+        GameEvents.OnBreedingStart += () => SceneLoader.LoadScene("Breeding");
+
+        //Register functions into OnBreedingComplete event
+        GameEvents.OnBreedingComplete += () => SceneLoader.LoadScene("TowerDefense");
     }
 
     public IEnumerator TriggerLevelStartAfterDelay(float delay)
@@ -44,6 +50,10 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(delay);
         //Trigger the event OnLevelStart
         GameEvents.TriggerLevelStart();
+    }
+    public void TriggerBreedingStart()
+    {
+        GameEvents.TriggerBreedingStart();
     }
 
     private void CallOnButton()
@@ -55,9 +65,4 @@ public class GameManager : MonoBehaviour
     {
         currentLevelIndex++;
     } 
-
-    public void EnterBreeding()
-    {
-
-    }
 }
