@@ -3,7 +3,42 @@ guid: 3e5f666651b8ac546aa331586d6abee2
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RayHand
+    second: {fileID: 2100000, guid: c23b2be47b001b44da6a21261985d59e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lightingSlimeBody.011
+    second: {fileID: 2100000, guid: 1bb5908aa11fb7f4d98542aedc6f6e07, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.011"
+    second: {fileID: 2100000, guid: 83ca7c33762bda3498cf5be05f2ada67, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.015"
+    second: {fileID: 2100000, guid: f8a874091776a1e4493f344fced836db, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.016"
+    second: {fileID: 2100000, guid: 572fb18c1e030e542bd613a0d12eea88, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.017"
+    second: {fileID: 2100000, guid: 45ad9194e03a0ea4e84a4385d789eb98, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.018"
+    second: {fileID: 2100000, guid: 82270975a4aa8064d9811e42964601d7, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
