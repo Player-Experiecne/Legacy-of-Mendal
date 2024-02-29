@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class BuildManager : MonoBehaviour
 {
-    public ActionBackpack actionBackpack;
+    public DefenderBackpack defenderBackpack;
     private Defender activeDefender = null;
     private AddBehaviorsToTarget add;
 
@@ -31,7 +31,7 @@ public class BuildManager : MonoBehaviour
     void PlaceDefender(Vector3 position)
     {
         //Get active defender from action backpack
-        activeDefender = actionBackpack.activeDefender;
+        activeDefender = defenderBackpack.activeDefender;
         // Check if there's an active defender to place
         if (activeDefender == null)
         {
@@ -47,7 +47,7 @@ public class BuildManager : MonoBehaviour
             GameObject spawnedDefender = Instantiate(activeDefender.defenderPrefab, position, Quaternion.identity);
             //add.AddGeneBehaviors(spawnedDefender, activeDefender.geneTypes, true);
             // Remove the defender from the backpack after placing
-            actionBackpack.RemoveDefenderFromBackpack(activeDefender);
+            defenderBackpack.RemoveDefenderFromBackpack(activeDefender);
         }
     }
 

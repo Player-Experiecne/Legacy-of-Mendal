@@ -1,19 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActionBackpack : MonoBehaviour
+public class DefenderBackpack : MonoBehaviour
 {
-    public static ActionBackpack Instance;
+    public static DefenderBackpack Instance;
 
     public List<Defender> defendersInBackpack = new List<Defender>();
     [HideInInspector] public Defender activeDefender = null;
-    public ActionBackpackUI ui;
+    public DefenderBackpackUI ui;
 
-    public void AddDefenderToBackpack(Defender defender)
-    {   
-        defendersInBackpack.Add(defender);
-        ui.RefreshUI();
-    }
     private void Awake()
     {
         if (Instance == null)
@@ -26,6 +21,13 @@ public class ActionBackpack : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void AddDefenderToBackpack(Defender defender)
+    {
+        defendersInBackpack.Add(defender);
+        ui.RefreshUI();
+    }
+
     public void AddDefendersFromInventory(PlayerDefenderInventory inventory)
     {
         foreach (var defenderWithCount in inventory.ownedDefenders)
@@ -61,15 +63,8 @@ public class ActionBackpack : MonoBehaviour
 
     public void ClearBackpack()
     {
-        
         defendersInBackpack.Clear();
-
-        
         activeDefender = null;
-
-      
         ui.RefreshUI();
     }
-
-
 }
