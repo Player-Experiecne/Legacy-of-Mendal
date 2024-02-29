@@ -3,7 +3,47 @@ guid: eca3a2f06b6aab64ba9c1d76e9fd7930
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FB&L.021
+    second: {fileID: 2100000, guid: 2d1611a7b43bf4f429da957489d4a7b1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireBall&Lighting.021
+    second: {fileID: 2100000, guid: d53c3265bf9c4d440b685d4e91ee29e5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireBallSlimeEyeBall3
+    second: {fileID: 2100000, guid: cecb2182cab9cd94282232dfdafb560b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireBallSlimeTail
+    second: {fileID: 2100000, guid: 32c68c773ba6482409416d75dbcc8e00, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireBallSlimeTailSide
+    second: {fileID: 2100000, guid: b93ba52c19e32b445943b65bf4b7f8b5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.019"
+    second: {fileID: 2100000, guid: 31fe5f52a9c14cb4395ece5f7ccd1ea9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.021"
+    second: {fileID: 2100000, guid: f4541c15f9c833c44b72968564936441, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.022"
+    second: {fileID: 2100000, guid: a2930992e38c66b46925187e85588b82, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

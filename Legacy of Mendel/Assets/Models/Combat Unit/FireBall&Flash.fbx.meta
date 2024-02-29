@@ -3,7 +3,57 @@ guid: a6b81108a7b8a9e43ba6d969917b7049
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FB&L.001
+    second: {fileID: 2100000, guid: f53af5d60c9c5c84882c03018d31167e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FB&L.021
+    second: {fileID: 2100000, guid: dc8d49dce7d836849bf8c75bf7905679, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireBall&Lighting.021
+    second: {fileID: 2100000, guid: 3001c5deb89bb194aa082403aa3c02c9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireBallSlimeEyeBall3.002
+    second: {fileID: 2100000, guid: 78827b2e3c723b7439a03ed3f8d9fa5a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireBallSlimeTail.001
+    second: {fileID: 2100000, guid: 568ffe5cb2e1fc84ba1708c86da456b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireBallSlimeTailSide.001
+    second: {fileID: 2100000, guid: 50ddfe0510fdc574e8197a1902181614, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RayHand.001
+    second: {fileID: 2100000, guid: 07a6c803397c68b44bc745dac869adca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.023"
+    second: {fileID: 2100000, guid: 71ec63e3c4ff81242a50e874597917cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.024"
+    second: {fileID: 2100000, guid: 29e9e36a67a5b044b92f65f89a0b3452, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.040"
+    second: {fileID: 2100000, guid: f02bc76e373f6da4a837ef04c559d391, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

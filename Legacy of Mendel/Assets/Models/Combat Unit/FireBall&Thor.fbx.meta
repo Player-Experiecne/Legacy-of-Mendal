@@ -3,7 +3,57 @@ guid: f06a4deb8fe80cd4d8bf23cde28d85a8
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FB&L.021
+    second: {fileID: 2100000, guid: c51c40656feab09429500f8a0c548056, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireBall&Lighting.021
+    second: {fileID: 2100000, guid: 1ec10b390cf75f24d8b0b8168227b340, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireBallSlimeEyeBall3
+    second: {fileID: 2100000, guid: bfddb62afab835b43b3e56f1ac9b00f2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireBallSlimeTail
+    second: {fileID: 2100000, guid: 944491e7b43b5404ab55207ac2402ba6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireBallSlimeTailSide
+    second: {fileID: 2100000, guid: 2b65a837edf16da4fab3d7c7371277e8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material #16.088
+    second: {fileID: 2100000, guid: 7dbba7d2d288d3443b9db525a56997fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hummer.021
+    second: {fileID: 2100000, guid: aa6fce6f84a9947499e3d23b84bdd861, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hummerHandel021
+    second: {fileID: 2100000, guid: 471b576f06e76e548ae91124a5b5b5bf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.021"
+    second: {fileID: 2100000, guid: f32cac2207d394d469c59e6667843eb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.022"
+    second: {fileID: 2100000, guid: 2204c45f974a8d54ba5df372dd193f69, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
