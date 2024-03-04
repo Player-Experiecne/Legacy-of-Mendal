@@ -248,7 +248,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d698f6fc3f71df842a4da49c704945fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 87ff3fd25f6a44f408f148968b453f59, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -442,6 +442,7 @@ MonoBehaviour:
   targetEnemy: {fileID: 0}
   attackRange: 100
   isAttacking: 0
+  isFrozen: 0
 --- !u!114 &9119087789665166077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,6 +471,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e0af24577c307944bac067764d815b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireBallPrefabForEnemies: {fileID: 1990380580032880, guid: 054b35c65b5c4e5459d89f49b18ba331, type: 3}
+  fireBallPrefabForDefenders: {fileID: 1990380580032880, guid: 46b312e00ed9c1f459ea9f0e55bfac77, type: 3}
   instantDamage: 30
   dotDamage: 5
   burnDuration: 3
@@ -477,9 +480,6 @@ MonoBehaviour:
   fireBallInterval: 1
   fireBallRange: 20
   explosionRange: 5
-  fireBallPrefab: {fileID: 0}
-  fireBallPrefabForEnemies: {fileID: 1990380580032880, guid: 054b35c65b5c4e5459d89f49b18ba331, type: 3}
-  fireBallPrefabForDefenders: {fileID: 1990380580032880, guid: 46b312e00ed9c1f459ea9f0e55bfac77, type: 3}
   target: {fileID: 0}
 --- !u!1001 &1568301888843190685
 PrefabInstance:
