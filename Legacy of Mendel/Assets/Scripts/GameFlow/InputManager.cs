@@ -68,6 +68,22 @@ public class InputManager : MonoBehaviour
         return false;
     }
 
+    public float GetHorizontal()
+    {
+        float horizontal = 0f;
+        if (Input.GetKey(keyBindings["MoveRight"])) horizontal += 1f;
+        if (Input.GetKey(keyBindings["MoveLeft"])) horizontal -= 1f;
+        return horizontal;
+    }
+
+    public float GetVertical()
+    {
+        float vertical = 0f;
+        if (Input.GetKey(keyBindings["MoveUp"])) vertical += 1f;
+        if (Input.GetKey(keyBindings["MoveDown"])) vertical -= 1f;
+        return vertical;
+    }
+
     public KeyCode GetCurrentKeyForAction(string actionName)
     {
         if (keyBindings.TryGetValue(actionName, out KeyCode currentKey))

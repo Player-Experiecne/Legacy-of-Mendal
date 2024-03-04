@@ -21,8 +21,8 @@ public class PlayerController : MonoBehaviour
 
     void PlayerMovement()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+        float horizontal = InputManager.Instance.GetHorizontal();
+        float vertical = InputManager.Instance.GetVertical();
 
         Vector3 movement = new Vector3(vertical, 0.0f, -horizontal).normalized;
         movement = Quaternion.Euler(0, 135, 0) * movement;
