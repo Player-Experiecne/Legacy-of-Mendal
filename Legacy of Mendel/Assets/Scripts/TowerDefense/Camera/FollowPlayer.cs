@@ -8,11 +8,11 @@ public class FollowPlayer : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Q))
+        if (InputManager.Instance.GetKey("CameraTurnLeft"))
         {
             RotateAroundPlayer(-rotationSpeed);
         }
-        else if (Input.GetKey(KeyCode.E))
+        else if (InputManager.Instance.GetKey("CameraTurnRight"))
         {
             RotateAroundPlayer(rotationSpeed);
         }

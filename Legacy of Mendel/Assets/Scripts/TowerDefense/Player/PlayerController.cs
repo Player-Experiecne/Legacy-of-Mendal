@@ -13,27 +13,10 @@ public class PlayerController : MonoBehaviour
     public float minZ = 288f;
     public float maxZ = 416f;
 
-    public GameObject menu;
-    public GameObject settingsMenu;
-
-    private bool isPaused = false; // Track the pause state
-
     void FixedUpdate()
     {
         PlayerMovement();
         ClampPlayerPosition();
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (settingsMenu.activeSelf)
-            {
-                menu.SetActive(true);
-                settingsMenu.SetActive(false);
-            }
-            else
-            {
-                TogglePause();
-            }
-        }
     }
 
     void PlayerMovement()
@@ -73,16 +56,5 @@ public class PlayerController : MonoBehaviour
         clampedPosition.z = Mathf.Clamp(clampedPosition.z, minZ, maxZ);
 
         transform.position = clampedPosition;
-
-    }
-
-    public void TogglePause()
-    {
-        isPaused = !isPaused;
-
-        menu.SetActive(isPaused);
-
-        Time.timeScale = isPaused ? 0 : 1;
-
     }
 }
