@@ -86,13 +86,14 @@ public class GeneCRecBehaviors : MonoBehaviour, IAttackBehavior
 
         for (int i = 0; i < chainTimes; i++)
         {
+            if (currentTarget == null) break;
             if (currentTarget != null && !struckTargets.Contains(currentTarget))
             {
                 StartCoroutine(LaunchLightning(previousTarget, currentTarget));
                 struckTargets.Add(currentTarget); // Mark current target as struck
 
-                // Wait for the lightning duration before continuing the chain
-                yield return chainInterval;
+                // Wait for the chain interval before continuing the chain
+                yield return new WaitForSeconds(chainInterval);
 
                 // Find the next closest target, excluding any that have been struck
                 previousTarget = currentTarget;
@@ -110,33 +111,46 @@ public class GeneCRecBehaviors : MonoBehaviour, IAttackBehavior
 
     private IEnumerator LaunchLightning(GameObject host, GameObject lightningTarget)
     {
-        // Instantiate the lightning prefab at the host's position
-        GameObject lightningInstance = Instantiate(lightningPrefab, host.transform.position, Quaternion.identity);
-
-        // Assuming the first child is the start point and the second child is the end point
+        GameObject lightningInstance = Instantiate(lightningPrefab, Vector3.zero, Quaternion.identity);
         Transform startPoint = lightningInstance.transform.GetChild(0);
         Transform endPoint = lightningInstance.transform.GetChild(1);
 
-        // Set the start point as a child of the host, and the end point as a child of the target
-        startPoint.SetParent(host.transform);
-        endPoint.SetParent(lightningTarget.transform);
+        // Set the start and end points as children of the host and target
+        startPoint.SetParent(host.transform, false);
+        endPoint.SetParent(lightningTarget.transform, false);
 
-        // Optionally, you might want to offset the child positions to match exactly where you want them on the host and target
-        startPoint.localPosition = Vector3.zero; // Adjust this as needed
-        endPoint.localPosition = Vector3.zero; // Adjust this as needed
+        // Deal damage to the target
+        HP targetHP = lightningTarget.GetComponent<HP>();
+        targetHP.TakeDamage(instantDamage);
 
-        // Wait for the lightning effect to complete its duration before cleaning up
-        yield return new WaitForSeconds(lightningDuration);
+        // Monitor the existence of startPoint and endPoint
+        bool bothPointsExist = startPoint != null && endPoint != null;
+        float elapsedTime = 0f;
 
-        // After the effect duration, destroy the instantiated lightning prefab
-        Destroy(startPoint.gameObject);
-        Destroy(endPoint.gameObject);
-        Destroy(lightningInstance);
+        while (bothPointsExist && elapsedTime < lightningDuration)
+        {
+            // Check every frame if either point is missing
+            if (startPoint == null || endPoint == null)
+            {
+                bothPointsExist = false;
+                break; // Exit the loop if either is missing
+            }
+
+            // Increment the elapsed time
+            elapsedTime += Time.deltaTime;
+            yield return null; // Wait until the next frame
+        }
+
+        // Clean up
+        if (startPoint != null) Destroy(startPoint.gameObject); // Destroy startPoint if it still exists
+        if (endPoint != null) Destroy(endPoint.gameObject); // Destroy endPoint if it still exists
+        Destroy(lightningInstance); // Destroy the main lightning effect
     }
-
 
     private GameObject FindClosestDefender(GameObject currentTarget, HashSet<GameObject> struckTargets)
     {
+        if (currentTarget == null) return null;
+        
         float closestDistance = Mathf.Infinity;
         GameObject closestDefender = null;
 
@@ -157,6 +171,8 @@ public class GeneCRecBehaviors : MonoBehaviour, IAttackBehavior
 
     private GameObject FindClosestEnemy(GameObject currentTarget, HashSet<GameObject> struckTargets)
     {
+        if (currentTarget == null) return null;
+
         float closestDistance = Mathf.Infinity;
         GameObject closestEnemy = null;
 

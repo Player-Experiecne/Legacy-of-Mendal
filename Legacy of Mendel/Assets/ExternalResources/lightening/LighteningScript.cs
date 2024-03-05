@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class LighteningScript : MonoBehaviour
 {
@@ -92,8 +93,9 @@ public class LighteningScript : MonoBehaviour
 	{
 		while (run)
 		{
-			//move to the next index
-			index++;
+            if (target == null) { yield break; }
+            //move to the next index
+            index++;
 			if (index >= rows * columns)
 				index = 0;
 
