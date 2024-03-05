@@ -44,15 +44,6 @@ public class GeneARecBehaviors : MonoBehaviour, IAttackBehavior
             defenderController = GetComponent<DefenderController>();
         }
         firePoint = transform.GetChild(0).gameObject;
-
-        //get stats
-        /*instantDamage = geneTypeAInfoSO.recStats.instantDamage;
-        dotDamage = geneTypeAInfoSO.recStats.dotDamage;
-        burnDuration = geneTypeAInfoSO.recStats.burnDuration;
-        burnTickInterval = geneTypeAInfoSO.recStats.burnTickInterval;
-        fireBallInterval = geneTypeAInfoSO.recStats.fireBallInterval;
-        fireBallRange = geneTypeAInfoSO.recStats.fireBallRange;
-        explosionRange = geneTypeAInfoSO.recStats.explosionRange;*/
     }
 
     private void Update()
@@ -67,22 +58,19 @@ public class GeneARecBehaviors : MonoBehaviour, IAttackBehavior
         }
         if (Time.time > nextFireTime && isAttacking)
         {
-            StartCoroutine(LaunchFireBall());
+            LaunchFireBall();
             nextFireTime = Time.time + fireBallInterval;
         }
     }
 
-    IEnumerator LaunchFireBall()
+    private void LaunchFireBall()
     {
-        
         if (selfHP.objectType == ObjectType.Enemy)
         {
-            //FindClosestDefender();
             target = enemyController.targetDefender;
         }
         else if (selfHP.objectType == ObjectType.Defender)
         {
-            //FindClosestEnemy();
             target = defenderController.targetEnemy;
         }
         if(target != null) 
@@ -109,38 +97,5 @@ public class GeneARecBehaviors : MonoBehaviour, IAttackBehavior
                 fireBall.explosionRange = explosionRange;
             }
         }
-        yield return null;
-    }
-
-    private void FindClosestDefender()
-    {
-        float closestDistance = fireBallRange;
-        GameObject closestDefender = null;
-        foreach (GameObject defender in DefenderManager.Instance.defenders)
-        {
-            float currentDistance = Vector3.Distance(transform.position, defender.transform.position);
-            if (currentDistance <= closestDistance)
-            {
-                closestDistance = currentDistance;
-                closestDefender = defender;
-            }
-        }
-        target = closestDefender;
-    }
-
-    private void FindClosestEnemy()
-    {
-        float closestDistance = fireBallRange;
-        GameObject closestEnemy = null;
-        foreach (GameObject enemy in EnemyManager.Instance.Enemies)
-        {
-            float currentDistance = Vector3.Distance(transform.position, enemy.transform.position);
-            if (currentDistance <= closestDistance)
-            {
-                closestDistance = currentDistance;
-                closestEnemy = enemy;
-            }
-        }
-        target = closestEnemy;
     }
 }
