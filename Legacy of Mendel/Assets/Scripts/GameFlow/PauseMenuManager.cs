@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GlobalUIManager : MonoBehaviour
+public class PauseMenuManager : MonoBehaviour
 {
     public GameObject menu;
     public GameObject settingsMenu;

@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Flash31bcg
+  m_Name: Moon4bcg
   m_Shader: {fileID: 4800000, guid: b68b99c2e57cef4419465c63c527201b, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -43,7 +43,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 5bbdafca0dc4e1e43aed87a64e12484e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 65a93ed0af94d2649a111afe1275c0e0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Mask:
@@ -77,7 +77,7 @@ Material:
     - _Depthpower: 0.2
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _Emission: 2
+    - _Emission: 4
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
