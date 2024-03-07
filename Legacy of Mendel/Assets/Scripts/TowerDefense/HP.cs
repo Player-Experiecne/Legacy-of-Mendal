@@ -18,6 +18,7 @@ public class HP : MonoBehaviour
     [HideInInspector]
     public float currentHealth;
     public Image healthBarFill;
+    public Image shieldBarFill;
     private bool isDead = false;
 
     LootManager lootManager;
@@ -37,6 +38,7 @@ public class HP : MonoBehaviour
         }
 
         currentHealth = maxHealth;
+        healthBarFill.fillOrigin = 1;
         UpdateHealthBar();
     }
 
@@ -45,21 +47,57 @@ public class HP : MonoBehaviour
         if (isDead) // Check if Die has already been called
             return; // If so, do nothing more in this method
 
-        currentHealth -= damage;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        UpdateHealthBar();
-
-        if (currentHealth <= 0)
+        ShieldEffect shieldEffect = GetComponent<ShieldEffect>();
+        if (shieldEffect != null)
         {
-            Die();
+            shieldEffect.TakeDamage(damage);
+        }
+        else
+        {
+            currentHealth -= damage;
+            currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+            UpdateHealthBar();
+
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
         }
     }
 
     public void UpdateHealthBar()
     {
         healthBarFill.fillAmount = currentHealth / maxHealth;
-    }
 
+        if (shieldBarFill != null)
+        {
+            ShieldEffect shieldEffectComponent = GetComponent<ShieldEffect>();
+            float shieldStrength = shieldEffectComponent != null ? shieldEffectComponent.shieldStrength : 0;
+
+            // Calculate the fill amount relative to the max health for visual consistency
+            shieldBarFill.fillAmount = shieldStrength / maxHealth;
+
+            RectTransform shieldBarRT = shieldBarFill.GetComponent<RectTransform>();
+            RectTransform healthBarRT = healthBarFill.GetComponent<RectTransform>();
+
+            if (shieldBarRT != null && healthBarRT != null)
+            {
+                // Adjust for the rotation: we're effectively seeing the UI mirrored.
+                // Calculate the new position based on the health bar's current fill amount.
+                // This positions the shield bar to "extend" to the right from the viewer's perspective,
+                // but due to the rotation, it's technically extending left in the local frame.
+
+                // Calculate offset for the shield bar based on health fill amount
+                // Since the UI is rotated, "extending to the right" means moving left in local space.
+                float offsetX = (1 - healthBarFill.fillAmount) * healthBarRT.rect.width;
+
+                // Set the shield bar's anchored position to start where the health bar fill ends,
+                // taking into account the rotation flip.
+                float newPositionX = offsetX;
+                shieldBarRT.anchoredPosition = new Vector2(newPositionX, 0);
+            }
+        }
+    }
     public void Die()
     {
         if (isDead) // Double-check to prevent multiple executions
