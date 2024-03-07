@@ -13599,7 +13599,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skills:
   - {fileID: 11400000, guid: a2acc1fb507fe0b459bdbc333ed20eb9, type: 2}
-  - {fileID: 11400000, guid: a2acc1fb507fe0b459bdbc333ed20eb9, type: 2}
+  - {fileID: 11400000, guid: 598018d1d4945b5479f0ec7a409e7fe2, type: 2}
   cooldownTimers: []
   isCooldownActive: 
 --- !u!4 &1626310260
