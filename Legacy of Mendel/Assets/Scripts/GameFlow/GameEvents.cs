@@ -27,7 +27,7 @@ public class GameEvents
     {
         OnLevelComplete?.Invoke();
     }
-    public static void TriggerLevelFail()
+    public static void TriggerLevelFail() 
     {
         OnLevelFail?.Invoke();
     }

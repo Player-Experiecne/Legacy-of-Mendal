@@ -45,6 +45,12 @@ public class GameManager : MonoBehaviour
         GameEvents.OnBreedingComplete += () => SceneLoader.LoadScene("TowerDefense");
     }
 
+    public void OnBreedingButtonClicked()
+    {
+        GameEvents.TriggerBreedingStart(); 
+        SceneLoader.LoadScene("Breeding");  
+    }
+
     public IEnumerator TriggerLevelStartAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);

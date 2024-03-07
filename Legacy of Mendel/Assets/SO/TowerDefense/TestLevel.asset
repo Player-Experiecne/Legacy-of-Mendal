@@ -17,21 +17,16 @@ MonoBehaviour:
   - enemies:
     - enemy:
         enemyPrefab: {fileID: 4117279205531356690, guid: 42c2fb15637a49c4e81d8ab5d3c26d8f, type: 3}
-        hp: 300
-        speed: 0
-        geneTypes: 01000000
         enemyName: 
         enemyImage: {fileID: 0}
-        lootGeneTypes:
-        - geneType: 2
-          probability: 1
-        - geneType: 2
-          probability: 1
-        - geneType: 1
-          probability: 1
+        lootGeneType:
+          geneType:
+            geneName: 2
+            geneType: 1
+            isOwned: 0
+          lootPossibility: 1
         lootCultureMedium:
           minLootCultureMedium: 5
           maxLootCultureMedium: 10
-          lootCultureMediumprobability: 0.6
       spawnLocation: 0
       count: 2

@@ -59,4 +59,16 @@ public class LootBackpack : MonoBehaviour
     {
         text.text = lootCultureMedium.ToString();
     }
+
+    
+    public List<GeneTypeCount> GetGeneTypeCounts()
+    {
+        return geneTypeCountsList;
+    }
+
+   
+    public int GetLootCultureMediumCount()
+    {
+        return lootCultureMedium;
+    }
 }

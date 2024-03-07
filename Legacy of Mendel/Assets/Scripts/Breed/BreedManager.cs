@@ -41,7 +41,7 @@ public class BreedManager : MonoBehaviour
     public GeneLibraryDisplay geneLibraryDisplay;
 
     // 分页数据
-    public List<GeneTypeEntry> tissues;
+    private List<GeneTypeEntry> tissues = new List<GeneTypeEntry>();
     private int itemsPerPage = 10; 
     private int currentPage = 0; 
     private int totalPage;
@@ -61,6 +61,8 @@ public class BreedManager : MonoBehaviour
     void Start()
     {
         // 初始化按钮点击事件
+
+        StartBreedingPhase();
         nextPageButton.onClick.AddListener(NextPage);
         previousPageButton.onClick.AddListener(PreviousPage);
 
@@ -72,28 +74,38 @@ public class BreedManager : MonoBehaviour
     public void StartBreedingPhase()
     {
         // 获取 LootBackpack 实例中的数据
-
-        foreach (GameObject uiElement in hiddenUIs)
+     /*   foreach (GameObject uiElement in hiddenUIs)
         {
-            uiElement.SetActive(false); 
+            uiElement.SetActive(false); // 隐藏所有 UI 元素
         }
+*/
+        // 清除现有的 tissues 列表
+        tissues.Clear();
 
+        // 遍历 LootBackpack 中所有的基因型计数
         foreach (var geneTypeCount in LootBackpack.Instance.geneTypeCountsList)
         {
-            // 根据每个基因型的计数添加到tissues列表中
+            // 对于每种基因型，根据其计数添加到 tissues 列表中
             for (int i = 0; i < geneTypeCount.count; i++)
             {
-                tissues.Add(geneTypeCount.geneType);
+                tissues.Add(new GeneTypeEntry { geneName = geneTypeCount.geneType.geneName, geneType = geneTypeCount.geneType.geneType });
             }
         }
+
+        Debug.Log(tissues.Count);
+
+        Debug.Log("-------------");
+        // 更新页码和分页显示
         totalPage = Mathf.CeilToInt((float)tissues.Count / itemsPerPage);
         currentPage = 0; // 重置为第一页
 
-        analyzeUI.SetActive(false);
-        UpdateCountsDisplay();
+        // 刷新界面显示
+        analyzeUI.SetActive(false); // 如果有分析 UI，则将其设置为不可见
+        UpdateCountsDisplay(); // 更新显示以反映新的 tissues 列表
 
-        
-        
+
+
+
     }
     public void SetSelectedDefender(Defender defender)
     {

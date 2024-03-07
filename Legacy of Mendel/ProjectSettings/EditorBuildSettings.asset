@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TowerDefense.unity
     guid: 9e32470447273474aafcd2dd42e22b9c
+  - enabled: 1
+    path: Assets/Scenes/Breeding.unity
+    guid: aea822d7c3ef5e74f9409ad89b394033
   m_configObjects: {}
