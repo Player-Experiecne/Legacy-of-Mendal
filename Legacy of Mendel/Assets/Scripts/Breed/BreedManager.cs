@@ -274,19 +274,61 @@ public class BreedManager : MonoBehaviour
                 // 显示基因型信息
                 //geneTypeInfoText.text = $"Selected Gene Type: {selectedGeneType}";
 
-                string geneTypeText = $"{selectedGeneType.geneName}: ";
-                switch (selectedGeneType.geneType)
+                string geneTypeText = $"The gene you have analyzed is  ";
+                switch (selectedGeneType.geneName)
                 {
-                    case GeneInfo.geneTypes.Dom:
-                        geneTypeInfoText.text = geneTypeText + "Dominant";
+                    case GeneInfo.geneTypesName.A:
+                        switch (selectedGeneType.geneType)
+                        {
+                            case GeneInfo.geneTypes.Dom:
+                                geneTypeInfoText.text = geneTypeText + "AA";
+                                break;
+                            case GeneInfo.geneTypes.Het:
+                                geneTypeInfoText.text = geneTypeText + "Aa";
+                                break;
+                            case GeneInfo.geneTypes.Rec:
+                                geneTypeInfoText.text = geneTypeText + "aa";
+                                break;
+                        }
                         break;
-                    case GeneInfo.geneTypes.Het:
-                        geneTypeInfoText.text = geneTypeText + "Heterozygous";
+                    case GeneInfo.geneTypesName.B:
+                        switch (selectedGeneType.geneType)
+                        {
+                            case GeneInfo.geneTypes.Dom:
+                                geneTypeInfoText.text = geneTypeText + "BB";
+                                break;
+                            case GeneInfo.geneTypes.Het:
+                                geneTypeInfoText.text = geneTypeText + "Bb";
+                                break;
+                            case GeneInfo.geneTypes.Rec:
+                                geneTypeInfoText.text = geneTypeText + "bb";
+                                break;
+                        }
                         break;
-                    case GeneInfo.geneTypes.Rec:
-                        geneTypeInfoText.text = geneTypeText + "Recessive";
+                    case GeneInfo.geneTypesName.C:
+                        switch (selectedGeneType.geneType)
+                        {
+                            case GeneInfo.geneTypes.Dom:
+                                geneTypeInfoText.text = geneTypeText + "CC";
+                                break;
+                            case GeneInfo.geneTypes.Het:
+                                geneTypeInfoText.text = geneTypeText + "Cc";
+                                break;
+                            case GeneInfo.geneTypes.Rec:
+                                geneTypeInfoText.text = geneTypeText + "cc";
+                                break;
+                        }
                         break;
-                    
+                        /*  case GeneInfo.geneTypes.Dom:
+                              geneTypeInfoText.text = geneTypeText + "Dominant";
+                              break;
+                          case GeneInfo.geneTypes.Het:
+                              geneTypeInfoText.text = geneTypeText + "Heterozygous";
+                              break;
+                          case GeneInfo.geneTypes.Rec:
+                              geneTypeInfoText.text = geneTypeText + "Recessive";
+                              break;*/
+
                 }
                 //UpdateGeneLibrary(selectedGeneType);
 

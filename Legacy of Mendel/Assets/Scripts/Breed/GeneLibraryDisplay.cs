@@ -1,55 +1,89 @@
 ﻿using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
-using System.Text;
+using System.Text; 
 
 public class GeneLibraryDisplay : MonoBehaviour
 {
-    public GeneDatabase geneDatabase; // 将类型从GeneLibrary更改为GeneDatabase
-    public List<TextMeshProUGUI> geneListTexts;
-
-    private int itemsPerPage;
-
-   /* private void Start()
+    [System.Serializable]
+    public class TextGroup
     {
-        geneDatabase.OnGeneLibraryUpdated += RefreshDisplay; // 确保GeneDatabase有一个类似的事件
-        RefreshDisplay();
+        public List<TextMeshProUGUI> texts; 
     }
 
-    void OnDestroy()
+    public GeneDatabase geneDatabase; 
+    public List<TextMeshProUGUI> geneNameTexts; 
+    public List<TextGroup> geneInfoTextGroups; 
+
+    void Start()
     {
-        // 确保当对象被销毁时取消订阅事件
-        geneDatabase.OnGeneLibraryUpdated -= RefreshDisplay;
-    }*/
+        RefreshDisplay();
+        UpdateGeneTypeDisplays();
+    }
 
     public void RefreshDisplay()
     {
-        itemsPerPage = Mathf.CeilToInt((float)geneDatabase.allGenes.Count / geneListTexts.Count); // 确保GeneDatabase有一个allGenes列表
-        PopulateGeneLists();
-    }
+        
+        string[] geneTypes = { "A", "B", "C" };
 
-    void PopulateGeneLists()
-    {
-        int geneIndex = 0;
-
-        foreach (var textComponent in geneListTexts)
+       
+        for (int i = 0; i < geneTypes.Length; i++)
         {
-            StringBuilder stringBuilder = new StringBuilder();
-            for (int i = 0; i < itemsPerPage && geneIndex < geneDatabase.allGenes.Count; i++, geneIndex++)
+           
+            if (i < geneNameTexts.Count)
             {
-                var gene = geneDatabase.allGenes[geneIndex]; // 使用GeneDatabase的数据
-                if (gene.isOwned)
+               
+                bool found = false;
+                foreach (var gene in geneDatabase.allGenes)
                 {
-                    // 显示基因名和基因类型
-                    stringBuilder.AppendLine($"{gene.geneName} - {gene.geneType}");
+                    if (gene.geneName.ToString() == geneTypes[i] && gene.isOwned)
+                    {
+                        found = true;
+                        break;
+                    }
                 }
-                else
-                {
-                    // 如果基因未拥有，显示问号
-                    stringBuilder.AppendLine("?");
-                }
+
+                // 如果找到，显示基因名称；否则，显示问号
+                geneNameTexts[i].text = found ? (geneTypes[i].ToString() + " Type") : "?" + " Type";
+
             }
-            textComponent.text = stringBuilder.ToString();
         }
     }
+
+    void UpdateGeneTypeDisplays()
+    {
+        // 你可以在这里定义每个基因型名称的显示方式
+        Dictionary<GeneInfo.geneTypesName, string[]> geneDisplays = new Dictionary<GeneInfo.geneTypesName, string[]>()
+    {
+        { GeneInfo.geneTypesName.A, new string[] { "AA", "Aa", "aa" } },
+        { GeneInfo.geneTypesName.B, new string[] { "BB", "Bb", "bb" } },
+        { GeneInfo.geneTypesName.C, new string[] { "CC", "Cc", "cc" } }
+    };
+
+        // 遍历每个基因型名称
+        for (int i = 0; i < geneInfoTextGroups.Count; i++)
+        {
+            // 假设geneTypesName数组包含了所有基因型的名称
+            GeneInfo.geneTypesName[] geneTypesName = { GeneInfo.geneTypesName.A, GeneInfo.geneTypesName.B, GeneInfo.geneTypesName.C };
+
+            var geneName = geneTypesName[i];  // 当前处理的基因名称
+            string[] displays = geneDisplays[geneName];  // 当前基因的所有显示形式
+
+            // 在数据库中查找当前基因型名称的所有数据
+            for (int j = 0; j < geneDatabase.allGenes.Count; j++)
+            {
+                var geneData = geneDatabase.allGenes[j];
+
+                if (geneData.geneName == geneName)  // 检查基因名称是否匹配
+                {
+                    // 根据基因型更新UI显示
+                    int textIndex = geneData.geneType == GeneInfo.geneTypes.Dom ? 0 : geneData.geneType == GeneInfo.geneTypes.Het ? 1 : 2; // 根据基因类型确定应该在哪个文本框显示
+                    geneInfoTextGroups[i].texts[textIndex].text = geneData.isOwned ? displays[textIndex] : "?";
+                }
+            }
+        }
+    }
+
+
+
 }
