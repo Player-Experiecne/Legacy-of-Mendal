@@ -18,7 +18,7 @@ MonoBehaviour:
     isOwned: 0
   - geneName: 1
     geneType: 2
-    isOwned: 1
+    isOwned: 0
   - geneName: 1
     geneType: 3
     isOwned: 0
@@ -33,7 +33,7 @@ MonoBehaviour:
     isOwned: 0
   - geneName: 3
     geneType: 1
-    isOwned: 1
+    isOwned: 0
   - geneName: 3
     geneType: 2
     isOwned: 0

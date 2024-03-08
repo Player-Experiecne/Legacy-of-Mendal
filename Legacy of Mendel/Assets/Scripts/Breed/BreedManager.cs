@@ -10,6 +10,8 @@ public class BreedManager : MonoBehaviour
     // UI 引用
     public static BreedManager Instance;
 
+    public GeneDatabase geneDatabase;
+
     public GeneDropdownPopulator geneDropdownPopulator;
 
     public DefenderLibrary defenderLibrary;
@@ -330,7 +332,7 @@ public class BreedManager : MonoBehaviour
                               break;*/
 
                 }
-                //UpdateGeneLibrary(selectedGeneType);
+                UpdateGeneLibrary(selectedGeneType);
 
 
                 tissues.RemoveAt(index);
@@ -357,25 +359,33 @@ public class BreedManager : MonoBehaviour
         }
     }
 
-    private void UpdateGeneLibrary(GeneInfo.geneTypes geneType)
+    private void UpdateGeneLibrary(GeneTypeEntry geneTypeEntry)
     {
         bool updated = false;
-       /* foreach (GeneTypeData geneData in geneLibrary.allGenes)
+
+        // 遍历所有基因数据
+        foreach (GeneTypeEntry geneData in geneDatabase.allGenes)
         {
-            if (geneData.geneType == geneType && !geneData.isOwned)
+            // 检查基因名称和类型是否匹配
+            if (geneData.geneName == geneTypeEntry.geneName && geneData.geneType == geneTypeEntry.geneType && !geneData.isOwned)
             {
                 geneData.isOwned = true; // 更新为拥有
-                updated = true;
-                break; // 退出循环，因为我们已经找到并更新了基因型
-            }
-        }*/
+                updated = true; // 标记为已更新
+                Debug.Log("Updated");
+                break; // 找到并更新后退出循环
 
+            }
+        }
+
+        // 如果有基因型状态更新
         if (updated)
         {
-            geneLibraryDisplay.RefreshDisplay(); // 更新基因库显示
-            geneDropdownPopulator.RefreshDisplay();
+            // 通知基因库显示组件和下拉菜单组件刷新显示
+            if (geneLibraryDisplay != null) geneLibraryDisplay.RefreshDisplay();
+            if (geneDropdownPopulator != null) geneDropdownPopulator.RefreshDisplay();
         }
     }
+
 
     void CheckCurrentPage()
     {

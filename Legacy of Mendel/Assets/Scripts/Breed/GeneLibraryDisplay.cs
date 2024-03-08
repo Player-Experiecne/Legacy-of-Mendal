@@ -20,6 +20,12 @@ public class GeneLibraryDisplay : MonoBehaviour
         RefreshDisplay();
         UpdateGeneTypeDisplays();
     }
+    void Update()
+    {
+        
+        RefreshDisplay();
+        UpdateGeneTypeDisplays();
+    }
 
     public void RefreshDisplay()
     {
@@ -52,7 +58,7 @@ public class GeneLibraryDisplay : MonoBehaviour
 
     void UpdateGeneTypeDisplays()
     {
-        // 你可以在这里定义每个基因型名称的显示方式
+        
         Dictionary<GeneInfo.geneTypesName, string[]> geneDisplays = new Dictionary<GeneInfo.geneTypesName, string[]>()
     {
         { GeneInfo.geneTypesName.A, new string[] { "AA", "Aa", "aa" } },
@@ -60,24 +66,24 @@ public class GeneLibraryDisplay : MonoBehaviour
         { GeneInfo.geneTypesName.C, new string[] { "CC", "Cc", "cc" } }
     };
 
-        // 遍历每个基因型名称
+        
         for (int i = 0; i < geneInfoTextGroups.Count; i++)
         {
-            // 假设geneTypesName数组包含了所有基因型的名称
+            
             GeneInfo.geneTypesName[] geneTypesName = { GeneInfo.geneTypesName.A, GeneInfo.geneTypesName.B, GeneInfo.geneTypesName.C };
 
-            var geneName = geneTypesName[i];  // 当前处理的基因名称
-            string[] displays = geneDisplays[geneName];  // 当前基因的所有显示形式
+            var geneName = geneTypesName[i];  
+            string[] displays = geneDisplays[geneName];  
 
-            // 在数据库中查找当前基因型名称的所有数据
+           
             for (int j = 0; j < geneDatabase.allGenes.Count; j++)
             {
                 var geneData = geneDatabase.allGenes[j];
 
-                if (geneData.geneName == geneName)  // 检查基因名称是否匹配
+                if (geneData.geneName == geneName)  
                 {
-                    // 根据基因型更新UI显示
-                    int textIndex = geneData.geneType == GeneInfo.geneTypes.Dom ? 0 : geneData.geneType == GeneInfo.geneTypes.Het ? 1 : 2; // 根据基因类型确定应该在哪个文本框显示
+                    
+                    int textIndex = geneData.geneType == GeneInfo.geneTypes.Dom ? 0 : geneData.geneType == GeneInfo.geneTypes.Het ? 1 : 2; 
                     geneInfoTextGroups[i].texts[textIndex].text = geneData.isOwned ? displays[textIndex] : "?";
                 }
             }

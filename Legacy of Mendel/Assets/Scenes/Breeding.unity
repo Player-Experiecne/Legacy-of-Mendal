@@ -13053,6 +13053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 058cabf331335284d868d65db21ac17c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  geneDatabase: {fileID: 11400000, guid: 893934cd04345e345b71918a74e1f07a, type: 2}
   geneDropdownPopulator: {fileID: 1716365076}
   defenderLibrary: {fileID: 11400000, guid: 3b40ec4a69db088488fd739ecc39b8e2, type: 2}
   breedResultImage: {fileID: 945656381}
