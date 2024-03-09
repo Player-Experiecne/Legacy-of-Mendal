@@ -9,6 +9,46 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Ice&Lightning.021
     second: {fileID: 2100000, guid: f3823aed55bede64c95c804ee65e33fb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material #16.088
+    second: {fileID: 2100000, guid: 69286008ea31a8f458abfd8939025f23, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hummer.021
+    second: {fileID: 2100000, guid: e06565ebc4f2a4247b2f539b8ca15e37, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hummerHandel021
+    second: {fileID: 2100000, guid: 87b93a8ce993304428af73035184dd51, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.005"
+    second: {fileID: 2100000, guid: 6f809d36d2522cc4981a4b56ff5b0ab4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.015"
+    second: {fileID: 2100000, guid: 7bda1f9757d6a3540a44491eace21ecc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.016"
+    second: {fileID: 2100000, guid: 1c8ba5a76f53a904e9ed3f2b85e0f6ff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.017"
+    second: {fileID: 2100000, guid: c2aeb9eaf5b7ec64da7d59620a0e4c49, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.021"
+    second: {fileID: 2100000, guid: f104ac5d91d807041a36f07736efe789, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

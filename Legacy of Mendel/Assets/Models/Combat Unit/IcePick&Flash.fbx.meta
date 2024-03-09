@@ -9,6 +9,41 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Ice&Lightning.021
     second: {fileID: 2100000, guid: f3823aed55bede64c95c804ee65e33fb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PenPenMao
+    second: {fileID: 2100000, guid: 512f8b543a33f3545b4b1c9c1846ffe8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PenPenWing
+    second: {fileID: 2100000, guid: 88324641bb5b1ba4ca71b51316fad1a0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.015"
+    second: {fileID: 2100000, guid: 43efb8b265608704fab11d2ab699e598, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.016"
+    second: {fileID: 2100000, guid: 5c5a45df2e6dd454ba127e9c7bf07d04, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.017"
+    second: {fileID: 2100000, guid: 92851466f2b73084a8401cadcfcc2111, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.021"
+    second: {fileID: 2100000, guid: fe969c005d5cf9142a5ae2a03c50a301, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.040"
+    second: {fileID: 2100000, guid: 10a04f4a724a2be43a150ce7ccba697a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

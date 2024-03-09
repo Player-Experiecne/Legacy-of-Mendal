@@ -65,3 +65,42 @@ MonoBehaviour:
       isOwned: 0
     defenderName: Powder
     defenderImage: {fileID: 21300000, guid: 152a3f1ce81218b44a2471053986c21b, type: 3}
+  - defenderPrefab: {fileID: 6630813155368031700, guid: 96815565a9b8be14495169eeb3051803, type: 3}
+    geneTypes:
+    - geneName: 1
+      geneType: 1
+      isOwned: 0
+    - geneName: 2
+      geneType: 1
+      isOwned: 0
+    - geneName: 3
+      geneType: 0
+      isOwned: 0
+    defenderName: Powder
+    defenderImage: {fileID: 21300000, guid: 152a3f1ce81218b44a2471053986c21b, type: 3}
+  - defenderPrefab: {fileID: 6630813155368031700, guid: 122e52c4f3b789f4faf8cf69b591fd14, type: 3}
+    geneTypes:
+    - geneName: 1
+      geneType: 3
+      isOwned: 0
+    - geneName: 1
+      geneType: 0
+      isOwned: 0
+    - geneName: 3
+      geneType: 0
+      isOwned: 0
+    defenderName: Powder
+    defenderImage: {fileID: 21300000, guid: 152a3f1ce81218b44a2471053986c21b, type: 3}
+  - defenderPrefab: {fileID: 6630813155368031700, guid: 122e52c4f3b789f4faf8cf69b591fd14, type: 3}
+    geneTypes:
+    - geneName: 1
+      geneType: 3
+      isOwned: 0
+    - geneName: 1
+      geneType: 0
+      isOwned: 0
+    - geneName: 3
+      geneType: 0
+      isOwned: 0
+    defenderName: Powder
+    defenderImage: {fileID: 21300000, guid: 152a3f1ce81218b44a2471053986c21b, type: 3}

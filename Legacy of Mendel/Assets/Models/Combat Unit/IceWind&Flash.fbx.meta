@@ -9,6 +9,51 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Ice&Lightning.021
     second: {fileID: 2100000, guid: f3823aed55bede64c95c804ee65e33fb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ItachiBack
+    second: {fileID: 2100000, guid: 8e3a9fb360d97bc4cac6b7a462cd65f6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ItachiEar
+    second: {fileID: 2100000, guid: 3ca4bf7dafdc88c41a4d5a8a86f6e6cd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ItachiEar2
+    second: {fileID: 2100000, guid: 0c9659c84f12083439a29a0b536b0fe6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RayHand.001
+    second: {fileID: 2100000, guid: 5327055a5415c1c4b92fce2bceabb96a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.015"
+    second: {fileID: 2100000, guid: d3091651c00dad749943d70728361570, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.017"
+    second: {fileID: 2100000, guid: fb7e91d9100c32d4b8bb06ec264ec694, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.021"
+    second: {fileID: 2100000, guid: 2fd8eb702d869b147aeff0ad50f1a3c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.022"
+    second: {fileID: 2100000, guid: a090ef32ae07bfb41a88c9c32beb3742, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.040"
+    second: {fileID: 2100000, guid: 3c794d2472cd7e043bcfec9d0c10ad5c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -3,7 +3,67 @@ guid: e3cc9afb4b9833046911c1e98106ea12
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireBallSlimeTail
+    second: {fileID: 2100000, guid: 3950228d097844e478c441681d57eb3f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireBallSlimeTailSide
+    second: {fileID: 2100000, guid: 4dabc8fb04b702a468588bbfe1f3b4f1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireIceLightning.041
+    second: {fileID: 2100000, guid: 3e62e335f10ceb4468eb5dd3b984625b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material #16.088
+    second: {fileID: 2100000, guid: 8d12c60d8652e4e43981cc102ac4f1af, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PenPenMao
+    second: {fileID: 2100000, guid: 5f7293f6916486748a7cb5229adb6424, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PenPenWing
+    second: {fileID: 2100000, guid: fed73bacf7e2106468334a6309d43c92, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hummer.021
+    second: {fileID: 2100000, guid: 0ceec096fca23e94e80069206881091b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hummerHandel021
+    second: {fileID: 2100000, guid: fd54a30e45fcf194ca43687d7f2dfc9e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.011"
+    second: {fileID: 2100000, guid: d49633d45cda5eb439edf952430090c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.015"
+    second: {fileID: 2100000, guid: 895c5f3b4a5b1fe478a98a8f3f87254d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.016"
+    second: {fileID: 2100000, guid: 54e62e029ab3b85448f90845f919286f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.017"
+    second: {fileID: 2100000, guid: dabcbe35a345a424498782b1151264a2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

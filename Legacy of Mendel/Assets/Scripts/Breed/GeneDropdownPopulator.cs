@@ -38,8 +38,53 @@ public class GeneDropdownPopulator : MonoBehaviour
           {
               if (gene.isOwned)
               {
-                string displayText = $"{gene.geneName} - {gene.geneType}";
-                geneDropdown.options.Add(new TMP_Dropdown.OptionData(displayText));
+                string displayText = ""; 
+                switch (gene.geneName)
+                {
+                    case GeneInfo.geneTypesName.A:
+                        switch (gene.geneType)
+                        {
+                            case GeneInfo.geneTypes.Dom:
+                                displayText = "AA";
+                                break;
+                            case GeneInfo.geneTypes.Het:
+                                displayText = "Aa";
+                                break;
+                            case GeneInfo.geneTypes.Rec:
+                                displayText = "aa";
+                                break;
+                        }
+                        break;
+                    case GeneInfo.geneTypesName.B:
+                        switch (gene.geneType)
+                        {
+                            case GeneInfo.geneTypes.Dom:
+                                displayText = "BB";
+                                break;
+                            case GeneInfo.geneTypes.Het:
+                                displayText = "Bb";
+                                break;
+                            case GeneInfo.geneTypes.Rec:
+                                displayText = "bb";
+                                break;
+                        }
+                        break;
+                    case GeneInfo.geneTypesName.C:
+                        switch (gene.geneType)
+                        {
+                            case GeneInfo.geneTypes.Dom:
+                                displayText = "CC";
+                                break;
+                            case GeneInfo.geneTypes.Het:
+                                displayText = "Cc";
+                                break;
+                            case GeneInfo.geneTypes.Rec:
+                                displayText = "cc";
+                                break;
+                        }
+                        break;
+                }
+                        geneDropdown.options.Add(new TMP_Dropdown.OptionData(displayText));
                 var newEntry = new GeneTypeEntry { geneName = gene.geneName, geneType = gene.geneType }; // 创建新的GeneTypeEntry实例
                 dropdownGeneTypes.Add(newEntry);
                 

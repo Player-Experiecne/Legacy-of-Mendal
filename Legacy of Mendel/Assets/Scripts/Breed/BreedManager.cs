@@ -18,7 +18,8 @@ public class BreedManager : MonoBehaviour
     public Image breedResultImage; 
 
     public List<GameObject> hiddenUIs;
-    public List<GameObject> tissueSlots; 
+    public List<GameObject> tissueSlots;
+    public List<GameObject> actionsAfterBreed;
     public TextMeshProUGUI tissueCountText; 
     public TextMeshProUGUI cultureMediumCountText;
 
@@ -248,9 +249,78 @@ public class BreedManager : MonoBehaviour
 
                     // 更新UI以显示培育结果
                     //Debug.Log("Bred Defender Gene Types: " + string.Join(", ", newDefender.geneTypes.Select(gt => gt.geneName + ": " + gt.geneType)));
-                    string geneTypesStr = string.Join(", ", newDefender.geneTypes.Select(g => g.geneName + ": " + g.geneType));
-                    breedResult.text = geneTypesStr;
+                    string geneTypesStr = "You have got a defender with gene type";
+
+                    foreach(GeneTypeEntry gene in newDefender.geneTypes)
+                     {
+                    if (gene.geneName.Equals(GeneInfo.geneTypesName.A))
+                        {
+                        if (gene.geneType.Equals(GeneInfo.geneTypes.Dom))
+                        {
+                            geneTypesStr = geneTypesStr + "AA";
+                        }
+                        if (gene.geneType.Equals(GeneInfo.geneTypes.Het))
+                        {
+                            geneTypesStr = geneTypesStr + "Aa";
+                        }
+                        if (gene.geneType.Equals(GeneInfo.geneTypes.Rec))
+                        {
+                            geneTypesStr = geneTypesStr + "aa";
+                        }
+                        if (gene.geneType.Equals(GeneInfo.geneTypes.Null))
+                        {
+                            
+                        }
+
+
+                    }
+                    if (gene.geneName.Equals(GeneInfo.geneTypesName.B))
+                        {
+                        if (gene.geneType.Equals(GeneInfo.geneTypes.Dom))
+                        {
+                            geneTypesStr = geneTypesStr + "BB";
+                        }
+                        if (gene.geneType.Equals(GeneInfo.geneTypes.Het))
+                        {
+                            geneTypesStr = geneTypesStr + "Bb";
+                        }
+                        if (gene.geneType.Equals(GeneInfo.geneTypes.Rec))
+                        {
+                            geneTypesStr = geneTypesStr + "bb";
+                        }
+                        if (gene.geneType.Equals(GeneInfo.geneTypes.Null))
+                        {
+
+                        }
+
+                    }
+                    if (gene.geneName.Equals(GeneInfo.geneTypesName.C))
+                        {
+                        if (gene.geneType.Equals(GeneInfo.geneTypes.Dom))
+                        {
+                            geneTypesStr = geneTypesStr + "CC";
+                        }
+                        if (gene.geneType.Equals(GeneInfo.geneTypes.Het))
+                        {
+                            geneTypesStr = geneTypesStr + "Cc";
+                        }
+                        if (gene.geneType.Equals(GeneInfo.geneTypes.Rec))
+                        {
+                            geneTypesStr = geneTypesStr + "cc";
+                        }
+                        if (gene.geneType.Equals(GeneInfo.geneTypes.Null))
+                        {
+
+                        }
+
+
+                    }
+
+                }
+                    breedResult.text = geneTypesStr+"!";
                     Debug.Log(newDefender.geneTypes.Count);
+
+
                     // 重置培育界面
                     ResetBreedingUI();
                 
