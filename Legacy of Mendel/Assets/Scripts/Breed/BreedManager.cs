@@ -20,6 +20,7 @@ public class BreedManager : MonoBehaviour
     public List<GameObject> hiddenUIs;
     public List<GameObject> tissueSlots;
     public List<GameObject> actionsAfterBreed;
+    public GameObject clickBreed;
     public TextMeshProUGUI tissueCountText; 
     public TextMeshProUGUI cultureMediumCountText;
 
@@ -33,8 +34,8 @@ public class BreedManager : MonoBehaviour
     public Image defenderDisplayImage;
     public GameObject chooseBreedDefendersPanel;
     public PlayerDefenderInventory playerDefenderInventory;
-    public Defender selectedDefender;
-    public GeneTypeEntry selectedGeneType;
+    public Defender selectedDefender = null;
+    public GeneTypeEntry selectedGeneType = null;
 
     private GameObject selectedSlot = null;
 
@@ -225,113 +226,110 @@ public class BreedManager : MonoBehaviour
 
     public void OnBreedButtonClick()
     {
-        if (selectedDefender != null && selectedGeneType != null)
+        Debug.Log($"At Button Click: Selected Defender is {(selectedDefender == null ? "null" : selectedDefender.defenderName)}, Selected Gene Type is {(selectedGeneType == null ? "null" : selectedGeneType.geneName.ToString())}");
+
+        if (selectedDefender != null && selectedGeneType != null )
         {
-            // 执行融合逻辑
-            Defender newDefender = PerformFusion(selectedDefender, selectedGeneType);
-            if (newDefender != null)
-            {
-                // 查找匹配的Defender在库中的图像和属性
-                
-                    // 假设IsSameGeneType现在可以处理新的基因型设计
-                    /*         if (IsSameGeneType(newDefender.geneTypes, defenderInLibrary.geneTypes))
-                             {
-                                 // 如果找到匹配的基因型，展示对应Defender的图像和更新属性
-                                 breedResultImage.sprite = defenderInLibrary.defenderImage;
-                                 newDefender.defenderPrefab = defenderInLibrary.defenderPrefab;
-                                 newDefender.defenderName = defenderInLibrary.defenderName;
-                                 newDefender.defenderImage = defenderInLibrary.defenderImage;
-                                 break; // 找到匹配后退出循环
-                             }
-                         }*/
-                    //playerDefenderInventory.AddDefender(newDefender);
-                    //playerDefenderInventory.DecreaseDefenderCount(selectedDefender);
-
-                    // 更新UI以显示培育结果
-                    //Debug.Log("Bred Defender Gene Types: " + string.Join(", ", newDefender.geneTypes.Select(gt => gt.geneName + ": " + gt.geneType)));
+            Debug.Log(selectedDefender);
+            if (selectedDefender.geneTypes.Count == 3 && selectedGeneType.geneName != GeneInfo.geneTypesName.Null && selectedGeneType.geneType != GeneInfo.geneTypes.Null) {
+                Defender newDefender = PerformFusion(selectedDefender, selectedGeneType);
+                if (newDefender != null)
+                {
+                    clickBreed.SetActive(false);
                     string geneTypesStr = "You have got a defender with gene type";
+                    foreach (GeneTypeEntry gene in newDefender.geneTypes)
+                    {
+                        if (gene.geneName.Equals(GeneInfo.geneTypesName.A))
+                        {
+                            if (gene.geneType.Equals(GeneInfo.geneTypes.Dom))
+                            {
+                                geneTypesStr = geneTypesStr + "AA";
+                            }
+                            if (gene.geneType.Equals(GeneInfo.geneTypes.Het))
+                            {
+                                geneTypesStr = geneTypesStr + "Aa";
+                            }
+                            if (gene.geneType.Equals(GeneInfo.geneTypes.Rec))
+                            {
+                                geneTypesStr = geneTypesStr + "aa";
+                            }
+                            if (gene.geneType.Equals(GeneInfo.geneTypes.Null))
+                            {
 
-                    foreach(GeneTypeEntry gene in newDefender.geneTypes)
-                     {
-                    if (gene.geneName.Equals(GeneInfo.geneTypesName.A))
-                        {
-                        if (gene.geneType.Equals(GeneInfo.geneTypes.Dom))
-                        {
-                            geneTypesStr = geneTypesStr + "AA";
-                        }
-                        if (gene.geneType.Equals(GeneInfo.geneTypes.Het))
-                        {
-                            geneTypesStr = geneTypesStr + "Aa";
-                        }
-                        if (gene.geneType.Equals(GeneInfo.geneTypes.Rec))
-                        {
-                            geneTypesStr = geneTypesStr + "aa";
-                        }
-                        if (gene.geneType.Equals(GeneInfo.geneTypes.Null))
-                        {
-                            
-                        }
+                            }
 
+
+                        }
+                        if (gene.geneName.Equals(GeneInfo.geneTypesName.B))
+                        {
+                            if (gene.geneType.Equals(GeneInfo.geneTypes.Dom))
+                            {
+                                geneTypesStr = geneTypesStr + "BB";
+                            }
+                            if (gene.geneType.Equals(GeneInfo.geneTypes.Het))
+                            {
+                                geneTypesStr = geneTypesStr + "Bb";
+                            }
+                            if (gene.geneType.Equals(GeneInfo.geneTypes.Rec))
+                            {
+                                geneTypesStr = geneTypesStr + "bb";
+                            }
+                            if (gene.geneType.Equals(GeneInfo.geneTypes.Null))
+                            {
+
+                            }
+
+                        }
+                        if (gene.geneName.Equals(GeneInfo.geneTypesName.C))
+                        {
+                            if (gene.geneType.Equals(GeneInfo.geneTypes.Dom))
+                            {
+                                geneTypesStr = geneTypesStr + "CC";
+                            }
+                            if (gene.geneType.Equals(GeneInfo.geneTypes.Het))
+                            {
+                                geneTypesStr = geneTypesStr + "Cc";
+                            }
+                            if (gene.geneType.Equals(GeneInfo.geneTypes.Rec))
+                            {
+                                geneTypesStr = geneTypesStr + "cc";
+                            }
+                            if (gene.geneType.Equals(GeneInfo.geneTypes.Null))
+                            {
+
+                            }
+
+
+                        }
 
                     }
-                    if (gene.geneName.Equals(GeneInfo.geneTypesName.B))
-                        {
-                        if (gene.geneType.Equals(GeneInfo.geneTypes.Dom))
-                        {
-                            geneTypesStr = geneTypesStr + "BB";
-                        }
-                        if (gene.geneType.Equals(GeneInfo.geneTypes.Het))
-                        {
-                            geneTypesStr = geneTypesStr + "Bb";
-                        }
-                        if (gene.geneType.Equals(GeneInfo.geneTypes.Rec))
-                        {
-                            geneTypesStr = geneTypesStr + "bb";
-                        }
-                        if (gene.geneType.Equals(GeneInfo.geneTypes.Null))
-                        {
-
-                        }
-
-                    }
-                    if (gene.geneName.Equals(GeneInfo.geneTypesName.C))
-                        {
-                        if (gene.geneType.Equals(GeneInfo.geneTypes.Dom))
-                        {
-                            geneTypesStr = geneTypesStr + "CC";
-                        }
-                        if (gene.geneType.Equals(GeneInfo.geneTypes.Het))
-                        {
-                            geneTypesStr = geneTypesStr + "Cc";
-                        }
-                        if (gene.geneType.Equals(GeneInfo.geneTypes.Rec))
-                        {
-                            geneTypesStr = geneTypesStr + "cc";
-                        }
-                        if (gene.geneType.Equals(GeneInfo.geneTypes.Null))
-                        {
-
-                        }
-
-
-                    }
-
-                }
-                    breedResult.text = geneTypesStr+"!";
+                    breedResult.text = geneTypesStr + "!";
                     Debug.Log(newDefender.geneTypes.Count);
-
-
+                    foreach (GameObject a in actionsAfterBreed)
+                    {
+                        a.SetActive(true);
+                    }
                     // 重置培育界面
                     ResetBreedingUI();
-                
+
+                }
             }
             else
             {
-                // 如果未选择Defender或基因型，则弹出提示
-                Debug.LogWarning("Defender or GeneType not selected!");
-                // 可以在这里添加UI反馈，例如显示错误消息
+                breedResult.text = "Please choose a defender and a gene type";
             }
+            // 执行融合逻辑
+            
+            
+
         }
+        else
+        {
+            // 如果未选择Defender或基因型，则弹出提示
+            Debug.LogWarning("Defender or GeneType not selected!");
+            // 可以在这里添加UI反馈，例如显示错误消息
+        }
+
     }
 
 

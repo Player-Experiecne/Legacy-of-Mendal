@@ -4262,7 +4262,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &573016857
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4327,19 +4327,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 573016859}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1602117987}
-        m_TargetAssemblyTypeName: BreedManager, Assembly-CSharp
-        m_MethodName: OnBreedButtonClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &573016859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6339,7 +6327,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &872658124
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6404,19 +6392,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 872658126}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1602117987}
-        m_TargetAssemblyTypeName: BreedManager, Assembly-CSharp
-        m_MethodName: OnBreedButtonClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &872658126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13613,6 +13589,7 @@ MonoBehaviour:
   actionsAfterBreed:
   - {fileID: 872658123}
   - {fileID: 573016856}
+  clickBreed: {fileID: 62950381}
   tissueCountText: {fileID: 1024946878}
   cultureMediumCountText: {fileID: 1170338072}
   breedResult: {fileID: 1104614391}
@@ -14473,7 +14450,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1716365073
 RectTransform:
   m_ObjectHideFlags: 0
