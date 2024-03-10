@@ -74,7 +74,15 @@ public class BreedManager : MonoBehaviour
         nextPageButton.gameObject.SetActive(false);
         previousPageButton.gameObject.SetActive(false);
     }
+    private void Update()
+    {
 
+
+        UpdateCountsDisplay();
+
+
+
+        }
     public void StartBreedingPhase()
     {
         // 获取 LootBackpack 实例中的数据
@@ -231,97 +239,108 @@ public class BreedManager : MonoBehaviour
         if (selectedDefender != null && selectedGeneType != null )
         {
             Debug.Log(selectedDefender);
-            if (selectedDefender.geneTypes.Count == 3 && selectedGeneType.geneName != GeneInfo.geneTypesName.Null && selectedGeneType.geneType != GeneInfo.geneTypes.Null) {
-                Defender newDefender = PerformFusion(selectedDefender, selectedGeneType);
-                if (newDefender != null)
-                {
-                    playerDefenderInventory.AddDefenderToInventory(newDefender);
-                    playerDefenderInventory.RemoveDefenderFromInventory(selectedDefender);
-                    //clickBreed.SetActive(false);
-                    UpdateDefenderDetailsFromLibrary(newDefender);
-                    breedResultImage.sprite = newDefender.defenderImage;
-                    string geneTypesStr = "You have got a defender" + newDefender.defenderName +" with gene type ";
-                    foreach (GeneTypeEntry gene in newDefender.geneTypes)
-                    {
-                        if (gene.geneName.Equals(GeneInfo.geneTypesName.A))
-                        {
-                            if (gene.geneType.Equals(GeneInfo.geneTypes.Dom))
-                            {
-                                geneTypesStr = geneTypesStr + "AA";
-                            }
-                            if (gene.geneType.Equals(GeneInfo.geneTypes.Het))
-                            {
-                                geneTypesStr = geneTypesStr + "Aa";
-                            }
-                            if (gene.geneType.Equals(GeneInfo.geneTypes.Rec))
-                            {
-                                geneTypesStr = geneTypesStr + "aa";
-                            }
-                            if (gene.geneType.Equals(GeneInfo.geneTypes.Null))
-                            {
+            if(LootBackpack.Instance.lootCultureMedium < 10)
+            {
+                breedResult.text = "You dont have enough CultureMedium";
 
-                            }
-
-
-                        }
-                        if (gene.geneName.Equals(GeneInfo.geneTypesName.B))
-                        {
-                            if (gene.geneType.Equals(GeneInfo.geneTypes.Dom))
-                            {
-                                geneTypesStr = geneTypesStr + "BB";
-                            }
-                            if (gene.geneType.Equals(GeneInfo.geneTypes.Het))
-                            {
-                                geneTypesStr = geneTypesStr + "Bb";
-                            }
-                            if (gene.geneType.Equals(GeneInfo.geneTypes.Rec))
-                            {
-                                geneTypesStr = geneTypesStr + "bb";
-                            }
-                            if (gene.geneType.Equals(GeneInfo.geneTypes.Null))
-                            {
-
-                            }
-
-                        }
-                        if (gene.geneName.Equals(GeneInfo.geneTypesName.C))
-                        {
-                            if (gene.geneType.Equals(GeneInfo.geneTypes.Dom))
-                            {
-                                geneTypesStr = geneTypesStr + "CC";
-                            }
-                            if (gene.geneType.Equals(GeneInfo.geneTypes.Het))
-                            {
-                                geneTypesStr = geneTypesStr + "Cc";
-                            }
-                            if (gene.geneType.Equals(GeneInfo.geneTypes.Rec))
-                            {
-                                geneTypesStr = geneTypesStr + "cc";
-                            }
-                            if (gene.geneType.Equals(GeneInfo.geneTypes.Null))
-                            {
-
-                            }
-
-
-                        }
-
-                    }
-                    breedResult.text = geneTypesStr + "!";
-                    Debug.Log(newDefender.geneTypes.Count);
-                    /*foreach (GameObject a in actionsAfterBreed)
-                    {
-                        a.SetActive(true);
-                    }*/
-                    // 重置培育界面
-                    ResetBreedingUI();
-
-                }
             }
             else
             {
-                breedResult.text = "Please choose a defender and a gene type";
+                if (selectedDefender.geneTypes.Count == 3 && selectedGeneType.geneName != GeneInfo.geneTypesName.Null && selectedGeneType.geneType != GeneInfo.geneTypes.Null)
+                {
+                    Defender newDefender = PerformFusion(selectedDefender, selectedGeneType);
+                    LootBackpack.Instance.lootCultureMedium = LootBackpack.Instance.lootCultureMedium - 10;
+                    if (newDefender != null)
+                    {
+                        playerDefenderInventory.AddDefenderToInventory(newDefender);
+                        playerDefenderInventory.RemoveDefenderFromInventory(selectedDefender);
+                        //clickBreed.SetActive(false);
+                        UpdateDefenderDetailsFromLibrary(newDefender);
+                        breedResultImage.sprite = newDefender.defenderImage;
+                        string geneTypesStr = "You have got a defender" + newDefender.defenderName + " with gene type ";
+                        foreach (GeneTypeEntry gene in newDefender.geneTypes)
+                        {
+                            if (gene.geneName.Equals(GeneInfo.geneTypesName.A))
+                            {
+                                if (gene.geneType.Equals(GeneInfo.geneTypes.Dom))
+                                {
+                                    geneTypesStr = geneTypesStr + "AA";
+                                }
+                                if (gene.geneType.Equals(GeneInfo.geneTypes.Het))
+                                {
+                                    geneTypesStr = geneTypesStr + "Aa";
+                                }
+                                if (gene.geneType.Equals(GeneInfo.geneTypes.Rec))
+                                {
+                                    geneTypesStr = geneTypesStr + "aa";
+                                }
+                                if (gene.geneType.Equals(GeneInfo.geneTypes.Null))
+                                {
+
+                                }
+
+
+                            }
+                            if (gene.geneName.Equals(GeneInfo.geneTypesName.B))
+                            {
+                                if (gene.geneType.Equals(GeneInfo.geneTypes.Dom))
+                                {
+                                    geneTypesStr = geneTypesStr + "BB";
+                                }
+                                if (gene.geneType.Equals(GeneInfo.geneTypes.Het))
+                                {
+                                    geneTypesStr = geneTypesStr + "Bb";
+                                }
+                                if (gene.geneType.Equals(GeneInfo.geneTypes.Rec))
+                                {
+                                    geneTypesStr = geneTypesStr + "bb";
+                                }
+                                if (gene.geneType.Equals(GeneInfo.geneTypes.Null))
+                                {
+
+                                }
+
+                            }
+                            if (gene.geneName.Equals(GeneInfo.geneTypesName.C))
+                            {
+                                if (gene.geneType.Equals(GeneInfo.geneTypes.Dom))
+                                {
+                                    geneTypesStr = geneTypesStr + "CC";
+                                }
+                                if (gene.geneType.Equals(GeneInfo.geneTypes.Het))
+                                {
+                                    geneTypesStr = geneTypesStr + "Cc";
+                                }
+                                if (gene.geneType.Equals(GeneInfo.geneTypes.Rec))
+                                {
+                                    geneTypesStr = geneTypesStr + "cc";
+                                }
+                                if (gene.geneType.Equals(GeneInfo.geneTypes.Null))
+                                {
+
+                                }
+
+
+                            }
+
+                        }
+                        breedResult.text = geneTypesStr + "!";
+                        Debug.Log(newDefender.geneTypes.Count);
+                        /*foreach (GameObject a in actionsAfterBreed)
+                        {
+                            a.SetActive(true);
+                        }*/
+                        // 重置培育界面
+                        ResetBreedingUI();
+
+                    }
+                }
+                else
+                {
+                    breedResult.text = "Please choose a defender and a gene type";
+                }
             }
+       
             // 执行融合逻辑
             
             

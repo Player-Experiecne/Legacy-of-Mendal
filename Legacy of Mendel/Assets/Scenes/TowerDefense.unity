@@ -10868,7 +10868,7 @@ MonoBehaviour:
   text: {fileID: 237230275}
   lootGeneTypes: []
   geneTypeCountsList: []
-  lootCultureMedium: 0
+  lootCultureMedium: 100
 --- !u!1 &1377540839
 GameObject:
   m_ObjectHideFlags: 0
