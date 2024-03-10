@@ -235,7 +235,9 @@ public class BreedManager : MonoBehaviour
                 Defender newDefender = PerformFusion(selectedDefender, selectedGeneType);
                 if (newDefender != null)
                 {
-                    clickBreed.SetActive(false);
+                    playerDefenderInventory.AddDefenderToInventory(newDefender);
+                    playerDefenderInventory.RemoveDefenderFromInventory(selectedDefender);
+                    //clickBreed.SetActive(false);
                     string geneTypesStr = "You have got a defender with gene type";
                     foreach (GeneTypeEntry gene in newDefender.geneTypes)
                     {
@@ -305,10 +307,10 @@ public class BreedManager : MonoBehaviour
                     }
                     breedResult.text = geneTypesStr + "!";
                     Debug.Log(newDefender.geneTypes.Count);
-                    foreach (GameObject a in actionsAfterBreed)
+                    /*foreach (GameObject a in actionsAfterBreed)
                     {
                         a.SetActive(true);
-                    }
+                    }*/
                     // 重置培育界面
                     ResetBreedingUI();
 
@@ -330,6 +332,25 @@ public class BreedManager : MonoBehaviour
             // 可以在这里添加UI反馈，例如显示错误消息
         }
 
+    }
+    private bool AreGeneTypesEqual(DefenderWithCount defenderWithCount, Defender defenderB)
+    {
+        // 获取两个防御者的基因型列表
+        List<GeneTypeEntry> geneTypesA = defenderWithCount.defender.geneTypes;
+        List<GeneTypeEntry> geneTypesB = defenderB.geneTypes;
+
+        // 比较列表长度是否相等
+        if (geneTypesA.Count != geneTypesB.Count) return false;
+
+        // 检查每个基因型是否相等
+        for (int i = 0; i < geneTypesA.Count; i++)
+        {
+            if (geneTypesA[i].geneName != geneTypesB[i].geneName || geneTypesA[i].geneType != geneTypesB[i].geneType)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
 
@@ -475,9 +496,7 @@ public class BreedManager : MonoBehaviour
         if (defender != null)
         {
             Defender newDefender = new Defender(defender);
-            //newDefender.geneTypes.Add(new GeneTypeEntry { geneName = GeneInfo.geneTypesName.A, geneType = GeneInfo.geneTypes.Null });
-            //newDefender.geneTypes.Add(new GeneTypeEntry { geneName = GeneInfo.geneTypesName.B, geneType = GeneInfo.geneTypes.Null });
-            //newDefender.geneTypes.Add(new GeneTypeEntry { geneName = GeneInfo.geneTypesName.C, geneType = GeneInfo.geneTypes.Null });
+
 
             // 遍历defender中的基因类型
             foreach (var existingGene in newDefender.geneTypes)
@@ -509,40 +528,40 @@ public class BreedManager : MonoBehaviour
         if (geneType1 == GeneInfo.geneTypes.Het && geneType2 == GeneInfo.geneTypes.Het)
         {
             // Aa + Aa 的情况
-            possibleOutcomes.Add(GeneInfo.geneTypes.Dom); // ADom的几率为25%
-            possibleOutcomes.Add(GeneInfo.geneTypes.Het); // AHet的几率为50%
+            possibleOutcomes.Add(GeneInfo.geneTypes.Dom); // Dom的几率为25%
+            possibleOutcomes.Add(GeneInfo.geneTypes.Het); // Het的几率为50%
             possibleOutcomes.Add(GeneInfo.geneTypes.Het);
-            possibleOutcomes.Add(GeneInfo.geneTypes.Rec); // ARec的几率为25%
+            possibleOutcomes.Add(GeneInfo.geneTypes.Rec); // Rec的几率为25%
         }
         else if ((geneType1 == GeneInfo.geneTypes.Dom && geneType2 == GeneInfo.geneTypes.Het) ||
                  (geneType1 == GeneInfo.geneTypes.Het && geneType2 == GeneInfo.geneTypes.Dom))
         {
-            // AA + Aa 或 Aa + AA 的情况，有50%的几率是ADom (AA)，50%的几率是AHet (Aa)
+            
             possibleOutcomes.Add(GeneInfo.geneTypes.Dom); // ADom
             possibleOutcomes.Add(GeneInfo.geneTypes.Het); // AHet
         }
         else if (geneType1 == GeneInfo.geneTypes.Het && geneType2 == GeneInfo.geneTypes.Rec ||
                  geneType1 == GeneInfo.geneTypes.Rec && geneType2 == GeneInfo.geneTypes.Het)
         {
-            // Aa + aa 或 aa + Aa 的情况，有50%的几率是AHet, 50%的几率是ARec
+            
             possibleOutcomes.Add(GeneInfo.geneTypes.Het); // AHet
             possibleOutcomes.Add(GeneInfo.geneTypes.Rec); // ARec
         }
         else if ((geneType1 == GeneInfo.geneTypes.Dom && geneType2 == GeneInfo.geneTypes.Rec) ||
         (geneType1 == GeneInfo.geneTypes.Rec && geneType2 == GeneInfo.geneTypes.Dom))
         {
-            // 这种组合下，后代必定是杂合子Aa
+            
             return GeneInfo.geneTypes.Het;
             
         }
         else if (geneType1 == GeneInfo.geneTypes.Dom && geneType2 == GeneInfo.geneTypes.Dom)
         {
-            // AA + AA 的组合，后代必定是ADom
+           
             return GeneInfo.geneTypes.Dom;
         }
         else if (geneType1 == GeneInfo.geneTypes.Rec && geneType2 == GeneInfo.geneTypes.Rec)
         {
-            // aa + aa 的组合，后代必定是ARec
+           
             return GeneInfo.geneTypes.Rec;
         }
 
