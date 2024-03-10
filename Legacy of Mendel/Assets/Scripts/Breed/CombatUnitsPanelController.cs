@@ -1,21 +1,73 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems; 
-using TMPro; 
+using UnityEngine.EventSystems;
+using TMPro;
 
 public class CombatUnitsPanelController : MonoBehaviour
 {
     public PlayerDefenderInventory playerDefenderInventory;
     public List<Image> combatUnitImages;
-   
 
-    private GameObject currentTooltip;
+
+    public int itemsPerPage = 10;  // 每页显示的单位数
+    private int currentPage = 0;
+    private int totalPageCount = 0;
+    public Button nextPageButton;  // 翻到下一页的按钮
+    public Button previousPageButton;  // 翻到上一页的按钮
+
     private int lastInventoryCount = -1;
-    private void Start()
+    void Start()
     {
+        UpdatePageCount();
         RefreshDisplay();
+        UpdatePageButtons();
     }
+
+    public void NextPage()
+    {
+        if (currentPage < totalPageCount - 1)
+        {
+            currentPage++;
+            RefreshDisplay();
+            UpdatePageButtons();
+        }
+    }
+
+    public void PreviousPage()
+    {
+        if (currentPage > 0)
+        {
+            currentPage--;
+            RefreshDisplay();
+            UpdatePageButtons();
+        }
+    }
+    private void UpdatePageCount()
+    {
+        totalPageCount = Mathf.CeilToInt((float)playerDefenderInventory.ownedDefenders.Count / itemsPerPage);
+    }
+
+
+    private void UpdatePageButtons()
+    {
+        if (nextPageButton == null || previousPageButton == null)
+        {
+            Debug.LogWarning("One or both of the page buttons are not set in the CombatUnitsPanelController.");
+            return;  // Prevent further execution of this method
+        }
+
+        // 更新翻页按钮的互动性
+        nextPageButton.interactable = currentPage < totalPageCount - 1;
+        previousPageButton.interactable = currentPage > 0;
+
+        // 根据总页数决定是否显示翻页按钮
+        bool shouldShowButtons = totalPageCount > 1;  // 只有当总页数大于1时才显示按钮
+        nextPageButton.gameObject.SetActive(shouldShowButtons);
+        previousPageButton.gameObject.SetActive(shouldShowButtons);
+    }
+
+
 
     void Update()
     {
@@ -32,7 +84,7 @@ public class CombatUnitsPanelController : MonoBehaviour
     }
     private bool HasInventoryCountChanged()
     {
-        
+
         for (int i = 0; i < playerDefenderInventory.ownedDefenders.Count; i++)
         {
             if (playerDefenderInventory.ownedDefenders[i].count != lastInventoryCount)
@@ -44,17 +96,40 @@ public class CombatUnitsPanelController : MonoBehaviour
     }
     public void RefreshDisplay()
     {
-        foreach (var image in combatUnitImages)
+        for (int i = 0; i < combatUnitImages.Count; i++)
         {
-            image.gameObject.SetActive(false); // 先隐藏所有图像
+            if (i < itemsPerPage && currentPage * itemsPerPage + i < playerDefenderInventory.ownedDefenders.Count)
+            {
+                int defenderIndex = currentPage * itemsPerPage + i;
+                combatUnitImages[i].sprite = playerDefenderInventory.ownedDefenders[defenderIndex].defender.defenderImage;
+                combatUnitImages[i].gameObject.SetActive(true);
+                UpdateText(combatUnitImages[i], "NameText", playerDefenderInventory.ownedDefenders[defenderIndex].defender.defenderName);
+                UpdateText(combatUnitImages[i], "CountText", "Count: " + playerDefenderInventory.ownedDefenders[defenderIndex].count);
+            }
+            else
+            {
+                combatUnitImages[i].gameObject.SetActive(false);
+            }
         }
+    }
 
-        PopulateCombatUnitImages(); // 再填充图像
+    private void UpdateText(Image parentImage, string childName, string text)
+    {
+        Transform childTransform = parentImage.transform.Find(childName);
+        if (childTransform != null)
+        {
+            TextMeshProUGUI textComponent = childTransform.GetComponent<TextMeshProUGUI>();
+            if (textComponent != null)
+            {
+                textComponent.text = text;
+            }
+        }
     }
 
     private void UpdateDefenderDisplays()
     {
-        for (int i = 0; i < playerDefenderInventory.ownedDefenders.Count; i++)
+        int itemCount = Mathf.Min(playerDefenderInventory.ownedDefenders.Count, combatUnitImages.Count);
+        for (int i = 0; i < itemCount; i++)
         {
             Transform countTextTransform = combatUnitImages[i].transform.Find("CountText");
             if (countTextTransform != null)
@@ -62,7 +137,6 @@ public class CombatUnitsPanelController : MonoBehaviour
                 TextMeshProUGUI countTextComponent = countTextTransform.GetComponent<TextMeshProUGUI>();
                 if (countTextComponent != null)
                 {
-                    // 更新数量显示
                     countTextComponent.text = "Count: " + playerDefenderInventory.ownedDefenders[i].count.ToString();
                 }
             }
@@ -70,6 +144,8 @@ public class CombatUnitsPanelController : MonoBehaviour
         // 更新最后的库存计数
         lastInventoryCount = playerDefenderInventory.ownedDefenders.Count;
     }
+
+
     private void PopulateCombatUnitImages()
     {
         int count = Mathf.Min(playerDefenderInventory.ownedDefenders.Count, combatUnitImages.Count);
@@ -78,23 +154,23 @@ public class CombatUnitsPanelController : MonoBehaviour
         {
             combatUnitImages[i].sprite = playerDefenderInventory.ownedDefenders[i].defender.defenderImage;
 
-            Transform nameTextTransform = combatUnitImages[i].transform.Find("NameText"); 
+            Transform nameTextTransform = combatUnitImages[i].transform.Find("NameText");
             if (nameTextTransform != null)
             {
                 TextMeshProUGUI nameTextComponent = nameTextTransform.GetComponent<TextMeshProUGUI>();
                 if (nameTextComponent != null)
                 {
-                    nameTextComponent.text = "Name: "+ playerDefenderInventory.ownedDefenders[i].defender.defenderName;
+                    nameTextComponent.text = "Name: " + playerDefenderInventory.ownedDefenders[i].defender.defenderName;
                 }
             }
 
-            Transform countTextTransform = combatUnitImages[i].transform.Find("CountText"); 
+            Transform countTextTransform = combatUnitImages[i].transform.Find("CountText");
             if (countTextTransform != null)
             {
                 TextMeshProUGUI countTextComponent = countTextTransform.GetComponent<TextMeshProUGUI>();
                 if (countTextComponent != null)
                 {
-                    countTextComponent.text = "Count: "+playerDefenderInventory.ownedDefenders[i].count.ToString();
+                    countTextComponent.text = "Count: " + playerDefenderInventory.ownedDefenders[i].count.ToString();
                 }
             }
             combatUnitImages[i].gameObject.SetActive(true);
@@ -109,7 +185,7 @@ public class CombatUnitsPanelController : MonoBehaviour
         }
     }
 
-    
 
-   
+
+
 }

@@ -6,8 +6,13 @@ using TMPro;
 public class CombatUnitsChoosePanelController : MonoBehaviour
 {
     public static BreedManager Instance;
-   
-    
+
+    public int itemsPerPage = 10;
+    private int currentPage = 0;
+    private int totalPageCount = 0;
+    public Button nextPageButton;
+    public Button previousPageButton;
+
 
     public PlayerDefenderInventory playerDefenderInventory;
     public List<Image> combatUnitImages;
@@ -23,11 +28,49 @@ public class CombatUnitsChoosePanelController : MonoBehaviour
 
     private int selectedIndex = -1;
 
-    private void Start()
+    void Start()
     {
+        UpdatePageCount();
         RefreshDisplay();
-        
+        UpdatePageButtons();
     }
+    public void NextPage()
+    {
+        if (currentPage < totalPageCount - 1)
+        {
+            currentPage++;
+            RefreshDisplay();
+            UpdatePageButtons();
+        }
+    }
+
+    public void PreviousPage()
+    {
+        if (currentPage > 0)
+        {
+            currentPage--;
+            RefreshDisplay();
+            UpdatePageButtons();
+        }
+    }
+
+    private void UpdatePageCount()
+    {
+        totalPageCount = Mathf.CeilToInt((float)playerDefenderInventory.ownedDefenders.Count / itemsPerPage);
+    }
+
+    private void UpdatePageButtons()
+    {
+        // 控制翻页按钮的可用性
+        nextPageButton.interactable = currentPage < totalPageCount - 1;
+        previousPageButton.interactable = currentPage > 0;
+
+        // 如果总项目数少于每页显示数，则隐藏翻页按钮
+        nextPageButton.gameObject.SetActive(totalPageCount > 1);
+        previousPageButton.gameObject.SetActive(totalPageCount > 1);
+    }
+
+
 
     void Update()
     {
@@ -77,14 +120,46 @@ public class CombatUnitsChoosePanelController : MonoBehaviour
     }
     public void RefreshDisplay()
     {
-        foreach (var image in combatUnitImages)
+        for (int i = 0; i < combatUnitImages.Count; i++)
         {
-            image.gameObject.SetActive(false); // 先隐藏所有图像
-        }
+            if (i + currentPage * itemsPerPage < playerDefenderInventory.ownedDefenders.Count)
+            {
+                int defenderIndex = currentPage * itemsPerPage + i;
+                combatUnitImages[i].sprite = playerDefenderInventory.ownedDefenders[defenderIndex].defender.defenderImage;
+                combatUnitImages[i].gameObject.SetActive(true);
 
-        PopulateCombatUnitImages(); // 再填充图像
+                // 更新其他显示的内容，例如名称和数量
+                UpdateText(combatUnitImages[i], "NameText", playerDefenderInventory.ownedDefenders[defenderIndex].defender.defenderName);
+                UpdateText(combatUnitImages[i], "CountText", "Count: " + playerDefenderInventory.ownedDefenders[defenderIndex].count.ToString());
+
+                // 更新选中逻辑
+                combatUnitImages[i].GetComponent<Button>().onClick.RemoveAllListeners();
+                combatUnitImages[i].GetComponent<Button>().onClick.AddListener(() => {
+                    ToggleSelection(defenderIndex);
+                    SelectDefender(defenderIndex);
+                });
+            }
+            else
+            {
+                combatUnitImages[i].gameObject.SetActive(false);
+            }
+        }
     }
-   
+
+    private void UpdateText(Image parentImage, string childName, string text)
+    {
+        Transform childTransform = parentImage.transform.Find(childName);
+        if (childTransform != null)
+        {
+            TextMeshProUGUI textComponent = childTransform.GetComponent<TextMeshProUGUI>();
+            if (textComponent != null)
+            {
+                textComponent.text = text;
+            }
+        }
+    }
+
+
     private void PopulateCombatUnitImages()
     {
         int count = Mathf.Min(playerDefenderInventory.ownedDefenders.Count, combatUnitImages.Count);

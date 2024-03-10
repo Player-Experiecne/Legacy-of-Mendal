@@ -240,7 +240,7 @@ public class BreedManager : MonoBehaviour
                     //clickBreed.SetActive(false);
                     UpdateDefenderDetailsFromLibrary(newDefender);
                     breedResultImage.sprite = newDefender.defenderImage;
-                    string geneTypesStr = "You have got a defender" + newDefender.defenderName +" with gene type";
+                    string geneTypesStr = "You have got a defender" + newDefender.defenderName +" with gene type ";
                     foreach (GeneTypeEntry gene in newDefender.geneTypes)
                     {
                         if (gene.geneName.Equals(GeneInfo.geneTypesName.A))
