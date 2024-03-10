@@ -16649,8 +16649,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c204b2418e1055349859ce1e5c7799ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pullRadius: 10
-  pullSpeed: 20
+  pullRadius: 20
+  pullSpeed: 30
 --- !u!1 &1877105724
 GameObject:
   m_ObjectHideFlags: 0
@@ -19415,12 +19415,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 483014084941238121, guid: e4b9a12d88b0c924cb7ba896e806c6b0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 483014084941238121, guid: e4b9a12d88b0c924cb7ba896e806c6b0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 483014084941238121, guid: e4b9a12d88b0c924cb7ba896e806c6b0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 483014084941238121, guid: e4b9a12d88b0c924cb7ba896e806c6b0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -28.9
       objectReference: {fileID: 0}
     - target: {fileID: 483014084941238121, guid: e4b9a12d88b0c924cb7ba896e806c6b0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.7
+      value: 18.5
       objectReference: {fileID: 0}
     - target: {fileID: 483014084941238121, guid: e4b9a12d88b0c924cb7ba896e806c6b0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -19470,6 +19482,14 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 112
       objectReference: {fileID: 0}
+    - target: {fileID: 483014084941238126, guid: e4b9a12d88b0c924cb7ba896e806c6b0, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 7810371007003685382, guid: e07e7eba7ebfb7b478180ec5e7de5576, type: 3}
+    - target: {fileID: 483014084941238127, guid: e4b9a12d88b0c924cb7ba896e806c6b0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d716a048caa1aa04eae8762f02429484, type: 2}
     - target: {fileID: 483014084941238128, guid: e4b9a12d88b0c924cb7ba896e806c6b0, type: 3}
       propertyPath: m_Name
       value: Player
