@@ -27,7 +27,7 @@ MonoBehaviour:
         isOwned: 0
       defenderName: Rumble
       defenderImage: {fileID: 21300000, guid: 9ccf62b24c6d13944bb4941d370cfffd, type: 3}
-    count: 3
+    count: 1
   - defender:
       defenderPrefab: {fileID: 5425126302590180676, guid: 6b584d5b4c3f10c408d7be4ebc5d22d6, type: 3}
       geneTypes:
@@ -72,4 +72,19 @@ MonoBehaviour:
         isOwned: 0
       defenderName: Aqare
       defenderImage: {fileID: 21300000, guid: 7f1437bbf239cfa41be9b7da838fc66b, type: 3}
-    count: 3
+    count: 2
+  - defender:
+      defenderPrefab: {fileID: 919132149155446097, guid: 41121ad646354284fab62de038be9264, type: 3}
+      geneTypes:
+      - geneName: 1
+        geneType: 0
+        isOwned: 0
+      - geneName: 2
+        geneType: 0
+        isOwned: 0
+      - geneName: 3
+        geneType: 0
+        isOwned: 0
+      defenderName: Origin
+      defenderImage: {fileID: 21300000, guid: 5b33ee6c443485244870eb4bfe564ab6, type: 3}
+    count: 5

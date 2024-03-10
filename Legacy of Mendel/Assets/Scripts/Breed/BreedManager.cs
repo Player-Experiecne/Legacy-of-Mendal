@@ -238,7 +238,9 @@ public class BreedManager : MonoBehaviour
                     playerDefenderInventory.AddDefenderToInventory(newDefender);
                     playerDefenderInventory.RemoveDefenderFromInventory(selectedDefender);
                     //clickBreed.SetActive(false);
-                    string geneTypesStr = "You have got a defender with gene type";
+                    UpdateDefenderDetailsFromLibrary(newDefender);
+                    breedResultImage.sprite = newDefender.defenderImage;
+                    string geneTypesStr = "You have got a defender" + newDefender.defenderName +" with gene type";
                     foreach (GeneTypeEntry gene in newDefender.geneTypes)
                     {
                         if (gene.geneName.Equals(GeneInfo.geneTypesName.A))
@@ -333,6 +335,54 @@ public class BreedManager : MonoBehaviour
         }
 
     }
+
+
+    public Defender UpdateDefenderDetailsFromLibrary(Defender fusedDefender)
+    {
+        foreach (var libDefender in defenderLibrary.defenders)  // 假设allDefenders是你库中所有Defenders的列表
+        {
+            // 检查基因型是否相等
+            if (AreGeneTypesEqualTwoDefenders(fusedDefender, libDefender))
+            {
+                // 更新fusedDefender的详情
+                fusedDefender.defenderName = libDefender.defenderName;
+                fusedDefender.defenderPrefab = libDefender.defenderPrefab;
+                fusedDefender.defenderImage = libDefender.defenderImage;
+                return fusedDefender;  // 返回更新后的Defender
+            }
+        }
+
+        // 如果没有找到匹配的Defender
+        Debug.LogError("No matching defender found in the library for the fused gene types.");
+        return null; 
+    }
+
+    public bool AreGeneTypesEqualTwoDefenders(Defender defender1, Defender defender2)
+    {
+        // 首先检查两个防御者的基因型列表长度是否相同
+        if (defender1.geneTypes.Count != defender2.geneTypes.Count)
+        {
+            return false;
+        }
+
+        // 比较两个防御者的每个基因型
+        for (int i = 0; i < defender1.geneTypes.Count; i++)
+        {
+            GeneTypeEntry gene1 = defender1.geneTypes[i];
+            GeneTypeEntry gene2 = defender2.geneTypes[i];
+
+            // 如果任一基因的名称或类型不相同，则认为两个防御者的基因型不相等
+            if (gene1.geneName != gene2.geneName || gene1.geneType != gene2.geneType)
+            {
+                return false;
+            }
+        }
+
+        // 所有基因型都相同
+        return true;
+    }
+
+
     private bool AreGeneTypesEqual(DefenderWithCount defenderWithCount, Defender defenderB)
     {
         // 获取两个防御者的基因型列表
@@ -592,7 +642,7 @@ public class BreedManager : MonoBehaviour
     public void ResetBreedingUI()
     {
         // 清空展示培育结果的Image
-        breedResultImage.sprite = null;
+        //breedResultImage.sprite = null;
 
         // 重置Dropdown到默认选项
         geneDropdownPopulator.ResetToDefaultOption();
