@@ -16733,6 +16733,447 @@ MonoBehaviour:
   m_Area: 0
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!1001 &1891032436
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2674739009637976616, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: m_Name
+      value: DefenderBackpack (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976616, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976618, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: m_RootOrder
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976618, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10.59165
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976618, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.811592
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976618, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.500145
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976618, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976618, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976618, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976618, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976618, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976618, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976618, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: ui
+      value: 
+      objectReference: {fileID: 790299362}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[0].geneTypeA
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[1].geneTypeA
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[2].geneTypeA
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[0].attackPower
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[0].attackRange
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[0].attackSpeed
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[3].attackPower
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[3].attackSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[0].defenderName
+      value: Splash
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[1].defenderName
+      value: Glac
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[2].defenderName
+      value: Vortexon
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[3].defenderName
+      value: Aqare
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[4].defenderName
+      value: Fryce
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[5].defenderName
+      value: Fyrex
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[6].defenderName
+      value: Steamix
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[7].defenderName
+      value: ScorchSpire
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[8].defenderName
+      value: Twistflare
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[0].defenderImage
+      value: 
+      objectReference: {fileID: 21300000, guid: d0167443b4dfbf646a87918194a26403, type: 3}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[1].defenderImage
+      value: 
+      objectReference: {fileID: 21300000, guid: f5bd4f946221e9447a1e4ed09bbf32f2, type: 3}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[2].defenderImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 2377c7957b94c6147a5b773c530df737, type: 3}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[3].defenderImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 7f1437bbf239cfa41be9b7da838fc66b, type: 3}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[4].defenderImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 47ff0cc4915ded94a8feb14850895a4e, type: 3}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[5].defenderImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 5b2ffd70968d0184e88bc851bc2f92b9, type: 3}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[6].defenderImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 609080aeaddc3ad448c0498508a29805, type: 3}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[7].defenderImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 8c010cd8e5b1c7a4d8401bb0630298a2, type: 3}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[8].defenderImage
+      value: 
+      objectReference: {fileID: 21300000, guid: b6f1d3da8db8eba41a6f5c44c6265028, type: 3}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[0].defenderPrefab
+      value: 
+      objectReference: {fileID: 6630813155368031700, guid: 3bf971eff312e4e47877d7825b93dd79, type: 3}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[1].defenderPrefab
+      value: 
+      objectReference: {fileID: 6630813155368031700, guid: 61f6d492b6ae86c4a84e7403a68ef714, type: 3}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[2].defenderPrefab
+      value: 
+      objectReference: {fileID: 6630813155368031700, guid: 0b19225931bb5d144891adf95c8f21fc, type: 3}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[3].defenderPrefab
+      value: 
+      objectReference: {fileID: 6630813155368031700, guid: 96815565a9b8be14495169eeb3051803, type: 3}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[4].defenderPrefab
+      value: 
+      objectReference: {fileID: 6630813155368031700, guid: 5615e95e13f79584cbd3eff494ac45ad, type: 3}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[5].defenderPrefab
+      value: 
+      objectReference: {fileID: 6630813155368031700, guid: c4b4a242f2e3f9841b4b326de9566c0f, type: 3}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[6].defenderPrefab
+      value: 
+      objectReference: {fileID: 6630813155368031700, guid: 2bee278fad7106a40b43ec868905d14e, type: 3}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[7].defenderPrefab
+      value: 
+      objectReference: {fileID: 6630813155368031700, guid: c78259d75e4aeac4482fcd75973b826b, type: 3}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[8].defenderPrefab
+      value: 
+      objectReference: {fileID: 6630813155368031700, guid: 6f6727ebf3dd30448a6a1c94c22a2ea8, type: 3}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[0].geneTypes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[1].geneTypes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[2].geneTypes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[3].geneTypes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[4].geneTypes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[5].geneTypes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[6].geneTypes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[7].geneTypes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[8].geneTypes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[0].geneTypes.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[0].geneTypes.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[0].geneTypes.Array.data[2]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[1].geneTypes.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[2].geneTypes.Array.data[0]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[3].geneTypes.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[4].geneTypes.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[5].geneTypes.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[0].geneTypes.Array.data[0].geneName
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[0].geneTypes.Array.data[1].geneName
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[0].geneTypes.Array.data[1].geneType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[0].geneTypes.Array.data[2].geneName
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[1].geneTypes.Array.data[0].geneName
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[1].geneTypes.Array.data[1].geneName
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[1].geneTypes.Array.data[1].geneType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[1].geneTypes.Array.data[2].geneName
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[2].geneTypes.Array.data[0].geneName
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[2].geneTypes.Array.data[1].geneName
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[2].geneTypes.Array.data[1].geneType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[2].geneTypes.Array.data[2].geneName
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[3].geneTypes.Array.data[0].geneName
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[3].geneTypes.Array.data[0].geneType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[3].geneTypes.Array.data[1].geneName
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[3].geneTypes.Array.data[1].geneType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[3].geneTypes.Array.data[2].geneName
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[4].geneTypes.Array.data[0].geneName
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[4].geneTypes.Array.data[0].geneType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[4].geneTypes.Array.data[1].geneName
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[4].geneTypes.Array.data[1].geneType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[4].geneTypes.Array.data[2].geneName
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[5].geneTypes.Array.data[0].geneName
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[5].geneTypes.Array.data[0].geneType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[5].geneTypes.Array.data[1].geneName
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[5].geneTypes.Array.data[1].geneType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[5].geneTypes.Array.data[2].geneName
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[6].geneTypes.Array.data[0].geneName
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[6].geneTypes.Array.data[0].geneType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[6].geneTypes.Array.data[1].geneName
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[6].geneTypes.Array.data[1].geneType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[7].geneTypes.Array.data[0].geneName
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[7].geneTypes.Array.data[0].geneType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[7].geneTypes.Array.data[1].geneName
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[7].geneTypes.Array.data[1].geneType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[7].geneTypes.Array.data[2].geneName
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[8].geneTypes.Array.data[0].geneName
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[8].geneTypes.Array.data[0].geneType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[8].geneTypes.Array.data[1].geneName
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[8].geneTypes.Array.data[1].geneType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[8].geneTypes.Array.data[2].geneName
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
 --- !u!1 &1892685210 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7892145989805310588, guid: be0e699d82ef7504e84559b8c925e5a3, type: 3}
@@ -19863,27 +20304,39 @@ PrefabInstance:
       objectReference: {fileID: 6630813155368031700, guid: 6f6727ebf3dd30448a6a1c94c22a2ea8, type: 3}
     - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
       propertyPath: defendersInBackpack.Array.data[0].geneTypes.Array.size
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
       propertyPath: defendersInBackpack.Array.data[1].geneTypes.Array.size
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
       propertyPath: defendersInBackpack.Array.data[2].geneTypes.Array.size
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
       propertyPath: defendersInBackpack.Array.data[3].geneTypes.Array.size
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
       propertyPath: defendersInBackpack.Array.data[4].geneTypes.Array.size
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
       propertyPath: defendersInBackpack.Array.data[5].geneTypes.Array.size
-      value: 0
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[6].geneTypes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[7].geneTypes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[8].geneTypes.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
       propertyPath: defendersInBackpack.Array.data[0].geneTypes.Array.data[0]
@@ -19916,6 +20369,170 @@ PrefabInstance:
     - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
       propertyPath: defendersInBackpack.Array.data[5].geneTypes.Array.data[0]
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[0].geneTypes.Array.data[0].geneName
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[0].geneTypes.Array.data[1].geneName
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[0].geneTypes.Array.data[1].geneType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[0].geneTypes.Array.data[2].geneName
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[1].geneTypes.Array.data[0].geneName
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[1].geneTypes.Array.data[1].geneName
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[1].geneTypes.Array.data[1].geneType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[1].geneTypes.Array.data[2].geneName
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[2].geneTypes.Array.data[0].geneName
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[2].geneTypes.Array.data[1].geneName
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[2].geneTypes.Array.data[1].geneType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[2].geneTypes.Array.data[2].geneName
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[3].geneTypes.Array.data[0].geneName
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[3].geneTypes.Array.data[0].geneType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[3].geneTypes.Array.data[1].geneName
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[3].geneTypes.Array.data[1].geneType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[3].geneTypes.Array.data[2].geneName
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[4].geneTypes.Array.data[0].geneName
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[4].geneTypes.Array.data[0].geneType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[4].geneTypes.Array.data[1].geneName
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[4].geneTypes.Array.data[1].geneType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[4].geneTypes.Array.data[2].geneName
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[5].geneTypes.Array.data[0].geneName
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[5].geneTypes.Array.data[0].geneType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[5].geneTypes.Array.data[1].geneName
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[5].geneTypes.Array.data[1].geneType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[5].geneTypes.Array.data[2].geneName
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[6].geneTypes.Array.data[0].geneName
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[6].geneTypes.Array.data[0].geneType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[6].geneTypes.Array.data[1].geneName
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[6].geneTypes.Array.data[1].geneType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[7].geneTypes.Array.data[0].geneName
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[7].geneTypes.Array.data[0].geneType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[7].geneTypes.Array.data[1].geneName
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[7].geneTypes.Array.data[1].geneType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[7].geneTypes.Array.data[2].geneName
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[8].geneTypes.Array.data[0].geneName
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[8].geneTypes.Array.data[0].geneType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[8].geneTypes.Array.data[1].geneName
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[8].geneTypes.Array.data[1].geneType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674739009637976619, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}
+      propertyPath: defendersInBackpack.Array.data[8].geneTypes.Array.data[2].geneName
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 214f661ea7f1ada428d5ba04fbfbfa7a, type: 3}

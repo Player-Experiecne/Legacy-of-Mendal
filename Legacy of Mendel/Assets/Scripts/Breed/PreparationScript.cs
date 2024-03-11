@@ -22,4 +22,8 @@ public class PreparationScript : MonoBehaviour
     {
         PreparePanel.SetActive(true);
     }
+    public void ExitPreparationPhase()
+    {
+        PreparePanel.SetActive(false);
+    }
 }
