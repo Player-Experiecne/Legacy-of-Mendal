@@ -37,7 +37,7 @@ public class SummonerSkillManager : MonoBehaviour
             }
         }
         // Input handling for activating skill
-        if (InputManager.Instance.GetKeyDown("SummonerSkill"))
+        if (InputManager.Instance.GetKeyDown("SummonerSkill") && !GameManager.Instance.isTitleScreen)
         {
             Debug.Log("Triggering the summoner skill.");
             ActivateSkill(); // Trigger the skill

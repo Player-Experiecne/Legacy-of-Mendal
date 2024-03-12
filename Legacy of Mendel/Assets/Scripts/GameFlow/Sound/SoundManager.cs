@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class SoundManager : MonoBehaviour
 {
@@ -38,6 +39,10 @@ public class SoundManager : MonoBehaviour
     public void PlayMusic(MusicTrack track, bool loop = true)
     {
         AudioClip clip = audioData.GetMusicClip(track);
+        if (GameManager.Instance.isTitleScreen)
+        {
+            clip = audioData.GetMusicClip(MusicTrack.TitleScreen);
+        }
         if (clip != null)
         {
             musicSource.Stop();
@@ -89,6 +94,11 @@ public class SoundManager : MonoBehaviour
         GameEvents.OnBreedingComplete += () => PlayMusic(MusicTrack.PrepareBattle);
         GameEvents.OnLevelComplete += () => PlayMusic(MusicTrack.Victory);
         GameEvents.OnLevelFail += () => PlayMusic(MusicTrack.Defeat);
+    }
+
+    public float GetMusicVolume()
+    {
+        return musicVolume;
     }
 }
 

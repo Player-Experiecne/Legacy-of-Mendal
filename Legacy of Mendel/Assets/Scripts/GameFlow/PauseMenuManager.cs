@@ -9,7 +9,7 @@ public class PauseMenuManager : MonoBehaviour
     private bool isPaused = false; // Track the pause state
     void Update()
     {
-        if (InputManager.Instance.GetKeyDown("PauseMenu"))
+        if (InputManager.Instance.GetKeyDown("PauseMenu") && !GameManager.Instance.isTitleScreen)
         {
             if (settingsMenu.activeSelf)
             {

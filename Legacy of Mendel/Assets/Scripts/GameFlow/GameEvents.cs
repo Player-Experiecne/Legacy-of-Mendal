@@ -11,6 +11,7 @@ public class GameEvents
     public static event GameStateChange OnBreedingStart;
     public static event GameStateChange OnBreedingComplete;
     public static event GameStateChange OnTitleScreen;
+    public static event GameStateChange OnTowerDefense;
 
     public static void TriggerTutorialStart()
     {
@@ -43,5 +44,9 @@ public class GameEvents
     public static void TriggerTitleScreen()
     {
         OnTitleScreen?.Invoke();
+    }
+    public static void TriggerTowerDefense()
+    {
+        OnTowerDefense?.Invoke();
     }
 }

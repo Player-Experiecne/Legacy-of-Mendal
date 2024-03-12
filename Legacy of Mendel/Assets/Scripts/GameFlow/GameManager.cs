@@ -9,8 +9,10 @@ public class GameManager : MonoBehaviour
 
     public float timeDelayBeforeStart = 3f;
     public GameObject breedingButton; //The button into breeding stage
+    public GameObject gameOverScreen; 
     public PlayerDefenderInventory playerDefenderInventory;
     public int currentLevelIndex = 0;
+    public bool isTitleScreen = true;
 
     private void Awake()
     {
@@ -27,15 +29,14 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        //Start the game after a delay
-        StartCoroutine(TriggerLevelStartAfterDelay(timeDelayBeforeStart));
-
         GameEvents.OnLevelStart += OnLevelStart;
         GameEvents.OnLevelComplete += CallOnButton;
         GameEvents.OnLevelFail += () => Debug.Log("Game Over");
         GameEvents.OnBreedingStart += () => SceneLoader.LoadScene("Breeding");
         GameEvents.OnBreedingComplete += OnBreedingComplete;
-        GameEvents.OnTitleScreen += () => SceneLoader.LoadScene("TitleScreen");
+        GameEvents.OnTitleScreen += OnTitleScreen;
+        GameEvents.OnTowerDefense += OnTowerDefense;
+        GameEvents.OnLevelFail += OnLevelFail;
     }
 
     public void OnBreedingButtonClicked()
@@ -72,5 +73,32 @@ public class GameManager : MonoBehaviour
     {
         //currentLevelIndex++; 
         breedingButton.SetActive(true);
+    }
+
+    private void OnTowerDefense()
+    {
+        SceneLoader.LoadScene("TowerDefense");
+        isTitleScreen = false;
+        currentLevelIndex = 0;
+        StartCoroutine(TriggerLevelStartAfterDelay(timeDelayBeforeStart));
+    }
+
+    private void OnTitleScreen()
+    {
+        SceneLoader.LoadScene("TitleScreen");
+        isTitleScreen = true;
+        gameOverScreen.SetActive(false);
+    }
+    private void OnLevelFail()
+    {
+        gameOverScreen.SetActive(true);
+    }
+    public static void TriggerTowerDefense()
+    {
+        GameEvents.TriggerTowerDefense();
+    }
+    public static void TriggerTitleScreen()
+    {
+        GameEvents.TriggerTitleScreen();
     }
 }
