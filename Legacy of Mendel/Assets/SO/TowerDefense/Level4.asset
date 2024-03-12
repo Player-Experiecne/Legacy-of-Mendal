@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93aef31aa543c4a4eb7b72265a6ec4fc, type: 3}
+  m_Name: Level4
+  m_EditorClassIdentifier: 
+  levelName: 
+  waves:
+  - enemies:
+    - enemy:
+        enemyPrefab: {fileID: 4117279205531356690, guid: c80bd44d54f74e14db7235044a04e7c4, type: 3}
+        enemyName: 
+        enemyImage: {fileID: 0}
+        lootGeneType:
+          geneType:
+            geneName: 3
+            geneType: 2
+            isOwned: 0
+          lootPossibility: 0.3
+        lootCultureMedium:
+          minLootCultureMedium: 5
+          maxLootCultureMedium: 8
+      spawnLocation: 0
+      count: 5
+    - enemy:
+        enemyPrefab: {fileID: 4117279205531356690, guid: a709bb7316160614b96a82cfbb14d10a, type: 3}
+        enemyName: 
+        enemyImage: {fileID: 0}
+        lootGeneType:
+          geneType:
+            geneName: 3
+            geneType: 1
+            isOwned: 0
+          lootPossibility: 0.3
+        lootCultureMedium:
+          minLootCultureMedium: 5
+          maxLootCultureMedium: 8
+      spawnLocation: 0
+      count: 2
+  - enemies:
+    - enemy:
+        enemyPrefab: {fileID: 4117279205531356690, guid: a709bb7316160614b96a82cfbb14d10a, type: 3}
+        enemyName: 
+        enemyImage: {fileID: 0}
+        lootGeneType:
+          geneType:
+            geneName: 3
+            geneType: 2
+            isOwned: 0
+          lootPossibility: 0.3
+        lootCultureMedium:
+          minLootCultureMedium: 5
+          maxLootCultureMedium: 8
+      spawnLocation: 1
+      count: 5
+    - enemy:
+        enemyPrefab: {fileID: 4117279205531356690, guid: c80bd44d54f74e14db7235044a04e7c4, type: 3}
+        enemyName: 
+        enemyImage: {fileID: 0}
+        lootGeneType:
+          geneType:
+            geneName: 3
+            geneType: 2
+            isOwned: 0
+          lootPossibility: 0.3
+        lootCultureMedium:
+          minLootCultureMedium: 5
+          maxLootCultureMedium: 8
+      spawnLocation: 1
+      count: 6
+  - enemies:
+    - enemy:
+        enemyPrefab: {fileID: 4117279205531356690, guid: 1ea8fed76ba86314f80e54d93be4e3fc, type: 3}
+        enemyName: 
+        enemyImage: {fileID: 0}
+        lootGeneType:
+          geneType:
+            geneName: 3
+            geneType: 3
+            isOwned: 0
+          lootPossibility: 0.3
+        lootCultureMedium:
+          minLootCultureMedium: 10
+          maxLootCultureMedium: 15
+      spawnLocation: 2
+      count: 1
+  - enemies:
+    - enemy:
+        enemyPrefab: {fileID: 4117279205531356690, guid: 1ea8fed76ba86314f80e54d93be4e3fc, type: 3}
+        enemyName: 
+        enemyImage: {fileID: 0}
+        lootGeneType:
+          geneType:
+            geneName: 3
+            geneType: 3
+            isOwned: 0
+          lootPossibility: 0.3
+        lootCultureMedium:
+          minLootCultureMedium: 10
+          maxLootCultureMedium: 15
+      spawnLocation: 0
+      count: 1

@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93aef31aa543c4a4eb7b72265a6ec4fc, type: 3}
+  m_Name: Level5
+  m_EditorClassIdentifier: 
+  levelName: 
+  waves:
+  - enemies:
+    - enemy:
+        enemyPrefab: {fileID: 4117279205531356690, guid: 707e0a049f7dcb54282db4a0c1f3fccb, type: 3}
+        enemyName: 
+        enemyImage: {fileID: 0}
+        lootGeneType:
+          geneType:
+            geneName: 1
+            geneType: 1
+            isOwned: 0
+          lootPossibility: 0
+        lootCultureMedium:
+          minLootCultureMedium: 0
+          maxLootCultureMedium: 0
+      spawnLocation: 0
+      count: 1
+  - enemies:
+    - enemy:
+        enemyPrefab: {fileID: 4117279205531356690, guid: b8c59f6daaf4a52459f0093b589d63ca, type: 3}
+        enemyName: 
+        enemyImage: {fileID: 0}
+        lootGeneType:
+          geneType:
+            geneName: 2
+            geneType: 3
+            isOwned: 0
+          lootPossibility: 0
+        lootCultureMedium:
+          minLootCultureMedium: 0
+          maxLootCultureMedium: 0
+      spawnLocation: 1
+      count: 1
+  - enemies:
+    - enemy:
+        enemyPrefab: {fileID: 4117279205531356690, guid: 1ea8fed76ba86314f80e54d93be4e3fc, type: 3}
+        enemyName: 
+        enemyImage: {fileID: 0}
+        lootGeneType:
+          geneType:
+            geneName: 3
+            geneType: 3
+            isOwned: 0
+          lootPossibility: 0
+        lootCultureMedium:
+          minLootCultureMedium: 0
+          maxLootCultureMedium: 0
+      spawnLocation: 2
+      count: 1
+  - enemies:
+    - enemy:
+        enemyPrefab: {fileID: 4117279205531356690, guid: 1ea8fed76ba86314f80e54d93be4e3fc, type: 3}
+        enemyName: 
+        enemyImage: {fileID: 0}
+        lootGeneType:
+          geneType:
+            geneName: 3
+            geneType: 3
+            isOwned: 0
+          lootPossibility: 0
+        lootCultureMedium:
+          minLootCultureMedium: 0
+          maxLootCultureMedium: 0
+      spawnLocation: 1
+      count: 1

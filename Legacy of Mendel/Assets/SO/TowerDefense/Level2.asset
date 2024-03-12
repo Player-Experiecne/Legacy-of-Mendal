@@ -10,26 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93aef31aa543c4a4eb7b72265a6ec4fc, type: 3}
-  m_Name: Level1
+  m_Name: Level2
   m_EditorClassIdentifier: 
   levelName: 
   waves:
-  - enemies:
-    - enemy:
-        enemyPrefab: {fileID: 4117279205531356690, guid: 683c87767d76dd742815522870363c6d, type: 3}
-        enemyName: 
-        enemyImage: {fileID: 0}
-        lootGeneType:
-          geneType:
-            geneName: 1
-            geneType: 2
-            isOwned: 0
-          lootPossibility: 0.35
-        lootCultureMedium:
-          minLootCultureMedium: 5
-          maxLootCultureMedium: 8
-      spawnLocation: 0
-      count: 2
   - enemies:
     - enemy:
         enemyPrefab: {fileID: 2720892501919324486, guid: 023d495bf51dff54fa17989d33b5cd44, type: 3}
@@ -40,14 +24,15 @@ MonoBehaviour:
             geneName: 1
             geneType: 3
             isOwned: 0
-          lootPossibility: 0.35
+          lootPossibility: 0.3
         lootCultureMedium:
           minLootCultureMedium: 5
           maxLootCultureMedium: 8
-      spawnLocation: 1
-      count: 2
+      spawnLocation: 0
+      count: 4
+  - enemies:
     - enemy:
-        enemyPrefab: {fileID: 4117279205531356690, guid: 42c2fb15637a49c4e81d8ab5d3c26d8f, type: 3}
+        enemyPrefab: {fileID: 4117279205531356690, guid: 707e0a049f7dcb54282db4a0c1f3fccb, type: 3}
         enemyName: 
         enemyImage: {fileID: 0}
         lootGeneType:
@@ -55,9 +40,25 @@ MonoBehaviour:
             geneName: 1
             geneType: 1
             isOwned: 0
-          lootPossibility: 0.35
+          lootPossibility: 0.3
+        lootCultureMedium:
+          minLootCultureMedium: 10
+          maxLootCultureMedium: 15
+      spawnLocation: 1
+      count: 1
+  - enemies:
+    - enemy:
+        enemyPrefab: {fileID: 4117279205531356690, guid: 8028368bbdb886b4487b912167a3485c, type: 3}
+        enemyName: 
+        enemyImage: {fileID: 0}
+        lootGeneType:
+          geneType:
+            geneName: 2
+            geneType: 1
+            isOwned: 0
+          lootPossibility: 0.5
         lootCultureMedium:
           minLootCultureMedium: 5
           maxLootCultureMedium: 8
-      spawnLocation: 1
-      count: 3
+      spawnLocation: 2
+      count: 5
