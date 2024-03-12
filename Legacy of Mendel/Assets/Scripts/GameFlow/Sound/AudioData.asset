@@ -14,11 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicClips:
   - track: 0
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 77d2dcdc03bf4ce40954c52d7a508b29, type: 3}
   - track: 1
-    clip: {fileID: 8300000, guid: d0ca794a9113bb84ba62e5f37c99007e, type: 3}
+    clip: {fileID: 8300000, guid: f28564430a62db84c87f40b06c6f1066, type: 3}
+  - track: 2
+    clip: {fileID: 8300000, guid: 6a7553f20fdfeb54baa9970a2ad832d0, type: 3}
+  - track: 3
+    clip: {fileID: 8300000, guid: 252aa8a64b2b5a848a1f3c48c3b2de8a, type: 3}
+  - track: 4
+    clip: {fileID: 8300000, guid: d32b11c1aa372d44d8c97e71691f861e, type: 3}
+  - track: 5
+    clip: {fileID: 8300000, guid: 3beb7bde0f76fe141b3cb61cc1c5887e, type: 3}
   sfxClips:
   - effect: 2
     clip: {fileID: 8300000, guid: ba5cfc26017b4b04b8f3d2a22b8d2f27, type: 3}
   - effect: 1
     clip: {fileID: 8300000, guid: 340d2fc1950b06549b71231d43d509f6, type: 3}
+  - effect: 0
+    clip: {fileID: 8300000, guid: 3b180c7596abb2c4aa71bd0a3be0756d, type: 3}
+  - effect: 3
+    clip: {fileID: 8300000, guid: 037009485ae138342aede88b662edf26, type: 3}
+  - effect: 4
+    clip: {fileID: 8300000, guid: 037009485ae138342aede88b662edf26, type: 3}

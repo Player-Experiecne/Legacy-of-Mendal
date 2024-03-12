@@ -30,18 +30,12 @@ public class GameManager : MonoBehaviour
         //Start the game after a delay
         StartCoroutine(TriggerLevelStartAfterDelay(timeDelayBeforeStart));
 
-        //Register functions into OnLevelComplete event
-        GameEvents.OnLevelComplete += CallOnButton;
-
         GameEvents.OnLevelStart += OnLevelStart;
-        GameEvents.OnBreedingComplete += OnBreedingComplete;
-
-        //Register functions into OnLevelFail event
-        //Game over functions
+        GameEvents.OnLevelComplete += CallOnButton;
         GameEvents.OnLevelFail += () => Debug.Log("Game Over");
-
-        //Register functions into OnBreedingStart event
         GameEvents.OnBreedingStart += () => SceneLoader.LoadScene("Breeding");
+        GameEvents.OnBreedingComplete += OnBreedingComplete;
+        GameEvents.OnTitleScreen += () => SceneLoader.LoadScene("TitleScreen");
     }
 
     public void OnBreedingButtonClicked()
