@@ -53,7 +53,9 @@ public class GameManager : MonoBehaviour
     public void OnBreedingButtonClicked()
     {
         GameEvents.TriggerBreedingStart(); 
-        SceneLoader.LoadScene("Breeding");  
+        SceneLoader.LoadScene("Breeding");
+        breedingButton.SetActive(false);
+
     }
    /* private void OnLevelComplete()
     {
@@ -87,10 +89,7 @@ public class GameManager : MonoBehaviour
         //Trigger the event OnLevelStart
         GameEvents.TriggerLevelStart();
     }
-    public void TriggerBreedingStart()
-    {
-        GameEvents.TriggerBreedingStart();
-    }
+  
 
     private void CallOnButton()
     {
@@ -101,8 +100,6 @@ public class GameManager : MonoBehaviour
 
 
  
-    // You might need a method or an event listener that gets called when new scene has fully loaded:
-  
-
+   
    
 }
