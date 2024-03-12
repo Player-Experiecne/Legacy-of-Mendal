@@ -5,6 +5,7 @@ public class PauseMenuManager : MonoBehaviour
     public GameObject menu;
     public GameObject settingsMenu;
 
+
     private bool isPaused = false; // Track the pause state
     void Update()
     {
