@@ -126,7 +126,13 @@ public class BreedManager : MonoBehaviour
     }
     public void SetSelectedDefender(Defender defender)
     {
+        Debug.Log($"Selected defender: {defender?.defenderName}");
         selectedDefender = defender;
+        // 这里还可以更新UI来反映选中的防御者，例如:
+        if (defenderDisplayImage != null && defender != null)
+        {
+            defenderDisplayImage.sprite = defender.defenderImage;
+        }
     }
 
     // 调用这个方法来设置选中的基因型

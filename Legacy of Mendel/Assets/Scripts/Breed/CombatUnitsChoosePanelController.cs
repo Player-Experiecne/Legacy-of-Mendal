@@ -263,11 +263,19 @@ public class CombatUnitsChoosePanelController : MonoBehaviour
     public void ConfirmSelection()
     {
 
-        if (selectedIndex != -1)
+       /* if (selectedIndex != -1)
         {
             combatUnitImages[selectedIndex].color = Color.white;
             //defenderDisplayImage.sprite = null;
-            selectedIndex = -1; 
+            
+        }*/
+        if (selectedIndex != -1)
+        {
+            Defender selectedDefender = playerDefenderInventory.ownedDefenders[selectedIndex].defender;
+            BreedManager.Instance.SetSelectedDefender(selectedDefender);
+            combatUnitImages[selectedIndex].color = Color.white;
+            selectedIndex = -1;
+
         }
         thisPanel.SetActive(false);
       
