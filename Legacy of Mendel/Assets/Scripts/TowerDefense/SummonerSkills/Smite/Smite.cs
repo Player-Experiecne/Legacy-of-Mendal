@@ -31,6 +31,7 @@ public class Smite : SummonerSkill
                 burningState.StartBurning(damagePerHit, duration, duration / damageHits);
             }
         }
+        SoundManager.Instance.PlaySFX(SoundEffect.SummonerSmite);
         Debug.Log("Smite activated!");
     }
 

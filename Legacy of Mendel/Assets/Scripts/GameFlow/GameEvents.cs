@@ -10,6 +10,7 @@ public class GameEvents
     public static event GameStateChange OnLevelFail;
     public static event GameStateChange OnBreedingStart;
     public static event GameStateChange OnBreedingComplete;
+    public static event GameStateChange OnTitleScreen;
 
     public static void TriggerTutorialStart()
     {
@@ -38,5 +39,9 @@ public class GameEvents
     public static void TriggerBreedingComplete()
     {
         OnBreedingComplete?.Invoke();
+    }
+    public static void TriggerTitleScreen()
+    {
+        OnTitleScreen?.Invoke();
     }
 }

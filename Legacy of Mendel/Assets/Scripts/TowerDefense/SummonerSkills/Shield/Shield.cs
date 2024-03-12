@@ -22,6 +22,7 @@ public class Shield : SummonerSkill
 
             // Activate or refresh the shield
             shieldEffect.ActivateShield(shieldStrength, shieldDuration, shieldVFXInstance);
+            SoundManager.Instance.PlaySFX(SoundEffect.SummonerShield);
         }
         else
         {

@@ -46,7 +46,6 @@ public class LinkCollider : MonoBehaviour
 
     private void DealInstantDamage(GameObject target)
     {
-        Debug.Log(2);
         HP targetHP = target.GetComponent<HP>();
         if (targetHP != null)
         {
@@ -56,7 +55,6 @@ public class LinkCollider : MonoBehaviour
 
     private void HitCorrectTargetType(GameObject target)
     {
-        Debug.Log(1);
         if (selfHP.objectType == HP.ObjectType.Enemy)
         {
             if (target.CompareTag("Base") || target.CompareTag("Defender"))

@@ -47,12 +47,14 @@ public class LootBackpack : MonoBehaviour
         {
             geneTypeCountsList.Add(new GeneTypeCount { geneType = geneType, count = 1 });
         }
+        SoundManager.Instance.PlaySFX(SoundEffect.LootGene);
     }
 
     public void LootCultureMedium(int cultureMedium)
     {
         lootCultureMedium += cultureMedium;
         RefreshUI();
+        SoundManager.Instance.PlaySFX(SoundEffect.LootCultureMedium);
     }
 
     private void RefreshUI()

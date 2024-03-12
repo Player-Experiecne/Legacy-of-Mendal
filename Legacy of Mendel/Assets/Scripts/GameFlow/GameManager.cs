@@ -42,45 +42,29 @@ public class GameManager : MonoBehaviour
 
         //Register functions into OnBreedingStart event
         GameEvents.OnBreedingStart += () => SceneLoader.LoadScene("Breeding");
-
-        //Register functions into OnBreedingComplete event
-        //GameEvents.OnBreedingComplete += () => SceneLoader.LoadScene("TowerDefense");
-
-        //GameEvents.OnLevelComplete += OnLevelComplete;
-        //GameEvents.OnBreedingComplete += OnBreedingComplete;
     }
 
     public void OnBreedingButtonClicked()
     {
         GameEvents.TriggerBreedingStart(); 
-        SceneLoader.LoadScene("Breeding");
         breedingButton.SetActive(false);
-
     }
-   /* private void OnLevelComplete()
-    {
-        // 关卡完成，显示培育按钮或直接跳转到培育场景
-        breedingButton.SetActive(true);
-    }*/
     private void OnLevelStart()
     {
-        // 关卡完成，显示培育按钮或直接跳转到培育场景
         LevelManager.Instance.StartCurrentLevel();
     }
 
     public void OnBreedingComplete()
     {
         currentLevelIndex++; // Move to the next level
-        StartCoroutine(TriggerLevelStartAfterDelay(timeDelayBeforeStart));
         SceneLoader.LoadScene("TowerDefense"); // Load the tower defense scene for the next level
+        StartCoroutine(TriggerLevelStartAfterDelay(timeDelayBeforeStart));
          // Ensure this method is used to start levels
     }
-
 
     void OnDestroy()
     {
         // 取消注册事件
-        //GameEvents.OnLevelComplete -= OnLevelComplete;
         GameEvents.OnBreedingComplete -= OnBreedingComplete;
     }
     public IEnumerator TriggerLevelStartAfterDelay(float delay)
@@ -89,17 +73,10 @@ public class GameManager : MonoBehaviour
         //Trigger the event OnLevelStart
         GameEvents.TriggerLevelStart();
     }
-  
 
     private void CallOnButton()
     {
         //currentLevelIndex++; 
         breedingButton.SetActive(true);
     }
-
-
-
- 
-   
-   
 }

@@ -25,6 +25,7 @@ public class Heal : SummonerSkill
                 SpawnEffect(defender);
             }
         }
+        SoundManager.Instance.PlaySFX(SoundEffect.SummonerHeal);
         Debug.Log("Healing Aura activated!");
     }
 
