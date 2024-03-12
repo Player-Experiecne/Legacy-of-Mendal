@@ -34,8 +34,7 @@ public class InputManager : MonoBehaviour
         //Control units
         keyBindings["ControlUnits"] = KeyCode.Space;
         //Summoner skills
-        keyBindings["SummonerSkills1"] = KeyCode.F;
-        keyBindings["SummonerSkills2"] = KeyCode.G;
+        keyBindings["SummonerSkill"] = KeyCode.F;
         //Camera Control
         keyBindings["CameraTurnLeft"] = KeyCode.Q;
         keyBindings["CameraTurnRight"] = KeyCode.E;
