@@ -15,25 +15,40 @@ public class LevelManager : MonoBehaviour
     public float timeBetweenEnemies = 0.5f;
 
     private bool levelCompleted = true;
-
-    public bool LevelCompleted
-    {
-        get { return levelCompleted; }
-    }
-
     void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else if (Instance != this)
         {
             Destroy(gameObject);
             return;
         }
-        GameEvents.OnLevelStart += () => LoadLevelWithIndex(GameManager.Instance.currentLevelIndex);
+
+
+        //GameEvents.OnLevelStart += StartCurrentLevel;
+
+
     }
+    public bool LevelCompleted
+    {
+        get { return levelCompleted; }
+    }
+
+
+    void OnDestroy()
+    {
+        GameEvents.OnLevelStart -= StartCurrentLevel;
+    }
+
+    public void StartCurrentLevel()
+    {
+        LoadLevelWithIndex(GameManager.Instance.currentLevelIndex);
+    }
+    
 
     private void LoadLevelWithIndex(int index)
     {
@@ -126,4 +141,21 @@ public class LevelManager : MonoBehaviour
         //Assign loot culture medium
         enemyController.lootCultureMedium = Random.Range(enemy.lootCultureMedium.minLootCultureMedium, enemy.lootCultureMedium.maxLootCultureMedium + 1);
     }
+
+    // 在 LevelManager 中，当关卡结束时调用
+    public void OnLevelEnd(bool isSuccess)
+    {
+        if (isSuccess)
+        {
+            // Level completed successfully
+            GameEvents.TriggerLevelComplete();
+        }
+        else
+        {
+            // Level failed
+            GameEvents.TriggerLevelFail();
+        }
+    }
+
+
 }

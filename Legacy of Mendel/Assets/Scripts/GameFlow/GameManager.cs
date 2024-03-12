@@ -32,7 +32,9 @@ public class GameManager : MonoBehaviour
 
         //Register functions into OnLevelComplete event
         GameEvents.OnLevelComplete += CallOnButton;
-        GameEvents.OnLevelComplete += IncreaseLevelIndex;
+
+        GameEvents.OnLevelStart += OnLevelStart;
+        GameEvents.OnBreedingComplete += OnBreedingComplete;
 
         //Register functions into OnLevelFail event
         //Game over functions
@@ -42,7 +44,10 @@ public class GameManager : MonoBehaviour
         GameEvents.OnBreedingStart += () => SceneLoader.LoadScene("Breeding");
 
         //Register functions into OnBreedingComplete event
-        GameEvents.OnBreedingComplete += () => SceneLoader.LoadScene("TowerDefense");
+        //GameEvents.OnBreedingComplete += () => SceneLoader.LoadScene("TowerDefense");
+
+        GameEvents.OnLevelComplete += OnLevelComplete;
+        GameEvents.OnBreedingComplete += OnBreedingComplete;
     }
 
     public void OnBreedingButtonClicked()
@@ -50,7 +55,32 @@ public class GameManager : MonoBehaviour
         GameEvents.TriggerBreedingStart(); 
         SceneLoader.LoadScene("Breeding");  
     }
+    private void OnLevelComplete()
+    {
+        // 关卡完成，显示培育按钮或直接跳转到培育场景
+        breedingButton.SetActive(true);
+    }
+    private void OnLevelStart()
+    {
+        // 关卡完成，显示培育按钮或直接跳转到培育场景
+        LevelManager.Instance.StartCurrentLevel();
+    }
 
+    public void OnBreedingComplete()
+    {
+        currentLevelIndex++; // Move to the next level
+        GameEvents.TriggerLevelStart();
+        SceneLoader.LoadScene("TowerDefense"); // Load the tower defense scene for the next level
+         // Ensure this method is used to start levels
+    }
+
+
+    void OnDestroy()
+    {
+        // 取消注册事件
+        GameEvents.OnLevelComplete -= OnLevelComplete;
+        GameEvents.OnBreedingComplete -= OnBreedingComplete;
+    }
     public IEnumerator TriggerLevelStartAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -64,11 +94,15 @@ public class GameManager : MonoBehaviour
 
     private void CallOnButton()
     {
+        //currentLevelIndex++; 
         breedingButton.SetActive(true);
     }
 
-    private void IncreaseLevelIndex()
-    {
-        currentLevelIndex++;
-    } 
+
+
+ 
+    // You might need a method or an event listener that gets called when new scene has fully loaded:
+  
+
+   
 }

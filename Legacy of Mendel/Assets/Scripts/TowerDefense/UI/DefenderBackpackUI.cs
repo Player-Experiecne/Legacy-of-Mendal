@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class DefenderBackpackUI : MonoBehaviour
 {
     public GameObject defenderButtonPrefab;
-    public DefenderBackpack defenderBackpack;
+    public DefenderBackpack defenderBackpack = DefenderBackpack.Instance;
 
     private int selectedDefenderIndex = -1; // Initialize to -1 or another invalid index to denote no selection.
     private List<Button> defenderButtons = new List<Button>();

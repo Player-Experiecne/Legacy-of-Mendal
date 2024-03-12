@@ -39,7 +39,7 @@ public class BuildManager : MonoBehaviour
         }
         else if (activeDefender.defenderPrefab == null)
         {
-            Debug.Log("Defender's prefab is not set!");
+            Debug.Log("Defender's prefab is not set! Defender name: " + activeDefender.defenderName); // Add the defender's name for better debugging.
         }
         else
         {

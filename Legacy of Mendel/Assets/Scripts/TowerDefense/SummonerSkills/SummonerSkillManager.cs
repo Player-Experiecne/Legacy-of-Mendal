@@ -3,10 +3,10 @@ using UnityEngine;
 public class SummonerSkillManager : MonoBehaviour
 {
     public static SummonerSkillManager Instance;
-    public SummonerSkill[] skills = new SummonerSkill[2]; // Array to hold the two chosen skills
+    public SummonerSkill skill; // Variable to hold the chosen skill
 
-    public float[] cooldownTimers;
-    public bool[] isCooldownActive;
+    public float cooldownTimer;
+    public bool isCooldownActive;
 
     private void Awake()
     {
@@ -18,71 +18,55 @@ public class SummonerSkillManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        DontDestroyOnLoad(gameObject); // Keep this instance alive across scenes
     }
+
     void Start()
     {
-        cooldownTimers = new float[skills.Length];
-        isCooldownActive = new bool[skills.Length];
-        ResetCooldowns(); // Initialize cooldowns
+        ResetCooldown(); // Initialize cooldown
     }
 
     void Update()
     {
-        for (int i = 0; i < cooldownTimers.Length; i++)
+        if (isCooldownActive && cooldownTimer > 0)
         {
-            if (isCooldownActive[i] && cooldownTimers[i] > 0)
+            cooldownTimer -= Time.deltaTime; // Decrease cooldown timer
+            if (cooldownTimer <= 0)
             {
-                cooldownTimers[i] -= Time.deltaTime; // Decrease cooldown timer
-                if (cooldownTimers[i] <= 0)
-                {
-                    isCooldownActive[i] = false; // Reset flag when cooldown ends
-                }
+                isCooldownActive = false; // Reset flag when cooldown ends
             }
         }
-        // Input handling for activating skills
-        if (InputManager.Instance.GetKeyDown("SummonerSkills1"))
+        // Input handling for activating skill
+        if (InputManager.Instance.GetKeyDown("SummonerSkill"))
         {
-            Debug.Log("Triggering the first summoner skill.");
-            ActivateSkill(0); // Trigger the first skill
-        }
-        if (InputManager.Instance.GetKeyDown("SummonerSkills2"))
-        {
-            Debug.Log("Triggering the second summoner skill.");
-            ActivateSkill(1); // Trigger the second skill
+            Debug.Log("Triggering the summoner skill.");
+            ActivateSkill(); // Trigger the skill
         }
     }
 
-    public void ActivateSkill(int skillIndex)
+    public void ActivateSkill()
     {
-        if (skillIndex >= 0 && skillIndex < skills.Length)
+        if (!isCooldownActive && skill != null)
         {
-            if (!isCooldownActive[skillIndex])
-            {
-                skills[skillIndex].Activate();
-                cooldownTimers[skillIndex] = skills[skillIndex].cooldownTime;
-                isCooldownActive[skillIndex] = true;
-            }
-            else
-            {
-                Debug.Log($"Still cooling down, {cooldownTimers[skillIndex]} seconds left.");
-            }
-
+            skill.Activate();
+            cooldownTimer = skill.cooldownTime;
+            isCooldownActive = true;
+        }
+        else if (isCooldownActive)
+        {
+            Debug.Log($"Still cooling down, {cooldownTimer} seconds left.");
         }
     }
 
-    public void ResetCooldowns()
+    public void ResetCooldown()
     {
-        for (int i = 0; i < cooldownTimers.Length; i++)
-        {
-            cooldownTimers[i] = 0;
-            isCooldownActive[i] = false; // Ensure cooldowns are not active at reset
-        }
+        cooldownTimer = 0;
+        isCooldownActive = false; // Ensure cooldown is not active at reset
     }
 
-    public void SetSkills(SummonerSkill firstSkill, SummonerSkill secondSkill)
+    public void SetSkill(SummonerSkill newSkill)
     {
-        skills[0] = firstSkill;
-        skills[1] = secondSkill;
-        ResetCooldowns(); // Reset cooldowns with new skill selection
+        skill = newSkill;
+        ResetCooldown(); // Reset cooldown with new skill selection
     }
 }

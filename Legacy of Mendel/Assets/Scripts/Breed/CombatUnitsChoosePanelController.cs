@@ -100,44 +100,56 @@ public class CombatUnitsChoosePanelController : MonoBehaviour
         return false;
     }
 
-    private void UpdateDefenderDisplays()
+   private void UpdateDefenderDisplays()
+{
+    int itemCount = Mathf.Min(playerDefenderInventory.ownedDefenders.Count, combatUnitImages.Count);  // 使用较小的数量来避免越界
+    for (int i = 0; i < itemCount; i++)  // 使用新的边界来循环
     {
-        for (int i = 0; i < playerDefenderInventory.ownedDefenders.Count; i++)
+        Transform countTextTransform = combatUnitImages[i].transform.Find("CountText");
+        if (countTextTransform != null)
         {
-            Transform countTextTransform = combatUnitImages[i].transform.Find("CountText");
-            if (countTextTransform != null)
+            TextMeshProUGUI countTextComponent = countTextTransform.GetComponent<TextMeshProUGUI>();
+            if (countTextComponent != null)
             {
-                TextMeshProUGUI countTextComponent = countTextTransform.GetComponent<TextMeshProUGUI>();
-                if (countTextComponent != null)
-                {
-                    // 更新数量显示
-                    countTextComponent.text = "Count: " + playerDefenderInventory.ownedDefenders[i].count.ToString();
-                }
+                // 更新数量显示
+                countTextComponent.text = "Count: " + playerDefenderInventory.ownedDefenders[i].count.ToString();
             }
         }
-        // 更新最后的库存计数
-        lastInventoryCount = playerDefenderInventory.ownedDefenders.Count;
     }
+    // 如果需要，这里可以加上额外的逻辑来处理不足一行的元素
+}
+
     public void RefreshDisplay()
     {
+        // 清除之前页面的选中状态
+        ClearSelections();
+
         for (int i = 0; i < combatUnitImages.Count; i++)
         {
-            if (i + currentPage * itemsPerPage < playerDefenderInventory.ownedDefenders.Count)
+            int globalIndex = currentPage * itemsPerPage + i;
+            if (globalIndex < playerDefenderInventory.ownedDefenders.Count)
             {
-                int defenderIndex = currentPage * itemsPerPage + i;
-                combatUnitImages[i].sprite = playerDefenderInventory.ownedDefenders[defenderIndex].defender.defenderImage;
+                combatUnitImages[i].sprite = playerDefenderInventory.ownedDefenders[globalIndex].defender.defenderImage;
                 combatUnitImages[i].gameObject.SetActive(true);
+                UpdateText(combatUnitImages[i], "NameText", playerDefenderInventory.ownedDefenders[globalIndex].defender.defenderName);
+                UpdateText(combatUnitImages[i], "CountText", "Count: " + playerDefenderInventory.ownedDefenders[globalIndex].count.ToString());
 
-                // 更新其他显示的内容，例如名称和数量
-                UpdateText(combatUnitImages[i], "NameText", playerDefenderInventory.ownedDefenders[defenderIndex].defender.defenderName);
-                UpdateText(combatUnitImages[i], "CountText", "Count: " + playerDefenderInventory.ownedDefenders[defenderIndex].count.ToString());
-
-                // 更新选中逻辑
+                // 设置按钮点击事件
+                int indexCopy = i; // 防止闭包问题
                 combatUnitImages[i].GetComponent<Button>().onClick.RemoveAllListeners();
                 combatUnitImages[i].GetComponent<Button>().onClick.AddListener(() => {
-                    ToggleSelection(defenderIndex);
-                    SelectDefender(defenderIndex);
+                    ToggleSelection(indexCopy + currentPage * itemsPerPage);
                 });
+
+                // 如果当前项是选中项，更新为高亮状态
+                if (globalIndex == selectedIndex)
+                {
+                    combatUnitImages[i].color = Color.green;
+                }
+                else
+                {
+                    combatUnitImages[i].color = Color.white;
+                }
             }
             else
             {
@@ -145,6 +157,15 @@ public class CombatUnitsChoosePanelController : MonoBehaviour
             }
         }
     }
+
+    private void ClearSelections()
+    {
+        foreach (var image in combatUnitImages)
+        {
+            image.color = Color.white; // 清除高亮
+        }
+    }
+
 
     private void UpdateText(Image parentImage, string childName, string text)
     {
@@ -202,26 +223,36 @@ public class CombatUnitsChoosePanelController : MonoBehaviour
     }
 
 
-    private void ToggleSelection(int index)
+    private void ToggleSelection(int globalIndex)
     {
-        if (selectedIndex == index) 
+        if (globalIndex == selectedIndex)
         {
-            combatUnitImages[index].color = Color.white; 
-            defenderDisplayImage.sprite = null; 
+            // 取消选择
+            if (globalIndex / itemsPerPage == currentPage)
+            {
+                combatUnitImages[globalIndex % itemsPerPage].color = Color.white;
+            }
             selectedIndex = -1;
+            defenderDisplayImage.sprite = null;
         }
         else
         {
-            if (selectedIndex != -1) 
+            // 选择新项目
+            if (selectedIndex != -1 && selectedIndex / itemsPerPage == currentPage)
             {
-                combatUnitImages[selectedIndex].color = Color.white;
+                // 取消之前选中的项目的高亮（如果它在当前页）
+                combatUnitImages[selectedIndex % itemsPerPage].color = Color.white;
             }
-            combatUnitImages[index].color = Color.green; 
-            selectedIndex = index;
-           
-            defenderDisplayImage.sprite = playerDefenderInventory.ownedDefenders[index].defender.defenderImage;
+            if (globalIndex / itemsPerPage == currentPage)
+            {
+                // 如果新选中的项目在当前页，设置高亮
+                combatUnitImages[globalIndex % itemsPerPage].color = Color.green;
+            }
+            selectedIndex = globalIndex;
+            defenderDisplayImage.sprite = playerDefenderInventory.ownedDefenders[globalIndex].defender.defenderImage;
         }
     }
+
 
     private void SelectDefender(int index)
     {

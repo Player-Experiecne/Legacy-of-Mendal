@@ -67,6 +67,11 @@ public class BreedManager : MonoBehaviour
         // 初始化按钮点击事件
 
         StartBreedingPhase();
+        
+        foreach (Defender defer in DefenderBackpack.Instance.defendersInBackpack){
+            playerDefenderInventory.AddDefenderToInventory(defer);
+        }
+        DefenderBackpack.Instance.ClearBackpack();
         nextPageButton.onClick.AddListener(NextPage);
         previousPageButton.onClick.AddListener(PreviousPage);
 

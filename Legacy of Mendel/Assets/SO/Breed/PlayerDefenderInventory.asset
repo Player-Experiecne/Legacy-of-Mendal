@@ -14,51 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ownedDefenders:
   - defender:
-      defenderPrefab: {fileID: 6630813155368031700, guid: 56c34ae7c6c68eb4bb93a1285231e9fa, type: 3}
-      geneTypes:
-      - geneName: 1
-        geneType: 1
-        isOwned: 0
-      - geneName: 2
-        geneType: 0
-        isOwned: 0
-      - geneName: 3
-        geneType: 0
-        isOwned: 0
-      defenderName: Rumble
-      defenderImage: {fileID: 21300000, guid: 9ccf62b24c6d13944bb4941d370cfffd, type: 3}
-    count: 10
-  - defender:
-      defenderPrefab: {fileID: 5425126302590180676, guid: 6b584d5b4c3f10c408d7be4ebc5d22d6, type: 3}
-      geneTypes:
-      - geneName: 1
-        geneType: 2
-        isOwned: 0
-      - geneName: 2
-        geneType: 0
-        isOwned: 0
-      - geneName: 3
-        geneType: 0
-        isOwned: 0
-      defenderName: Fuse
-      defenderImage: {fileID: 21300000, guid: 3de3b624d0e44f443bdbc3ec3f41a618, type: 3}
-    count: 4
-  - defender:
-      defenderPrefab: {fileID: 6630813155368031700, guid: 122e52c4f3b789f4faf8cf69b591fd14, type: 3}
-      geneTypes:
-      - geneName: 1
-        geneType: 3
-        isOwned: 0
-      - geneName: 2
-        geneType: 0
-        isOwned: 0
-      - geneName: 3
-        geneType: 0
-        isOwned: 0
-      defenderName: Powder
-      defenderImage: {fileID: 21300000, guid: 152a3f1ce81218b44a2471053986c21b, type: 3}
-    count: 3
-  - defender:
       defenderPrefab: {fileID: 6630813155368031700, guid: 96815565a9b8be14495169eeb3051803, type: 3}
       geneTypes:
       - geneName: 1
@@ -72,7 +27,7 @@ MonoBehaviour:
         isOwned: 0
       defenderName: Aqare
       defenderImage: {fileID: 21300000, guid: 7f1437bbf239cfa41be9b7da838fc66b, type: 3}
-    count: 2
+    count: 6
   - defender:
       defenderPrefab: {fileID: 6630813155368031700, guid: 3bf971eff312e4e47877d7825b93dd79, type: 3}
       geneTypes:
@@ -87,9 +42,99 @@ MonoBehaviour:
         isOwned: 0
       defenderName: Splash
       defenderImage: {fileID: 21300000, guid: d0167443b4dfbf646a87918194a26403, type: 3}
-    count: 3
+    count: 7
   - defender:
       defenderPrefab: {fileID: 6630813155368031700, guid: 61f6d492b6ae86c4a84e7403a68ef714, type: 3}
+      geneTypes:
+      - geneName: 1
+        geneType: 0
+        isOwned: 0
+      - geneName: 2
+        geneType: 2
+        isOwned: 0
+      - geneName: 3
+        geneType: 0
+        isOwned: 0
+      defenderName: Glac
+      defenderImage: {fileID: 21300000, guid: f5bd4f946221e9447a1e4ed09bbf32f2, type: 3}
+    count: 4
+  - defender:
+      defenderPrefab: {fileID: 6630813155368031700, guid: 0b19225931bb5d144891adf95c8f21fc, type: 3}
+      geneTypes:
+      - geneName: 1
+        geneType: 0
+        isOwned: 0
+      - geneName: 2
+        geneType: 3
+        isOwned: 0
+      - geneName: 3
+        geneType: 0
+        isOwned: 0
+      defenderName: Vortexon
+      defenderImage: {fileID: 21300000, guid: 2377c7957b94c6147a5b773c530df737, type: 3}
+    count: 4
+  - defender:
+      defenderPrefab: {fileID: 6630813155368031700, guid: c4b4a242f2e3f9841b4b326de9566c0f, type: 3}
+      geneTypes:
+      - geneName: 1
+        geneType: 1
+        isOwned: 0
+      - geneName: 2
+        geneType: 3
+        isOwned: 0
+      - geneName: 3
+        geneType: 0
+        isOwned: 0
+      defenderName: Fyrex
+      defenderImage: {fileID: 21300000, guid: 5b2ffd70968d0184e88bc851bc2f92b9, type: 3}
+    count: 2
+  - defender:
+      defenderPrefab: {fileID: 6630813155368031700, guid: 2bee278fad7106a40b43ec868905d14e, type: 3}
+      geneTypes:
+      - geneName: 1
+        geneType: 3
+        isOwned: 0
+      - geneName: 2
+        geneType: 1
+        isOwned: 0
+      - geneName: 0
+        geneType: 0
+        isOwned: 0
+      defenderName: Steamix
+      defenderImage: {fileID: 21300000, guid: 609080aeaddc3ad448c0498508a29805, type: 3}
+    count: 2
+  - defender:
+      defenderPrefab: {fileID: 6630813155368031700, guid: c78259d75e4aeac4482fcd75973b826b, type: 3}
+      geneTypes:
+      - geneName: 1
+        geneType: 3
+        isOwned: 0
+      - geneName: 2
+        geneType: 2
+        isOwned: 0
+      - geneName: 3
+        geneType: 0
+        isOwned: 0
+      defenderName: ScorchSpire
+      defenderImage: {fileID: 21300000, guid: 8c010cd8e5b1c7a4d8401bb0630298a2, type: 3}
+    count: 3
+  - defender:
+      defenderPrefab: {fileID: 6630813155368031700, guid: 6f6727ebf3dd30448a6a1c94c22a2ea8, type: 3}
+      geneTypes:
+      - geneName: 1
+        geneType: 3
+        isOwned: 0
+      - geneName: 2
+        geneType: 3
+        isOwned: 0
+      - geneName: 3
+        geneType: 0
+        isOwned: 0
+      defenderName: Twistflare
+      defenderImage: {fileID: 21300000, guid: b6f1d3da8db8eba41a6f5c44c6265028, type: 3}
+    count: 4
+  - defender:
+      defenderPrefab: {fileID: 6630813155368031700, guid: 5615e95e13f79584cbd3eff494ac45ad, type: 3}
       geneTypes:
       - geneName: 1
         geneType: 1
@@ -100,6 +145,6 @@ MonoBehaviour:
       - geneName: 3
         geneType: 0
         isOwned: 0
-      defenderName: Glac
-      defenderImage: {fileID: 21300000, guid: f5bd4f946221e9447a1e4ed09bbf32f2, type: 3}
+      defenderName: Fryce
+      defenderImage: {fileID: 21300000, guid: 47ff0cc4915ded94a8feb14850895a4e, type: 3}
     count: 1
