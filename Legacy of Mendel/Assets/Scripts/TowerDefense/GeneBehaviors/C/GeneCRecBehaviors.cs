@@ -159,7 +159,7 @@ public class GeneCRecBehaviors : MonoBehaviour, IAttackBehavior
             if (defender == currentTarget || struckTargets.Contains(defender)) continue;
 
             float distance = Vector3.Distance(currentTarget.transform.position, defender.transform.position);
-            if (distance < closestDistance)
+            if (distance < closestDistance && distance < chainRange)
             {
                 closestDistance = distance;
                 closestDefender = defender;
@@ -181,7 +181,7 @@ public class GeneCRecBehaviors : MonoBehaviour, IAttackBehavior
             if (enemy == currentTarget || struckTargets.Contains(enemy)) continue;
 
             float distance = Vector3.Distance(currentTarget.transform.position, enemy.transform.position);
-            if (distance < closestDistance)
+            if (distance < closestDistance && distance < chainRange)
             {
                 closestDistance = distance;
                 closestEnemy = enemy;
