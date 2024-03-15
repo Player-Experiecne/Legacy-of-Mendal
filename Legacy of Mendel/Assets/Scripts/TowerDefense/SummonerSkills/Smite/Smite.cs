@@ -23,7 +23,7 @@ public class Smite : SummonerSkill
         // Apply burning effect to each enemy within range
         foreach (var enemy in EnemyManager.Instance.Enemies)
         {
-            if (Vector3.Distance(enemy.transform.position, player.transform.position) <= range)
+            if (Vector3.Distance(enemy.transform.position, LocatePlayerGroundPosition()) <= range)
             {
                 BurningState burningState = enemy.AddComponent<BurningState>();
 

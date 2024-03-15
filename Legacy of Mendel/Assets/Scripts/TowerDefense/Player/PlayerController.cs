@@ -5,13 +5,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float groundCheckDistance = 1.0f; // Adjust as needed
     [SerializeField] private LayerMask groundLayer; // Set this in the inspector
 
+    // Define the height of player
+    public float yOffset = 8.0f;
+    // Define the moving speed
     public float speed = 15f;
-
     // Define boundaries for the player's position
     public float minX = 37f;
     public float maxX = 308f;
     public float minZ = 288f;
     public float maxZ = 416f;
+
+    [HideInInspector] public Vector3 groundPosition;
 
     void FixedUpdate()
     {
@@ -44,7 +48,8 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(raycastStart, Vector3.down, out hit, groundCheckDistance, groundLayer))
         {
             // Set the height to align with the ground
-            transform.position = new Vector3(transform.position.x, hit.point.y + 1.1f, transform.position.z);
+            transform.position = new Vector3(transform.position.x, hit.point.y + yOffset, transform.position.z);
+            groundPosition = hit.point;
         }
     }
 

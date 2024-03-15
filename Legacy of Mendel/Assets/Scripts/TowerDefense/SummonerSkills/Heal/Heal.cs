@@ -13,13 +13,10 @@ public class Heal : SummonerSkill
 
     public override void Activate()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player == null) return; // Player not found, exit
-
         // Proceed with the original logic, using player.transform.position
         foreach (var defender in DefenderManager.Instance.defenders)
         {
-            if (Vector3.Distance(defender.transform.position, player.transform.position) <= range)
+            if (Vector3.Distance(defender.transform.position, LocatePlayerGroundPosition()) <= range)
             {
                 HealTarget(defender);
                 SpawnEffect(defender);

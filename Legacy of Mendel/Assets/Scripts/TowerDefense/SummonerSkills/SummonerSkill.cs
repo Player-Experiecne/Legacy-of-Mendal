@@ -10,5 +10,10 @@ public abstract class SummonerSkill : ScriptableObject
     public float cooldownTime;
     public abstract void Activate();
 
-    // Additional properties and methods as needed
+    public Vector3 LocatePlayerGroundPosition()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        PlayerController controller = player.GetComponent<PlayerController>();
+        return controller.groundPosition;
+    }
 }
