@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 953205097}
   - component: {fileID: 953205096}
   - component: {fileID: 953205095}
+  - component: {fileID: 8651139247823251562}
   m_Layer: 0
   m_Name: ControlUnitsUICanvas
   m_TagString: Untagged
@@ -178,6 +179,21 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8651139247823251562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953205093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a6575c2f857fef418a1631c8e64a9bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectCircleUI: {fileID: 130022392}
+  controlCircleUI: {fileID: 2046291468}
+  controlledDefenders: []
 --- !u!1 &1970357496
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,7 +318,6 @@ GameObject:
   - component: {fileID: 483014084941238130}
   - component: {fileID: 483014084941238131}
   - component: {fileID: 1872997893}
-  - component: {fileID: 1872997894}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -422,7 +437,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  yOffset: 6
+  yOffset: 10
   speed: 20
   minX: -60
   maxX: 20
@@ -459,18 +474,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pullRadius: 20
   pullSpeed: 30
---- !u!114 &1872997894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 483014084941238128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a6575c2f857fef418a1631c8e64a9bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collectCircleUI: {fileID: 130022392}
-  controlCircleUI: {fileID: 2046291468}
-  controlledDefenders: []

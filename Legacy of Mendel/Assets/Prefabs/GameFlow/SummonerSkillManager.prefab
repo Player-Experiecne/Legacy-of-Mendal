@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cea11043536ee5d46b81a042f3a93ca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skill: {fileID: 11400000, guid: a2acc1fb507fe0b459bdbc333ed20eb9, type: 2}
+  skill: {fileID: 11400000, guid: 598018d1d4945b5479f0ec7a409e7fe2, type: 2}
   cooldownTimer: 0
   isCooldownActive: 0

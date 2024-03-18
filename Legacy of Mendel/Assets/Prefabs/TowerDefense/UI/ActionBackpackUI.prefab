@@ -29,7 +29,7 @@ RectTransform:
   m_GameObject: {fileID: 4718266688586970164}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0260587, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defenderButtonPrefab: {fileID: 5872532665780764101, guid: 636afedc53a481e449b1cb9bbb78b95c, type: 3}
-  actionBackpack: {fileID: 0}
+  defenderBackpack: {fileID: 0}
 --- !u!114 &4718266688586970122
 MonoBehaviour:
   m_ObjectHideFlags: 0

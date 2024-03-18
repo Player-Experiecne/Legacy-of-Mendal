@@ -11,7 +11,7 @@ public class ControlUnits : MonoBehaviour
     private bool isInControlMode = false;
     private bool isCollecting = false; // Flag to control ongoing collection
     private bool canStartNewCollection = true; // Flag to prevent immediate re-collection
-    private float collectCooldown = 0.5f; // Cooldown duration in seconds before allowing another collect
+    private float collectCooldown = 0.1f; // Cooldown duration in seconds before allowing another collect
 
     private void Update()
     {
@@ -52,7 +52,7 @@ public class ControlUnits : MonoBehaviour
         float radius = collectCircleUI.rectTransform.sizeDelta.x / 2 * 0.8f; // Get radius from collect circle UI size, considering the scale of player gameobject
         foreach (var defender in DefenderManager.Instance.defenders)
         {
-            if (Vector3.Distance(transform.position, defender.transform.position) <= radius)
+            if (Vector3.Distance(transform.position, defender.transform.position) <= radius && !defender.CompareTag("Base"))
             {
                 if (!defender.GetComponent<DefenderController>().isControlled)
                 {
