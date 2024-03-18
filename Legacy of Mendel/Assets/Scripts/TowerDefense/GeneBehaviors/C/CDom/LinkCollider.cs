@@ -41,7 +41,6 @@ public class LinkCollider : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         HitCorrectTargetType(other.gameObject);
-        Debug.Log("Trigger entered by: " + other.gameObject.name);
     }
 
     private void DealInstantDamage(GameObject target)

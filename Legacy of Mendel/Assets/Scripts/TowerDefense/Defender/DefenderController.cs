@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
@@ -17,7 +18,9 @@ public class DefenderController : MonoBehaviour
     public float attackSpeed = 1f;*/
     [HideInInspector] public float attackRange = 100f;
     [HideInInspector] public bool isAttacking = false;
+    [HideInInspector] public bool isControlled = false;
     [HideInInspector] public bool isFrozen = false;
+    [HideInInspector] public Transform playerTransform;
 
     private void Start()
     {
@@ -39,6 +42,12 @@ public class DefenderController : MonoBehaviour
     void Update()
     {
         if (isFrozen) { return; }
+        if (isControlled) { GetControlled(playerTransform); }
+        else { AutoDefend(); }
+    }
+
+    private void AutoDefend()
+    {
         // If the defender doesn't have a target or if its target was destroyed
         if (targetEnemy == null || !EnemyManager.Instance.Enemies.Contains(targetEnemy))
         {
@@ -97,33 +106,6 @@ public class DefenderController : MonoBehaviour
         targetEnemy = closestEnemy;
     }
 
-    /*private void Attack(GameObject target)
-    {
-        /*if (!isAttacking)
-        {
-            StartCoroutine(AttackRoutine(target));
-        }
-    }
-
-    private IEnumerator AttackRoutine(GameObject target)
-    {
-        isAttacking = true;
-
-        while (target != null)
-        {
-
-            HP hP = target.GetComponent<HP>();
-            if (hP != null)
-            {
-                hP.TakeDamage(attackPower);
-            }
-
-            yield return new WaitForSeconds(1 / attackSpeed);  // Delay between attacks
-        }
-
-        isAttacking = false;
-    }*/
-
     private void MoveTowardsTarget(GameObject target)
     {
         if (agent && target)
@@ -181,6 +163,29 @@ public class DefenderController : MonoBehaviour
             }
         }
         return minAttackRange;
+    }
+
+    public void EnterControlledMode(Transform playerTransform)
+    {
+        StopMovement();
+        isAttacking = false;
+        agent.isStopped = false; // Allow the agent to move again
+        this.playerTransform = playerTransform;
+        isControlled = true;
+    }
+    private void GetControlled(Transform playerTransform)
+    {
+        if (playerTransform != null)
+        {
+            agent.SetDestination(playerTransform.position);
+        }
+    }
+
+    public void ExitControlledMode()
+    {
+        isControlled = false;
+        defendPoint.transform.position = transform.position; // Update defend point to current location
+        MoveTowardsTarget(defendPoint); // Resume autonomous behavior
     }
 
     private void OnEnable()

@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 104a9360637680649a11c4197085fd41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionBackpack: {fileID: 0}
 --- !u!114 &6481012233372287622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,4 +57,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33837dadd2d7937419a6f408e07c54e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geneTypeAInfo: {fileID: 11400000, guid: 7dac78a4e34725f46acf99e1b58935b3, type: 2}

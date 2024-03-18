@@ -67,6 +67,16 @@ public class InputManager : MonoBehaviour
         return false;
     }
 
+    public bool GetKeyUp(string actionName)
+    {
+        if (!inputEnabled) { return false; }
+        if (keyBindings.TryGetValue(actionName, out KeyCode key))
+        {
+            return Input.GetKeyUp(key);
+        }
+        return false;
+    }
+
     public float GetHorizontal()
     {
         float horizontal = 0f;

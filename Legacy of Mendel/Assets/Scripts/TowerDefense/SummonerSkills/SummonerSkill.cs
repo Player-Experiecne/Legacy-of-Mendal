@@ -14,6 +14,6 @@ public abstract class SummonerSkill : ScriptableObject
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         PlayerController controller = player.GetComponent<PlayerController>();
-        return controller.groundPosition;
+        return controller.groundPosition.position;
     }
 }

@@ -15,7 +15,8 @@ public class PlayerController : MonoBehaviour
     public float minZ = 288f;
     public float maxZ = 416f;
 
-    [HideInInspector] public Vector3 groundPosition;
+    //Assign the ground position game object
+    public Transform groundPosition;
 
     void FixedUpdate()
     {
@@ -49,7 +50,7 @@ public class PlayerController : MonoBehaviour
         {
             // Set the height to align with the ground
             transform.position = new Vector3(transform.position.x, hit.point.y + yOffset, transform.position.z);
-            groundPosition = hit.point;
+            groundPosition.position = hit.point;
         }
     }
 

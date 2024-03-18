@@ -33,6 +33,6 @@ MonoBehaviour:
   - effect: 0
     clip: {fileID: 8300000, guid: 3b180c7596abb2c4aa71bd0a3be0756d, type: 3}
   - effect: 3
-    clip: {fileID: 8300000, guid: 037009485ae138342aede88b662edf26, type: 3}
+    clip: {fileID: 8300000, guid: c90785f18dca603479b151ff003cd0e1, type: 3}
   - effect: 4
-    clip: {fileID: 8300000, guid: 037009485ae138342aede88b662edf26, type: 3}
+    clip: {fileID: 8300000, guid: c90785f18dca603479b151ff003cd0e1, type: 3}

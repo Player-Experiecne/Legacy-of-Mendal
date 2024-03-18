@@ -16,9 +16,7 @@ public class EnemyController : MonoBehaviour
 
     [HideInInspector] public GeneTypeEntry lootGeneType = null;
     [HideInInspector] public int lootCultureMedium = 0;
-
-    /*public float attackPower = 1f;
-    public float attackSpeed = 1f;*/
+    
     [HideInInspector] public float attackRange = 100f;
     [HideInInspector] public bool isAttacking = false;
     [HideInInspector] public bool isFrozen = false;
@@ -43,8 +41,11 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         if (isFrozen) { return; }
-        //Pathfinding logic starts----------------------------------------------------------------
+        AutoAttack();
+    }
 
+    private void AutoAttack()
+    {
         // If the enemy doesn't have a target or if its target was destroyed
         if (targetDefender == null || !DefenderManager.Instance.defenders.Contains(targetDefender))
         {
@@ -103,33 +104,6 @@ public class EnemyController : MonoBehaviour
         }
         targetDefender = closestDefender;
     }
-
-    private void Attack(GameObject target)
-    {
-        isAttacking = true;
-        /*if (!isAttacking)
-        {
-            StartCoroutine(AttackRoutine(target));
-        }*/
-    }
-
-    /*private IEnumerator AttackRoutine(GameObject target)
-    {
-        isAttacking = true;
-
-        while (target != null)
-        {
-            HP hP = target.GetComponent<HP>();
-            if (hP != null)
-            {
-                hP.TakeDamage(attackPower);
-            }
-
-            yield return new WaitForSeconds(1 / attackSpeed); // Delay between attacks
-        }
-
-        isAttacking = false;
-    }*/
 
     private void MoveTowardsTarget(GameObject target) 
     {
