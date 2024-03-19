@@ -472,5 +472,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c204b2418e1055349859ce1e5c7799ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pullRadius: 20
+  pullRadius: 13
   pullSpeed: 30

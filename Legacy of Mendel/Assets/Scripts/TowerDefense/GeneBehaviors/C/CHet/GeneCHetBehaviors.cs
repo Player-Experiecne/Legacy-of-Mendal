@@ -85,10 +85,10 @@ public class GeneCHetBehaviors : MonoBehaviour, IAttackBehavior
     private IEnumerator ThunderStrike()
     {
         GameObject upWard = Instantiate(upPrefab, thunderPoint.position, thunderPoint.rotation, transform);
+        upWard.GetComponent<SelfDestruction>().waitTime = lightningDuration;
         yield return new WaitForSeconds(lightningDuration);
         // Assuming the upWard's scale is meant to be uniform and independent of the parent's scale
         Vector3 upWardScale = upWard.transform.parent.localScale;
-        Destroy(upWard);
 
         if (target == null) { yield break; }
 
@@ -115,11 +115,9 @@ public class GeneCHetBehaviors : MonoBehaviour, IAttackBehavior
             }
         }
         GameObject downWard = Instantiate(downPrefab, downWardPosition, target.transform.rotation);
+        downWard.GetComponent<SelfDestruction>().waitTime = 1.2f;
         AOETargets(target.transform);
         downWard.transform.localScale = upWardScale;
-
-        yield return new WaitForSeconds(1.2f);
-        if(downWard != null) { Destroy(downWard); }
     }
     public void AOETargets(Transform targetLocation)
     {
