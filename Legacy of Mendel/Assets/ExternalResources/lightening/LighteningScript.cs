@@ -58,7 +58,7 @@ public class LighteningScript : MonoBehaviour
 		if (rend == null)
 			rend = gameObject.AddComponent<LineRenderer>() as LineRenderer; 
 	
-		rend.SetVertexCount(points);
+		rend.positionCount = points; ;
 		//apply material
 		rend.material = mat;
 		//set the tile size of the texture
@@ -99,8 +99,9 @@ public class LighteningScript : MonoBehaviour
 			if (index >= rows * columns)
 				index = 0;
 
-			rend.SetVertexCount(points);
-			rend.SetWidth(lineScale,lineScale);
+			rend.positionCount = points;
+			rend.startWidth = lineScale;
+			rend.endWidth = lineScale;
 			rend.SetPosition(0,transform.position);
 			rend.SetPosition(points-1,target.transform.position);
 
