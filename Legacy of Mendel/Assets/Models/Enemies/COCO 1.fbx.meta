@@ -31,7 +31,8 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 1
     motionNodeName: 
-    rigImportErrors: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'Hips' not found\n"
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -95,7 +96,52 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: COCO 1(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Body
+      parentName: COCO 1(Clone)
+      position: {x: -0.0072021717, y: 0.23046944, z: 0.0000000309656}
+      rotation: {x: -0.7071068, y: -0.000000057601163, z: -0.000000057601163, w: 0.7071068}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Eye
+      parentName: COCO 1(Clone)
+      position: {x: 0.13458921, y: 0.5167842, z: 0.3780579}
+      rotation: {x: -0.8463815, y: 0.000000028019672, z: 0.0000000269693, w: 0.5325772}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Eye.001
+      parentName: COCO 1(Clone)
+      position: {x: -0.20057161, y: 0.51207185, z: 0.37279025}
+      rotation: {x: -0.8463815, y: 0.000000028019672, z: 0.0000000269693, w: 0.5325772}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Eyeball
+      parentName: COCO 1(Clone)
+      position: {x: 0.13307527, y: 0.5121315, z: 0.3985148}
+      rotation: {x: -0.8335762, y: -0.000000012073185, z: -0.000000018218387, w: 0.5524045}
+      scale: {x: 100, y: 99.99999, z: 99.99999}
+    - name: Eyeball.001
+      parentName: COCO 1(Clone)
+      position: {x: -0.20759678, y: 0.51026124, z: 0.3935715}
+      rotation: {x: -0.8335762, y: -0.000000012073185, z: -0.000000018218387, w: 0.5524045}
+      scale: {x: 100, y: 99.99999, z: 99.99999}
+    - name: Mao
+      parentName: COCO 1(Clone)
+      position: {x: 0.022225134, y: 0.09333217, z: -0.07475728}
+      rotation: {x: -0.19927622, y: 0.67844605, z: 0.67844605, w: 0.19927622}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Mao.001
+      parentName: COCO 1(Clone)
+      position: {x: -0, y: -0.11995506, z: 0}
+      rotation: {x: -0.7071068, y: -0.000000057601163, z: -0.000000057601163, w: 0.7071068}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Mao.002
+      parentName: COCO 1(Clone)
+      position: {x: -0.039584327, y: 0.23226686, z: -0.05914355}
+      rotation: {x: 0.3592748, y: 0.60903335, z: 0.60903335, w: -0.3592748}
+      scale: {x: 100, y: 100, z: 100}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -106,11 +152,11 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
