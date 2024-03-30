@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class DefenderBackpackUI : MonoBehaviour
 {
+    
+    
     public GameObject defenderButtonPrefab;
     public DefenderBackpack defenderBackpack = DefenderBackpack.Instance;
 
@@ -21,9 +23,11 @@ public class DefenderBackpackUI : MonoBehaviour
     {
         // First, remove old buttons
         foreach (Button button in defenderButtons)
-        {
+    {
+        // 在尝试销毁前先检查对象是否为null
+        if(button != null)
             Destroy(button.gameObject);
-        }
+    }
         defenderButtons.Clear();
 
         // Add new buttons based on the defenders in the backpack

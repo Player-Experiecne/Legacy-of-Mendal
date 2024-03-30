@@ -15,22 +15,22 @@ MonoBehaviour:
   allGenes:
   - geneName: 1
     geneType: 1
-    isOwned: 1
+    isOwned: 0
   - geneName: 1
     geneType: 2
-    isOwned: 1
+    isOwned: 0
   - geneName: 1
     geneType: 3
-    isOwned: 1
+    isOwned: 0
   - geneName: 2
     geneType: 1
-    isOwned: 1
+    isOwned: 0
   - geneName: 2
     geneType: 2
-    isOwned: 1
+    isOwned: 0
   - geneName: 2
     geneType: 3
-    isOwned: 1
+    isOwned: 0
   - geneName: 3
     geneType: 1
     isOwned: 0
