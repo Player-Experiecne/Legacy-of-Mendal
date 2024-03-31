@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
 
     public float instantDamage;
 
+
     void FixedUpdate()
     {
         if (attackTarget == null)

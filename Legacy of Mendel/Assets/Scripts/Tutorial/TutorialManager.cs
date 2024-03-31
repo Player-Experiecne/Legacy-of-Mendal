@@ -9,17 +9,19 @@ public class TutorialManager : MonoBehaviour
     // Start is called before the first frame update
     public float timeDelayBeforeStart = 5;
     public GameObject Image1;
+    public GameObject Image2;
     public NavMeshAgent agent;
     private float originalSpeed;
     public MonoBehaviour movementScript;
-
+    public TutorialDefenderBackpack defenderBackpack;
     public GameObject[] tutorialSteps; // UI Elements for each step
+    public TutorialBuildManager tbm;
     public int currentStep = 0;
     void Start()
     {
         LockMovement(movementScript);
         StartCoroutine(PrepareTutorial());
-        StartCoroutine(BeginTutorial());
+        //StartCoroutine(BeginTutorial());
     }
 
     // Update is called once per frame
@@ -29,27 +31,49 @@ public class TutorialManager : MonoBehaviour
     }
 
 
-    public 
+    public
     IEnumerator PrepareTutorial()
     {
-        
+        // 等待3秒开始教程
         yield return new WaitForSeconds(3);
         PauseNavMeshAgent(agent);
-        
 
+        // 显示提示选择Defender的图片
         Image1.SetActive(true);
+
+        yield return new WaitUntil(() => defenderBackpack.HasActiveDefender());
+
+        Debug.Log(defenderBackpack.HasActiveDefender());
+
+        // 选中Defender后隐藏提示图片
+        Image1.SetActive(false);
+        Image2.SetActive(true); // 假设Image2是提示玩家放置Defender的图片
+
+        // 等待直到玩家放置了Defender
+        yield return new WaitUntil(() => tbm.HasPlacedDefender());
+
+        Debug.Log("Defender has been placed, continuing tutorial...");
+
+        // 放置Defender后隐藏提示图片
+        Image2.SetActive(false);
+        ResumeNavMeshAgent(agent);
     }
+
 
     IEnumerator BeginTutorial()
     {
-        foreach (GameObject step in tutorialSteps)
+        
+        yield return new WaitForSeconds(1); 
+        if (defenderBackpack.activeDefender!=null)
         {
-            step.SetActive(true); // Show current step
-            HighlightUIElement(step); // Highlight the UI element if needed
-            yield return new WaitForSeconds(1); // Wait for a second before checking for input
-            yield return new WaitUntil(() => PlayerMadeCorrectInput(step)); // Wait until player interacts correctly
-            step.SetActive(false); // Hide current step after interaction
+            Image2.SetActive(true);
+            Image1.SetActive(false);
         }
+        else
+        {
+            
+        }
+
         // End of tutorial
     }
     void HighlightUIElement(GameObject element)

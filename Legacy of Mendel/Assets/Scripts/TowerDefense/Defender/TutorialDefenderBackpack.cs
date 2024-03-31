@@ -8,7 +8,7 @@ public class TutorialDefenderBackpack : MonoBehaviour
     
     public List<Defender> defendersInTutorial= new List<Defender>();
     public Defender activeDefender = null;
-    public DefenderBackpackUI ui;
+    public TutorialDefenderBackpackUI ui;
 
    
 
@@ -62,5 +62,9 @@ public class TutorialDefenderBackpack : MonoBehaviour
         defendersInTutorial.Clear();
         activeDefender = null;
         ui.RefreshUI();
+    }
+    public bool HasActiveDefender()
+    {
+        return activeDefender.defenderPrefab != null;
     }
 }
