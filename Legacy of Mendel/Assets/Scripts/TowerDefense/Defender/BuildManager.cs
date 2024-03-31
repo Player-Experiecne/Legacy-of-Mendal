@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class BuildManager : MonoBehaviour
 {
-    public TutorialDefenderBackpack defenderBackpack;
+    public DefenderBackpack defenderBackpack;
     private Defender activeDefender = null;
     private AddBehaviorsToTarget add;
 

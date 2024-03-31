@@ -6548,6 +6548,8 @@ MonoBehaviour:
   Image1: {fileID: 192272806}
   agent: {fileID: 1318682344}
   movementScript: {fileID: 782610946}
+  tutorialSteps: []
+  currentStep: 0
 --- !u!4 &2039408385
 Transform:
   m_ObjectHideFlags: 0
@@ -7110,7 +7112,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 548682718285495094, guid: 408f41384cec9674d8ddc692d2cfeb12, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3429883417239727813, guid: 408f41384cec9674d8ddc692d2cfeb12, type: 3}
       propertyPath: defenderBackpack
