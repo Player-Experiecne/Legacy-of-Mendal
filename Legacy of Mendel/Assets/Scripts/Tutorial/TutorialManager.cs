@@ -14,7 +14,7 @@ public class TutorialManager : MonoBehaviour
     public MonoBehaviour movementScript;
     void Start()
     {
-
+        LockMovement(movementScript);
         StartCoroutine(BeginTutorial());
 
     }
@@ -32,7 +32,7 @@ public class TutorialManager : MonoBehaviour
         
         yield return new WaitForSeconds(3);
         PauseNavMeshAgent(agent);
-        LockMovement(movementScript);
+        
 
         Image1.SetActive(true);
     }
