@@ -6,13 +6,13 @@ using UnityEngine.EventSystems;
 
 public class BuildManager : MonoBehaviour
 {
-    private DefenderBackpack defenderBackpack;
+    public TutorialDefenderBackpack defenderBackpack;
     private Defender activeDefender = null;
     private AddBehaviorsToTarget add;
 
     private void Start()
     {
-        defenderBackpack = DefenderBackpack.Instance;
+        
         add = GetComponent<AddBehaviorsToTarget>();
     }
 

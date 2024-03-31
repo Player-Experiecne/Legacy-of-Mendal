@@ -13,6 +13,7 @@ public class GameEvents
     public static event GameStateChange OnTitleScreen;
     public static event GameStateChange OnTowerDefense;
 
+
     public static void TriggerTutorialStart()
     {
         OnTutorialStart?.Invoke();

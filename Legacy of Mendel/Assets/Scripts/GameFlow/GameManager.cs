@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
         GameEvents.OnTitleScreen += OnTitleScreen;
         GameEvents.OnTowerDefense += OnTowerDefense;
         GameEvents.OnLevelFail += OnLevelFail;
+        GameEvents.OnTutorialStart += OnTutorialStart;
+        GameEvents.OnTutorialEnd += OnTutorialEnd;
     }
 
     public void OnBreedingButtonClicked()
@@ -61,6 +63,8 @@ public class GameManager : MonoBehaviour
     {
         // 取消注册事件
         GameEvents.OnBreedingComplete -= OnBreedingComplete;
+        GameEvents.OnTutorialStart -= OnTutorialStart;
+        GameEvents.OnTutorialEnd -= OnTutorialEnd;
     }
     public IEnumerator TriggerLevelStartAfterDelay(float delay)
     {
@@ -69,6 +73,24 @@ public class GameManager : MonoBehaviour
         GameEvents.TriggerLevelStart();
     }
 
+
+    public IEnumerator TriggerTutorialAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+       
+        GameEvents.TriggerTutorialStart();
+    }
+    public void OnTutorialStart()
+    {
+        SceneLoader.LoadScene("Tutorial");
+        isTitleScreen = false;
+        //StartCoroutine(TriggerTutorialAfterDelay(timeDelayBeforeStart));
+    }
+
+    public void OnTutorialEnd()
+    {
+        
+    }
     private void CallOnButton()
     {
         //currentLevelIndex++; 
