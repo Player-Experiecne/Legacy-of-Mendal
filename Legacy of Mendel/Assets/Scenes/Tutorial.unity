@@ -481,7 +481,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &192272807
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2983,6 +2983,17 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!114 &782610946 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 483014084941238130, guid: e4b9a12d88b0c924cb7ba896e806c6b0, type: 3}
+  m_PrefabInstance: {fileID: 483014085264045981}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89e9683b31a94ad4882de42f59817c58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &787034373 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1273888491489819884, guid: 8219b29ee5276804582b49a62ff4706f, type: 3}
@@ -6458,6 +6469,7 @@ MonoBehaviour:
   timeDelayBeforeStart: 3
   Image1: {fileID: 192272806}
   agent: {fileID: 1318682344}
+  movementScript: {fileID: 782610946}
 --- !u!4 &2039408385
 Transform:
   m_ObjectHideFlags: 0

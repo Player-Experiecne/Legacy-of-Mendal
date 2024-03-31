@@ -11,6 +11,7 @@ public class TutorialManager : MonoBehaviour
     public GameObject Image1;
     public NavMeshAgent agent;
     private float originalSpeed;
+    public MonoBehaviour movementScript;
     void Start()
     {
 
@@ -31,7 +32,7 @@ public class TutorialManager : MonoBehaviour
         
         yield return new WaitForSeconds(3);
         PauseNavMeshAgent(agent);
-
+        LockMovement(movementScript);
 
         Image1.SetActive(true);
     }
@@ -49,6 +50,15 @@ public class TutorialManager : MonoBehaviour
     {
         agent.speed = originalSpeed;
         Debug.Log("NavMeshAgent speed restored");
+    }
+    public void LockMovement(MonoBehaviour movementScript)
+    {
+        movementScript.enabled = false;
+    }
+
+    public void UnlockMovement(MonoBehaviour movementScript)
+    {
+        movementScript.enabled = true;
     }
 
 }
