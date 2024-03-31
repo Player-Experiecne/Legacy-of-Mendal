@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Heal
   m_EditorClassIdentifier: 
   skillName: Heal
-  skillIcon: {fileID: 21300000, guid: 2f3a95c8ffd132343abb9fec12e15f04, type: 3}
+  skillIcon: {fileID: 21300000, guid: ac8c8191d32135649a5ceaf947fbe585, type: 3}
   cooldownTime: 20
   healingPercentage: 0.3
   range: 20

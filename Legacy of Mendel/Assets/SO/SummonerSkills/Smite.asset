@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Smite
   m_EditorClassIdentifier: 
   skillName: Smite
-  skillIcon: {fileID: 21300000, guid: da43aa242fc8f6849941998d96000dfc, type: 3}
+  skillIcon: {fileID: 21300000, guid: 89cec5d2f5d8eba4ea1905634d200afa, type: 3}
   cooldownTime: 20
   damagePerHit: 50
   damageHits: 10
