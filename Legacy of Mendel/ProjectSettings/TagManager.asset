@@ -9,6 +9,7 @@ TagManager:
   - Defender
   - Environment
   - Loot
+  - Bullet
   layers:
   - Default
   - TransparentFX

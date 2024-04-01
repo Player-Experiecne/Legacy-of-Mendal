@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
@@ -112,6 +112,11 @@ public class HP : MonoBehaviour
                     lootManager.DropLootGeneType(transform, enemyController.lootGeneType);
                 }
                 lootManager.DropLootCultureMedium(transform, enemyController.lootCultureMedium);
+                GameObject[] bullets = GameObject.FindGameObjectsWithTag("Bullet");
+                foreach (GameObject bullet in bullets)
+                {
+                    Destroy(bullet); // 销毁子弹
+                }
                 break;
             case ObjectType.Defender:
                 Destroy(gameObject);

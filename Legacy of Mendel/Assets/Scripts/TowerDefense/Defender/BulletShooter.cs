@@ -45,23 +45,15 @@ public class BulletShooter : MonoBehaviour
     }
     void Shoot()
     {
-        // 检查确保有子弹预制体和目标
         if (bulletPrefab != null && target != null && bulletSpawnPoint != null)
         {
-            // 实例化子弹预制体
             GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
-
-            // 计算子弹朝向目标的方向
-            Vector3 direction = (target.position - bulletSpawnPoint.position).normalized;
-
-            // 设置子弹的初始速度
             Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();
             if (bulletRigidbody != null)
             {
+                Vector3 direction = (target.position - bulletSpawnPoint.position).normalized;
                 bulletRigidbody.velocity = direction * bulletSpeed;
             }
-
-            // 因为子弹预制体上已经有了处理逻辑的脚本，这里不需要再进行任何额外的设置
         }
     }
 

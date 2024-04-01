@@ -10,6 +10,8 @@ public class TutorialManager : MonoBehaviour
     public float timeDelayBeforeStart = 5;
     public GameObject Image1;
     public GameObject Image2;
+    
+    public GameObject Image3;
     public NavMeshAgent agent;
     private float originalSpeed;
     public MonoBehaviour movementScript;
@@ -57,6 +59,9 @@ public class TutorialManager : MonoBehaviour
         // 放置Defender后隐藏提示图片
         Image2.SetActive(false);
         ResumeNavMeshAgent(agent);
+        yield return new WaitUntil(() => GameObject.FindWithTag("Enemy") == null);
+        Image3.SetActive(true);
+
     }
 
 

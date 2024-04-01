@@ -32,39 +32,45 @@ public class TutorialBuildManager : MonoBehaviour
 
     void PlaceDefender(Vector3 position)
     {
-        // 先检查是否已经放置了defender
         if (hasPlacedDefender)
         {
             Debug.Log("A defender has already been placed.");
             return;
         }
 
-        //Get active defender from action backpack
         activeDefender = defenderBackpack.activeDefender;
-        // Check if there's an active defender to place
         if (activeDefender == null)
         {
             Debug.Log("No defender selected");
         }
         else if (activeDefender.defenderPrefab == null)
         {
-            Debug.Log("Defender's prefab is not set! Defender name: " + activeDefender.defenderName); // Add the defender's name for better debugging.
+            Debug.Log("Defender's prefab is not set! Defender name: " + activeDefender.defenderName);
         }
         else
         {
-            // Instantiate using the prefab from the active defender
-            GameObject spawnedDefender = Instantiate(activeDefender.defenderPrefab, position, Quaternion.identity);
-            BulletShooter shooter = spawnedDefender.AddComponent<BulletShooter>();
-            shooter.bulletPrefab = bulletPrefab; // You need to assign this, e.g., via the inspector or find it in the resources if it's a prefab
-            shooter.bulletSpawnPoint = spawnedDefender.transform; // Assuming the bullet is spawned from the defender's location
-            shooter.target = FindClosestEnemy(spawnedDefender.transform.position); // You need a function that finds the closest enemy
-            //shooter.BulletHit(shooter.target.GetComponent<Collision>());
-            //add.AddGeneBehaviors(spawnedDefender, activeDefender.geneTypes, true);
-            // Remove the defender from the backpack after placing
-            defenderBackpack.RemoveDefenderFromBackpack(activeDefender);
-            hasPlacedDefender = true; // 更新状态
+            Transform closestEnemy = FindClosestEnemy(position);
+            if (closestEnemy != null)
+            {
+                // 计算朝向最近敌人的旋转
+                Vector3 direction = closestEnemy.position - position;
+                Quaternion lookRotation = Quaternion.LookRotation(direction);
+
+                // 实例化并设置初始旋转使之面向最近的敌人
+                GameObject spawnedDefender = Instantiate(activeDefender.defenderPrefab, position, lookRotation);
+
+                // 添加和配置BulletShooter组件
+                BulletShooter shooter = spawnedDefender.AddComponent<BulletShooter>();
+                shooter.bulletPrefab = bulletPrefab;
+                shooter.bulletSpawnPoint = spawnedDefender.transform;
+                shooter.target = closestEnemy;
+
+                defenderBackpack.RemoveDefenderFromBackpack(activeDefender);
+                hasPlacedDefender = true;
+            }
         }
     }
+
     public Transform FindClosestEnemy(Vector3 position)
     {
         // 找到所有的敌人
