@@ -59,7 +59,7 @@ public class LootBackpack : MonoBehaviour
 
     private void RefreshUI()
     {
-        text.text = "Culture Medium you've got: " + lootCultureMedium.ToString();
+        text.text = lootCultureMedium.ToString();
     }
 
     

@@ -3,7 +3,7 @@ using UnityEngine;
 public class PauseMenuManager : MonoBehaviour
 {
     public GameObject menu;
-    public GameObject settingsMenu;
+    public GameObject Settings;
 
 
     private bool isPaused = false; // Track the pause state
@@ -11,10 +11,10 @@ public class PauseMenuManager : MonoBehaviour
     {
         if (InputManager.Instance.GetKeyDown("PauseMenu") && !GameManager.Instance.isTitleScreen)
         {
-            if (settingsMenu.activeSelf)
+            if (Settings.activeSelf)
             {
                 menu.SetActive(true);
-                settingsMenu.SetActive(false);
+                Settings.SetActive(false);
             }
             else
             {

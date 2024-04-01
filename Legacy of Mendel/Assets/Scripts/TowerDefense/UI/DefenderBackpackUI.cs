@@ -36,7 +36,7 @@ public class DefenderBackpackUI : MonoBehaviour
         {
             GameObject btn = Instantiate(defenderButtonPrefab, transform);
             btn.GetComponentInChildren<TextMeshProUGUI>().text = defender.defenderName;
-            Image buttonImage = btn.GetComponentsInChildren<Image>()[1];
+            Image buttonImage = btn.GetComponentsInChildren<Image>()[2];
             buttonImage.sprite = defender.defenderImage;
             Button buttonComponent = btn.GetComponent<Button>();
             buttonComponent.onClick.AddListener(() => OnDefenderSelected(defender, index));
@@ -58,7 +58,7 @@ public class DefenderBackpackUI : MonoBehaviour
 
     private void UpdateActiveDefenderHighlight()
     {
-        Color activeColor = new Color(0.792f, 0.792f, 0.792f); // Corresponds to CACACA
+        Color activeColor = new Color(1f, 1f, 1f); // Corresponds to 7B7B7B
         Color defaultNormalColor = Color.white; // Assuming the default normal color is white
 
         for (int i = 0; i < defenderButtons.Count; i++)
