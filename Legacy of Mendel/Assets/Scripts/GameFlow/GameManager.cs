@@ -110,6 +110,7 @@ public class GameManager : MonoBehaviour
         SceneLoader.LoadScene("TitleScreen");
         isTitleScreen = true;
         gameOverScreen.SetActive(false);
+        breedingButton.SetActive(false);
     }
     private void OnLevelFail()
     {

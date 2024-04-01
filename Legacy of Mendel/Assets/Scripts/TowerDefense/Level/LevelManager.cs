@@ -27,21 +27,11 @@ public class LevelManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
-
-        //GameEvents.OnLevelStart += StartCurrentLevel;
-
-
     }
+
     public bool LevelCompleted
     {
         get { return levelCompleted; }
-    }
-
-
-    void OnDestroy()
-    {
-        GameEvents.OnLevelStart -= StartCurrentLevel;
     }
 
     public void StartCurrentLevel()

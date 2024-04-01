@@ -16,7 +16,7 @@ public class SummonerSkillsUI : MonoBehaviour
         UpdateSkillUI(); // Initial UI setup
     }
 
-    void UpdateSkillUI()
+    public void UpdateSkillUI()
     {
         if (skillManager.skill != null)
         {

@@ -4,6 +4,7 @@ public class SummonerSkillManager : MonoBehaviour
 {
     public static SummonerSkillManager Instance;
     public SummonerSkill skill; // Variable to hold the chosen skill
+    public GameObject summonerSkillUI;
 
     public float cooldownTimer;
     public bool isCooldownActive;

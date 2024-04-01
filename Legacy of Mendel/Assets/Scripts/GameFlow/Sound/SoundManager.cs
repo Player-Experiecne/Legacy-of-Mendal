@@ -11,7 +11,7 @@ public class SoundManager : MonoBehaviour
 
     private float masterVolume = 1f;
     private float musicVolume = 0.5f;
-    private float sfxVolume = 0.5f;
+    private float sfxVolume = 0.3f;
 
     void Awake()
     {
@@ -96,9 +96,19 @@ public class SoundManager : MonoBehaviour
         GameEvents.OnLevelFail += () => PlayMusic(MusicTrack.Defeat);
     }
 
+    public float GetMasterVolume()
+    {
+        return masterVolume;
+    }
+
     public float GetMusicVolume()
     {
         return musicVolume;
+    }
+
+    public float GetSFXVolume()
+    {
+        return sfxVolume;
     }
 }
 

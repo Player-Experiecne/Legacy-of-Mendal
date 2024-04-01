@@ -152,8 +152,8 @@ public class BreedManager : MonoBehaviour
     }
     void UpdateCountsDisplay()
     {
-        tissueCountText.text = $"Tissue Count: {tissues.Count}";
-        cultureMediumCountText.text = $"Culture Medium Count: {LootBackpack.Instance.lootCultureMedium}";
+        tissueCountText.text = tissues.Count.ToString();
+        cultureMediumCountText.text = LootBackpack.Instance.lootCultureMedium.ToString();
     }
 
     void PopulateTissueList()
@@ -201,8 +201,6 @@ public class BreedManager : MonoBehaviour
      
         nextPageButton.interactable = currentPage < totalPage - 1;
         previousPageButton.interactable = currentPage > 0;
-
-        Debug.Log("22222222");
     }
 
     public void NextPage()
@@ -268,7 +266,7 @@ public class BreedManager : MonoBehaviour
                         //clickBreed.SetActive(false);
                         UpdateDefenderDetailsFromLibrary(newDefender);
                         breedResultImage.sprite = newDefender.defenderImage;
-                        string geneTypesStr = "You have got a defender" + newDefender.defenderName + " with gene type ";
+                        string geneTypesStr = "You have got a defender " + newDefender.defenderName + " with gene type ";
                         foreach (GeneTypeEntry gene in newDefender.geneTypes)
                         {
                             if (gene.geneName.Equals(GeneInfo.geneTypesName.A))

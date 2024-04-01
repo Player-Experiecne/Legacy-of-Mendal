@@ -63,6 +63,7 @@ public class ChooseSummonerSkill : MonoBehaviour
         if (selectedSkillIndex >= 0 && selectedSkillIndex < availableSkills.Length)
         {
             SummonerSkillManager.Instance.SetSkill(availableSkills[selectedSkillIndex]); // 仅设置一个技能
+            SummonerSkillManager.Instance.summonerSkillUI.GetComponent<SummonerSkillsUI>().UpdateSkillUI();
             Debug.Log("Confirmed Skill: " + availableSkills[selectedSkillIndex].skillName);
 
             // 可以在这里添加任何其他确认逻辑，例如关闭选择菜单等
