@@ -244,6 +244,7 @@ MonoBehaviour:
   lootGeneType:
     geneName: 0
     geneType: 0
+    isOwned: 0
   lootCultureMedium: 0
   attackRange: 100
   isAttacking: 0
@@ -264,6 +265,7 @@ MonoBehaviour:
   maxHealth: 650
   currentHealth: 0
   healthBarFill: {fileID: 4843540739000023023}
+  shieldBarFill: {fileID: 0}
 --- !u!114 &259950194063269141
 MonoBehaviour:
   m_ObjectHideFlags: 0

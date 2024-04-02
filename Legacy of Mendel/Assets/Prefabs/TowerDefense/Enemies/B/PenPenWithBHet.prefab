@@ -276,6 +276,7 @@ MonoBehaviour:
   lootGeneType:
     geneName: 0
     geneType: 0
+    isOwned: 0
   lootCultureMedium: 0
   attackRange: 100
   isAttacking: 0
@@ -296,6 +297,7 @@ MonoBehaviour:
   maxHealth: 300
   currentHealth: 0
   healthBarFill: {fileID: 4843540739000023023}
+  shieldBarFill: {fileID: 0}
 --- !u!114 &2589994630710253488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,12 +310,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9d608adbeb0c448b0ddc1c939a96fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 9
+  icePrefab: {fileID: 1758561088887766, guid: 5392148208365f64689255394485d680, type: 3}
+  icePoint: {fileID: 9004109845816891714}
   instantDamage: 30
   attackInterval: 2
   freezeDuration: 1
-  icePrefab: {fileID: 1758561088887766, guid: 5392148208365f64689255394485d680, type: 3}
-  icePoint: {fileID: 9004109845816891714}
 --- !u!1 &4117279207176148897
 GameObject:
   m_ObjectHideFlags: 0

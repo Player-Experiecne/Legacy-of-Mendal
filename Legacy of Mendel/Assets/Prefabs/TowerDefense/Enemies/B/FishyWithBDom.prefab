@@ -244,6 +244,7 @@ MonoBehaviour:
   lootGeneType:
     geneName: 0
     geneType: 0
+    isOwned: 0
   lootCultureMedium: 0
   attackRange: 100
   isAttacking: 0
@@ -264,6 +265,7 @@ MonoBehaviour:
   maxHealth: 300
   currentHealth: 0
   healthBarFill: {fileID: 4843540739000023023}
+  shieldBarFill: {fileID: 0}
 --- !u!114 &2910821151872537653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,12 +278,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5717d2b02854978478b35f0a4dc47c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 5
+  waterObject: {fileID: 8679709069637720324}
   damagePerHit: 10
   damageInterval: 0.5
   slowRatio: 0.2
   slowDuration: 4
-  waterObject: {fileID: 8679709069637720324}
 --- !u!1 &4117279207176148897
 GameObject:
   m_ObjectHideFlags: 0
