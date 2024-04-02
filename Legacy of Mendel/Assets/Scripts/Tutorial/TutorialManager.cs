@@ -239,6 +239,7 @@ public class TutorialManager : MonoBehaviour
     {
 
         Image6.SetActive(true);
+        Image7.SetActive(false);
 
 
     }
@@ -258,6 +259,7 @@ public class TutorialManager : MonoBehaviour
     {
         Image9.SetActive(false);
         Image10.SetActive(true);
+        Image23.SetActive(false);
 
     }
 
@@ -265,6 +267,7 @@ public class TutorialManager : MonoBehaviour
     {
         
         Image11.SetActive(false);
+        
         StartCoroutine(BeginPhaseAfterChooseGene());
 
 

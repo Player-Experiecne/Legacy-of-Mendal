@@ -15,7 +15,7 @@ MonoBehaviour:
   allGenes:
   - geneName: 1
     geneType: 1
-    isOwned: 0
+    isOwned: 1
   - geneName: 1
     geneType: 2
     isOwned: 0

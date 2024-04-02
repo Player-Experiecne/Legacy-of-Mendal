@@ -1064,58 +1064,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defendersInBackpack:
-  - defenderPrefab: {fileID: 6630813155368031700, guid: c4b4a242f2e3f9841b4b326de9566c0f, type: 3}
+  - defenderPrefab: {fileID: 6630813155368031700, guid: 56c34ae7c6c68eb4bb93a1285231e9fa, type: 3}
     geneTypes:
     - geneName: 1
       geneType: 1
       isOwned: 0
     - geneName: 2
-      geneType: 3
+      geneType: 0
       isOwned: 0
     - geneName: 3
       geneType: 0
       isOwned: 0
-    defenderName: Fyrex
-    defenderImage: {fileID: 21300000, guid: 5b2ffd70968d0184e88bc851bc2f92b9, type: 3}
-  - defenderPrefab: {fileID: 6630813155368031700, guid: 2bee278fad7106a40b43ec868905d14e, type: 3}
+    defenderName: Rumble
+    defenderImage: {fileID: 21300000, guid: 9ccf62b24c6d13944bb4941d370cfffd, type: 3}
+  - defenderPrefab: {fileID: 6630813155368031700, guid: 56c34ae7c6c68eb4bb93a1285231e9fa, type: 3}
     geneTypes:
     - geneName: 1
-      geneType: 3
-      isOwned: 0
-    - geneName: 2
       geneType: 1
       isOwned: 0
-    - geneName: 0
-      geneType: 0
-      isOwned: 0
-    defenderName: Steamix
-    defenderImage: {fileID: 21300000, guid: 609080aeaddc3ad448c0498508a29805, type: 3}
-  - defenderPrefab: {fileID: 6630813155368031700, guid: c78259d75e4aeac4482fcd75973b826b, type: 3}
-    geneTypes:
-    - geneName: 1
-      geneType: 3
-      isOwned: 0
     - geneName: 2
-      geneType: 2
+      geneType: 0
       isOwned: 0
     - geneName: 3
       geneType: 0
       isOwned: 0
-    defenderName: ScorchSpire
-    defenderImage: {fileID: 21300000, guid: 8c010cd8e5b1c7a4d8401bb0630298a2, type: 3}
-  - defenderPrefab: {fileID: 6630813155368031700, guid: 6f6727ebf3dd30448a6a1c94c22a2ea8, type: 3}
-    geneTypes:
-    - geneName: 1
-      geneType: 3
-      isOwned: 0
-    - geneName: 2
-      geneType: 3
-      isOwned: 0
-    - geneName: 3
-      geneType: 0
-      isOwned: 0
-    defenderName: Twistflare
-    defenderImage: {fileID: 21300000, guid: b6f1d3da8db8eba41a6f5c44c6265028, type: 3}
+    defenderName: Rumble
+    defenderImage: {fileID: 21300000, guid: 9ccf62b24c6d13944bb4941d370cfffd, type: 3}
   activeDefender:
     defenderPrefab: {fileID: 0}
     geneTypes: []
