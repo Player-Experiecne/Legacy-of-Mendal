@@ -9636,21 +9636,29 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3809667000576506164, guid: 5e39fa95fa472134996559029d5c2c6a, type: 3}
-      propertyPath: gameLevels.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: bcbc58d9f6dd6c0469119de77dc04a5a, type: 2}
+      propertyPath: gameLevels.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3809667000576506164, guid: 5e39fa95fa472134996559029d5c2c6a, type: 3}
-      propertyPath: gameLevels.Array.data[1]
+      propertyPath: gameLevels.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 8a15f392068aa0e46b7df83f569022d8, type: 2}
     - target: {fileID: 3809667000576506164, guid: 5e39fa95fa472134996559029d5c2c6a, type: 3}
-      propertyPath: gameLevels.Array.data[2]
+      propertyPath: gameLevels.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: cc1b8e4a49311c54f9ae3d9bb3d47b5e, type: 2}
     - target: {fileID: 3809667000576506164, guid: 5e39fa95fa472134996559029d5c2c6a, type: 3}
-      propertyPath: gameLevels.Array.data[3]
+      propertyPath: gameLevels.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: 5ec6638c3c4c8774e9977835fe442835, type: 2}
+    - target: {fileID: 3809667000576506164, guid: 5e39fa95fa472134996559029d5c2c6a, type: 3}
+      propertyPath: gameLevels.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 53928eb050109534bb3055e209d87604, type: 2}
+    - target: {fileID: 3809667000576506164, guid: 5e39fa95fa472134996559029d5c2c6a, type: 3}
+      propertyPath: gameLevels.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: e62b7b7658c6d7c44829415bb62c1c73, type: 2}
     - target: {fileID: 3809667000576506166, guid: 5e39fa95fa472134996559029d5c2c6a, type: 3}
       propertyPath: m_Name
       value: LevelManager
