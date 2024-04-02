@@ -12012,7 +12012,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2760306240487352048}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: TriggerTowerDefense
+        m_MethodName: TriggerTutorial
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

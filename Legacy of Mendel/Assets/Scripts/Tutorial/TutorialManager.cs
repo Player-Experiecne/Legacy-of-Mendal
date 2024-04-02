@@ -43,6 +43,12 @@ public class TutorialManager : MonoBehaviour
     public GameObject Image25;
     public GameObject Image26;
     public GameObject Image27;
+    public GameObject Image28;
+    public GameObject Image29;
+    public GameObject Image30;
+    public GameObject Image31;
+    public GameObject Image32;
+    public GameObject Image33;
 
 
     public Image imageToHighlight;
@@ -52,6 +58,7 @@ public class TutorialManager : MonoBehaviour
 
     public Image defImg_1;
     public Image defImg_2;
+    public Image SmiteImage;
 
     public GameObject resultImage;
 
@@ -163,7 +170,9 @@ public class TutorialManager : MonoBehaviour
         if (time == 2)
         {
             defImg_2.sprite = imageToHighlight1.sprite;
-            imageToHighlight1.color = originalColor;
+            imageToHighlight1.gameObject.SetActive(false);
+            Image28.SetActive(false);
+            Image29.SetActive(true);
         }
     }
     public void ConfirmSelection()
@@ -172,6 +181,13 @@ public class TutorialManager : MonoBehaviour
         Image13.SetActive(false);
         def.sprite = newImage.sprite;
         StartCoroutine(WaitForPlayerToConfirm());
+
+    }
+
+    public void SummnorSkillEnter()
+    {
+        Image30.SetActive(true);
+        
 
     }
     public void EnterTutorialPhase2()
@@ -196,8 +212,28 @@ public class TutorialManager : MonoBehaviour
     {
 
         Image27.SetActive(false);
+        Image28.SetActive(true);
 
 
+    }
+
+    public void CloseHint3()
+    {
+
+        Image31.SetActive(false);
+        Image32.SetActive(true);
+
+       /* if (SmiteImage.color == Color.yellow)
+        {
+            Image32.SetActive(false);
+            Image33.SetActive(true);
+        }*/
+    }
+
+    public void CheckSmite()
+    {
+        Image32.SetActive(false);
+        Image33.SetActive(true);
     }
     public void OpenTissueSelection()
     {
