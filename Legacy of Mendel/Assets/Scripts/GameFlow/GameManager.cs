@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
 
     private void OnTowerDefense()
     {
-        SceneLoader.LoadScene("TowerDefense");
+        SceneLoader.LoadScene("Tutorial");
         isTitleScreen = false;
         currentLevelIndex = 0;
         StartCoroutine(TriggerLevelStartAfterDelay(timeDelayBeforeStart));
