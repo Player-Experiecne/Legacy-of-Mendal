@@ -5,7 +5,7 @@ public class GameEvents
     public delegate void GameStateChange();
     public static event GameStateChange OnTutorialStart;
     public static event GameStateChange OnTutorialEnd;
-    public static event GameStateChange OnLevelStart;
+    public static event GameStateChange OnEnemySpawn;
     public static event GameStateChange OnLevelComplete;
     public static event GameStateChange OnLevelFail;
     public static event GameStateChange OnBreedingStart;
@@ -23,9 +23,9 @@ public class GameEvents
     {
         OnTutorialEnd?.Invoke();
     }
-    public static void TriggerLevelStart()
+    public static void TriggerEnemySpawn()
     {
-        OnLevelStart?.Invoke();
+        OnEnemySpawn?.Invoke();
     }
     public static void TriggerLevelComplete()
     {
