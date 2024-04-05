@@ -67,6 +67,15 @@ public class LoadingScreen : MonoBehaviour
         {
             StartCoroutine(GameManager.Instance.TriggerEnemySpawnAfterDelay());
         }
+        if (sceneName == "TowerDefense" || sceneName == "Breeding" || sceneName == "Tutorial")
+        {
+            GameManager.Instance.isTitleScreen = false;
+        }
+        if (sceneName == "TitleScreen")
+        {
+            GameManager.Instance.isTitleScreen = true;
+            StopAllCoroutines();
+        }
         // Ensure the loading screen gets deactivated
         loadingScreen.SetActive(false);
     }

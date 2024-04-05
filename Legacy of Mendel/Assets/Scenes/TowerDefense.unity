@@ -4890,7 +4890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   warningText: {fileID: 1733014092}
-  timeToMove: 2
+  timeToMove: 1
   timeBeforeMove: 1
 --- !u!114 &1748940338
 MonoBehaviour:

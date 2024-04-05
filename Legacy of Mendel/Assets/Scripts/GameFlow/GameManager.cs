@@ -84,7 +84,6 @@ public class GameManager : MonoBehaviour
     public void OnTutorialStart()
     {
         loadingScreen.LoadScene("Tutorial");
-        isTitleScreen = false;
         //StartCoroutine(TriggerTutorialAfterDelay(timeDelayBeforeStart));
     }
 
@@ -102,14 +101,13 @@ public class GameManager : MonoBehaviour
     private void OnTowerDefense()
     {
         loadingScreen.LoadScene("TowerDefense");
-        isTitleScreen = false;
         currentLevelIndex = 0;
     }
 
     private void OnTitleScreen()
     {
+        StopAllCoroutines();
         loadingScreen.LoadScene("TitleScreen");
-        isTitleScreen = true;
         gameOverScreen.SetActive(false);
         breedingButton.SetActive(false);
     }
