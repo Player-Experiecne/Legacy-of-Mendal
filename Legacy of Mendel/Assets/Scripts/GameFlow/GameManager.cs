@@ -110,6 +110,10 @@ public class GameManager : MonoBehaviour
         loadingScreen.LoadScene("TitleScreen");
         gameOverScreen.SetActive(false);
         breedingButton.SetActive(false);
+        Destroy(LevelManager.Instance.gameObject);
+        Destroy(DefenderBackpack.Instance.gameObject);
+        Destroy(SummonerSkillManager.Instance.gameObject);
+        Destroy(LootBackpack.Instance.gameObject);
     }
 
     private void OnLevelFail()

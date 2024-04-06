@@ -6,6 +6,7 @@ using TMPro;
 public class EnemySpawningIndicator : MonoBehaviour
 {
     public TextMeshProUGUI warningText;
+    public TextMeshProUGUI levelText;
     public float timeToMove = 5.0f; // Duration of the move and shrink animation
     public float timeBeforeMove = 2.0f;
     // Adjust these in the Inspector or directly here
@@ -30,6 +31,7 @@ public class EnemySpawningIndicator : MonoBehaviour
         if (timeDelayBeforeStart > 0)
         {
             warningText.text = $"{timeDelayBeforeStart.ToString("F1")} seconds!";
+            levelText.text = "Level " + GameManager.Instance.currentLevelIndex + 1;
             timeDelayBeforeStart -= Time.deltaTime;
         }
         else { Destroy(gameObject); }
