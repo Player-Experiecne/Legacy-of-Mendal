@@ -36,7 +36,22 @@ ModelImporter:
   - first:
       74: -4783948468832655680
     second: Eye.001|tailAction
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: COCOBody.002
+    second: {fileID: 2100000, guid: 5728da909641a7e44a82d09c295048dd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: COCOEyes.001
+    second: {fileID: 2100000, guid: a83e2bac0dc5b0e48a43257cdf697a00, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.001"
+    second: {fileID: 2100000, guid: ad31e414654071c428cf83825663782d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
