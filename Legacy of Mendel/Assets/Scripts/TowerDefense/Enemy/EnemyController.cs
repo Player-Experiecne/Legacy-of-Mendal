@@ -17,7 +17,7 @@ public class EnemyController : MonoBehaviour
     [HideInInspector] public GeneTypeEntry lootGeneType = null;
     [HideInInspector] public int lootCultureMedium = 0;
     
-    [HideInInspector] public float attackRange = 100f;
+    /*[HideInInspector]*/ public float attackRange = 100f;
     [HideInInspector] public bool isAttacking = false;
     [HideInInspector] public bool isFrozen = false;
     private void Start()
