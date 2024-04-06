@@ -27,11 +27,11 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 3beb7bde0f76fe141b3cb61cc1c5887e, type: 3}
   sfxClips:
   - effect: 2
-    clip: {fileID: 8300000, guid: ba5cfc26017b4b04b8f3d2a22b8d2f27, type: 3}
+    clip: {fileID: 8300000, guid: 895cc54e0a555f94c9facf5bf17d1a8b, type: 3}
   - effect: 1
     clip: {fileID: 8300000, guid: 340d2fc1950b06549b71231d43d509f6, type: 3}
   - effect: 0
-    clip: {fileID: 8300000, guid: 3b180c7596abb2c4aa71bd0a3be0756d, type: 3}
+    clip: {fileID: 8300000, guid: 23f301ce4ea41fa409d07ddda9fe630c, type: 3}
   - effect: 3
     clip: {fileID: 8300000, guid: c90785f18dca603479b151ff003cd0e1, type: 3}
   - effect: 4

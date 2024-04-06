@@ -16,7 +16,7 @@ MonoBehaviour:
   waves:
   - enemies:
     - enemy:
-        enemyPrefab: {fileID: 4117279205531356690, guid: 42c2fb15637a49c4e81d8ab5d3c26d8f, type: 3}
+        enemyPrefab: {fileID: 4117279205531356690, guid: c80bd44d54f74e14db7235044a04e7c4, type: 3}
         enemyName: 
         enemyImage: {fileID: 0}
         lootGeneType:

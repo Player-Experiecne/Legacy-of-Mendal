@@ -78,6 +78,12 @@ public class SoundManager : MonoBehaviour
     {
         sfxVolume = volume;
         // No need to update volumes here since SFX volume is applied when played
+
+        // Adjust volume for all registered SFX audio sources
+        foreach (var source in SFXVolumeAdjuster.AllSFXSources)
+        {
+            source.AdjustVolume(volume);
+        }
     }
 
     private void UpdateVolumes()

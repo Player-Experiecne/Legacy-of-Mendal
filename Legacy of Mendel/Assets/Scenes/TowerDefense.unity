@@ -6543,6 +6543,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4b9a12d88b0c924cb7ba896e806c6b0, type: 3}
+--- !u!1 &483014085264045982 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 483014084941238128, guid: e4b9a12d88b0c924cb7ba896e806c6b0, type: 3}
+  m_PrefabInstance: {fileID: 483014085264045981}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &483014085264045983
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483014085264045982}
+  m_Enabled: 1
 --- !u!23 &505851696855419049
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14357,7 +14370,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7892145989805310586, guid: be0e699d82ef7504e84559b8c925e5a3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: be0e699d82ef7504e84559b8c925e5a3, type: 3}
 --- !u!1 &7923458956784272837
 GameObject:
