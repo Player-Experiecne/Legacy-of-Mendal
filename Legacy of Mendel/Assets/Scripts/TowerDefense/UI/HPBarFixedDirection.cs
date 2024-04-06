@@ -20,5 +20,17 @@ public class HPBarFixedDirection : MonoBehaviour
 
         // Freeze the rotation
         transform.rotation = fixedRotation;
+
+        // Rotate with the camera
+
+        // Get the current rotation angles of the object in Euler angles for easier manipulation
+        Vector3 currentRotationEulerAngles = transform.rotation.eulerAngles;
+        // Get the camera's y rotation
+        float cameraYRotation = Camera.main.transform.rotation.eulerAngles.y;
+        // Construct a new Quaternion for the rotation, combining the original x, z with the camera's y
+        Quaternion newRotation = Quaternion.Euler(currentRotationEulerAngles.x, cameraYRotation + 135, currentRotationEulerAngles.z);
+        // Apply the new rotation to the transform
+        transform.rotation = newRotation;
+
     }
 }

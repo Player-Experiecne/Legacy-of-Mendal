@@ -29,9 +29,16 @@ public class PlayerController : MonoBehaviour
         float horizontal = InputManager.Instance.GetHorizontal();
         float vertical = InputManager.Instance.GetVertical();
 
-        Vector3 movement = new Vector3(vertical, 0.0f, -horizontal).normalized;
-        movement = Quaternion.Euler(0, 135, 0) * movement;
-        movement *= speed * Time.deltaTime;
+        // Get the camera's forward and right vectors, ignoring the Y component for flat movement
+        Vector3 forward = Camera.main.transform.forward;
+        Vector3 right = Camera.main.transform.right;
+        forward.y = 0;
+        right.y = 0;
+        forward.Normalize();
+        right.Normalize();
+
+        // Apply movement input relative to the camera's orientation
+        Vector3 movement = (forward * vertical + right * horizontal).normalized * speed * Time.deltaTime;
 
         // Move without adjusting Y position
         Vector3 horizontalMovement = new Vector3(movement.x, 0.0f, movement.z);

@@ -39,10 +39,10 @@ public class SoundManager : MonoBehaviour
     public void PlayMusic(MusicTrack track, bool loop = true)
     {
         AudioClip clip = audioData.GetMusicClip(track);
-        if (GameManager.Instance.isTitleScreen)
+        /*if (GameManager.Instance.isTitleScreen)
         {
             clip = audioData.GetMusicClip(MusicTrack.TitleScreen);
-        }
+        }*/
         if (clip != null)
         {
             musicSource.Stop();
@@ -89,11 +89,12 @@ public class SoundManager : MonoBehaviour
     private void RegisterAudioOnOccasions()
     {
         GameEvents.OnTitleScreen += () => PlayMusic(MusicTrack.TitleScreen);
-        GameEvents.OnLevelStart += () => PlayMusic(MusicTrack.StartLevel);
+        GameEvents.OnTowerDefense += () => PlayMusic(MusicTrack.PrepareBattle);
+        GameEvents.OnEnemySpawn += () => PlayMusic(MusicTrack.StartLevel);
         GameEvents.OnBreedingStart += () => PlayMusic(MusicTrack.StartBreeding);
         GameEvents.OnBreedingComplete += () => PlayMusic(MusicTrack.PrepareBattle);
-        GameEvents.OnLevelComplete += () => PlayMusic(MusicTrack.Victory);
-        GameEvents.OnLevelFail += () => PlayMusic(MusicTrack.Defeat);
+        GameEvents.OnLevelComplete += () => PlayMusic(MusicTrack.Victory, false);
+        GameEvents.OnLevelFail += () => PlayMusic(MusicTrack.Defeat, false);
     }
 
     public float GetMasterVolume()

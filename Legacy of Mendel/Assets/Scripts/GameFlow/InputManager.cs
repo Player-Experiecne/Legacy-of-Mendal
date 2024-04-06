@@ -59,7 +59,7 @@ public class InputManager : MonoBehaviour
 
     public bool GetKeyDown(string actionName)
     {
-        if (!inputEnabled) { return false; }
+        if (actionName != "PauseMenu" && !inputEnabled) { return false; }
         if (keyBindings.TryGetValue(actionName, out KeyCode key))
         {
             return Input.GetKeyDown(key);

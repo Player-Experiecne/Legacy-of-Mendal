@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public float timeDelayBeforeStart = 3f;
     public GameObject breedingButton; //The button into breeding stage
     public GameObject gameOverScreen; 
+    public LoadingScreen loadingScreen;
     public PlayerDefenderInventory playerDefenderInventory;
     public int currentLevelIndex = 0;
     public bool isTitleScreen = true;
@@ -29,10 +30,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        GameEvents.OnLevelStart += OnLevelStart;
+        GameEvents.OnEnemySpawn += OnEnemySpawn;
         GameEvents.OnLevelComplete += CallOnButton;
         GameEvents.OnLevelFail += () => Debug.Log("Game Over");
-        GameEvents.OnBreedingStart += () => SceneLoader.LoadScene("Breeding");
+        GameEvents.OnBreedingStart += () => loadingScreen.LoadScene("Breeding");
         GameEvents.OnBreedingComplete += OnBreedingComplete;
         GameEvents.OnTitleScreen += OnTitleScreen;
         GameEvents.OnTowerDefense += OnTowerDefense;
@@ -46,7 +47,8 @@ public class GameManager : MonoBehaviour
         GameEvents.TriggerBreedingStart(); 
         breedingButton.SetActive(false);
     }
-    private void OnLevelStart()
+
+    private void OnEnemySpawn()
     {
         LevelManager.Instance.StartCurrentLevel();
     }
@@ -54,9 +56,7 @@ public class GameManager : MonoBehaviour
     public void OnBreedingComplete()
     {
         currentLevelIndex++; // Move to the next level
-        SceneLoader.LoadScene("TowerDefense"); // Load the tower defense scene for the next level
-        StartCoroutine(TriggerLevelStartAfterDelay(timeDelayBeforeStart));
-         // Ensure this method is used to start levels
+        loadingScreen.LoadScene("TowerDefense"); // Load the tower defense scene for the next level
     }
 
     void OnDestroy()
@@ -66,13 +66,13 @@ public class GameManager : MonoBehaviour
         GameEvents.OnTutorialStart -= OnTutorialStart;
         GameEvents.OnTutorialEnd -= OnTutorialEnd;
     }
-    public IEnumerator TriggerLevelStartAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        //Trigger the event OnLevelStart
-        GameEvents.TriggerLevelStart();
-    }
 
+    public IEnumerator TriggerEnemySpawnAfterDelay()
+    {
+        yield return new WaitForSeconds(timeDelayBeforeStart);
+        //Trigger the event OnEnemySpawn
+        GameEvents.TriggerEnemySpawn();
+    }
 
     public IEnumerator TriggerTutorialAfterDelay(float delay)
     {
@@ -80,10 +80,10 @@ public class GameManager : MonoBehaviour
        
         GameEvents.TriggerTutorialStart();
     }
+
     public void OnTutorialStart()
     {
-        SceneLoader.LoadScene("Tutorial");
-        isTitleScreen = false;
+        loadingScreen.LoadScene("Tutorial");
         //StartCoroutine(TriggerTutorialAfterDelay(timeDelayBeforeStart));
     }
 
@@ -91,6 +91,7 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
     private void CallOnButton()
     {
         //currentLevelIndex++; 
@@ -99,31 +100,37 @@ public class GameManager : MonoBehaviour
 
     private void OnTowerDefense()
     {
-        SceneLoader.LoadScene("TowerDefense");
-        isTitleScreen = false;
+        loadingScreen.LoadScene("TowerDefense");
         currentLevelIndex = 0;
-        StartCoroutine(TriggerLevelStartAfterDelay(timeDelayBeforeStart));
     }
 
     private void OnTitleScreen()
     {
-        SceneLoader.LoadScene("TitleScreen");
-        isTitleScreen = true;
+        StopAllCoroutines();
+        loadingScreen.LoadScene("TitleScreen");
         gameOverScreen.SetActive(false);
         breedingButton.SetActive(false);
+        Destroy(LevelManager.Instance.gameObject);
+        Destroy(DefenderBackpack.Instance.gameObject);
+        Destroy(SummonerSkillManager.Instance.gameObject);
+        Destroy(LootBackpack.Instance.gameObject);
     }
+
     private void OnLevelFail()
     {
         gameOverScreen.SetActive(true);
     }
+
     public static void TriggerTowerDefense()
     {
         GameEvents.TriggerTowerDefense();
     }
+
     public static void TriggerTitleScreen()
     {
         GameEvents.TriggerTitleScreen();
     }
+
     public static void TriggerTutorial()
     {
         GameEvents.TriggerTutorialStart();
