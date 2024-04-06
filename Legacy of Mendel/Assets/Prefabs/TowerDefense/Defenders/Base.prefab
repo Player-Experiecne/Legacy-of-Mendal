@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1500656215}
   - component: {fileID: 1500656217}
   - component: {fileID: 1500656216}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 3384012173943357222}
   - component: {fileID: 1665235452455595957}
   - component: {fileID: 1690782707021911175}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bulilding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6701760723657304548}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HPBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 5961668123779792748}
   - component: {fileID: 4417155109921321865}
   - component: {fileID: 5718275577118002783}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bulilding3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +288,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 677482076411896860}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +303,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2072145832723064333}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 3.35, y: 0, z: -3.37}
+  m_LocalPosition: {x: 4.84, y: 0, z: -3.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 2977223349723972162}
   - component: {fileID: 3365613362434628720}
   - component: {fileID: 3515137856658842102}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DoorFrame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,7 +423,7 @@ GameObject:
   - component: {fileID: 1917656557213371768}
   - component: {fileID: 7519110990234058407}
   - component: {fileID: 8737216906836753066}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roof
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -504,7 +504,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8824492617552913831}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PILLAR2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -539,7 +539,7 @@ GameObject:
   - component: {fileID: 3737115692289392551}
   - component: {fileID: 4253131961453325046}
   - component: {fileID: 7294254287376377042}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -622,7 +622,7 @@ GameObject:
   - component: {fileID: 5786768757023432157}
   - component: {fileID: 4048752988667775252}
   - component: {fileID: 3538700528776872944}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SmallPillar2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -705,7 +705,7 @@ GameObject:
   - component: {fileID: 224943158029571043}
   - component: {fileID: 6768414475906046041}
   - component: {fileID: 4755283522723486927}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -788,7 +788,7 @@ GameObject:
   - component: {fileID: 5445804417487004958}
   - component: {fileID: 4311187507223722668}
   - component: {fileID: 6821512201470920679}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bulilding2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -871,7 +871,7 @@ GameObject:
   - component: {fileID: 5708621987231352212}
   - component: {fileID: 1612119772966344524}
   - component: {fileID: 1080765024573326338}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pCube9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -954,7 +954,7 @@ GameObject:
   - component: {fileID: 8386327702850802466}
   - component: {fileID: 7018605466468682351}
   - component: {fileID: 8271419139203265133}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1037,7 +1037,7 @@ GameObject:
   - component: {fileID: 1516077084329063238}
   - component: {fileID: 2078781376965822971}
   - component: {fileID: 3449744547137452207}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pCube2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1118,7 +1118,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3193825982124156814}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Windows
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1154,7 +1154,7 @@ GameObject:
   - component: {fileID: 7342732365155577528}
   - component: {fileID: 7926150311050693198}
   - component: {fileID: 4747783527839505103}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Brick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1237,7 +1237,7 @@ GameObject:
   - component: {fileID: 4897804689841276651}
   - component: {fileID: 7218303171959569204}
   - component: {fileID: 5518583916804828214}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DoorTop2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1320,7 +1320,7 @@ GameObject:
   - component: {fileID: 4755910553348665932}
   - component: {fileID: 7550506276274852862}
   - component: {fileID: 4630130404141793294}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pCube6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1403,7 +1403,7 @@ GameObject:
   - component: {fileID: 7926119933493073968}
   - component: {fileID: 5383238794855705142}
   - component: {fileID: 1305540870420870881}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1486,7 +1486,7 @@ GameObject:
   - component: {fileID: 6471678618725386656}
   - component: {fileID: 340672963579226807}
   - component: {fileID: 4294895686461703429}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1564,7 +1564,7 @@ GameObject:
   - component: {fileID: 5037392626404287313}
   - component: {fileID: 5037392626404287312}
   - component: {fileID: 4985407002398396663}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1589,7 +1589,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.06, y: 21.58}
+  m_AnchoredPosition: {x: 1.55, y: 21.58}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5037392626404287326
@@ -1676,7 +1676,7 @@ GameObject:
   - component: {fileID: 3931240012296160366}
   - component: {fileID: 6299389419216711700}
   - component: {fileID: 5816923423152821508}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pCylinder1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1757,7 +1757,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2126936289027364657}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PILLAR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1794,7 +1794,7 @@ GameObject:
   - component: {fileID: 287406549}
   - component: {fileID: 7102489685004454815}
   - component: {fileID: 287406548}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Base
   m_TagString: Base
   m_Icon: {fileID: 0}
@@ -1848,7 +1848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d07ce676d7afda4dabb3b0f7dd5e654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_OverrideArea: 1
+  m_OverrideArea: 0
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
@@ -1892,7 +1892,7 @@ GameObject:
   - component: {fileID: 4708868383088588458}
   - component: {fileID: 4798167880150770638}
   - component: {fileID: 4276378157265546012}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pCube3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1975,7 +1975,7 @@ GameObject:
   - component: {fileID: 4188968220255552836}
   - component: {fileID: 8852763862279399894}
   - component: {fileID: 2930222569137377586}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pCube1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2058,7 +2058,7 @@ GameObject:
   - component: {fileID: 5204017265000968062}
   - component: {fileID: 2240192279236373086}
   - component: {fileID: 4177842729442764856}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pCube6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2139,7 +2139,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4459330076903108713}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: NewBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2154,7 +2154,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5800331703266852570}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.49, y: 0, z: 0}
   m_LocalScale: {x: 0.67292726, y: 0.67292726, z: 0.67292726}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2173,7 +2173,7 @@ GameObject:
   - component: {fileID: 5913517934516588138}
   - component: {fileID: 7084449312557705199}
   - component: {fileID: 1672939933804299579}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pCylinder1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2256,7 +2256,7 @@ GameObject:
   - component: {fileID: 4706553069496870712}
   - component: {fileID: 6212743336235379764}
   - component: {fileID: 3612178351246485252}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RoofTran2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2337,7 +2337,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5050075647358647271}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PILLAR3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2372,7 +2372,7 @@ GameObject:
   - component: {fileID: 6347715953929079410}
   - component: {fileID: 6467350894964952127}
   - component: {fileID: 2454297175197244136}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pCube7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2455,7 +2455,7 @@ GameObject:
   - component: {fileID: 6092872373118144100}
   - component: {fileID: 5032282199311923046}
   - component: {fileID: 3541503653561726567}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pCube8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2538,7 +2538,7 @@ GameObject:
   - component: {fileID: 4254529794561260967}
   - component: {fileID: 6831425925629539004}
   - component: {fileID: 4261705224084336672}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DoorTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2621,7 +2621,7 @@ GameObject:
   - component: {fileID: 8500047483848723635}
   - component: {fileID: 6486931066255992770}
   - component: {fileID: 9182132222400771934}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2702,7 +2702,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1779284707755316027}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Windows2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2738,7 +2738,7 @@ GameObject:
   - component: {fileID: 8205694040533486144}
   - component: {fileID: 2817160524818454602}
   - component: {fileID: 2308434775777091335}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2821,7 +2821,7 @@ GameObject:
   - component: {fileID: 3888856049090506824}
   - component: {fileID: 4465641968540009120}
   - component: {fileID: 91795522573559175}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SmallPillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2904,7 +2904,7 @@ GameObject:
   - component: {fileID: 3887169640533733308}
   - component: {fileID: 4608707554850014960}
   - component: {fileID: 6564105368112273377}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2985,7 +2985,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4751144733533568267}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SideDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3023,7 +3023,7 @@ GameObject:
   - component: {fileID: 8061660776907009768}
   - component: {fileID: 6633403543654351707}
   - component: {fileID: 5022299073415780146}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pCube7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3106,7 +3106,7 @@ GameObject:
   - component: {fileID: 223158569887902781}
   - component: {fileID: 2840899504445101366}
   - component: {fileID: 4342852382630975045}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3189,7 +3189,7 @@ GameObject:
   - component: {fileID: 621723952914790969}
   - component: {fileID: 7678234830917387687}
   - component: {fileID: 4613910563763931837}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3267,7 +3267,7 @@ GameObject:
   - component: {fileID: 7733486144193992686}
   - component: {fileID: 5769928972894754230}
   - component: {fileID: 8683320123770525364}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RoofTran
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3348,7 +3348,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6220416452275337703}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PILLAR4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3379,6 +3379,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4459330076903108713}
     m_Modifications:
+    - target: {fileID: -9216273066806881944, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -9152215425191927153, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -9038585923029775698, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3423,6 +3435,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8513424388201257645, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8360401664957255629, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -7943163168992450928, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -7765116472156414894, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -7655907628376101097, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -7609145667655734672, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -6900385278981632002, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -6407349618368526729, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: -6137559676203317813, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.85
@@ -3431,13 +3475,53 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 56.63
       objectReference: {fileID: 0}
+    - target: {fileID: -4676081022977529055, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -3957782524123411102, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -2615453208677245630, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -1199239244469237416, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -574481285297466902, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -174507889566713961, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8140499575222096, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 658478254597255789, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
       propertyPath: m_Name
       value: NewBase
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1865821458497404438, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2055050799557286569, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3451,13 +3535,53 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 59.79
       objectReference: {fileID: 0}
+    - target: {fileID: 3779745573541866595, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291743217351193881, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4537246352449565215, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4784065275373068999, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294670534986251983, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559779533671296480, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6085036178219441596, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6489142684356556548, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6720570029323935115, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
       propertyPath: m_LocalPosition.y
       value: 59.78
       objectReference: {fileID: 0}
+    - target: {fileID: 6836786467833360507, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8059868039699096948, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
       propertyPath: m_LocalPosition.y
       value: 56.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570518021895988927, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cf3d76b3e04fda41b591d3e0363e239, type: 3}

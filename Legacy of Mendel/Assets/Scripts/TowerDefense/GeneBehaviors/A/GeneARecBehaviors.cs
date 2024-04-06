@@ -4,7 +4,7 @@ using static HP;
 
 public class GeneARecBehaviors : MonoBehaviour, IAttackBehavior
 {
-    public float AttackRange => fireBallRange - 5f;
+    public float AttackRange => fireBallRange;
 
     [Header("DO NOT modify!!!")]
     public GameObject fireBallPrefabForEnemies; // Declare a public GameObject for the fire prefab
@@ -75,27 +75,24 @@ public class GeneARecBehaviors : MonoBehaviour, IAttackBehavior
         }
         if(target != null) 
         {
-            if (Vector3.Distance(transform.position, target.transform.position) < fireBallRange)
+            //Vector3 spawnPosition = transform.position + transform.forward; // Adjust the offset if necessary
+            if (selfHP.objectType == ObjectType.Enemy)
             {
-                //Vector3 spawnPosition = transform.position + transform.forward; // Adjust the offset if necessary
-                if (selfHP.objectType == ObjectType.Enemy)
-                {
-                    fireBallPrefab = fireBallPrefabForEnemies;
-                }
-                else if (selfHP.objectType == ObjectType.Defender)
-                {
-                    fireBallPrefab = fireBallPrefabForDefenders;
-                }
-                GameObject fireInstance = Instantiate(fireBallPrefab, firePoint.transform.position, transform.rotation);
-                FireBall fireBall = fireInstance.AddComponent<FireBall>();
-                fireBall.objectType = selfHP.objectType;
-                fireBall.fireBallTarget = target;
-                fireBall.burnDuration = burnDuration;
-                fireBall.burnTickInterval = burnTickInterval;
-                fireBall.instantDamage = instantDamage;
-                fireBall.dotDamage = dotDamage;
-                fireBall.explosionRange = explosionRange;
+                fireBallPrefab = fireBallPrefabForEnemies;
             }
+            else if (selfHP.objectType == ObjectType.Defender)
+            {
+                fireBallPrefab = fireBallPrefabForDefenders;
+            }
+            GameObject fireInstance = Instantiate(fireBallPrefab, firePoint.transform.position, transform.rotation);
+            FireBall fireBall = fireInstance.AddComponent<FireBall>();
+            fireBall.objectType = selfHP.objectType;
+            fireBall.fireBallTarget = target;
+            fireBall.burnDuration = burnDuration;
+            fireBall.burnTickInterval = burnTickInterval;
+            fireBall.instantDamage = instantDamage;
+            fireBall.dotDamage = dotDamage;
+            fireBall.explosionRange = explosionRange;
         }
     }
 }

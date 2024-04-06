@@ -9,6 +9,7 @@ public class BuildManager : MonoBehaviour
     public DefenderBackpack defenderBackpack;
     private Defender activeDefender = null;
     private AddBehaviorsToTarget add;
+    public LayerMask baseLayer;
 
     private void Start()
     {
@@ -24,10 +25,21 @@ public class BuildManager : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-                PlaceDefender(hit.point);
+                // Check if the hit object is on the Base layer
+                if ((baseLayer.value & (1 << hit.collider.gameObject.layer)) == 0)
+                {
+                    // The hit object is not a base, proceed to place defender
+                    PlaceDefender(hit.point);
+                }
+                else
+                {
+                    // Hit object is a base, log message or handle accordingly
+                    Debug.Log("Cannot place defender on base!");
+                }
             }
         }
     }
+
 
     void PlaceDefender(Vector3 position)
     {
