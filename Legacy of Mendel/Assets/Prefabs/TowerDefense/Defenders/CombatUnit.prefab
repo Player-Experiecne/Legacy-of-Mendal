@@ -456,7 +456,9 @@ MonoBehaviour:
   targetEnemy: {fileID: 0}
   attackRange: 100
   isAttacking: 0
+  isControlled: 0
   isFrozen: 0
+  playerTransform: {fileID: 0}
 --- !u!114 &9119087789665166077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,9 +472,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectType: 1
-  maxHealth: 5000
+  maxHealth: 3800
   currentHealth: 0
   healthBarFill: {fileID: 8945085954051594950}
+  shieldBarFill: {fileID: 0}
 --- !u!114 &8228303845207848135
 MonoBehaviour:
   m_ObjectHideFlags: 0

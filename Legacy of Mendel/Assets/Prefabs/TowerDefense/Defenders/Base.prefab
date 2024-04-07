@@ -1832,7 +1832,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectType: 2
-  maxHealth: 10000
+  maxHealth: 4500
   currentHealth: 0
   healthBarFill: {fileID: 4294895686461703429}
   shieldBarFill: {fileID: 1500656216}

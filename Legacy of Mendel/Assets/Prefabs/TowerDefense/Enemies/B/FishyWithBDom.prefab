@@ -215,7 +215,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1
-  m_Speed: 6
+  m_Speed: 3.55
   m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 540
@@ -262,7 +262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectType: 0
-  maxHealth: 300
+  maxHealth: 400
   currentHealth: 0
   healthBarFill: {fileID: 4843540739000023023}
   shieldBarFill: {fileID: 0}

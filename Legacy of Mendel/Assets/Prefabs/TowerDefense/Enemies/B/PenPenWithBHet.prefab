@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 3471691557685678129}
   - component: {fileID: 2589994630710253488}
   m_Layer: 0
-  m_Name: PenpenWithBHet
+  m_Name: PenPenWithBHet
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -247,7 +247,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1.64
-  m_Speed: 6
+  m_Speed: 4.3
   m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 540
@@ -294,7 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectType: 0
-  maxHealth: 300
+  maxHealth: 350
   currentHealth: 0
   healthBarFill: {fileID: 4843540739000023023}
   shieldBarFill: {fileID: 0}
