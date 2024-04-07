@@ -25801,7 +25801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b0b45a9d8b021a4da3184c50b8c4695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeDelayBeforeStart: 0
+  timeDelayBeforeStart: 5
   breedingButton: {fileID: 2760306241350174170}
   gameOverScreen: {fileID: 1200561122510146171}
   loadingScreen: {fileID: 460595088}

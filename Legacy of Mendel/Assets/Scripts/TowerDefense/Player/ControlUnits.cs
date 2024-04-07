@@ -2,11 +2,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using HighlightPlus;
 
 public class ControlUnits : MonoBehaviour
 {
     public Image collectCircleUI; // Assign in inspector, fixed size for collect mode
     public Image controlCircleUI; // Assign in inspector, hidden initially
+    public HighlightProfile highlightProfile; // For highlight effect, assign in inspector
     public List<GameObject> controlledDefenders = new();
     private bool isInControlMode = false;
     private bool isCollecting = false; // Flag to control ongoing collection
@@ -58,6 +60,7 @@ public class ControlUnits : MonoBehaviour
                 {
                     defender.GetComponent<DefenderController>().EnterControlledMode(transform);
                     controlledDefenders.Add(defender);
+                    AddHighlightEffect(defender);
                 }
             }
         }
@@ -98,6 +101,7 @@ public class ControlUnits : MonoBehaviour
         foreach (var defender in controlledDefenders)
         {
             defender.GetComponent<DefenderController>().ExitControlledMode();
+            ClearHighlightEffect(defender);
         }
 
         // Reset the controlled list
@@ -126,5 +130,18 @@ public class ControlUnits : MonoBehaviour
         float x = center.x + radius * Mathf.Cos(angleInRadians);
         float z = center.z + radius * Mathf.Sin(angleInRadians);
         return new Vector3(x, center.y, z); // Assuming y is the ground level, adjust as needed
+    }
+
+    private void AddHighlightEffect(GameObject target)
+    {
+        HighlightEffect highlight = target.AddComponent<HighlightEffect>();
+        highlight.ProfileLoad(highlightProfile);
+        highlight.highlighted = true;
+    }
+
+    private void ClearHighlightEffect(GameObject target)
+    {
+        HighlightEffect highlight = target.GetComponent<HighlightEffect>();
+        Destroy(highlight);
     }
 }

@@ -6541,6 +6541,10 @@ PrefabInstance:
       propertyPath: groundCheckDistance
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 8651139247823251562, guid: e4b9a12d88b0c924cb7ba896e806c6b0, type: 3}
+      propertyPath: highlightProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: e30aac0502f0e0e41a9a667c7a015ead, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4b9a12d88b0c924cb7ba896e806c6b0, type: 3}
 --- !u!1 &483014085264045982 stripped
