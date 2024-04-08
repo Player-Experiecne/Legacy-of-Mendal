@@ -53,12 +53,32 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void PlaySFX(SoundEffect effect)
+    public void StopMusic()
+    {
+        musicSource.Stop();
+    }
+
+    public void StopSFX()
+    {
+        sfxSource.Stop();
+    }
+
+    public void PlaySFX(SoundEffect effect, bool loop = false)
     {
         AudioClip clip = audioData.GetSFXClip(effect);
         if (clip != null)
         {
-            sfxSource.PlayOneShot(clip, sfxVolume * masterVolume);
+            if (!loop)
+            {
+                sfxSource.clip = clip;
+                sfxSource.loop = loop;
+                sfxSource.volume = musicVolume * masterVolume;
+                sfxSource.Play();
+            }
+            else
+            {
+                sfxSource.PlayOneShot(clip, sfxVolume * masterVolume);
+            }
         }
     }
 

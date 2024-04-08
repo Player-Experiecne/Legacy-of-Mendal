@@ -56,11 +56,16 @@ public class LevelManager : MonoBehaviour
     {
         List<Coroutine> waveCoroutines = new List<Coroutine>();
 
-        foreach (var wave in waves)
+        for (int w = 0; w < waves.Count; w++)
         {
-            Coroutine waveCoroutine = StartCoroutine(SpawnEnemies(wave.enemies));
+            Coroutine waveCoroutine = StartCoroutine(SpawnEnemies(waves[w].enemies));
             waveCoroutines.Add(waveCoroutine);
-            yield return new WaitForSeconds(timeBetweenWaves);
+
+            // Wait if it's not the last wave
+            if (w < waves.Count - 1)
+            {
+                yield return new WaitForSeconds(timeBetweenWaves);
+            }
         }
 
         // Wait for all waves to complete
@@ -69,24 +74,29 @@ public class LevelManager : MonoBehaviour
             yield return coroutine;
         }
 
-        yield return null;
         levelCompleted = true;
     }
 
+
     private IEnumerator SpawnEnemies(List<Level.EnemySpawnInfo> enemies)
     {
-        foreach (var enemyInfo in enemies)
+        for (int e = 0; e < enemies.Count; e++)
         {
+            var enemyInfo = enemies[e];
             for (int i = 0; i < enemyInfo.count; i++)
             {
                 Transform spawnPoint = spawnPoints[enemyInfo.spawnLocation];
                 GameObject spawnedEnemy = Instantiate(enemyInfo.enemy.enemyPrefab, spawnPoint.position, spawnPoint.rotation);
                 spawnedEnemy.tag = "Enemy";
                 AssignProperties(enemyInfo.enemy, spawnedEnemy);
-                yield return new WaitForSeconds(timeBetweenEnemies);
+
+                // Wait if it's not the last enemy of the last spawn info
+                if (e < enemies.Count - 1 || i < enemyInfo.count - 1)
+                {
+                    yield return new WaitForSeconds(timeBetweenEnemies);
+                }
             }
         }
-        yield return new WaitForSeconds(timeBetweenWaves);
     }
 
     private void AssignProperties(Enemy enemy, GameObject spawnedEnemy)

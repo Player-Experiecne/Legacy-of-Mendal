@@ -31,7 +31,7 @@ public class EnemySpawningIndicator : MonoBehaviour
         if (timeDelayBeforeStart > 0)
         {
             warningText.text = $"{timeDelayBeforeStart.ToString("F1")} seconds!";
-            levelText.text = "Level " + GameManager.Instance.currentLevelIndex + 1;
+            levelText.text = "Level " + (GameManager.Instance.currentLevelIndex + 1);
             timeDelayBeforeStart -= Time.deltaTime;
         }
         else { Destroy(gameObject); }

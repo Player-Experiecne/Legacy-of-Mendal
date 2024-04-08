@@ -8,12 +8,18 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public float timeDelayBeforeStart = 3f;
-    public GameObject breedingButton; //The button into breeding stage
+
+    [Header("DO NOT modify!!!")]
+    public GameObject victoryUI; //The button into breeding stage
+    public GameObject breedingButton;
+    public GameObject continueButton;
     public GameObject gameOverScreen; 
     public LoadingScreen loadingScreen;
     public PlayerDefenderInventory playerDefenderInventory;
-    public int currentLevelIndex = 0;
-    public bool isTitleScreen = true;
+    public CutsceneManager cutsceneManager;
+
+    [HideInInspector]public int currentLevelIndex = 0;
+    [HideInInspector]public bool isTitleScreen = true;
 
     private void Awake()
     {
@@ -31,7 +37,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         GameEvents.OnEnemySpawn += OnEnemySpawn;
-        GameEvents.OnLevelComplete += CallOnButton;
+        GameEvents.OnLevelComplete += OnLevelComplete;
         GameEvents.OnLevelFail += () => Debug.Log("Game Over");
         GameEvents.OnBreedingStart += () => loadingScreen.LoadScene("Breeding");
         GameEvents.OnBreedingComplete += OnBreedingComplete;
@@ -45,7 +51,7 @@ public class GameManager : MonoBehaviour
     public void OnBreedingButtonClicked()
     {
         GameEvents.TriggerBreedingStart(); 
-        breedingButton.SetActive(false);
+        victoryUI.SetActive(false);
     }
 
     private void OnEnemySpawn()
@@ -92,10 +98,14 @@ public class GameManager : MonoBehaviour
         
     }
 
-    private void CallOnButton()
+    private void OnLevelComplete()
     {
-        //currentLevelIndex++; 
-        breedingButton.SetActive(true);
+        victoryUI.SetActive(true);
+        if (currentLevelIndex == 4) 
+        {
+            breedingButton.SetActive(false);
+            continueButton.SetActive(true);
+        }
     }
 
     private void OnTowerDefense()
@@ -109,11 +119,13 @@ public class GameManager : MonoBehaviour
         StopAllCoroutines();
         loadingScreen.LoadScene("TitleScreen");
         gameOverScreen.SetActive(false);
-        breedingButton.SetActive(false);
-        Destroy(LevelManager.Instance.gameObject);
-        Destroy(DefenderBackpack.Instance.gameObject);
-        Destroy(SummonerSkillManager.Instance.gameObject);
-        Destroy(LootBackpack.Instance.gameObject);
+        victoryUI.SetActive(false);
+        continueButton.SetActive(false);
+        breedingButton.SetActive(true);
+        if (LevelManager.Instance != null) { Destroy(LevelManager.Instance.gameObject); }
+        if (DefenderBackpack.Instance != null) { Destroy(DefenderBackpack.Instance.gameObject); }
+        if (SummonerSkillManager.Instance != null) { Destroy(SummonerSkillManager.Instance.gameObject); }
+        if (LootBackpack.Instance != null) { Destroy(LootBackpack.Instance.gameObject); }
     }
 
     private void OnLevelFail()

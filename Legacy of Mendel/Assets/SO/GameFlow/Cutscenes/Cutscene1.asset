@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7163a2ff5d9d354d9ec80c55eb4f8cd, type: 3}
+  m_Name: Cutscene1
+  m_EditorClassIdentifier: 
+  dialogues:
+  - {fileID: 11400000, guid: 2fa3c4ec931e2664299fb98cc0ceb23a, type: 2}
+  - {fileID: 11400000, guid: 452f7fde044c66240842be9a33f03351, type: 2}
+  - {fileID: 11400000, guid: 31b4b04dbabf7e642b2d76b4ca223c2d, type: 2}
+  - {fileID: 11400000, guid: 7df2ae25bf33a944d84c1427584c4344, type: 2}
+  - {fileID: 11400000, guid: b79d5652dba891d45ab130d38158b9e9, type: 2}
+  - {fileID: 11400000, guid: 34becdb35d3037243b2d924767220271, type: 2}
+  - {fileID: 11400000, guid: 0504967bdf6f8b445a965bd875a48da2, type: 2}

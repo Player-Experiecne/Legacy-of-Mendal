@@ -9,6 +9,7 @@ public enum MusicTrack
     PrepareBattle,
     Victory,
     Defeat,
+    FinalVictory
     // Add more tracks as needed
 }
 
@@ -19,6 +20,7 @@ public enum SoundEffect
     SummonerShield,
     LootGene,
     LootCultureMedium,
+    Typing
     // Add more effects as needed
 }
 

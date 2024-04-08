@@ -7,10 +7,11 @@ public class LoadingScreen : MonoBehaviour
 {
     public GameObject loadingScreen;
     public Slider loadingBar;
+    public CutsceneManager cutsceneManager;
     public float minLoadingTime = 2f; // Minimum loading time in seconds
     public float smoothLoadingSpeed = 0.5f; // Speed of the loading bar's smooth progress
+    private bool cutsceneCompleted = false;
 
-    // This function should be called directly by the button's onClick event
     public void LoadScene(string sceneName)
     {
         loadingScreen.SetActive(true); // Immediately activate loading screen
@@ -57,26 +58,61 @@ public class LoadingScreen : MonoBehaviour
                 float timeElapsed = Time.time - startTime;
                 if (timeElapsed >= minLoadingTime && displayedProgress >= 1f)
                 {
+                    // Determine if a cutscene needs to be played before the scene loads
+                    int cutsceneIndex = ShouldPlayCutscene(sceneName);
+                    if (cutsceneIndex != -1)
+                    {
+                        loadingScreen.SetActive(false);
+                        cutsceneManager.TriggerCutsceneByIndex(cutsceneIndex);
+                        while (!cutsceneCompleted)
+                        {
+                            yield return null;
+                        }
+                        cutsceneCompleted = false;
+                    }
+
+                    // Default load scene
                     operation.allowSceneActivation = true;
+                    yield return null;
                 }
             }
             yield return null;
         }
+        cutsceneManager.cutsceneObject.SetActive(false);
 
-        if(sceneName == "TowerDefense")
+        // Logics after entering each scene
+        if (sceneName == "TowerDefense")
         {
             StartCoroutine(GameManager.Instance.TriggerEnemySpawnAfterDelay());
         }
-        if (sceneName == "TowerDefense" || sceneName == "Breeding" || sceneName == "Tutorial")
+        if(sceneName == "TowerDefense" || sceneName == "Breeding" || sceneName == "Tutorial")
         {
             GameManager.Instance.isTitleScreen = false;
         }
-        if (sceneName == "TitleScreen")
+        if(sceneName == "TitleScreen")
         {
             GameManager.Instance.isTitleScreen = true;
             StopAllCoroutines();
         }
         // Ensure the loading screen gets deactivated
         loadingScreen.SetActive(false);
+    }
+
+    public void OnCutsceneComplete()
+    {
+        cutsceneCompleted = true;
+    }
+
+    int ShouldPlayCutscene(string sceneName)
+    {
+        // Determine the cutscene index based on the scene name and other conditions
+        if (sceneName == "Tutorial")
+            return 1;
+        if (sceneName == "TowerDefense" && GameManager.Instance.currentLevelIndex == 0)
+            return 2;
+        if (sceneName == "TowerDefense" && GameManager.Instance.currentLevelIndex == 4)
+            return 3;
+
+        return -1; // Default, indicating no cutscene should play
     }
 }
