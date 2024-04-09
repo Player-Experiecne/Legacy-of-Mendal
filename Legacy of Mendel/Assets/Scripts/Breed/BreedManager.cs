@@ -84,6 +84,7 @@ public class BreedManager : MonoBehaviour
 
 
         UpdateCountsDisplay();
+        
 
 
 
@@ -162,37 +163,48 @@ public class BreedManager : MonoBehaviour
         analyzeUI.SetActive(true);
         int start = currentPage * itemsPerPage;
         int end = Mathf.Min(start + itemsPerPage, tissues.Count);
-
-        for (int i = 0; i < tissueSlots.Count; i++)
+        if (tissues.Count == 0)
         {
-            GameObject slot = tissueSlots[i];
-            if (start + i < end)
+            for (int i = 0; i < tissueSlots.Count; i++)
             {
-                slot.SetActive(true);
-                Image imageComponent = slot.GetComponent<Image>();
-                imageComponent.sprite = tissueSprite; // 设置相同的Sprite
-
-                // 重置颜色为默认值，以防之前选中
-                imageComponent.color = Color.white;
-
-                Button button = slot.GetComponent<Button>();
-                if (button == null)
-                {
-                    button = slot.AddComponent<Button>();
-                }
-
-                // 移除之前的监听器，防止重复添加
-                button.onClick.RemoveAllListeners();
-
-                
-                int index = i; 
-                button.onClick.AddListener(() => ToggleHighlight(slot, index));
-            }
-            else
-            {
+                GameObject slot = tissueSlots[i];
                 slot.SetActive(false);
             }
+
         }
+        else {
+            for (int i = 0; i < tissueSlots.Count; i++)
+            {
+                GameObject slot = tissueSlots[i];
+                if (start + i < end)
+                {
+                    slot.SetActive(true);
+                    Image imageComponent = slot.GetComponent<Image>();
+                    imageComponent.sprite = tissueSprite; // 设置相同的Sprite
+
+                    // 重置颜色为默认值，以防之前选中
+                    imageComponent.color = Color.white;
+
+                    Button button = slot.GetComponent<Button>();
+                    if (button == null)
+                    {
+                        button = slot.AddComponent<Button>();
+                    }
+
+                    // 移除之前的监听器，防止重复添加
+                    button.onClick.RemoveAllListeners();
+
+
+                    int index = i;
+                    button.onClick.AddListener(() => ToggleHighlight(slot, index));
+                }
+                else
+                {
+                    slot.SetActive(false);
+                }
+            }
+        }
+        
 
 
         nextPageButton.gameObject.SetActive(totalPage > 1);
@@ -248,7 +260,7 @@ public class BreedManager : MonoBehaviour
         if (selectedDefender != null && selectedGeneType != null )
         {
             Debug.Log(selectedDefender);
-            if(LootBackpack.Instance.lootCultureMedium < 10)
+            if(LootBackpack.Instance.lootCultureMedium < 15)
             {
                 breedResult.text = "You dont have enough CultureMedium";
 
@@ -258,7 +270,7 @@ public class BreedManager : MonoBehaviour
                 if (selectedDefender.geneTypes.Count == 3 && selectedGeneType.geneName != GeneInfo.geneTypesName.Null && selectedGeneType.geneType != GeneInfo.geneTypes.Null)
                 {
                     Defender newDefender = PerformFusion(selectedDefender, selectedGeneType);
-                    LootBackpack.Instance.lootCultureMedium = LootBackpack.Instance.lootCultureMedium - 10;
+                    LootBackpack.Instance.lootCultureMedium = LootBackpack.Instance.lootCultureMedium - 12;
                     if (newDefender != null)
                     {
                         playerDefenderInventory.AddDefenderToInventory(newDefender);
@@ -373,6 +385,10 @@ public class BreedManager : MonoBehaviour
             if (AreGeneTypesEqualTwoDefenders(fusedDefender, libDefender))
             {
                 // 更新fusedDefender的详情
+                Debug.Log("-------------------");
+                Debug.Log(fusedDefender.defenderName);
+                Debug.Log(libDefender.defenderName);
+                Debug.Log("-------------------");
                 fusedDefender.defenderName = libDefender.defenderName;
                 fusedDefender.defenderPrefab = libDefender.defenderPrefab;
                 fusedDefender.defenderImage = libDefender.defenderImage;
@@ -501,7 +517,7 @@ public class BreedManager : MonoBehaviour
                 }
                 UpdateGeneLibrary(selectedGeneType);
 
-
+                LootBackpack.Instance.lootCultureMedium = LootBackpack.Instance.lootCultureMedium - 7;
                 tissues.RemoveAt(index);
 
               

@@ -57,7 +57,7 @@ MonoBehaviour:
     - geneName: 1
       geneType: 3
       isOwned: 0
-    - geneName: 1
+    - geneName: 2
       geneType: 0
       isOwned: 0
     - geneName: 3

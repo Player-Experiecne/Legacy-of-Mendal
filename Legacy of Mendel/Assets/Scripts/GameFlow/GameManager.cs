@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverScreen; 
     public LoadingScreen loadingScreen;
     public PlayerDefenderInventory playerDefenderInventory;
+    public DefenderLibrary defenderLibrary;
     public CutsceneManager cutsceneManager;
 
     [HideInInspector]public int currentLevelIndex = 0;
@@ -101,6 +103,23 @@ public class GameManager : MonoBehaviour
     private void OnLevelComplete()
     {
         victoryUI.SetActive(true);
+        GameObject[] defendersInScene = GameObject.FindGameObjectsWithTag("Defender");
+        foreach(var def1 in defendersInScene)
+        {
+
+            string def1Name = def1.name.Replace("(Clone)", "").Trim();
+            foreach (var def2 in defenderLibrary.defenders)
+            {
+                if (def1Name == def2.defenderPrefab.name)
+                {
+                    playerDefenderInventory.AddDefenderToInventory(def2);
+                    Debug.Log("Added");
+                }
+                else{
+                    //Debug.Log("Defender Not Found");
+                }
+            }
+        }
         if (currentLevelIndex == 4) 
         {
             breedingButton.SetActive(false);
