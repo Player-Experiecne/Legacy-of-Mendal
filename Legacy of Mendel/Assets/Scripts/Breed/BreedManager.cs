@@ -516,8 +516,10 @@ public class BreedManager : MonoBehaviour
 
                 }
                 UpdateGeneLibrary(selectedGeneType);
-
+               
+                LootBackpack.Instance.RemoveTissue(selectedGeneType);
                 LootBackpack.Instance.lootCultureMedium = LootBackpack.Instance.lootCultureMedium - 7;
+                
                 tissues.RemoveAt(index);
 
               

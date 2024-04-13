@@ -13,6 +13,7 @@ public class DefenderChoose : MonoBehaviour
 
     public GameObject SummonerPanel;
     public GameObject MaxReminderPanel;
+    public GameObject NoDefenderReminderPanel;
     public List<Image> defenderDisplays; // 在Inspector中设置的Image列表
 
     
@@ -79,23 +80,10 @@ public class DefenderChoose : MonoBehaviour
             UpdateCountText(globalIndex);
         }
     }
-    private void AddDefenderToDisplayArea(Defender defender)
-    {
-        // 确定哪个Image将被更新
-        for (int i = 0; i < defenderDisplays.Count; i++)
-        {
-            // 检查是否这个位置已经有展示项
-            if (defenderDisplays[i].sprite == null)
-            {
-                // 将选择的防御者图片设置到第一个空的Image组件
-                defenderDisplays[i].sprite = defender.defenderImage;
 
-                
-                break;
-            }
-        }
-    }
 
+
+   
 
 
     public void DecreaseCount(int globalIndex)
@@ -322,44 +310,80 @@ public class DefenderChoose : MonoBehaviour
     {
         if (selectedDefenders.Count >= MAX_DEFENDERS)
         {
-            // 显示UI提示
             ShowMaxReachedMessage();
-            return; // 直接返回，不进行以下操作
+
+            
+            if (selectedIndex >= 0 && selectedIndex < combatUnitImages.Count)
+            {
+                int localIndex = selectedIndex % itemsPerPage;
+                if (currentPage == selectedIndex / itemsPerPage)
+                {
+                    combatUnitImages[localIndex].color = Color.white;
+                }
+            }
+
+            selectedIndex = -1;
+            return; 
         }
 
 
         if (selectedIndex >= 0 && selectedIndex < playerDefenderInventory.ownedDefenders.Count)
         {
-            // 从库存中获取选中的Defender
             Defender selectedDefender = playerDefenderInventory.ownedDefenders[selectedIndex].defender;
             playerDefenderInventory.DecreaseDefenderCount(selectedDefender);
 
-            // 添加到selectedDefenders列表中，但不必检查重复，因为我们允许重复添加
             selectedDefenders.Add(selectedDefender);
 
             // 找到第一个空的位置并添加，不管之前是否添加过相同的defender
-            bool added = false;
-            foreach (var display in defenderDisplays)
+            for (int i = 0; i < defenderDisplays.Count; i++)
             {
-                if (display.sprite == null)
+                if (defenderDisplays[i].sprite == null)
                 {
-                    display.sprite = selectedDefender.defenderImage;
-                    display.transform.Find("NameText").gameObject.SetActive(true);
-                    display.transform.Find("NameText").GetComponent<TextMeshProUGUI>().text = selectedDefender.defenderName;
-                    added = true;
+                    defenderDisplays[i].sprite = selectedDefender.defenderImage;
+                    defenderDisplays[i].gameObject.SetActive(true);
+                    Transform nameTextTransform = defenderDisplays[i].transform.Find("NameText");
+                    if (nameTextTransform != null)
+                    {
+                        TextMeshProUGUI nameText = nameTextTransform.GetComponent<TextMeshProUGUI>();
+                        nameText.text = selectedDefender.defenderName;
+                        nameText.gameObject.SetActive(true);
+                    }
+
+                    // 绑定移除事件
+                    Button button = defenderDisplays[i].GetComponent<Button>();
+                    if (button == null)
+                    {
+                        button = defenderDisplays[i].gameObject.AddComponent<Button>();
+                    }
+                    button.onClick.RemoveAllListeners();
+                    int indexCopy = i;  // Capture the index for use in the lambda expression
+                    button.onClick.AddListener(() => RemoveDefenderFromSelection(selectedDefender, indexCopy));
+
                     break;
                 }
             }
 
-            if (!added) // 所有位置都被占用，你可能需要提醒用户
+            selectedIndex = -1; // 清除选中状态
+            ClearSelections();
+        }
+    }
+    private void RemoveDefenderFromSelection(Defender defender, int displayIndex)
+    {
+        if (selectedDefenders.Contains(defender))
+        {
+            selectedDefenders.Remove(defender);
+            playerDefenderInventory.AddDefenderToInventory(defender);
+
+            // 清理UI
+            defenderDisplays[displayIndex].sprite = null;
+            Transform nameTextTransform = defenderDisplays[displayIndex].transform.Find("NameText");
+            if (nameTextTransform != null)
             {
-                Debug.Log("Filled！");
+                nameTextTransform.gameObject.SetActive(false);
             }
 
-            // 清理选中状态
-            combatUnitImages[selectedIndex % itemsPerPage].color = Color.white;
-            HideControls(selectedIndex % itemsPerPage);
-            selectedIndex = -1; // 清除选中状态
+            // Optional: Update UI if needed
+            RefreshDisplay();
         }
     }
 
@@ -368,6 +392,19 @@ public class DefenderChoose : MonoBehaviour
         MaxReminderPanel.SetActive(true);
     }
 
+    public void ShowNoDefenderMessage()
+    {
+        NoDefenderReminderPanel.SetActive(true);
+    }
+
+    public void HideNoDefenderMessage()
+    {
+        NoDefenderReminderPanel.SetActive(false);
+    }
+    public void HideMaxReachedMessage()
+    {
+        MaxReminderPanel.SetActive(false);
+    }
     private void UpdateCountText(int globalIndex)
     {
         // Only update if the current page matches the global index
@@ -391,8 +428,16 @@ public class DefenderChoose : MonoBehaviour
 
     }
 
+
     public void ClearDisplayArea()
     {
+
+        if (selectedDefenders.Count == 0)
+        {
+            ShowNoDefenderMessage();
+            return;
+        }
+
         foreach (var display in defenderDisplays)
         {
             display.sprite = null;  
@@ -404,7 +449,7 @@ public class DefenderChoose : MonoBehaviour
             
             
         }
-  
+        
             
         SummonerPanel.SetActive(true);
     }

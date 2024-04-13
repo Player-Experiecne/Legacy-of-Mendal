@@ -19,7 +19,8 @@ public class LootBackpack : MonoBehaviour
     public List<GeneTypeCount> geneTypeCountsList;
 
     public int lootCultureMedium = 0;
-    
+    private int lastLootCultureMedium = -1;
+
     void Awake()
     {
         if (Instance == null)
@@ -34,6 +35,14 @@ public class LootBackpack : MonoBehaviour
         RefreshUI();
     }
 
+    void Update()
+    {
+        if (lastLootCultureMedium != lootCultureMedium)
+        {
+            RefreshUI();
+            lastLootCultureMedium = lootCultureMedium;
+        }
+    }
     public void LootGeneType(GeneTypeEntry geneType)
     {
         lootGeneTypes.Add(geneType);
@@ -48,6 +57,19 @@ public class LootBackpack : MonoBehaviour
             geneTypeCountsList.Add(new GeneTypeCount { geneType = geneType, count = 1 });
         }
         SoundManager.Instance.PlaySFX(SoundEffect.LootGene);
+    }
+
+    public void RemoveTissue(GeneTypeEntry geneType)
+    {
+        GeneTypeCount item = geneTypeCountsList.Find(g => g.geneType.geneName == geneType.geneName && g.geneType.geneType == geneType.geneType);
+        if (item != null)
+        {
+            item.count--;
+            if (item.count <= 0)
+            {
+                geneTypeCountsList.Remove(item);
+            }
+        }
     }
 
     public void LootCultureMedium(int cultureMedium)
