@@ -12,6 +12,7 @@ public class DefenderChoose : MonoBehaviour
     public GameObject defenderDisplayArea; // 指向右侧显示区域的引用
 
     public GameObject SummonerPanel;
+    public GameObject MaxReminderPanel;
     public List<Image> defenderDisplays; // 在Inspector中设置的Image列表
 
     
@@ -40,6 +41,8 @@ public class DefenderChoose : MonoBehaviour
     //public GameObject previousPanel; 
 
     private int lastInventoryCount = -1;
+
+    public const int MAX_DEFENDERS = 8;
 
 
     private int selectedIndex = -1;
@@ -317,6 +320,14 @@ public class DefenderChoose : MonoBehaviour
 
     public void ConfirmSelection()
     {
+        if (selectedDefenders.Count >= MAX_DEFENDERS)
+        {
+            // 显示UI提示
+            ShowMaxReachedMessage();
+            return; // 直接返回，不进行以下操作
+        }
+
+
         if (selectedIndex >= 0 && selectedIndex < playerDefenderInventory.ownedDefenders.Count)
         {
             // 从库存中获取选中的Defender
@@ -352,6 +363,10 @@ public class DefenderChoose : MonoBehaviour
         }
     }
 
+    private void ShowMaxReachedMessage()
+    {
+        MaxReminderPanel.SetActive(true);
+    }
 
     private void UpdateCountText(int globalIndex)
     {
