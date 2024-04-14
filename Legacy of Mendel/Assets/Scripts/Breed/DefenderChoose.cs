@@ -14,9 +14,15 @@ public class DefenderChoose : MonoBehaviour
     public GameObject SummonerPanel;
     public GameObject MaxReminderPanel;
     public GameObject NoDefenderReminderPanel;
+    public GameObject CloneReminderPanel;
+    public GameObject ClonePanel;
     public List<Image> defenderDisplays; // 在Inspector中设置的Image列表
+    public TextMeshProUGUI text;
+    public TextMeshProUGUI clone;
+    public TextMeshProUGUI reminder;
+    private Defender def;
 
-    
+
     public List<Defender> selectedDefenders = new List<Defender>();
 
     public static BreedManager Instance;
@@ -61,6 +67,7 @@ public class DefenderChoose : MonoBehaviour
         UpdatePageCount();
         RefreshDisplay();
         UpdatePageButtons();
+        UpdateCountsDisplay();
 
         // 清空所有展示项
         foreach (var display in defenderDisplays)
@@ -68,7 +75,7 @@ public class DefenderChoose : MonoBehaviour
             display.sprite = null;
         }
     }
-
+   
     public void IncreaseCount(int globalIndex)
     {
         Debug.Log("IncreaseCount called for index " + globalIndex);
@@ -83,8 +90,12 @@ public class DefenderChoose : MonoBehaviour
 
 
 
-   
 
+    public void UpdateCountsDisplay()
+    {
+
+        text.text = LootBackpack.Instance.lootCultureMedium.ToString();
+    }
 
     public void DecreaseCount(int globalIndex)
     {
@@ -138,6 +149,7 @@ public class DefenderChoose : MonoBehaviour
 
     void Update()
     {
+        UpdateCountsDisplay();
         // 检查库存数量是否有变化
         if (playerDefenderInventory.ownedDefenders.Count != lastInventoryCount)
         {
@@ -242,11 +254,11 @@ public class DefenderChoose : MonoBehaviour
 
     private void HideControls(int imageIndex)
     {
-       /* Transform controlsContainer = combatUnitImages[imageIndex].transform.Find("ControlsContainer");
-        if (controlsContainer != null)
-        {
-            controlsContainer.gameObject.SetActive(false);
-        }*/
+        /* Transform controlsContainer = combatUnitImages[imageIndex].transform.Find("ControlsContainer");
+         if (controlsContainer != null)
+         {
+             controlsContainer.gameObject.SetActive(false);
+         }*/
     }
 
 
@@ -312,7 +324,7 @@ public class DefenderChoose : MonoBehaviour
         {
             ShowMaxReachedMessage();
 
-            
+
             if (selectedIndex >= 0 && selectedIndex < combatUnitImages.Count)
             {
                 int localIndex = selectedIndex % itemsPerPage;
@@ -323,7 +335,7 @@ public class DefenderChoose : MonoBehaviour
             }
 
             selectedIndex = -1;
-            return; 
+            return;
         }
 
 
@@ -367,6 +379,63 @@ public class DefenderChoose : MonoBehaviour
             ClearSelections();
         }
     }
+
+    public void ToggleDefenderClone()
+    {
+
+        ClonePanel.SetActive(true);
+        if (selectedIndex >= 0 && selectedIndex < playerDefenderInventory.ownedDefenders.Count)
+        {
+            Defender selectedDefender = playerDefenderInventory.ownedDefenders[selectedIndex].defender;
+            def = selectedDefender;
+        }
+
+    }
+
+    public void ConfirmClone(){
+        int num = int.Parse(clone.text);
+        int cost = num * 10;
+        if (cost >= LootBackpack.Instance.lootCultureMedium)
+        {
+            reminder.text = "You don't have enough CultureMedium";
+        }
+        else
+        {
+            for(int i=0; i <= num; i++) {
+                playerDefenderInventory.AddDefenderToInventory(def);
+            }
+            reminder.text = null;
+            LootBackpack.Instance.lootCultureMedium -= cost;
+            ClearSelections();
+            clone.text = "0";
+            ClonePanel.SetActive(false);
+        }
+
+    }
+
+
+    public void IncreaseCloneNumber()
+    {
+        if (int.TryParse(clone.text, out int num))
+        {
+            num++;
+            clone.text = num.ToString();
+        }
+        else
+        {
+            clone.text = "0"; 
+        }
+    }
+
+    public void DecreaseCloneNumber()
+    {
+        if (int.TryParse(clone.text, out int num) && num > 0)
+        {
+            num--;
+            clone.text = num.ToString();
+        }
+    }
+
     private void RemoveDefenderFromSelection(Defender defender, int displayIndex)
     {
         if (selectedDefenders.Contains(defender))

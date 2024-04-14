@@ -6,7 +6,8 @@ public class PreparationScript : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public GameObject PreparePanel; 
+    public GameObject PreparePanel;
+    public GameObject DefenderChoosePanel;
     void Start()
     {
         
@@ -25,5 +26,16 @@ public class PreparationScript : MonoBehaviour
     public void ExitPreparationPhase()
     {
         PreparePanel.SetActive(false);
+    }
+    public void EnterDefenderChoosePhase()
+    {
+        PreparePanel.SetActive(false);
+        DefenderChoosePanel.SetActive(true);
+    }
+
+    public void ExitDefenderChoosePhase()
+    {
+        PreparePanel.SetActive(true);
+        DefenderChoosePanel.SetActive(false);
     }
 }
