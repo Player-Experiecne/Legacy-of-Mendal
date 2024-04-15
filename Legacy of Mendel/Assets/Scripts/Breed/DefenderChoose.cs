@@ -383,33 +383,76 @@ public class DefenderChoose : MonoBehaviour
     public void ToggleDefenderClone()
     {
 
-        ClonePanel.SetActive(true);
+        
         if (selectedIndex >= 0 && selectedIndex < playerDefenderInventory.ownedDefenders.Count)
         {
             Defender selectedDefender = playerDefenderInventory.ownedDefenders[selectedIndex].defender;
             def = selectedDefender;
+            ClonePanel.SetActive(true);
+        }
+        else
+        {
+            return;
         }
 
     }
 
+    public void Close()
+    {
+        ClonePanel.SetActive(false);
+        reminder.text = null;
+        clone.text = "0";
+        selectedIndex = -1;
+        ClearSelections();
+    }
+    public void Return()
+    {
+        ClonePanel.SetActive(false);
+        reminder.text = null;
+        clone.text = "0";
+        selectedIndex = -1;
+        ClearSelections();
+
+    }
+
+    public void Enter()
+    {
+        ClonePanel.SetActive(false);
+        reminder.text = null;
+        clone.text = "0";
+        selectedIndex = -1;
+        ClearSelections();
+
+    }
     public void ConfirmClone(){
         int num = int.Parse(clone.text);
-        int cost = num * 10;
-        if (cost >= LootBackpack.Instance.lootCultureMedium)
+        if (num!=0)
         {
-            reminder.text = "You don't have enough CultureMedium";
+            int cost = num * 10;
+            if (cost >= LootBackpack.Instance.lootCultureMedium)
+            {
+                reminder.text = "You don't have enough CultureMedium";
+            }
+            else
+            {
+                for (int i = 0; i < num; i++)
+                {
+                    playerDefenderInventory.AddDefenderToInventory(def);
+                }
+                reminder.text = null;
+                LootBackpack.Instance.lootCultureMedium -= cost;
+                
+                clone.text = "0";
+                ClonePanel.SetActive(false);
+            }
         }
         else
         {
-            for(int i=0; i <= num; i++) {
-                playerDefenderInventory.AddDefenderToInventory(def);
-            }
-            reminder.text = null;
-            LootBackpack.Instance.lootCultureMedium -= cost;
-            ClearSelections();
-            clone.text = "0";
-            ClonePanel.SetActive(false);
+            reminder.text = "You don't choose a valid number";
+            return;
         }
+        selectedIndex = -1;
+        ClearSelections();
 
     }
 
