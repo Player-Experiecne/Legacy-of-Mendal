@@ -6,10 +6,13 @@ using System.Collections;
 public class LoadingScreen : MonoBehaviour
 {
     public GameObject loadingScreen;
-    public Slider loadingBar;
+    public GameObject loadingIndicator;
     public CutsceneManager cutsceneManager;
-    public float minLoadingTime = 2f; // Minimum loading time in seconds
-    public float smoothLoadingSpeed = 0.5f; // Speed of the loading bar's smooth progress
+    private float minLoadingTime = 2f; // Minimum loading time in seconds
+    private float smoothLoadingSpeed = 0.5f; // Speed of the loading bar's smooth progress
+    private Vector3 startPosition = new Vector3(-700, -400, 0);
+    private Vector3 endPosition = new Vector3(700, -400, 0);
+
     private bool cutsceneCompleted = false;
 
     public void LoadScene(string sceneName)
@@ -22,7 +25,7 @@ public class LoadingScreen : MonoBehaviour
     IEnumerator DelayedLoad(string sceneName)
     {
         // Reset the loading bar's displayed progress and visual value at the start
-        loadingBar.value = 0f;
+        loadingIndicator.transform.localPosition = startPosition;
         float displayedProgress = 0f;
 
         // Optionally wait a very short time to ensure the loading screen is displayed
@@ -48,7 +51,7 @@ public class LoadingScreen : MonoBehaviour
             while (displayedProgress < totalProgress)
             {
                 displayedProgress += smoothLoadingSpeed * Time.deltaTime;
-                loadingBar.value = displayedProgress;
+                loadingIndicator.transform.localPosition = startPosition + new Vector3(displayedProgress * 1400, 0, 0);
                 yield return null;
             }
 

@@ -26,7 +26,7 @@ MonoBehaviour:
   - track: 5
     clip: {fileID: 8300000, guid: 3beb7bde0f76fe141b3cb61cc1c5887e, type: 3}
   - track: 6
-    clip: {fileID: 8300000, guid: d32b11c1aa372d44d8c97e71691f861e, type: 3}
+    clip: {fileID: 8300000, guid: 1413ee86fdd7ea2439b2d5d9bb5697cd, type: 3}
   sfxClips:
   - effect: 2
     clip: {fileID: 8300000, guid: 895cc54e0a555f94c9facf5bf17d1a8b, type: 3}
