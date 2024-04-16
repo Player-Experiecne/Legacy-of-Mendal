@@ -12,6 +12,7 @@ public class CutsceneManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public List<Cutscene> cutscenes;
     public LoadingScreen loadingScreen;
+    public GameObject credits;
 
     private bool isTextFullyDisplayed = false;
     private bool isCutscenePlaying = false;
@@ -75,7 +76,7 @@ public class CutsceneManager : MonoBehaviour
         else
         {
             cutsceneObject.SetActive(false);
-            GameEvents.TriggerTitleScreen();
+            credits.SetActive(true);
         }
     }
 
