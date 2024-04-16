@@ -433,6 +433,7 @@ public class TutorialManager : MonoBehaviour
         Image11.SetActive(true);
         DisableButton(choosedefenderbutton);
         DisableButton(confirmbreedbutton);
+        DisableButton(breedbutton);
 
     }
 
