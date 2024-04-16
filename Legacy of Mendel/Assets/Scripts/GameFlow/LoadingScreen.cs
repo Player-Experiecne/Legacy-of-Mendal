@@ -95,6 +95,7 @@ public class LoadingScreen : MonoBehaviour
         if(sceneName == "TitleScreen")
         {
             GameManager.Instance.isTitleScreen = true;
+            EnemyManager.Instance.isFailed = false;
             StopAllCoroutines();
         }
         // Ensure the loading screen gets deactivated

@@ -98,6 +98,7 @@ public class GameManager : MonoBehaviour
 
     public void OnTutorialStart()
     {
+        playerDefenderInventory.ownedDefenders.Clear();
         loadingScreen.LoadScene("Tutorial");
         //StartCoroutine(TriggerTutorialAfterDelay(timeDelayBeforeStart));
     }
@@ -138,7 +139,6 @@ public class GameManager : MonoBehaviour
     {
         loadingScreen.LoadScene("TowerDefense");
         currentLevelIndex = 0;
-        playerDefenderInventory.ownedDefenders.Clear();
     }
 
     private void OnTitleScreen()
@@ -157,6 +157,7 @@ public class GameManager : MonoBehaviour
 
     private void OnLevelFail()
     {
+        EnemyManager.Instance.isFailed = true;
         gameOverScreen.SetActive(true);
     }
 

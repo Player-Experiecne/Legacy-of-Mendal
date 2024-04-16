@@ -9,6 +9,7 @@ public class EnemyManager : MonoBehaviour
     private List<GameObject> enemies = new List<GameObject>();
     public List<GameObject> Enemies => enemies;
     public TextMeshProUGUI text;
+    public bool isFailed = false;
     private int currentCount = 0;
     private int totalCount = 0;
 
@@ -45,7 +46,10 @@ public class EnemyManager : MonoBehaviour
         // 如果当前没有敌人通知 GameManager 更改状态
         if (currentCount == 0 && LevelManager.Instance.LevelCompleted)
         {
-            GameEvents.TriggerLevelComplete();
+            if(!isFailed)
+            {
+                GameEvents.TriggerLevelComplete();
+            }
         }
     }
     public void ResetEnemyCount()

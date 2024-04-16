@@ -181,7 +181,7 @@ public class LevelManager : MonoBehaviour
         enemyController.lootCultureMedium = Random.Range(enemy.lootCultureMedium.minLootCultureMedium, enemy.lootCultureMedium.maxLootCultureMedium + 1);
     }
 
-    // 在 LevelManager 中，当关卡结束时调用
+    /*// 在 LevelManager 中，当关卡结束时调用
     public void OnLevelEnd(bool isSuccess)
     {
         if (isSuccess)
@@ -194,7 +194,7 @@ public class LevelManager : MonoBehaviour
             // Level failed
             GameEvents.TriggerLevelFail();
         }
-    }
+    }*/
 
 
 }
