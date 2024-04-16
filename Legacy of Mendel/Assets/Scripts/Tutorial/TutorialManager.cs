@@ -24,6 +24,8 @@ public class TutorialManager : MonoBehaviour
     public Button increase;
     public Button confirmclonenum;
     public Button nextphasebutton;
+    public Button button_1;
+
 
     public TMP_Dropdown geneDropdown; 
     public GameObject Image;
@@ -134,6 +136,7 @@ public class TutorialManager : MonoBehaviour
         DisableButton(nextdaybutton);
         DisableButton(confirmclonebutton);
         DisableButton(nextphasebutton);
+        
 
     }
 
@@ -159,10 +162,11 @@ public class TutorialManager : MonoBehaviour
         
 
     }
-
+    public Button button_2;
     public void OpenCloneNumChoose()
     {
         CloneDefenderChooseConfirmReminder.SetActive(false);
+        button_2.interactable = false;
         CloneNumChoosePanel.SetActive(true);
         imageToHighlight_2.color = Color.white;
         CloneDefenderChooseReminder.SetActive(false);
@@ -261,6 +265,7 @@ public class TutorialManager : MonoBehaviour
             imageToHighlight.color = Color.green;
             Image15.SetActive(false);
             Image16.SetActive(true);
+            button_1.interactable = false;
         }
         else
         {
@@ -320,7 +325,7 @@ public class TutorialManager : MonoBehaviour
         Image14.SetActive(false);
         Image13.SetActive(false);
         def.sprite = newImage.sprite;
-
+        choosedefenderbutton.interactable = false;
         Image17.SetActive(true);
         EnableButton(confirmbreedbutton);
     }
@@ -426,6 +431,7 @@ public class TutorialManager : MonoBehaviour
         Image10.SetActive(true);
         Image23.SetActive(false);
         Image11.SetActive(true);
+        DisableButton(choosedefenderbutton);
         DisableButton(confirmbreedbutton);
 
     }
@@ -466,11 +472,13 @@ public class TutorialManager : MonoBehaviour
     }
     IEnumerator BeginPhaseAfterChooseGene()
     {
+        geneDropdown.interactable = false;
 
         //yield return new WaitForSeconds(2);
         Image12.SetActive(true);
         yield return new WaitForSeconds(2);
         Image12.SetActive(false);
+        EnableButton(choosedefenderbutton);
         Image13.SetActive(true);
 
     }

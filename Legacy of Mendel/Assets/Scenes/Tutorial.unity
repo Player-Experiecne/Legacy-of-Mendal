@@ -104671,7 +104671,8 @@ MonoBehaviour:
   decrease: {fileID: 1095979511}
   increase: {fileID: 288119128}
   confirmclonenum: {fileID: 715240239}
-  nextphasebutton: {fileID: 0}
+  nextphasebutton: {fileID: 631279909}
+  button_1: {fileID: 1935289793}
   geneDropdown: {fileID: 633101940}
   Image: {fileID: 349323933}
   Image1: {fileID: 192272806}
@@ -104742,6 +104743,7 @@ MonoBehaviour:
   time: 0
   myButton: {fileID: 64938817}
   isButtonGreen: 0
+  button_2: {fileID: 541493322}
   gam1: {fileID: 393690436}
   gam2: {fileID: 296590445}
 --- !u!4 &2039408385
