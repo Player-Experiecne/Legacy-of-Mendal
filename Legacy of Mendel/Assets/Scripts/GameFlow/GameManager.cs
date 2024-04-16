@@ -138,6 +138,7 @@ public class GameManager : MonoBehaviour
     {
         loadingScreen.LoadScene("TowerDefense");
         currentLevelIndex = 0;
+        playerDefenderInventory.ownedDefenders.Clear();
     }
 
     private void OnTitleScreen()
