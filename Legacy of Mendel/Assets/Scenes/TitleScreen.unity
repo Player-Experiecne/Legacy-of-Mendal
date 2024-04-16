@@ -30610,7 +30610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b0b45a9d8b021a4da3184c50b8c4695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeDelayBeforeStart: 2
+  timeDelayBeforeStart: 12
   victoryUI: {fileID: 1236325424}
   breedingButton: {fileID: 2760306241350174170}
   continueButton: {fileID: 903056482}

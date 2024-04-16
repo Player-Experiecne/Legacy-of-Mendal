@@ -52,10 +52,17 @@ public class GameManager : MonoBehaviour
 
     public void OnBreedingButtonClicked()
     {
-        GameEvents.TriggerBreedingStart(); 
+        LootAttractor.Instance.pullRadius = 1000f;
         victoryUI.SetActive(false);
+        StartCoroutine(DelayTriggerBreedingStart());
     }
 
+    private IEnumerator DelayTriggerBreedingStart()
+    {
+        yield return new WaitForSeconds(3);
+        LootAttractor.Instance.pullRadius = 15f;
+        GameEvents.TriggerBreedingStart();
+    }
     private void OnEnemySpawn()
     {
         LevelManager.Instance.StartCurrentLevel();

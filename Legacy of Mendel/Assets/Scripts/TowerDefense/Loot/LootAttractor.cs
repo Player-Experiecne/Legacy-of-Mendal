@@ -5,6 +5,20 @@ public class LootAttractor : MonoBehaviour
     public float pullRadius = 5f;
     public float pullSpeed = 5f;
 
+    public static LootAttractor Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Update()
     {
         // 检测pullRadius范围内所有的Collider

@@ -29,7 +29,10 @@ public class BuildManager : MonoBehaviour
                 if ((baseLayer.value & (1 << hit.collider.gameObject.layer)) == 0)
                 {
                     // The hit object is not a base, proceed to place defender
-                    PlaceDefender(hit.point);
+                    if(-60 < hit.point.x && hit.point.x < 20 && -30 < hit.point.z && hit.point.z < 20)
+                    {
+                        PlaceDefender(hit.point);
+                    }
                 }
                 else
                 {
