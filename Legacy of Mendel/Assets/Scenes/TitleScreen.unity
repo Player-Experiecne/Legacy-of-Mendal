@@ -30619,6 +30619,7 @@ MonoBehaviour:
   playerDefenderInventory: {fileID: 11400000, guid: 51f706db03873354ebba85327d50c556, type: 2}
   defenderLibrary: {fileID: 11400000, guid: 3b40ec4a69db088488fd739ecc39b8e2, type: 2}
   cutsceneManager: {fileID: 1002790027}
+  database: {fileID: 11400000, guid: 893934cd04345e345b71918a74e1f07a, type: 2}
   currentLevelIndex: 3
   isTitleScreen: 1
 --- !u!4 &2760306240487352049

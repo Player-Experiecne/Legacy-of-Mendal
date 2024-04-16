@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public PlayerDefenderInventory playerDefenderInventory;
     public DefenderLibrary defenderLibrary;
     public CutsceneManager cutsceneManager;
+    public GeneDatabase database;
 
     [HideInInspector]public int currentLevelIndex = 0;
     [HideInInspector]public bool isTitleScreen = true;
@@ -99,6 +100,7 @@ public class GameManager : MonoBehaviour
     public void OnTutorialStart()
     {
         playerDefenderInventory.ownedDefenders.Clear();
+        database.ResetOwnership();
         loadingScreen.LoadScene("Tutorial");
         //StartCoroutine(TriggerTutorialAfterDelay(timeDelayBeforeStart));
     }

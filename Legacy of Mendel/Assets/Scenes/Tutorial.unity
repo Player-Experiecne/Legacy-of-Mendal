@@ -9843,6 +9843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 0}
+  isFailed: 0
 --- !u!4 &188314760
 Transform:
   m_ObjectHideFlags: 0
@@ -34409,7 +34410,7 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Choose the gne type
+    - m_Text: Choose the gene type
       m_Image: {fileID: 0}
     - m_Text: AA
       m_Image: {fileID: 0}
@@ -47856,7 +47857,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Confrom this defender
+  m_text: Confirm this defender
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bf0ae24ab1d46ff4ea5721dc487fc991, type: 2}
   m_sharedMaterial: {fileID: -4998318463468375597, guid: bf0ae24ab1d46ff4ea5721dc487fc991, type: 2}
@@ -70070,7 +70071,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Choose the gne type
+  m_text: Choose the gene type
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6fdff05de59380342b02ee113b887f85, type: 2}
   m_sharedMaterial: {fileID: 7799765999067849592, guid: 6fdff05de59380342b02ee113b887f85, type: 2}
