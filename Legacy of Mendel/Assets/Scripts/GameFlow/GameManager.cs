@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Screen.SetResolution(1920, 1080, FullScreenMode.FullScreenWindow);
         GameEvents.OnEnemySpawn += OnEnemySpawn;
         GameEvents.OnLevelComplete += OnLevelComplete;
         GameEvents.OnLevelFail += () => Debug.Log("Game Over");
@@ -151,6 +152,7 @@ public class GameManager : MonoBehaviour
         victoryUI.SetActive(false);
         continueButton.SetActive(false);
         breedingButton.SetActive(true);
+        EnemyManager.Instance.isFailed = true;
         if (LevelManager.Instance != null) { Destroy(LevelManager.Instance.gameObject); }
         if (DefenderBackpack.Instance != null) { Destroy(DefenderBackpack.Instance.gameObject); }
         if (SummonerSkillManager.Instance != null) { Destroy(SummonerSkillManager.Instance.gameObject); }

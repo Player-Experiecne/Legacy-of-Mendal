@@ -643,8 +643,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "All Team Mendel member\u2019s family\r\nBob De Schutter - Capstone Instructor\r\nSunny
-    Zheng\r\nYue Xu\r\nPeiying Chen\r\nGame Freak\r\nPocket Pair\r\n\r\n\r\n\n"
+  m_text: "All Team Mendel member\u2019s family\r\nBob De Schutter - Capstone Instructor\r\nDongqing
+    (Sunny) Zheng\nYue Xu\r\nPeiying Chen\r\nGame Freak\r\nPocket Pair\r\n\r\n\r\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bf0ae24ab1d46ff4ea5721dc487fc991, type: 2}
   m_sharedMaterial: {fileID: -4998318463468375597, guid: bf0ae24ab1d46ff4ea5721dc487fc991, type: 2}
@@ -4119,8 +4119,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Game Development Team:\r\nTeam Mendel\n\r\nGame Designer:\r\nYuang Li\r\nChuansong
-    Zhao\r\n\r\nProgramming:\r\nXiwen Han\r\nLihan Zhao\r\n\r\n3D Modeling:\r\nSunny
-    Zheng\r\nYuang Li\r\n\r\n2D Artist:\r\nYue Xu\r\n\r\nUI:\r\nYue Xu\r"
+    Zhao\r\n\r\nProgramming:\r\nXiwen Han\r\nLihan Zhao\r\n\r\n3D Modeling:\r\nDongqing
+    (Sunny) Zheng\nYuang Li\r\n\r\n2D Artist:\r\nYue Xu\r\n\r\nUI:\r\nYue Xu\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bf0ae24ab1d46ff4ea5721dc487fc991, type: 2}
   m_sharedMaterial: {fileID: -4998318463468375597, guid: bf0ae24ab1d46ff4ea5721dc487fc991, type: 2}
@@ -4476,8 +4476,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Game Development Team:\r\nTeam Mendel\n\r\nGame Designer:\r\nYuang Li\r\nChuansong
-    Zhao\r\n\r\nProgramming:\r\nXiwen Han\r\nLihan Zhao\r\n\r\n3D Modeling:\r\nSunny
-    Zheng\r\nYuang Li\r\n\r\n2D Artist:\r\nYue Xu\r\n\r\nUI:\r\nYue Xu\r"
+    Zhao\r\n\r\nProgramming:\r\nXiwen Han\r\nLihan Zhao\r\n\r\n3D Modeling:\r\nDongqing
+    (Sunny) Zheng\nYuang Li\r\n\r\n2D Artist:\r\nYue Xu\r\n\r\nUI:\r\nYue Xu\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bf0ae24ab1d46ff4ea5721dc487fc991, type: 2}
   m_sharedMaterial: {fileID: -4998318463468375597, guid: bf0ae24ab1d46ff4ea5721dc487fc991, type: 2}
@@ -19348,8 +19348,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "All Team Mendel member\u2019s family\r\nBob De Schutter - Capstone Instructor\r\nSunny
-    Zheng\r\nYue Xu\r\nPeiying Chen\r\nGame Freak\r\nPocket Pair\r\n\r\n\r\n\n"
+  m_text: "All Team Mendel member\u2019s family\r\nBob De Schutter - Capstone Instructor\r\nDongqing
+    (Sunny) Zheng\nYue Xu\r\nPeiying Chen\r\nGame Freak\r\nPocket Pair\r\n\r\n\r\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bf0ae24ab1d46ff4ea5721dc487fc991, type: 2}
   m_sharedMaterial: {fileID: -4998318463468375597, guid: bf0ae24ab1d46ff4ea5721dc487fc991, type: 2}
