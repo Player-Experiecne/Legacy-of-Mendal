@@ -10,6 +10,21 @@ public class TutorialManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public float timeDelayBeforeStart = 5;
+
+    public Button analyzebutton;
+    public Button breedbutton;
+    public Button handbookbutton;
+    public Button defendersbutton;
+    public Button nextdaybutton;
+    public Button selecttissuebutton;
+    public Button confirmbreedbutton;
+    public Button choosedefenderbutton;
+    public Button confirmclonebutton;
+    public Button decrease;
+    public Button increase;
+    public Button confirmclonenum;
+    public Button nextphasebutton;
+
     public TMP_Dropdown geneDropdown; 
     public GameObject Image;
     public GameObject Image1;
@@ -49,9 +64,18 @@ public class TutorialManager : MonoBehaviour
     public GameObject Image31;
     public GameObject Image32;
     public GameObject Image33;
+    public GameObject ReminderToAnalyze;
+    public GameObject ReminderToChooseTissue;
+    public GameObject PreparationPanel;
 
+    public GameObject CloneDefenderChooseReminder;
+    public GameObject CloneDefenderChooseConfirmReminder;
+    public GameObject numChoose1;
+    public GameObject numChoose2;
 
+    public GameObject CloneNumChoosePanel;
     public Image imageToHighlight;
+    public Image imageToHighlight_2;
     public Image imageToHighlight1;
     public Image def;
     public Image newImage;
@@ -61,11 +85,17 @@ public class TutorialManager : MonoBehaviour
     public Image SmiteImage;
 
     public GameObject resultImage;
+    public GameObject ClonePanel;
 
 
     public TextMeshProUGUI tissueText;
+    public TextMeshProUGUI cultureMedium;
+    public TextMeshProUGUI tissueCount;
     public TextMeshProUGUI resultText;
     public TextMeshProUGUI countText;
+    public TextMeshProUGUI clonenum;
+    public TextMeshProUGUI rumbleNum;
+    public TextMeshProUGUI culNum;
     public NavMeshAgent agent;
     private float originalSpeed;
     public MonoBehaviour movementScript;
@@ -76,6 +106,9 @@ public class TutorialManager : MonoBehaviour
 
     public int time=0;
     private Color originalColor;
+
+    public Button myButton; // Assign this in the inspector
+    public bool isButtonGreen = false;
     public void ChooseForNextBattle()
     {
 
@@ -89,20 +122,104 @@ public class TutorialManager : MonoBehaviour
             OnGeneTypeSelected(geneDropdown.value);
         });
         originalColor = imageToHighlight1.color;
+        myButton.onClick.AddListener(() => {
+            ChangeButtonColor();
+            // Optionally perform the next step directly
+            // if it should happen immediately after the color change.
+             PerformNextStep();
+        });
+        DisableButton(breedbutton);
+        DisableButton(handbookbutton);
+        DisableButton(defendersbutton);
+        DisableButton(nextdaybutton);
+        DisableButton(confirmclonebutton);
+        DisableButton(nextphasebutton);
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (clonenum.text.Equals("1"))
+        {
+            DisableButton(increase);
+            EnableButton(confirmclonenum);
+            numChoose1.SetActive(false);
+            numChoose2.SetActive(true);
+            DisableButton(confirmclonebutton);
+        }
+    }
+    public void addOne()
+    {
         
     }
+    public void OpenClonePanel()
+    {
+        ClonePanel.SetActive(true);
+        
 
+    }
 
+    public void OpenCloneNumChoose()
+    {
+        CloneDefenderChooseConfirmReminder.SetActive(false);
+        CloneNumChoosePanel.SetActive(true);
+        imageToHighlight_2.color = Color.white;
+        CloneDefenderChooseReminder.SetActive(false);
+        DisableButton(decrease);
+        DisableButton(confirmclonenum);
+        
+
+    }
+
+    public GameObject gam1;
+    public GameObject gam2;
+    public void ConfirmCloneRumble()
+    {
+        CloneNumChoosePanel.SetActive(false);
+        rumbleNum.text = "Count: 2";
+        culNum.text = "1";
+        gam1.SetActive(true);
+        StartCoroutine(BeginNextDay());
+
+    }
+
+    IEnumerator BeginNextDay()
+    {
+        yield return new WaitForSeconds(2);
+        gam1.SetActive(false);
+        gam2.SetActive(true);
+        EnableButton(nextphasebutton);
+    }
+
+    public void EnterPreparation()
+    {
+        PreparationPanel.SetActive(true);
+
+    }
+    private void ChangeButtonColor()
+    {
+        myButton.GetComponent<Image>().color = Color.green;
+
+        // Now that the button is green, set the flag to true
+        isButtonGreen = true;
+
+        // Optionally enable the next step directly here
+        // if you have another UI element that needs to be activated.
+        // EnableNextStepUIElement();
+    }
+
+    private void PerformNextStep()
+    {
+
+        ReminderToAnalyze.SetActive(true);
+        ReminderToChooseTissue.SetActive(false);
+    }
     public
     IEnumerator PrepareTutorial()
     {
         // 等待3秒开始教程
-        yield return new WaitForSeconds(3);
+        //yield return new WaitForSeconds(3);
         PauseNavMeshAgent(agent);
 
         // 显示提示选择Defender的图片
@@ -125,6 +242,12 @@ public class TutorialManager : MonoBehaviour
         Image2.SetActive(false);
         ResumeNavMeshAgent(agent);
         yield return new WaitUntil(() => GameObject.FindWithTag("Enemy") == null);
+        GameObject[] bullets = GameObject.FindGameObjectsWithTag("Bullet");
+        foreach (var bullet in bullets)
+        {
+
+            Destroy(bullet);
+        }
         Image3.SetActive(true);
 
     }
@@ -139,6 +262,23 @@ public class TutorialManager : MonoBehaviour
             Image15.SetActive(false);
             Image16.SetActive(true);
         }
+        else
+        {
+            Debug.LogError("No image component found to highlight.");
+        }
+    }
+
+    public void SetHighlightColor_2()
+    {
+        // 确保我们有一个有效的Image组件引用
+        if (imageToHighlight_2 != null)
+        {
+            // 设置Image的颜色为绿色
+            imageToHighlight_2.color = Color.green;
+            EnableButton(confirmclonebutton);
+            CloneDefenderChooseReminder.SetActive(false);
+            CloneDefenderChooseConfirmReminder.SetActive(true);
+}
         else
         {
             Debug.LogError("No image component found to highlight.");
@@ -180,8 +320,9 @@ public class TutorialManager : MonoBehaviour
         Image14.SetActive(false);
         Image13.SetActive(false);
         def.sprite = newImage.sprite;
-        StartCoroutine(WaitForPlayerToConfirm());
 
+        Image17.SetActive(true);
+        EnableButton(confirmbreedbutton);
     }
 
     public void SummnorSkillEnter()
@@ -240,19 +381,43 @@ public class TutorialManager : MonoBehaviour
 
         Image6.SetActive(true);
         Image7.SetActive(false);
+        DisableButton(analyzebutton);
 
 
     }
+    public void DisableButton(Button myButton)
+    {
+        myButton.interactable = false;
+    }
 
+    // Call this function to enable the button
+    public void EnableButton(Button myButton)
+    {
+        myButton.interactable = true;
+    }
     public void Analyze()
     {
         Debug.Log("----------");
+        Image17.SetActive(false);
         Image6.SetActive(false);
         Image7.SetActive(false);
         tissueText.text = "You have received gene type AA";
+        cultureMedium.text = "23";
+        tissueCount.text = "3";
         StartCoroutine(BeginPhaseThree());
 
 
+    }
+    IEnumerator BeginPhaseThree()
+    {
+        Debug.Log("test"); 
+        DisableButton(selecttissuebutton);
+        yield return new WaitForSeconds(1);
+        Image8.SetActive(true);
+        yield return new WaitForSeconds(3);
+        Image8.SetActive(false);
+        Image9.SetActive(true);
+        EnableButton(breedbutton);
     }
 
     public void EnterBreed()
@@ -260,6 +425,8 @@ public class TutorialManager : MonoBehaviour
         Image9.SetActive(false);
         Image10.SetActive(true);
         Image23.SetActive(false);
+        Image11.SetActive(true);
+        DisableButton(confirmbreedbutton);
 
     }
 
@@ -276,16 +443,17 @@ public class TutorialManager : MonoBehaviour
     public void ChooseCombatUnits()
     {
 
+        Image13.SetActive(false);
         Image14.SetActive(true);
 
-        StartCoroutine(ChooseExactDefenders());
+        Image15.SetActive(true);
 
     }
     IEnumerator ChooseExactDefenders()
     {
         yield return new WaitForSeconds(2);
 
-        Image15.SetActive(true);
+       
 
     }
 
@@ -299,23 +467,14 @@ public class TutorialManager : MonoBehaviour
     IEnumerator BeginPhaseAfterChooseGene()
     {
 
-        yield return new WaitForSeconds(2);
+        //yield return new WaitForSeconds(2);
         Image12.SetActive(true);
         yield return new WaitForSeconds(2);
         Image12.SetActive(false);
         Image13.SetActive(true);
 
     }
-    IEnumerator BeginPhaseThree()
-    {
-        
-        yield return new WaitForSeconds(1);
-        Image8.SetActive(true);
-        yield return new WaitForSeconds(3);
-        Image8.SetActive(false);
-        Image9.SetActive(true);
-
-    }
+  
 
     public void OnGeneTypeSelected(int index)
     {
@@ -362,20 +521,26 @@ public class TutorialManager : MonoBehaviour
         geneDropdown.value = 0;
         geneDropdown.RefreshShownValue();
         resultImage.SetActive(true);
+        Debug.Log("Confirm breed");
         resultText.text = "You have got defender : Rumble";
         Image17.SetActive(false);
+        cultureMedium.text = "11";
         StartCoroutine(OpeartionsAfterConfiorm());
 
     }
 
     IEnumerator OpeartionsAfterConfiorm()
     {
-
+        DisableButton(confirmbreedbutton);
+        DisableButton(breedbutton);
+        DisableButton(choosedefenderbutton);
+        
         yield return new WaitForSeconds(1);
         Image19.SetActive(true);
         yield return new WaitForSeconds(2);
         Image19.SetActive(false);
         Image18.SetActive(true);
+        EnableButton(handbookbutton);
 
     }
     public void PauseNavMeshAgent(NavMeshAgent agent)
@@ -400,6 +565,8 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(3);
         Image21.SetActive(false);
         Image22.SetActive(true);
+        DisableButton(handbookbutton);
+        EnableButton(defendersbutton);
 
 
     }
@@ -415,14 +582,14 @@ public class TutorialManager : MonoBehaviour
 
     IEnumerator OpeartionsAfterOpenCombatUnits()
     {
-
+        DisableButton(defendersbutton);
         yield return new WaitForSeconds(2);
 
         Image25.SetActive(true);
         yield return new WaitForSeconds(2);
         Image25.SetActive(false);
         Image26.SetActive(true);
-
+        EnableButton(nextdaybutton);
 
     }
     public void ResumeNavMeshAgent(NavMeshAgent agent)

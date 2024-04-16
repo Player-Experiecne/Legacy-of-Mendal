@@ -8,6 +8,7 @@ public class TutorialDefenderBackpackUI : MonoBehaviour
 {
     public GameObject defenderButtonPrefab;
     public TutorialDefenderBackpack defendersInTutorial;
+    public Sprite defenderImage;
 
     private int selectedDefenderIndex = -1; // Initialize to -1 or another invalid index to denote no selection.
     private List<Button> defenderButtons = new List<Button>();
@@ -35,7 +36,7 @@ public class TutorialDefenderBackpackUI : MonoBehaviour
             GameObject btn = Instantiate(defenderButtonPrefab, transform);
             btn.GetComponentInChildren<TextMeshProUGUI>().text = defender.defenderName;
             Image buttonImage = btn.GetComponentsInChildren<Image>()[1];
-            buttonImage.sprite = defender.defenderImage;
+            buttonImage.sprite = defenderImage;
             Button buttonComponent = btn.GetComponent<Button>();
             buttonComponent.onClick.AddListener(() => OnDefenderSelected(defender, index));
 

@@ -6,6 +6,8 @@ using TMPro; // Ensure you're using the TextMeshPro namespace
 
 public class CutsceneManager : MonoBehaviour
 {
+    
+
     public GameObject cutsceneObject;
     public TextMeshProUGUI dialogueText;
     public List<Cutscene> cutscenes;
@@ -14,6 +16,9 @@ public class CutsceneManager : MonoBehaviour
     private bool isTextFullyDisplayed = false;
     private bool isCutscenePlaying = false;
     private Coroutine currentDialogueCoroutine = null;
+
+
+   
 
     public void TriggerCutsceneByIndex(int index)
     {
@@ -101,4 +106,61 @@ public class CutsceneManager : MonoBehaviour
         isTextFullyDisplayed = true;
         SoundManager.Instance.StopSFX();
     }
+
+    public void TriggerCutsceneDirectly(Cutscene cutscene)
+    {
+        if (cutscene != null && !isCutscenePlaying)
+        {
+            cutsceneObject.SetActive(true);
+            isCutscenePlaying = true;
+            StartCoroutine(PlayCutsceneDirectly(cutscene));
+        }
+        else
+        {
+            Debug.LogWarning("Cutscene is null or another cutscene is already playing.");
+        }
+    }
+
+    private IEnumerator PlayCutsceneDirectly(Cutscene cutscene)
+    {
+        foreach (Dialogue dialogue in cutscene.dialogues)
+        {
+            isTextFullyDisplayed = false;
+
+            currentDialogueCoroutine = StartCoroutine(ShowDialogue(dialogue));
+
+            while (!isTextFullyDisplayed)
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    CompleteCurrentDialogue(dialogue);
+                }
+                yield return null;
+            }
+
+            while (isTextFullyDisplayed)
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    break;
+                }
+                yield return null;
+            }
+
+            yield return new WaitForSeconds(0.25f); // Prevents skipping immediately to the next dialogue
+        }
+
+        // Handle completion
+        CutsceneCompleted(cutscene);
+    }
+
+    private void CutsceneCompleted(Cutscene cutscene)
+    {
+        isCutscenePlaying = false;
+        cutsceneObject.SetActive(false);
+        Debug.Log("Cutscene completed: " + cutscene.name);
+
+        // Optionally, trigger other events or transitions
+    }
+
 }

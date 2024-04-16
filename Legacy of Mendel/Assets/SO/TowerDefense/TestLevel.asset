@@ -21,7 +21,7 @@ MonoBehaviour:
         enemyImage: {fileID: 0}
         lootGeneType:
           geneType:
-            geneName: 2
+            geneName: 1
             geneType: 1
             isOwned: 0
           lootPossibility: 1
@@ -29,4 +29,4 @@ MonoBehaviour:
           minLootCultureMedium: 5
           maxLootCultureMedium: 10
       spawnLocation: 0
-      count: 2
+      count: 1

@@ -15,6 +15,10 @@ public class LevelManager : MonoBehaviour
     public float timeBetweenEnemies = 0.5f;
 
     private bool levelCompleted = true;
+    private float originalSpeed;
+
+    public GameObject TutorialIndicator;
+    //public CutsceneManager cutsceneManager;
     void Awake()
     {
         if (Instance == null)
@@ -38,21 +42,56 @@ public class LevelManager : MonoBehaviour
     {
         LoadLevelWithIndex(GameManager.Instance.currentLevelIndex);
     }
-    
-
+    public void PauseNavMeshAgent(NavMeshAgent agent)
+    {
+        originalSpeed = agent.speed;
+        agent.speed = 0;
+        Debug.Log("NavMeshAgent speed set to 0");
+    }
+    public void ResumeNavMeshAgent(NavMeshAgent agent)
+    {
+        agent.speed = originalSpeed;
+        Debug.Log("NavMeshAgent speed restored");
+    }
     private void LoadLevelWithIndex(int index)
     {
         if (index < gameLevels.Count)
         {
-            EnemyManager.Instance.ResetEnemyCount();
-            Level currentLevel = gameLevels[index];
-            Debug.Log("Starting Level: " + currentLevel.LevelName);
-            levelCompleted = false;
-            StartCoroutine(SpawnWaves(currentLevel.Waves));
+            if (index == 0) {
+                EnemyManager.Instance.ResetEnemyCount();
+                Level currentLevel = gameLevels[index];
+                Debug.Log("Starting Level: " + currentLevel.LevelName);
+                levelCompleted = false;
+                
+                /*CutsceneManager.Instance.TriggerCutsceneDirectly(mySpecialCutscene);*/
+                StartCoroutine(SpawnWaves(currentLevel.Waves));
+               /* StartCoroutine(PrepareTutorial())*/;
+                /*TutorialIndicator.SetActive(true);
+                if(DefenderBackpack.Instance.)*/
+            }
+            else
+            {
+                EnemyManager.Instance.ResetEnemyCount();
+                Level currentLevel = gameLevels[index];
+                Debug.Log("Starting Level: " + currentLevel.LevelName);
+                levelCompleted = false;
+                StartCoroutine(SpawnWaves(currentLevel.Waves));
+            }
+        }
+    }
+    IEnumerator PrepareTutorial()
+    {
+        yield return new WaitForSeconds(4); 
+        GameObject[] enimeisInScene = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (var def1 in enimeisInScene)
+        {
+
+            PauseNavMeshAgent(def1.GetComponent<NavMeshAgent>());
         }
     }
 
-    private IEnumerator SpawnWaves(List<Level.Wave> waves)
+
+        private IEnumerator SpawnWaves(List<Level.Wave> waves)
     {
         List<Coroutine> waveCoroutines = new List<Coroutine>();
 
