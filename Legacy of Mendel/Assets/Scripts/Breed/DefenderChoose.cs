@@ -429,7 +429,7 @@ public class DefenderChoose : MonoBehaviour
         if (num!=0)
         {
             int cost = num * 10;
-            if (cost >= LootBackpack.Instance.lootCultureMedium)
+            if (cost > LootBackpack.Instance.lootCultureMedium)
             {
                 reminder.text = "You don't have enough CultureMedium";
             }
