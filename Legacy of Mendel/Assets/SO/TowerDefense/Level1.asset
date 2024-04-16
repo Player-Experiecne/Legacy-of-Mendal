@@ -44,5 +44,5 @@ MonoBehaviour:
         lootCultureMedium:
           minLootCultureMedium: 5
           maxLootCultureMedium: 8
-      spawnLocation: 1
+      spawnLocation: 2
       count: 2
