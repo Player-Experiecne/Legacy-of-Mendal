@@ -14,6 +14,7 @@ public class ControlUnits : MonoBehaviour
     private bool isCollecting = false; // Flag to control ongoing collection
     private bool canStartNewCollection = true; // Flag to prevent immediate re-collection
     private float collectCooldown = 0.1f; // Cooldown duration in seconds before allowing another collect
+    private float positionTransitionTime = 0.5f;
 
     private void Update()
     {
@@ -60,6 +61,8 @@ public class ControlUnits : MonoBehaviour
                 {
                     defender.GetComponent<DefenderController>().EnterControlledMode(transform);
                     controlledDefenders.Add(defender);
+                    defender.transform.parent = transform;
+                    UpdateDefenderPositions(true);
                     AddHighlightEffect(defender);
                 }
             }
@@ -95,12 +98,14 @@ public class ControlUnits : MonoBehaviour
     private void ExitControlMode()
     {
         // Distribute these defenders evenly within the control circle
-        DistributeDefendersEvenly(controlCircleUI.rectTransform.sizeDelta.x / 2 * 0.8f);
+        UpdateDefenderPositions(false);
 
         // Exit controlled mode for each defender
         foreach (var defender in controlledDefenders)
         {
             defender.GetComponent<DefenderController>().ExitControlledMode();
+            defender.transform.SetParent(null); // Remove the parent immediately
+            StartCoroutine(TransitionToGround(defender, positionTransitionTime)); // Smoothly transition each defender to the ground
             ClearHighlightEffect(defender);
         }
 
@@ -113,24 +118,25 @@ public class ControlUnits : MonoBehaviour
         controlCircleUI.gameObject.SetActive(false);
     }
 
-    private void DistributeDefendersEvenly(float radius)
+    /*private void DistributeDefendersEvenly(float radius, float yOffset = 0)
     {
         for (int i = 0; i < controlledDefenders.Count; i++)
         {
             float angle = i * (360f / controlledDefenders.Count);
             Vector3 position = CalculatePositionOnCircle(transform.position, radius, angle);
+            position.y += yOffset;
             controlledDefenders[i].transform.position = position;
         }
-    }
+    }*/
 
-    private Vector3 CalculatePositionOnCircle(Vector3 center, float radius, float angleInDegrees)
+    /*private Vector3 CalculatePositionOnCircle(Vector3 center, float radius, float angleInDegrees)
     {
         // Angle in radians
         float angleInRadians = angleInDegrees * (Mathf.PI / 180f);
         float x = center.x + radius * Mathf.Cos(angleInRadians);
         float z = center.z + radius * Mathf.Sin(angleInRadians);
         return new Vector3(x, center.y, z); // Assuming y is the ground level, adjust as needed
-    }
+    }*/
 
     private void AddHighlightEffect(GameObject target)
     {
@@ -144,4 +150,57 @@ public class ControlUnits : MonoBehaviour
         HighlightEffect highlight = target.GetComponent<HighlightEffect>();
         Destroy(highlight);
     }
+
+    private IEnumerator SmoothTransition(GameObject defender, Vector3 startLocalPosition, Vector3 endLocalPosition, float duration)
+    {
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            defender.transform.localPosition = Vector3.Lerp(startLocalPosition, endLocalPosition, elapsed / duration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        defender.transform.localPosition = endLocalPosition; // Ensure it reaches the final local position
+    }
+
+
+    private void UpdateDefenderPositions(bool toAir)
+    {
+        if(toAir) { }
+        float radius = controlCircleUI.rectTransform.sizeDelta.x / 2 * 0.8f;
+        float yOffset = toAir ? 10f : 0f; // Adjust this value to control the height offset when floating
+
+        for (int i = 0; i < controlledDefenders.Count; i++)
+        {
+            GameObject defender = controlledDefenders[i];
+            float angle = i * (360f / controlledDefenders.Count);
+            Vector3 newPosition = CalculateLocalPositionOnCircle(radius, angle, yOffset);
+            StartCoroutine(SmoothTransition(defender, defender.transform.localPosition, newPosition, positionTransitionTime));
+        }
+    }
+
+    private Vector3 CalculateLocalPositionOnCircle(float radius, float angleInDegrees, float yOffset)
+    {
+        float angleInRadians = angleInDegrees * Mathf.Deg2Rad;
+        float x = radius * Mathf.Cos(angleInRadians);
+        float z = radius * Mathf.Sin(angleInRadians);
+        return new Vector3(x, yOffset, z); // Use local coordinates relative to the parent
+    }
+
+    private IEnumerator TransitionToGround(GameObject defender, float duration)
+    {
+        Vector3 startWorldPosition = defender.transform.position;
+        Vector3 endWorldPosition = new Vector3(startWorldPosition.x, transform.position.y, startWorldPosition.z); // Assuming y=0 is ground level
+
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            defender.transform.position = Vector3.Lerp(startWorldPosition, endWorldPosition, elapsed / duration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        defender.transform.position = endWorldPosition; // Ensure it's exactly at ground level at the end
+    }
+
+
 }

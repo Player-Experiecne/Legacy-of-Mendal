@@ -42,7 +42,11 @@ public class DefenderController : MonoBehaviour
     void Update()
     {
         if (isFrozen) { return; }
-        if (isControlled) { GetControlled(playerTransform); }
+        if (isControlled) 
+        { 
+            //GetControlled(playerTransform);
+            return;
+        }
         else { AutoDefend(); }
     }
 
@@ -172,19 +176,21 @@ public class DefenderController : MonoBehaviour
         agent.isStopped = false; // Allow the agent to move again
         this.playerTransform = playerTransform;
         isControlled = true;
+        agent.enabled = false;
     }
-    private void GetControlled(Transform playerTransform)
+    /*private void GetControlled(Transform playerTransform)
     {
         if (playerTransform != null)
         {
             agent.SetDestination(playerTransform.position);
         }
-    }
+    }*/
 
     public void ExitControlledMode()
     {
         isControlled = false;
         defendPoint.transform.position = transform.position; // Update defend point to current location
+        agent.enabled = true;
         MoveTowardsTarget(defendPoint); // Resume autonomous behavior
     }
 
