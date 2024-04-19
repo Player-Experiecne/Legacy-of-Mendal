@@ -24,16 +24,30 @@ public class CombatUnitsChoosePanelController : MonoBehaviour
     //public GameObject previousPanel; 
 
     private int lastInventoryCount = -1;
-
+    private Dictionary<string, int> inventorySnapshot;
 
     private int selectedIndex = -1;
 
     void Start()
     {
+        inventorySnapshot = new Dictionary<string, int>();
+        SnapshotInventory();
         UpdatePageCount();
         RefreshDisplay();
         UpdatePageButtons();
     }
+    private void SnapshotInventory()
+    {
+        inventorySnapshot.Clear();
+        foreach (var defender in playerDefenderInventory.ownedDefenders)
+        {
+            if (inventorySnapshot.ContainsKey(defender.defender.defenderName))
+                inventorySnapshot[defender.defender.defenderName] += defender.count;
+            else
+                inventorySnapshot.Add(defender.defender.defenderName, defender.count);
+        }
+    }
+
     public void NextPage()
     {
         if (currentPage < totalPageCount - 1)
@@ -74,33 +88,38 @@ public class CombatUnitsChoosePanelController : MonoBehaviour
 
     void Update()
     {
-        // 检查库存数量是否有变化
-        if (playerDefenderInventory.ownedDefenders.Count != lastInventoryCount)
+        if (HasInventoryChanged())
         {
-            RefreshDisplay(); // 如果有变化，更新显示
-            lastInventoryCount = playerDefenderInventory.ownedDefenders.Count; // 更新最后的库存数量，以便下次检查
-        }
-        if (HasInventoryCountChanged())
-        {
-            UpdateDefenderDisplays();
+            RefreshDisplay(); // Refresh display if any inventory changes detected
+            SnapshotInventory(); // Update the snapshot after any change
         }
     }
 
-    private bool HasInventoryCountChanged()
+    private bool HasInventoryChanged()
     {
-        // 这个方法检查每个defender的数量是否有变化
-        // 如果是，则返回true，否则返回false
-        for (int i = 0; i < playerDefenderInventory.ownedDefenders.Count; i++)
+        var currentSnapshot = new Dictionary<string, int>();
+        foreach (var defender in playerDefenderInventory.ownedDefenders)
         {
-            if (playerDefenderInventory.ownedDefenders[i].count != lastInventoryCount)
-            {
-                return true;
-            }
+            if (currentSnapshot.ContainsKey(defender.defender.defenderName))
+                currentSnapshot[defender.defender.defenderName] += defender.count;
+            else
+                currentSnapshot.Add(defender.defender.defenderName, defender.count);
         }
+
+        if (currentSnapshot.Count != inventorySnapshot.Count)
+            return true; // Different number of types
+
+        foreach (var item in currentSnapshot)
+        {
+            if (!inventorySnapshot.ContainsKey(item.Key) || inventorySnapshot[item.Key] != item.Value)
+                return true; // Type not present or count mismatch
+        }
+
         return false;
     }
 
-   private void UpdateDefenderDisplays()
+
+    private void UpdateDefenderDisplays()
 {
     int itemCount = Mathf.Min(playerDefenderInventory.ownedDefenders.Count, combatUnitImages.Count);  // 使用较小的数量来避免越界
     for (int i = 0; i < itemCount; i++)  // 使用新的边界来循环

@@ -53,6 +53,8 @@ public class DefenderChoose : MonoBehaviour
 
 
     private int selectedIndex = -1;
+    private Dictionary<string, int> inventorySnapshot;
+
     void InitializeDefenderDisplays()
     {
         foreach (Transform child in defenderDisplayArea.transform)
@@ -64,6 +66,8 @@ public class DefenderChoose : MonoBehaviour
     void Start()
     {
         // 初始化其他组件
+        inventorySnapshot = new Dictionary<string, int>();
+        SnapshotInventory();
         UpdatePageCount();
         RefreshDisplay();
         UpdatePageButtons();
@@ -75,7 +79,17 @@ public class DefenderChoose : MonoBehaviour
             display.sprite = null;
         }
     }
-   
+    private void SnapshotInventory()
+    {
+        inventorySnapshot.Clear();
+        foreach (var defender in playerDefenderInventory.ownedDefenders)
+        {
+            if (inventorySnapshot.ContainsKey(defender.defender.defenderName))
+                inventorySnapshot[defender.defender.defenderName] += defender.count;
+            else
+                inventorySnapshot.Add(defender.defender.defenderName, defender.count);
+        }
+    }
     public void IncreaseCount(int globalIndex)
     {
         Debug.Log("IncreaseCount called for index " + globalIndex);
@@ -151,30 +165,36 @@ public class DefenderChoose : MonoBehaviour
     {
         UpdateCountsDisplay();
         // 检查库存数量是否有变化
-        if (playerDefenderInventory.ownedDefenders.Count != lastInventoryCount)
+        if (HasInventoryChanged())
         {
-            RefreshDisplay(); // 如果有变化，更新显示
-            lastInventoryCount = playerDefenderInventory.ownedDefenders.Count; // 更新最后的库存数量，以便下次检查
-        }
-        if (HasInventoryCountChanged())
-        {
-            UpdateDefenderDisplays();
+            RefreshDisplay(); // Refresh display if any inventory changes detected
+            SnapshotInventory(); // Update the snapshot after any change
         }
     }
 
-    private bool HasInventoryCountChanged()
+    private bool HasInventoryChanged()
     {
-        // 这个方法检查每个defender的数量是否有变化
-        // 如果是，则返回true，否则返回false
-        for (int i = 0; i < playerDefenderInventory.ownedDefenders.Count; i++)
+        var currentSnapshot = new Dictionary<string, int>();
+        foreach (var defender in playerDefenderInventory.ownedDefenders)
         {
-            if (playerDefenderInventory.ownedDefenders[i].count != lastInventoryCount)
-            {
-                return true;
-            }
+            if (currentSnapshot.ContainsKey(defender.defender.defenderName))
+                currentSnapshot[defender.defender.defenderName] += defender.count;
+            else
+                currentSnapshot.Add(defender.defender.defenderName, defender.count);
         }
+
+        if (currentSnapshot.Count != inventorySnapshot.Count)
+            return true; // Different number of types
+
+        foreach (var item in currentSnapshot)
+        {
+            if (!inventorySnapshot.ContainsKey(item.Key) || inventorySnapshot[item.Key] != item.Value)
+                return true; // Type not present or count mismatch
+        }
+
         return false;
     }
+
 
     private void UpdateDefenderDisplays()
     {
