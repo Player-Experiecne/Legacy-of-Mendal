@@ -60,6 +60,7 @@ public class ControlUnits : MonoBehaviour
                 if (!defender.GetComponent<DefenderController>().isControlled)
                 {
                     defender.GetComponent<DefenderController>().EnterControlledMode(transform);
+                    DefenderManager.Instance.defenders.Remove(defender);
                     controlledDefenders.Add(defender);
                     defender.transform.parent = transform;
                     UpdateDefenderPositions(true);
@@ -103,7 +104,6 @@ public class ControlUnits : MonoBehaviour
         // Exit controlled mode for each defender
         foreach (var defender in controlledDefenders)
         {
-            defender.GetComponent<DefenderController>().ExitControlledMode();
             defender.transform.SetParent(null); // Remove the parent immediately
             StartCoroutine(TransitionToGround(defender, positionTransitionTime)); // Smoothly transition each defender to the ground
             ClearHighlightEffect(defender);
@@ -200,6 +200,10 @@ public class ControlUnits : MonoBehaviour
             yield return null;
         }
         defender.transform.position = endWorldPosition; // Ensure it's exactly at ground level at the end
+
+        // Defender exit controll mode logic
+        defender.GetComponent<DefenderController>().ExitControlledMode();
+        DefenderManager.Instance.defenders.Add(defender);
     }
 
 
