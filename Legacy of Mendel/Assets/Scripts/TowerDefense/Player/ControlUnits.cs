@@ -52,23 +52,25 @@ public class ControlUnits : MonoBehaviour
 
     private void CollectDefendersWithinRadius()
     {
-        float radius = collectCircleUI.rectTransform.sizeDelta.x / 2 * 0.8f; // Get radius from collect circle UI size, considering the scale of player gameobject
-        foreach (var defender in DefenderManager.Instance.defenders)
+        float radius = collectCircleUI.rectTransform.sizeDelta.x / 2 * 0.8f;
+        for (int i = DefenderManager.Instance.defenders.Count - 1; i >= 0; i--)
         {
+            GameObject defender = DefenderManager.Instance.defenders[i];
             if (Vector3.Distance(transform.position, defender.transform.position) <= radius && !defender.CompareTag("Base"))
             {
                 if (!defender.GetComponent<DefenderController>().isControlled)
                 {
                     defender.GetComponent<DefenderController>().EnterControlledMode(transform);
-                    DefenderManager.Instance.defenders.Remove(defender);
                     controlledDefenders.Add(defender);
                     defender.transform.parent = transform;
                     UpdateDefenderPositions(true);
                     AddHighlightEffect(defender);
+                    DefenderManager.Instance.defenders.RemoveAt(i); // Safely remove the defender
                 }
             }
         }
     }
+
 
     private IEnumerator ExitControlModeAndCooldown()
     {
